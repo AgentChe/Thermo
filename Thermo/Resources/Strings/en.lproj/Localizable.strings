@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  Thermo
+
+  Created by Andrey Chernyshev on 26.10.2020.
+  
+*/
+
+// MARK: General
+"Continue" = "Continue";
+"OK" = "OK";
+"Next" = "Next";
+"Fahrenheit" = "°F";
+"Celsius" = "°C";
+
+// MARK: Weekdays
+"Monday" = "Monday";
+"Tuesday " = "Tuesday ";
+"Wednesday" = "Wednesday";
+"Thursday" = "Thursday";
+"Friday" = "Friday";
+"Saturday" = "Saturday";
+"Sunday" = "Sunday";
+
+// MARK: Splash
+"Splash.Title" = "Helping to track\nyour tempterature\nand symptom";
+
+// MARK: Onboarding
+"Onboarding.TrackTemperaturePurpose.Title" = "Why do you want to track temperature?";
+"Onboarding.TrackTemperaturePurpose.Cell1" = "Because of pandemic";
+"Onboarding.TrackTemperaturePurpose.Cell2" = "A family memberd is sick";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "The doctor asked to do it ";
+"Onboarding.TrackTemperaturePurpose.Cell4" = "Just self-care";
+
+"Onboarding.TrackTemperatureImportant.Title" = "It’s very important to track your temperature";
+"Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you are feeling fine,";
+"Onboarding.TrackTemperatureImportant.Cell1Part2" = " tracing the temperature will helo to detect thr illness early";
+"Onboarding.TrackTemperatureImportant.Cell2Part1" = "It’s best to track";
+"Onboarding.TrackTemperatureImportant.Cell2Part2" = " temperaturein the morning and in the evening at the same time";
+"Onboarding.TrackTemperatureImportant.Cell3Part1" = "If the temperature rises";
+"Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the normal, pey attention to other symptoms";
+
+"Onboarding.WhoTrackingTemperature.Title" = "Who we will be tracking the temperature for?";
+"Onboarding.WhoTrackingTemperature.Me" = "Me";
+"Onboarding.WhoTrackingTemperature.Child" = "A child";
+"Onboarding.WhoTrackingTemperature.Parent" = "My parent";
+"Onboarding.WhoTrackingTemperature.Other" = "Other family member";
+
+"Onboarding.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
+
+// MARK: Temperature logger
+"TemperatureLogger.Temperature.Title" = "What’s your current temperature?";
+"TemperatureLogger.Feeling.Title" = "Overrall feeling...";
+
+// MARK: Journal
+"Journal.Title" = "My journal";
+"Journal.Cell.DateTime" = "%@, %@";
+"Journal.Cell.Temperature" = "%.1f %@";
+
+// MARK: Members
+"Members.AddNew" = "Add new";
+
+// MARK: Reminder
+"Reminder.TimeTitle" = "Remind AT";
+"Reminder.WeekdayTitle" = "Days of the week";
+
+// MARK: Tabs
+"Track" = "Track";
+"Journal" = "Journal";
+"Reminder" = "Reminder";
