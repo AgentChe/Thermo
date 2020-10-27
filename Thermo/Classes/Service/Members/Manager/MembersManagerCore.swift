@@ -9,13 +9,14 @@ import RxSwift
 
 final class MembersManagerCore: MembersManager {
     struct Constants {
-        static let storedMembersKey = "members_manager_stored_members_key"
+        static let storedMembersKey = "members_manager_core_stored_members_key"
+        static let currentMemberKey = "members_manager_core_current_member_key"
     }
 }
 
 // MARK: API
 extension MembersManagerCore {
-    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit) -> Member? {
+    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool = false) -> Member? {
         var members = getAllMembers()
         
         guard !members.contains(where: { $0.unit == memberUnit }) else {
@@ -30,6 +31,10 @@ extension MembersManagerCore {
         
         guard store(members: members) else {
             return nil
+        }
+        
+        if setAsCurrent {
+            setCurrent(member: member)
         }
         
         return member
@@ -60,18 +65,36 @@ extension MembersManagerCore {
         
         return members
     }
+    
+    func setCurrent(member: Member) {
+        guard let data = try? JSONEncoder().encode(member) else {
+            return
+        }
+        
+        UserDefaults.standard.setValue(data, forKey: Constants.currentMemberKey)
+    }
+    
+    func currentMember() -> Member? {
+        if
+            let currentMemberData = UserDefaults.standard.data(forKey: Constants.currentMemberKey),
+            let currentMember = try? JSONDecoder().decode(Member.self, from: currentMemberData) {
+            return currentMember
+        }
+        
+        return getAllMembers().first
+    }
 }
 
 // MARK: API(Rx)
 extension MembersManagerCore {
-    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit) -> Single<Member?> {
+    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool = false) -> Single<Member?> {
         Single<Member?>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                event(.success(this.add(memberUnit: memberUnit, temperatureUnit: temperatureUnit)))
+                event(.success(this.add(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: setAsCurrent)))
                 
                 return Disposables.create()
             }
@@ -134,6 +157,38 @@ extension MembersManagerCore {
                 }
                 
                 event(.success(this.getAllMembers()))
+                
+                return Disposables.create()
+            }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+    }
+    
+    func rxSetCurrent(member: Member) -> Completable {
+        Completable
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                this.setCurrent(member: member)
+                
+                event(.completed)
+                
+                return Disposables.create()
+            }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+    }
+    
+    func rxCurrentMember() -> Single<Member?> {
+        Single<Member?>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                event(.success(this.currentMember()))
                 
                 return Disposables.create()
             }

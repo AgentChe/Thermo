@@ -45,7 +45,7 @@ final class AddMemberViewModel {
                 let (memberUnit, temperatureUnit) = stub
                 
                 return this.membersManager
-                    .rxAdd(memberUnit: memberUnit, temperatureUnit: temperatureUnit)
+                    .rxAdd(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: true)
                     .catchErrorJustReturn(nil)
             }
             .map { member -> Step in
