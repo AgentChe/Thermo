@@ -40,13 +40,16 @@
 "Onboarding.TrackTemperatureImportant.Cell3Part1" = "If the temperature rises";
 "Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the normal, pey attention to other symptoms";
 
-"Onboarding.WhoTrackingTemperature.Title" = "Who we will be tracking the temperature for?";
-"Onboarding.WhoTrackingTemperature.Me" = "Me";
-"Onboarding.WhoTrackingTemperature.Child" = "A child";
-"Onboarding.WhoTrackingTemperature.Parent" = "My parent";
-"Onboarding.WhoTrackingTemperature.Other" = "Other family member";
+// MARK: Add member
+"AddMember.MemberUnit.Title" = "Who we will\nbe tracking the\ntemperature\nfor?";
+"AddMember.MemberUnit.Me" = "Me";
+"AddMember.MemberUnit.Child" = "A child";
+"AddMember.MemberUnit.Parent" = "My parent";
+"AddMember.MemberUnit.Other" = "Other family member";
 
-"Onboarding.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
+"AddMember.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
+
+"AddMember.Add.Failure" = "Failure to add member";
 
 // MARK: Temperature logger
 "TemperatureLogger.Temperature.Title" = "What’s your current temperature?";

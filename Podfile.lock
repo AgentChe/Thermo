@@ -85,11 +85,15 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
+  - MarqueeLabel (4.0.5)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - NotificationBannerSwift (3.0.2):
+    - MarqueeLabel (~> 4.0.0)
+    - SnapKit (~> 5.0.0)
   - PromisesObjC (1.2.11)
   - Protobuf (3.13.0)
   - RushSDK (1.4.2):
@@ -108,9 +112,11 @@ PODS:
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
+  - NotificationBannerSwift
   - RushSDK (from `https://github.com/AgentChe/RushSDK.git`)
 
 SPEC REPOS:
@@ -130,12 +136,15 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - MarqueeLabel
     - nanopb
+    - NotificationBannerSwift
     - PromisesObjC
     - Protobuf
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SnapKit
     - SwiftyStoreKit
 
 EXTERNAL SOURCES:
@@ -163,15 +172,18 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   Protobuf: 3dac39b34a08151c6d949560efe3f86134a3f748
   RushSDK: c7335d402326edaf4c46b7f882463c8b985c13e3
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 02b8122dc6582c776d1217e2ac9d2ab5969edf8b
+PODFILE CHECKSUM: 9e0d61508e0efbdd6a711aabb09a0817dc037da4
 
 COCOAPODS: 1.10.0.rc.1

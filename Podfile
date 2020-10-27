@@ -5,6 +5,8 @@ use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Thermo' do
+  pod 'NotificationBannerSwift'
+  
   pod 'RushSDK', :git => "https://github.com/AgentChe/RushSDK.git"
 end
 

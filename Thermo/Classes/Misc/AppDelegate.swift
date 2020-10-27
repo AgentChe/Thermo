@@ -48,7 +48,7 @@ private extension AppDelegate {
         let settings = SDKSettings(backendBaseUrl: GlobalDefinitions.sdkDomainUrl,
                                    backendApiKey: GlobalDefinitions.apiKey,
                                    amplitudeApiKey: GlobalDefinitions.amplitudeApiKey,
-                                   facebookActive: true,
+                                   facebookActive: false,
                                    branchActive: false,
                                    firebaseActive: false,
                                    applicationTag: GlobalDefinitions.applicationTag,

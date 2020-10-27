@@ -42,6 +42,13 @@ extension OnboardingViewController {
     }
 }
 
+// MARK: API
+extension OnboardingViewController {
+    static func wasViewed() -> Bool {
+        UserDefaults.standard.bool(forKey: OnboardingViewController.Constants.wasViewedKey)
+    }
+}
+
 // MARK: Private
 private extension OnboardingViewController {
     func tapped() {
@@ -59,6 +66,6 @@ private extension OnboardingViewController {
     func goToNext() {
         UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
         
-        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make()
+        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root)
     }
 }

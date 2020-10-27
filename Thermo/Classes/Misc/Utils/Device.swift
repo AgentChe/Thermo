@@ -8,7 +8,7 @@
 import Foundation.NSLocale
 import UIKit
 
-final class UIDevice {
+extension UIDevice {
     static var deviceLanguageCode: String? {
         guard let mainPreferredLanguage = Locale.preferredLanguages.first else {
             return nil

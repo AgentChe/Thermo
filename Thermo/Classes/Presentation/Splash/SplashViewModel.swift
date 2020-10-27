@@ -10,12 +10,22 @@ import RxCocoa
 
 final class SplashViewModel {
     enum Step {
-        case onboarding, logger, main
+        case onboarding, addMember, main
     }
     
+    private let membersManager = MembersManagerCore()
+    
     func step() -> Driver<Step> {
-        .deferred {
-            .just(Step.onboarding)
+        .deferred { [membersManager] in
+            if !OnboardingViewController.wasViewed() {
+                return .just(Step.onboarding)
+            }
+            
+            if membersManager.getAllMembers().isEmpty {
+                return .just(Step.addMember)
+            }
+            
+            return .just(Step.main)
         }
     }
 }

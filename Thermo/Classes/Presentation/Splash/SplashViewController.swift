@@ -42,14 +42,14 @@ final class SplashViewController: UIViewController {
             .flatMap { [weak self] in
                 self?.viewModel.step() ?? .empty()
             }
-            .drive(onNext: { step in
+            .drive(onNext: { [weak self] step in
                 switch step {
                 case .onboarding:
-                    UIApplication.shared.keyWindow?.rootViewController = OnboardingViewController.make()
-                case .logger:
-                    break
+                    self?.goToOnboarding()
+                case .addMember:
+                    self?.goToAddMember()
                 case .main:
-                    break
+                    self?.goToMain()
                 }
             })
             .disposed(by: disposeBag)
@@ -60,5 +60,20 @@ final class SplashViewController: UIViewController {
 extension SplashViewController {
     static func make(generateStep: Signal<Void>) -> SplashViewController {
         SplashViewController(generateStep: generateStep)
+    }
+}
+
+// MARK: Private
+private extension SplashViewController {
+    func goToOnboarding() {
+        UIApplication.shared.keyWindow?.rootViewController = OnboardingViewController.make()
+    }
+    
+    func goToAddMember() {
+        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root)
+    }
+    
+    func goToMain() {
+        UIApplication.shared.keyWindow?.rootViewController = MainViewController.make()
     }
 }
