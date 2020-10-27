@@ -26,13 +26,13 @@
 "Splash.Title" = "Helping to track\nyour tempterature\nand symptom";
 
 // MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "Why do you want to track temperature?";
+"Onboarding.TrackTemperaturePurpose.Title" = "Why do you\nwant to track\ntemperature?";
 "Onboarding.TrackTemperaturePurpose.Cell1" = "Because of pandemic";
-"Onboarding.TrackTemperaturePurpose.Cell2" = "A family memberd is sick";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "The doctor asked to do it ";
+"Onboarding.TrackTemperaturePurpose.Cell2" = "A family memberd\nis sick";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "The doctor asked\nto do it ";
 "Onboarding.TrackTemperaturePurpose.Cell4" = "Just self-care";
 
-"Onboarding.TrackTemperatureImportant.Title" = "It’s very important to track your temperature";
+"Onboarding.TrackTemperatureImportant.Title" = "It’s very\nimportant\nto track your\ntemperature";
 "Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you are feeling fine,";
 "Onboarding.TrackTemperatureImportant.Cell1Part2" = " tracing the temperature will helo to detect thr illness early";
 "Onboarding.TrackTemperatureImportant.Cell2Part1" = "It’s best to track";
