@@ -30,6 +30,8 @@ extension TemperatureManagerCore {
             return nil
         }
         
+        TemperatureManagerMediator.shared.notifyAboutLogged(temperature: temperature)
+        
         return temperature
     }
     
@@ -38,6 +40,8 @@ extension TemperatureManagerCore {
         temperatures.removeAll(where: { $0.id == temperatureId })
         
         store(temperatures: temperatures)
+        
+        TemperatureManagerMediator.shared.notifyAboutRemoved(temperatureId: temperatureId)
     }
     
     func remove(memberId: Int) {
@@ -45,6 +49,8 @@ extension TemperatureManagerCore {
         temperatures.removeAll(where: { $0.member.id == memberId })
         
         store(temperatures: temperatures)
+        
+        TemperatureManagerMediator.shared.notifyAboutRemovedAll(for: memberId)
     }
     
     func get(for memberId: Int) -> [Temperature] {

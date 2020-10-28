@@ -69,6 +69,8 @@
 		968AE4B725499D3000A42C46 /* OverallFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4B625499D3000A42C46 /* OverallFeelingView.swift */; };
 		968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4BD25499E3E00A42C46 /* CircleView.swift */; };
 		968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C12549A6F300A42C46 /* TemperatureRange.swift */; };
+		968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */; };
+		968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */; };
 		968E41732546E045006F3CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41722546E045006F3CFC /* AppDelegate.swift */; };
 		968E417C2546E047006F3CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968E417B2546E047006F3CFC /* Assets.xcassets */; };
 		968E417F2546E047006F3CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968E417D2546E047006F3CFC /* LaunchScreen.storyboard */; };
@@ -143,6 +145,8 @@
 		968AE4B625499D3000A42C46 /* OverallFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallFeelingView.swift; sourceTree = "<group>"; };
 		968AE4BD25499E3E00A42C46 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		968AE4C12549A6F300A42C46 /* TemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureRange.swift; sourceTree = "<group>"; };
+		968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediator.swift; sourceTree = "<group>"; };
+		968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediatorDelegate.swift; sourceTree = "<group>"; };
 		968E416F2546E045006F3CFC /* Thermo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968E41722546E045006F3CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		968E417B2546E047006F3CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,6 +286,7 @@
 		966A555B25484B030099FDAE /* Temperature */ = {
 			isa = PBXGroup;
 			children = (
+				968AE4C42549D6A400A42C46 /* Mediator */,
 				968AE46B2548BAC000A42C46 /* Manager */,
 				966A555C25484B0D0099FDAE /* Models */,
 			);
@@ -412,6 +417,15 @@
 				968AE4C12549A6F300A42C46 /* TemperatureRange.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		968AE4C42549D6A400A42C46 /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */,
+				968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */,
+			);
+			path = Mediator;
 			sourceTree = "<group>";
 		};
 		968E41662546E045006F3CFC = {
@@ -681,6 +695,7 @@
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
+				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				968AE4B725499D3000A42C46 /* OverallFeelingView.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
@@ -727,6 +742,7 @@
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
+				968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,
 				968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */,
 				968AE4B425499A5300A42C46 /* LoggerTemperatureView.swift in Sources */,

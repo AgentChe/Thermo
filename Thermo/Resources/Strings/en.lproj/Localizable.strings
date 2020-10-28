@@ -52,7 +52,7 @@
 "AddMember.Add.Failure" = "Failure to add member";
 
 // MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "What’s your current temperature?";
+"TemperatureLogger.Temperature.Title" = "What’s your\ncurrent\ntemperature?";
 "TemperatureLogger.Feeling.Title" = "Overrall\nfeeling...";
 "TemperatureLogger.Log.Failure" = "Failure to log temperature";
 
