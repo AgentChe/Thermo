@@ -10,13 +10,8 @@ import UIKit
 final class MainCoordinator {
     private weak var parentVC: MainViewController?
     
-    private lazy var temperatureLoggerVC = LoggerViewController.make()
     private lazy var temperatureListVC = JournalViewController.make()
     private lazy var reminderVC = ReminderViewController.make()
-    
-    private lazy var temperatureLoggerNC: ThermoNavigationController = {
-        ThermoNavigationController(rootViewController: temperatureLoggerVC)
-    }()
     
     private lazy var temperatureListNC: ThermoNavigationController = {
         ThermoNavigationController(rootViewController: temperatureListVC)
@@ -35,7 +30,7 @@ final class MainCoordinator {
     func change(tab: TabView.Tab) {
         switch tab {
         case .log:
-            changeVC(on: temperatureLoggerNC)
+            break
         case .list:
             changeVC(on: temperatureListNC)
         case .reminder:

@@ -248,7 +248,8 @@ private extension AddMemberViewController {
         case .present:
             dismiss(animated: true)
         case .root:
-            UIApplication.shared.keyWindow?.rootViewController = MainViewController.make()
+            let vc = ThermoNavigationController(rootViewController: MainViewController.make())
+            UIApplication.shared.keyWindow?.rootViewController = vc
         }
     }
 }

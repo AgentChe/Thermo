@@ -53,7 +53,8 @@
 
 // MARK: Temperature logger
 "TemperatureLogger.Temperature.Title" = "What’s your current temperature?";
-"TemperatureLogger.Feeling.Title" = "Overrall feeling...";
+"TemperatureLogger.Feeling.Title" = "Overrall\nfeeling...";
+"TemperatureLogger.Log.Failure" = "Failure to log temperature";
 
 // MARK: Journal
 "Journal.Title" = "My journal";

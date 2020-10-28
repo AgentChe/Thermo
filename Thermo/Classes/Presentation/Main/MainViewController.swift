@@ -68,8 +68,13 @@ private extension MainViewController {
     }
     
     func update(selectedTab: TabView.Tab) {
-        mainView.tabView.selectedTab = selectedTab
-        
-        coordinator.change(tab: selectedTab)
+        switch selectedTab {
+        case .log:
+            navigationController?.pushViewController(LoggerViewController.make(), animated: true)
+        default:
+            mainView.tabView.selectedTab = selectedTab
+            
+            coordinator.change(tab: selectedTab)
+        }
     }
 }
