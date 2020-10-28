@@ -53,6 +53,18 @@
 		968AE4772548C63B00A42C46 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4762548C63B00A42C46 /* MainView.swift */; };
 		968AE47C2549814900A42C46 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE47B2549814900A42C46 /* TabItemView.swift */; };
 		968AE47F2549834D00A42C46 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE47E2549834D00A42C46 /* TabView.swift */; };
+		968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4822549931D00A42C46 /* MainCoordinator.swift */; };
+		968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE488254995F700A42C46 /* ReminderViewController.swift */; };
+		968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE48B2549962300A42C46 /* ReminderViewModel.swift */; };
+		968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE48E2549963E00A42C46 /* ReminderView.swift */; };
+		968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE491254996AD00A42C46 /* JournalViewController.swift */; };
+		968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE494254996D400A42C46 /* JournalViewModel.swift */; };
+		968AE498254996E900A42C46 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE497254996E900A42C46 /* JournalView.swift */; };
+		968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE49A2549977A00A42C46 /* LoggerViewController.swift */; };
+		968AE4A22549979F00A42C46 /* LoggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4A12549979F00A42C46 /* LoggerViewModel.swift */; };
+		968AE4A5254997B500A42C46 /* LoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4A4254997B500A42C46 /* LoggerView.swift */; };
+		968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4AC254998AA00A42C46 /* ThermoNavigationControllerSettings.swift */; };
+		968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4AF254998FD00A42C46 /* ThermoNavigationController.swift */; };
 		968E41732546E045006F3CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41722546E045006F3CFC /* AppDelegate.swift */; };
 		968E417C2546E047006F3CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968E417B2546E047006F3CFC /* Assets.xcassets */; };
 		968E417F2546E047006F3CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968E417D2546E047006F3CFC /* LaunchScreen.storyboard */; };
@@ -111,6 +123,18 @@
 		968AE4762548C63B00A42C46 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		968AE47B2549814900A42C46 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		968AE47E2549834D00A42C46 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		968AE4822549931D00A42C46 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		968AE488254995F700A42C46 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		968AE48B2549962300A42C46 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
+		968AE48E2549963E00A42C46 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		968AE491254996AD00A42C46 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		968AE494254996D400A42C46 /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
+		968AE497254996E900A42C46 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
+		968AE49A2549977A00A42C46 /* LoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewController.swift; sourceTree = "<group>"; };
+		968AE4A12549979F00A42C46 /* LoggerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewModel.swift; sourceTree = "<group>"; };
+		968AE4A4254997B500A42C46 /* LoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerView.swift; sourceTree = "<group>"; };
+		968AE4AC254998AA00A42C46 /* ThermoNavigationControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermoNavigationControllerSettings.swift; sourceTree = "<group>"; };
+		968AE4AF254998FD00A42C46 /* ThermoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermoNavigationController.swift; sourceTree = "<group>"; };
 		968E416F2546E045006F3CFC /* Thermo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968E41722546E045006F3CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		968E417B2546E047006F3CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,6 +175,7 @@
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				968AE4AA2549988800A42C46 /* NavigationController */,
 				966A54FB2546F54F0099FDAE /* GradientView.swift */,
 				966A54FF2546F59A0099FDAE /* PaddingLabel.swift */,
 			);
@@ -299,6 +324,7 @@
 				968AE4622548B46300A42C46 /* MainViewController.swift */,
 				968AE4732548C5F000A42C46 /* MainViewModel.swift */,
 				968AE4762548C63B00A42C46 /* MainView.swift */,
+				968AE4822549931D00A42C46 /* MainCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -319,6 +345,45 @@
 				968AE47E2549834D00A42C46 /* TabView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		968AE485254995A300A42C46 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				968AE49A2549977A00A42C46 /* LoggerViewController.swift */,
+				968AE4A12549979F00A42C46 /* LoggerViewModel.swift */,
+				968AE4A4254997B500A42C46 /* LoggerView.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		968AE486254995B100A42C46 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				968AE491254996AD00A42C46 /* JournalViewController.swift */,
+				968AE494254996D400A42C46 /* JournalViewModel.swift */,
+				968AE497254996E900A42C46 /* JournalView.swift */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		968AE487254995CD00A42C46 /* Remiinder */ = {
+			isa = PBXGroup;
+			children = (
+				968AE488254995F700A42C46 /* ReminderViewController.swift */,
+				968AE48B2549962300A42C46 /* ReminderViewModel.swift */,
+				968AE48E2549963E00A42C46 /* ReminderView.swift */,
+			);
+			path = Remiinder;
+			sourceTree = "<group>";
+		};
+		968AE4AA2549988800A42C46 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4AC254998AA00A42C46 /* ThermoNavigationControllerSettings.swift */,
+				968AE4AF254998FD00A42C46 /* ThermoNavigationController.swift */,
+			);
+			path = NavigationController;
 			sourceTree = "<group>";
 		};
 		968E41662546E045006F3CFC = {
@@ -388,6 +453,9 @@
 		968E41AB2546E3D3006F3CFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				968AE487254995CD00A42C46 /* Remiinder */,
+				968AE486254995B100A42C46 /* Journal */,
+				968AE485254995A300A42C46 /* Logger */,
 				968AE4612548B45400A42C46 /* Main */,
 				966A5549254790360099FDAE /* AddMember */,
 				966A553025472E0C0099FDAE /* Onboarding */,
@@ -583,11 +651,15 @@
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
+				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
+				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
+				968AE4A22549979F00A42C46 /* LoggerViewModel.swift in Sources */,
 				968AE4712548BCF200A42C46 /* TemperatureManagerCore.swift in Sources */,
+				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				966A5547254774670099FDAE /* TrackTemperatureImportant.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
@@ -597,27 +669,35 @@
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
 				968AE4632548B46300A42C46 /* MainViewController.swift in Sources */,
+				968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */,
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
+				968AE4A5254997B500A42C46 /* LoggerView.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
 				966A553525472F610099FDAE /* OnboardingViewModel.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */,
+				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,
+				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
+				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
+				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
 				966A55082546F5F40099FDAE /* UIViewControllerRxExtension.swift in Sources */,
 				966A5541254735F30099FDAE /* OnbrdInfoCell.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,
+				968AE498254996E900A42C46 /* JournalView.swift in Sources */,
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,
+				968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

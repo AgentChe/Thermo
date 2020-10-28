@@ -15,6 +15,10 @@ final class MainViewController: UIViewController {
     
     private let viewModel = MainViewModel()
     
+    private lazy var coordinator: MainCoordinator = {
+        MainCoordinator(parentVC: self)
+    }()
+    
     override func loadView() {
         super.loadView()
         
@@ -65,5 +69,7 @@ private extension MainViewController {
     
     func update(selectedTab: TabView.Tab) {
         mainView.tabView.selectedTab = selectedTab
+        
+        coordinator.change(tab: selectedTab)
     }
 }
