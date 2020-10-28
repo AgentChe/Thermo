@@ -33,6 +33,8 @@ extension MembersManagerCore {
             return nil
         }
         
+        MembersManagerMediator.shared.notifyAboutAdded(member: member)
+        
         if setAsCurrent {
             setCurrent(member: member)
         }
@@ -45,6 +47,12 @@ extension MembersManagerCore {
         members.removeAll(where: { $0.id == memberId })
         
         store(members: members)
+        
+        if currentMember()?.id == memberId {
+            removeCurrentMember()
+        }
+        
+        MembersManagerMediator.shared.notifyAboutRemoved(memberId: memberId)
     }
     
     func has(memberUnit: MemberUnit) -> Bool {
@@ -72,6 +80,8 @@ extension MembersManagerCore {
         }
         
         UserDefaults.standard.setValue(data, forKey: Constants.currentMemberKey)
+        
+        MembersManagerMediator.shared.notifyAboutSetCurrent(member: member)
     }
     
     func currentMember() -> Member? {
@@ -208,5 +218,9 @@ private extension MembersManagerCore {
         UserDefaults.standard.setValue(data, forKey: Constants.storedMembersKey)
         
         return true
+    }
+    
+    func removeCurrentMember() {
+        UserDefaults.standard.removeObject(forKey: Constants.currentMemberKey)
     }
 }

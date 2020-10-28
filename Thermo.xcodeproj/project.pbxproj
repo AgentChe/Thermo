@@ -71,6 +71,11 @@
 		968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C12549A6F300A42C46 /* TemperatureRange.swift */; };
 		968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */; };
 		968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */; };
+		968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */; };
+		968AE4D22549F41000A42C46 /* JournalTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D12549F41000A42C46 /* JournalTableElement.swift */; };
+		968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D82549F54600A42C46 /* JournalTableView.swift */; };
+		968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4DC254A033F00A42C46 /* MembersManagerMediator.swift */; };
+		968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4DF254A034E00A42C46 /* MembersManagerMediatorDelegate.swift */; };
 		968E41732546E045006F3CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41722546E045006F3CFC /* AppDelegate.swift */; };
 		968E417C2546E047006F3CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968E417B2546E047006F3CFC /* Assets.xcassets */; };
 		968E417F2546E047006F3CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968E417D2546E047006F3CFC /* LaunchScreen.storyboard */; };
@@ -147,6 +152,11 @@
 		968AE4C12549A6F300A42C46 /* TemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureRange.swift; sourceTree = "<group>"; };
 		968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediator.swift; sourceTree = "<group>"; };
 		968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediatorDelegate.swift; sourceTree = "<group>"; };
+		968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
+		968AE4D12549F41000A42C46 /* JournalTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableElement.swift; sourceTree = "<group>"; };
+		968AE4D82549F54600A42C46 /* JournalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableView.swift; sourceTree = "<group>"; };
+		968AE4DC254A033F00A42C46 /* MembersManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManagerMediator.swift; sourceTree = "<group>"; };
+		968AE4DF254A034E00A42C46 /* MembersManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManagerMediatorDelegate.swift; sourceTree = "<group>"; };
 		968E416F2546E045006F3CFC /* Thermo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968E41722546E045006F3CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		968E417B2546E047006F3CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,6 +278,7 @@
 		966A555525484A860099FDAE /* Members */ = {
 			isa = PBXGroup;
 			children = (
+				968AE4DB254A032100A42C46 /* Mediator */,
 				966A556325484E850099FDAE /* Manager */,
 				966A555625484A8C0099FDAE /* Models */,
 			);
@@ -376,6 +387,8 @@
 		968AE486254995B100A42C46 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				968AE4D02549F3A500A42C46 /* Models */,
+				968AE4CB2549DBEE00A42C46 /* Views */,
 				968AE491254996AD00A42C46 /* JournalViewController.swift */,
 				968AE494254996D400A42C46 /* JournalViewModel.swift */,
 				968AE497254996E900A42C46 /* JournalView.swift */,
@@ -424,6 +437,32 @@
 			children = (
 				968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */,
 				968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
+		968AE4CB2549DBEE00A42C46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */,
+				968AE4D82549F54600A42C46 /* JournalTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		968AE4D02549F3A500A42C46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4D12549F41000A42C46 /* JournalTableElement.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		968AE4DB254A032100A42C46 /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4DC254A033F00A42C46 /* MembersManagerMediator.swift */,
+				968AE4DF254A034E00A42C46 /* MembersManagerMediatorDelegate.swift */,
 			);
 			path = Mediator;
 			sourceTree = "<group>";
@@ -684,13 +723,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				966A554B254790510099FDAE /* AddMemberViewController.swift in Sources */,
+				968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */,
 				966A556525484E940099FDAE /* MembersManager.swift in Sources */,
 				966A552E25472D6E0099FDAE /* UIColorExtension.swift in Sources */,
 				966A556C25485E2D0099FDAE /* AMCheckedCell.swift in Sources */,
+				968AE4D22549F41000A42C46 /* JournalTableElement.swift in Sources */,
 				966A55282546FA310099FDAE /* SplashViewModel.swift in Sources */,
 				966A552B254729430099FDAE /* SplashView.swift in Sources */,
 				966A555825484A970099FDAE /* Member.swift in Sources */,
+				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
+				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
@@ -735,6 +778,7 @@
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
+				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
 				966A55082546F5F40099FDAE /* UIViewControllerRxExtension.swift in Sources */,
 				966A5541254735F30099FDAE /* OnbrdInfoCell.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,

@@ -20,6 +20,17 @@ final class JournalViewController: UIViewController {
         
         view = journalView
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        viewModel
+            .elements()
+            .drive(onNext: { [weak self] elements in
+                self?.journalView.tableView.setup(elements: elements)
+            })
+            .disposed(by: disposeBag)
+    }
 }
 
 // MARK: Make
