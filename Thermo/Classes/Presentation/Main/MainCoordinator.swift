@@ -8,16 +8,16 @@
 import UIKit
 
 final class MainCoordinator {
-    private weak var parentVC: MainViewController?
+    weak var parentVC: MainViewController?
     
-    private lazy var temperatureListVC = JournalViewController.make()
-    private lazy var reminderVC = ReminderViewController.make()
+    lazy var temperatureListVC = JournalViewController.make()
+    lazy var reminderVC = ReminderViewController.make()
     
-    private lazy var temperatureListNC: ThermoNavigationController = {
+    lazy var temperatureListNC: ThermoNavigationController = {
         ThermoNavigationController(rootViewController: temperatureListVC)
     }()
     
-    private lazy var reminderNC: ThermoNavigationController = {
+    lazy var reminderNC: ThermoNavigationController = {
         ThermoNavigationController(rootViewController: reminderVC)
     }()
     

@@ -29,6 +29,9 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         addActionsToTabs()
+        
+        coordinator.temperatureListVC.delegate = self
+        
         update(selectedTab: .list)
     }
 }
@@ -37,6 +40,13 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     static func make() -> MainViewController {
         MainViewController()
+    }
+}
+
+// MARK: JournalViewControllerDelegate
+extension MainViewController: JournalViewControllerDelegate {
+    func journalViewControllerDidTappedMember() {
+        present(MembersViewController.make(), animated: true)
     }
 }
  

@@ -76,6 +76,12 @@
 		968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D82549F54600A42C46 /* JournalTableView.swift */; };
 		968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4DC254A033F00A42C46 /* MembersManagerMediator.swift */; };
 		968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4DF254A034E00A42C46 /* MembersManagerMediatorDelegate.swift */; };
+		968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4E3254A15B200A42C46 /* MembersViewController.swift */; };
+		968AE4E8254A15FF00A42C46 /* MembersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4E7254A15FF00A42C46 /* MembersViewModel.swift */; };
+		968AE4EB254A165100A42C46 /* MembersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4EA254A165100A42C46 /* MembersView.swift */; };
+		968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4ED254A1B3A00A42C46 /* JournalViewControllerDelegate.swift */; };
+		968AE4F2254A271F00A42C46 /* MemberTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4F1254A271F00A42C46 /* MemberTableCell.swift */; };
+		968AE4F6254A293000A42C46 /* MemberTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4F5254A293000A42C46 /* MemberTableView.swift */; };
 		968E41732546E045006F3CFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41722546E045006F3CFC /* AppDelegate.swift */; };
 		968E417C2546E047006F3CFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968E417B2546E047006F3CFC /* Assets.xcassets */; };
 		968E417F2546E047006F3CFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 968E417D2546E047006F3CFC /* LaunchScreen.storyboard */; };
@@ -157,6 +163,12 @@
 		968AE4D82549F54600A42C46 /* JournalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableView.swift; sourceTree = "<group>"; };
 		968AE4DC254A033F00A42C46 /* MembersManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManagerMediator.swift; sourceTree = "<group>"; };
 		968AE4DF254A034E00A42C46 /* MembersManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManagerMediatorDelegate.swift; sourceTree = "<group>"; };
+		968AE4E3254A15B200A42C46 /* MembersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		968AE4E7254A15FF00A42C46 /* MembersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersViewModel.swift; sourceTree = "<group>"; };
+		968AE4EA254A165100A42C46 /* MembersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersView.swift; sourceTree = "<group>"; };
+		968AE4ED254A1B3A00A42C46 /* JournalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewControllerDelegate.swift; sourceTree = "<group>"; };
+		968AE4F1254A271F00A42C46 /* MemberTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableCell.swift; sourceTree = "<group>"; };
+		968AE4F5254A293000A42C46 /* MemberTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableView.swift; sourceTree = "<group>"; };
 		968E416F2546E045006F3CFC /* Thermo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		968E41722546E045006F3CFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		968E417B2546E047006F3CFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -392,6 +404,7 @@
 				968AE491254996AD00A42C46 /* JournalViewController.swift */,
 				968AE494254996D400A42C46 /* JournalViewModel.swift */,
 				968AE497254996E900A42C46 /* JournalView.swift */,
+				968AE4ED254A1B3A00A42C46 /* JournalViewControllerDelegate.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -467,6 +480,34 @@
 			path = Mediator;
 			sourceTree = "<group>";
 		};
+		968AE4E2254A158A00A42C46 /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4F4254A28B300A42C46 /* Models */,
+				968AE4F0254A270A00A42C46 /* Views */,
+				968AE4E3254A15B200A42C46 /* MembersViewController.swift */,
+				968AE4E7254A15FF00A42C46 /* MembersViewModel.swift */,
+				968AE4EA254A165100A42C46 /* MembersView.swift */,
+			);
+			path = Members;
+			sourceTree = "<group>";
+		};
+		968AE4F0254A270A00A42C46 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4F1254A271F00A42C46 /* MemberTableCell.swift */,
+				968AE4F5254A293000A42C46 /* MemberTableView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		968AE4F4254A28B300A42C46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		968E41662546E045006F3CFC = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +575,7 @@
 		968E41AB2546E3D3006F3CFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				968AE4E2254A158A00A42C46 /* Members */,
 				968AE487254995CD00A42C46 /* Remiinder */,
 				968AE486254995B100A42C46 /* Journal */,
 				968AE485254995A300A42C46 /* Logger */,
@@ -733,6 +775,7 @@
 				966A555825484A970099FDAE /* Member.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
+				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
@@ -744,15 +787,19 @@
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
+				968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */,
 				968AE4A22549979F00A42C46 /* LoggerViewModel.swift in Sources */,
+				968AE4EB254A165100A42C46 /* MembersView.swift in Sources */,
 				968AE4712548BCF200A42C46 /* TemperatureManagerCore.swift in Sources */,
 				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				966A5547254774670099FDAE /* TrackTemperatureImportant.swift in Sources */,
+				968AE4F2254A271F00A42C46 /* MemberTableCell.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
 				966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */,
+				968AE4F6254A293000A42C46 /* MemberTableView.swift in Sources */,
 				968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
@@ -767,6 +814,7 @@
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */,
+				968AE4E8254A15FF00A42C46 /* MembersViewModel.swift in Sources */,
 				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,

@@ -63,6 +63,7 @@
 
 // MARK: Members
 "Members.AddNew" = "Add new";
+"Members.SetCurrentMember" = "Failed to set current member";
 
 // MARK: Reminder
 "Reminder.TimeTitle" = "Remind AT";
