@@ -12,7 +12,6 @@ struct TemperatureRange {
     let max: Double
     let initial: Double
     let unit: TemperatureUnit
-    let step: Double = 0.1
     
     init(unit: TemperatureUnit) {
         self.unit = unit

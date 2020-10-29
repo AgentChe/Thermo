@@ -64,18 +64,27 @@ extension JournalTableCell {
     }
     
     func temperature(from element: JournalTableElement) -> NSAttributedString {
+        let coldTemperature: Double
+        let fireTemperature: Double
+        
         let unit: String
         switch element.unit {
         case .fahrenheit:
+            coldTemperature = 96.8
+            fireTemperature = 98.78
+            
             unit = "Fahrenheit".localized
         case .celsius:
+            coldTemperature = 36.0
+            fireTemperature = 37.1
+            
             unit = "Celsius".localized
         }
         
         let color: UIColor
-        if element.temperature > 37.1 {
+        if element.temperature > fireTemperature {
             color = UIColor(integralRed: 255, green: 126, blue: 103)
-        } else if element.temperature < 36.0 {
+        } else if element.temperature < coldTemperature {
             color = UIColor(integralRed: 108, green: 22, blue: 245)
         } else {
             color = UIColor(integralRed: 50, green: 50, blue: 52)
