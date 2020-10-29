@@ -10,7 +10,7 @@ import Foundation
 struct TemperatureRange {
     let min: Double
     let max: Double
-    let initial: Double
+    let normal: Double
     let unit: TemperatureUnit
     
     init(unit: TemperatureUnit) {
@@ -20,11 +20,11 @@ struct TemperatureRange {
         case .celsius:
             min = 34.0
             max = 42.0
-            initial = 36.6
+            normal = 36.6
         case .fahrenheit:
             min = 93.2
             max = 107.6
-            initial = 97.88
+            normal = 97.88
         }
     }
 }

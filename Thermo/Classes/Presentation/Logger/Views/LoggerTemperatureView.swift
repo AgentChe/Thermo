@@ -27,6 +27,7 @@ final class LoggerTemperatureView: GradientView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configure()
         makeConstraints()
     }
     
@@ -37,16 +38,19 @@ final class LoggerTemperatureView: GradientView {
 
 // MARK: Private
 private extension LoggerTemperatureView {
-    func start() {
-        gradientLayer.colors = [
-            UIColor(integralRed: 127, green: 145, blue: 226).cgColor,
-            UIColor(integralRed: 108, green: 22, blue: 245).cgColor
-        ]
+    func configure() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panAction(gesture:)))
+        isUserInteractionEnabled = true
+        addGestureRecognizer(panGesture)
         
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    }
+    
+    func start() {
+        value = range?.normal ?? 0
         
-        value = range?.initial ?? 0
+        updateColors()
     }
     
     func update() {
@@ -56,6 +60,64 @@ private extension LoggerTemperatureView {
             .textAlignment(.center)
         
         valueLabel.attributedText = String(format: "%.1f", value).attributed(with: attrs)
+    }
+    
+    @objc
+    func panAction(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self)
+        
+        switch gesture.state {
+        case .changed:
+            calculateTemperature(y: translation.y)
+            updateColors()
+        default:
+            break
+        }
+    }
+    
+    func calculateTemperature(y: CGFloat) {
+        guard let range = self.range else {
+            return
+        }
+        
+        let step = Double(UIScreen.main.bounds.height / 2)
+        
+        let inversY = y * CGFloat(-1)
+        
+        let upper = Double(inversY) / step
+        
+        var newValue = value + upper
+        
+        if newValue < range.min {
+            newValue = range.min
+        } else if newValue > range.max {
+            newValue = range.max
+        }
+        
+        value = newValue
+    }
+    
+    func updateColors() {
+        guard let range = self.range else {
+            return
+        }
+        
+        let topRed = calculteColor(min: 108, max: 255, range: range) + 108
+        let bottomRed = calculteColor(min: 53, max: 255, range: range) + 108
+        let topBlue = 255 - calculteColor(min: 108, max: 255, range: range)
+        let bottomBlue = 255 - calculteColor(min: 53, max: 255, range: range)
+        
+        gradientLayer.colors = [
+            UIColor(integralRed: topRed, green: 0, blue: topBlue).cgColor,
+            UIColor(integralRed: bottomRed, green: 150, blue: bottomBlue).cgColor
+        ]
+    }
+    
+    func calculteColor(min: CGFloat, max: CGFloat, range: TemperatureRange) -> CGFloat {
+        let temperatureDiff = CGFloat(range.max - range.min)
+        let colorsDiff = max - min
+        let colorUnitForOneDegree = colorsDiff / temperatureDiff
+        return CGFloat(value - range.min) * colorUnitForOneDegree
     }
 }
 
