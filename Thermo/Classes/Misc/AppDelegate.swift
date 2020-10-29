@@ -7,6 +7,7 @@
 
 import UIKit
 import RxCocoa
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         runProvider(on: vc.view)
         
         sdkProvider.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        FirebaseApp.configure()
         
         return true
     }
@@ -48,9 +51,9 @@ private extension AppDelegate {
         let settings = SDKSettings(backendBaseUrl: GlobalDefinitions.sdkDomainUrl,
                                    backendApiKey: GlobalDefinitions.apiKey,
                                    amplitudeApiKey: GlobalDefinitions.amplitudeApiKey,
-                                   facebookActive: false,
+                                   facebookActive: true,
                                    branchActive: false,
-                                   firebaseActive: false,
+                                   firebaseActive: true,
                                    applicationTag: GlobalDefinitions.applicationTag,
                                    userToken: nil,
                                    userId: nil,
