@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
+        FirebaseApp.configure()
+        
         runProvider(on: vc.view)
         
         sdkProvider.application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        FirebaseApp.configure()
         
         return true
     }

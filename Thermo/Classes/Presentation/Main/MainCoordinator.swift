@@ -13,14 +13,6 @@ final class MainCoordinator {
     lazy var temperatureListVC = JournalViewController.make()
     lazy var reminderVC = ReminderViewController.make()
     
-    lazy var temperatureListNC: ThermoNavigationController = {
-        ThermoNavigationController(rootViewController: temperatureListVC)
-    }()
-    
-    lazy var reminderNC: ThermoNavigationController = {
-        ThermoNavigationController(rootViewController: reminderVC)
-    }()
-    
     private var previousVC: UIViewController?
     
     init(parentVC: MainViewController) {
@@ -30,11 +22,15 @@ final class MainCoordinator {
     func change(tab: TabView.Tab) {
         switch tab {
         case .log:
-            break
+            parentVC?.navigationController?.pushViewController(LoggerViewController.make(), animated: true)
         case .list:
-            changeVC(on: temperatureListNC)
+            parentVC?.mainView.tabView.selectedTab = tab
+            
+            changeVC(on: temperatureListVC)
         case .reminder:
-            changeVC(on: reminderNC)
+            parentVC?.mainView.tabView.selectedTab = tab
+            
+            changeVC(on: reminderVC)
         }
     }
 }

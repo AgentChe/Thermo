@@ -28,11 +28,16 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addActionsToTabs()
-        
         coordinator.temperatureListVC.delegate = self
         
-        update(selectedTab: .list)
+        addActionsToTabs()
+        
+        rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
+            .take(1)
+            .subscribe(onNext: { [weak self] _ in
+                self?.update(selectedTab: .list)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -78,13 +83,6 @@ private extension MainViewController {
     }
     
     func update(selectedTab: TabView.Tab) {
-        switch selectedTab {
-        case .log:
-            navigationController?.pushViewController(LoggerViewController.make(), animated: true)
-        default:
-            mainView.tabView.selectedTab = selectedTab
-            
-            coordinator.change(tab: selectedTab)
-        }
+        coordinator.change(tab: selectedTab)
     }
 }

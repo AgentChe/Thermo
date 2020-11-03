@@ -29,15 +29,15 @@ final class JournalView: UIView {
 private extension JournalView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.scale),
-            titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 52.scale),
             imageView.heightAnchor.constraint(equalToConstant: 52.scale),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.scale),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 100)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 90)
+        ])
+        
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.scale),
+            titleLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
