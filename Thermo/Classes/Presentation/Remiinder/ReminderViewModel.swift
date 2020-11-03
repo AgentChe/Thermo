@@ -14,6 +14,7 @@ final class ReminderViewModel {
     let switchReminderWeekday = PublishRelay<(Weekday, Bool)>()
     
     private let reminderManager = ReminderManagerCore()
+    private let reminderNotificationsManager = ReminderNotificationsManager()
     
     func sections() -> Driver<[ReminderTableSection]> {
         Driver
@@ -22,6 +23,39 @@ final class ReminderViewModel {
                 daysOfTheWeek()
             )
             .map { [$0, $1] }
+    }
+    
+    func subscriveOnChangesAndUpdateNotificationsTriggers() -> Signal<Never> {
+        Signal<Void>
+            .merge(
+                reminderManager.rxDidChangeTime.map { _ in Void() },
+                reminderManager.rxDidChangeWeekday.map { _ in Void() }
+            )
+            .flatMapLatest { [weak self] _ -> Signal<Reminders> in
+                guard let this = self else {
+                    return .empty()
+                }
+                
+                return Single
+                    .zip(
+                        this.reminderManager.rxObtainRemindersTime(),
+                        this.reminderManager.rxObtainRemindersWeekday()
+                    )
+                    .map { times, weekdays -> Reminders in
+                        return Reminders(times: times.filter { $0.checked },
+                                         weekdays: weekdays.filter { $0.checked })
+                    }
+                    .asSignal(onErrorSignalWith: .empty())
+            }
+            .flatMap { [weak self] reminders in
+                guard let this = self else {
+                    return .empty()
+                }
+                
+                return this.reminderNotificationsManager
+                    .rxPost(reminders: reminders)
+                    .asSignal(onErrorSignalWith: .empty())
+            }
     }
 }
 

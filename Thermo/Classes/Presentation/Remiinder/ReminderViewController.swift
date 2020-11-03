@@ -15,6 +15,8 @@ final class ReminderViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let pushNotificationsManager = SDKStorage.shared.pushNotificationsManager
+    
     override func loadView() {
         super.loadView()
         
@@ -36,10 +38,17 @@ final class ReminderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pushNotificationsManager.retriveAuthorizationStatus(handler: handle(status:))
+        
         viewModel.sections()
             .drive(onNext: { [weak self] sections in
                 self?.reminderView.tableView.setup(sections: sections)
             })
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .subscriveOnChangesAndUpdateNotificationsTriggers()
+            .emit()
             .disposed(by: disposeBag)
     }
 }
@@ -85,5 +94,11 @@ private extension ReminderViewController {
                 timeView.removeFromSuperview()
             })
             .disposed(by: disposeBag)
+    }
+    
+    func handle(status: PushNotificationsAuthorizationStatus) {
+        if status == .notDetermined {
+            pushNotificationsManager.requestAuthorization()
+        }
     }
 }

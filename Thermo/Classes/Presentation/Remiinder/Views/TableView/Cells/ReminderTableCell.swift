@@ -44,7 +44,7 @@ extension ReminderTableCell {
 // MARK: Private
 private extension ReminderTableCell {
     func configure() {
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = UIColor.white
         
         let selectedView = UIView()
         selectedView.backgroundColor = .clear
