@@ -78,8 +78,7 @@
 // MARK: Reminder
 "Reminder.TimeTitle" = "Remind AT";
 "Reminder.WeekdayTitle" = "Days of the week";
-"Reminder.Notification.Title" = "Reminder title";
-"Reminder.Notification.Body" = "Reminder body at track temperature";
+"Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Tabs
 "Track" = "Track";

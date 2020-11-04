@@ -55,7 +55,6 @@ private extension ReminderNotificationsManager {
         triggers
             .map { trigger -> UNNotificationRequest in
                 let content = UNMutableNotificationContent()
-                content.title = "Reminder.Notification.Title".localized
                 content.body = "Reminder.Notification.Body".localized
                 content.sound = UNNotificationSound.default
                 

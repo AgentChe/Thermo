@@ -37,6 +37,12 @@
 	<string>Thermometer</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow access to take your photo </string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Please allow access to load photo from your photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow access to load photo from your photo library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Bold.ttf</string>
