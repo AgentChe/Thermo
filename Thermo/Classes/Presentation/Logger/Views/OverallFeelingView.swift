@@ -43,7 +43,7 @@ private extension OverallFeelingView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 289.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 289.scale : 180.scale)
         ])
         
         NSLayoutConstraint.activate([

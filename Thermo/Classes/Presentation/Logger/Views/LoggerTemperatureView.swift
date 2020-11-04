@@ -135,20 +135,20 @@ private extension LoggerTemperatureView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 191.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 191.scale : 100.scale)
         ])
         
         NSLayoutConstraint.activate([
             temperaturePicker.centerXAnchor.constraint(equalTo: centerXAnchor),
             temperaturePicker.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50.scale),
-            temperaturePicker.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -100.scale)
+            temperaturePicker.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: ScreenSize.isIphoneXFamily ? -100.scale : -60.scale)
         ])
         
         NSLayoutConstraint.activate([
             continueButton.widthAnchor.constraint(equalToConstant: 180.scale),
             continueButton.heightAnchor.constraint(equalToConstant: 56.scale),
             continueButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80.scale)
+            continueButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -80.scale : -40.scale)
         ])
     }
 }

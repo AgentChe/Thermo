@@ -31,7 +31,7 @@ private extension AMMemberUnitView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 120.scale : 60.scale)
         ])
         
         NSLayoutConstraint.activate([

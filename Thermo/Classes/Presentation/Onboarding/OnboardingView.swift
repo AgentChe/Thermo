@@ -116,7 +116,7 @@ private extension OnboardingView {
             button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
             button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80.scale)
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -80.scale : -40.scale)
         ])
     }
 }

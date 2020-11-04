@@ -32,7 +32,7 @@ private extension JournalView {
             imageView.widthAnchor.constraint(equalToConstant: 52.scale),
             imageView.heightAnchor.constraint(equalToConstant: 52.scale),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.scale),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 90)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 90.scale : 55.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -44,7 +44,7 @@ private extension JournalView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 60.scale)
+            tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40.scale)
         ])
     }
 }
@@ -69,7 +69,7 @@ private extension JournalView {
         let view = UIImageView()
         view.layer.cornerRadius = 26.scale
         view.contentMode = .scaleAspectFill
-        view.clipsToBounds = true 
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

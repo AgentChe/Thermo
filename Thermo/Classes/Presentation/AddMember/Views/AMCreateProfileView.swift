@@ -63,14 +63,14 @@ private extension AMCreateProfileView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 120.scale : 60.scale)
         ])
         
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 110.scale),
             imageView.heightAnchor.constraint(equalToConstant: 110.scale),
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 270.scale)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 270.scale : 190.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -91,7 +91,7 @@ private extension AMCreateProfileView {
             textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35.scale),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35.scale),
             textField.heightAnchor.constraint(equalToConstant: 52.scale),
-            textField.topAnchor.constraint(equalTo: topAnchor, constant: 449.scale)
+            textField.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 449.scale : 360.scale)
         ])
     }
 }
