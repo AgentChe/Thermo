@@ -57,7 +57,6 @@ final class ImagePicker: NSObject {
 }
 
 // MARK: UIImagePickerControllerDelegate & UINavigationControllerDelegate
-
 extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.pickerController(picker, didSelect: nil)
@@ -73,7 +72,6 @@ extension ImagePicker: UIImagePickerControllerDelegate, UINavigationControllerDe
 }
 
 // MARK: Private
-
 private extension ImagePicker {
     func action(for type: UIImagePickerController.SourceType, title: String) -> UIAlertAction? {
         guard UIImagePickerController.isSourceTypeAvailable(type) else {

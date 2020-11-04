@@ -11,6 +11,8 @@ final class MemberTableCell: UITableViewCell {
     lazy var avatarImageView = makeImageView()
     lazy var label = makeLabel()
     
+    private let imageManager = ImageManagerCore()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -26,12 +28,17 @@ final class MemberTableCell: UITableViewCell {
 // MARK: API
 extension MemberTableCell {
     func setup(member: Member) {
-        label.attributedText = String(describing: member.unit)
+        label.attributedText = member.name
             .attributed(with: TextAttributes()
                             .textColor(UIColor.black)
                             .font(Fonts.Poppins.semiBold(size: 17.scale))
                             .lineHeight(27.scale)
                             .letterSpacing(-0.4.scale))
+        
+        imageManager
+            .retrieve(key: member.imageKey) { [weak self] image in
+                self?.avatarImageView.image = image
+            }
     }
 }
 
@@ -68,12 +75,11 @@ private extension MemberTableCell {
 
 // MARK: Lazy initialization
 private extension MemberTableCell {
-    // TODO: Удалить бэкграунд
     func makeImageView() -> UIImageView {
         let view = UIImageView()
         view.layer.cornerRadius = 18.scale
-        view.backgroundColor = UIColor.black
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(view)
         return view

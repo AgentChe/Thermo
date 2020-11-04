@@ -1,15 +1,15 @@
 //
-//  UIViewControllerRxExtension.swift
+//  UIViewRxExtension.swift
 //  Thermo
 //
-//  Created by Andrey Chernyshev on 26.10.2020.
+//  Created by Andrey Chernyshev on 04.11.2020.
 //
 
 import UIKit
 import RxSwift
 import RxCocoa
 
-extension Reactive where Base: UIViewController {
+extension Reactive where Base: UIView {
     var keyboardHeight: Observable<CGFloat> {
         return Observable
             .from([
@@ -31,20 +31,7 @@ extension Reactive where Base: UIViewController {
     
     var hideKeyboardObserver: Binder<Void> {
         return Binder(base) { base, _ in
-            base.view.endEditing(true)
-        }
-    }
-    
-    var hiddenNavBarObserver: Binder<Bool> {
-        return Binder(base) { base, hidden in
-            base.navigationController?.setNavigationBarHidden(hidden, animated: true)
-        }
-    }
-    
-    var hiddenNavBarAndToolBarObserver: Binder<Bool> {
-        return Binder(base) { base, hidden in
-            base.navigationController?.setNavigationBarHidden(hidden, animated: true)
-            base.navigationController?.setToolbarHidden(hidden, animated: true)
+            base.endEditing(true)
         }
     }
 }

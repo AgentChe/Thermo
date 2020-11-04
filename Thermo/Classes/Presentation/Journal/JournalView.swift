@@ -65,12 +65,11 @@ private extension JournalView {
         return view
     }
     
-    // TODO: Удалить бэкграунд
     func makeImageView() -> UIImageView {
         let view = UIImageView()
-        view.backgroundColor = UIColor.black
         view.layer.cornerRadius = 26.scale
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true 
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

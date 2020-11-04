@@ -11,16 +11,25 @@ import RxCocoa
 final class JournalViewModel {
     private let temperatureManager = TemperatureManagerCore()
     private let membersManager = MembersManagerCore()
+    private let imageManager = ImageManagerCore()
+    
+    func memberImage() -> Driver<UIImage> {
+        getMember()
+            .flatMapLatest { [weak self] member -> Observable<UIImage> in
+                guard let this = self else {
+                    return .empty()
+                }
+                
+                return this.imageManager
+                    .rxRetrieve(key: member.imageKey)
+                    .asObservable()
+                    .compactMap { $0 }
+            }
+            .asDriver(onErrorDriveWith: .empty())
+    }
     
     func elements() -> Driver<[JournalTableElement]> {
-        let member = Observable
-            .merge([
-                membersManager.rxCurrentMember().asObservable().compactMap { $0 },
-                MembersManagerMediator.shared.rxDidSetCurrentMember.asObservable()
-            ])
-        
-        
-        return member
+        getMember()
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest { [weak self] member -> Observable<[Temperature]> in
                 guard let this = self else {
@@ -73,5 +82,16 @@ final class JournalViewModel {
             }
             .observeOn(MainScheduler.asyncInstance)
             .asDriver(onErrorJustReturn: [])
+    }
+}
+
+// MARK: Private
+private extension JournalViewModel {
+    func getMember() -> Observable<Member> {
+        Observable<Member>
+            .merge([
+                membersManager.rxCurrentMember().asObservable().compactMap { $0 },
+                MembersManagerMediator.shared.rxDidSetCurrentMember.asObservable()
+            ])
     }
 }

@@ -12,6 +12,7 @@
 "Next" = "Next";
 "Fahrenheit" = "°F";
 "Celsius" = "°C";
+"Cancel" = "Cancel";
 
 // MARK: Weekdays
 "Monday" = "Monday";
@@ -21,6 +22,11 @@
 "Friday" = "Friday";
 "Saturday" = "Saturday";
 "Sunday" = "Sunday";
+
+// MARK: ImagePicker
+"ImagePicker.TakePhoto" = "Take photo";
+"ImagePicker.CameraRoll" = "Camera roll";
+"ImagePicker.PhotoLibrary" = "Photo library";
 
 // MARK: Splash
 "Splash.Title" = "Helping to track\nyour tempterature\nand symptom";
@@ -46,6 +52,10 @@
 "AddMember.MemberUnit.Child" = "A child";
 "AddMember.MemberUnit.Parent" = "My parent";
 "AddMember.MemberUnit.Other" = "Other family member";
+
+"AddMember.CreateProfile.Title" = "Create profile:";
+"AddMember.CreateProfile.Placeholder" = "Name";
+"AddMember.CreateProfile.Button" = "Add member";
 
 "AddMember.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
 

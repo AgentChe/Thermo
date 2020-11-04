@@ -11,16 +11,19 @@ final class AddMemberView: GradientView {
     enum Step: Int {
         case memberUnitView = 0
         case temperatureUnitView = 1
+        case createProfileView = 2
     }
     
     lazy var scrollView = makeScrollView()
     lazy var button = makeButton()
     lazy var memberUnitView = AMMemberUnitView()
     lazy var temperatureUnitView = AMTemperatureUnitView()
+    lazy var createProfileView = AMCreateProfileView()
     
     var step = Step.memberUnitView {
         didSet {
             scroll()
+            updateButtonText()
         }
     }
     
@@ -28,6 +31,7 @@ final class AddMemberView: GradientView {
         super.init(frame: frame)
         
         configure()
+        updateButtonText()
         makeConstraints()
     }
     
@@ -73,10 +77,25 @@ private extension AddMemberView {
         scrollView.scrollRectToVisible(frame, animated: true)
     }
     
+    func updateButtonText() {
+        let attrs = TextAttributes()
+            .textColor(UIColor.black)
+            .font(Fonts.Poppins.semiBold(size: 17.scale))
+            .lineHeight(22.scale)
+        
+        switch step {
+        case .temperatureUnitView, .memberUnitView:
+            button.setAttributedTitle("Next".localized.attributed(with: attrs), for: .normal)
+        case .createProfileView:
+            button.setAttributedTitle("AddMember.CreateProfile.Button".localized.attributed(with: attrs), for: .normal)
+        }
+    }
+    
     func contentViews() -> [UIView] {
         [
             memberUnitView,
-            temperatureUnitView
+            temperatureUnitView,
+            createProfileView
         ]
     }
 }
@@ -115,13 +134,7 @@ private extension AddMemberView {
     }
     
     func makeButton() -> UIButton {
-        let attrs = TextAttributes()
-            .textColor(UIColor.black)
-            .font(Fonts.Poppins.semiBold(size: 17.scale))
-            .lineHeight(22.scale)
-        
         let view = UIButton()
-        view.setAttributedTitle("Next".localized.attributed(with: attrs), for: .normal)
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 28.scale
         view.translatesAutoresizingMaskIntoConstraints = false

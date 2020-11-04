@@ -85,6 +85,9 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
+  - Kingfisher (5.15.6):
+    - Kingfisher/Core (= 5.15.6)
+  - Kingfisher/Core (5.15.6)
   - MarqueeLabel (4.0.5)
   - nanopb (1.30906.0):
     - nanopb/decode (= 1.30906.0)
@@ -116,6 +119,7 @@ PODS:
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
+  - Kingfisher
   - NotificationBannerSwift
   - RushSDK (from `https://github.com/AgentChe/RushSDK.git`)
 
@@ -136,6 +140,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
+    - Kingfisher
     - MarqueeLabel
     - nanopb
     - NotificationBannerSwift
@@ -172,6 +177,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: a6a3a066369828db64eda428cb2856dc1cdc7c4e
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
+  Kingfisher: b3554e7bf6106115b44e8795300bad580ef2fdc7
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
@@ -184,6 +190,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 9e0d61508e0efbdd6a711aabb09a0817dc037da4
+PODFILE CHECKSUM: 70ab8e6534726aaf21a940f2198ad4858ad4438e
 
 COCOAPODS: 1.10.0.rc.1

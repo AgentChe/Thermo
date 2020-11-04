@@ -29,6 +29,13 @@ final class JournalViewController: UIViewController {
         addActionsToMember()
         
         viewModel
+            .memberImage()
+            .drive(onNext: { [weak self] image in
+                self?.journalView.imageView.image = image
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel
             .elements()
             .drive(onNext: { [weak self] elements in
                 self?.journalView.tableView.setup(elements: elements)

@@ -16,7 +16,7 @@ final class MembersManagerCore: MembersManager {
 
 // MARK: API
 extension MembersManagerCore {
-    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool = false) -> Member? {
+    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool = false) -> Member? {
         var members = getAllMembers()
         
         guard !members.contains(where: { $0.unit == memberUnit }) else {
@@ -25,7 +25,9 @@ extension MembersManagerCore {
         
         let member = Member(id: Int.random(in: 0..<Int.max),
                             unit: memberUnit,
-                            temperatureUnit: temperatureUnit)
+                            temperatureUnit: temperatureUnit,
+                            imageKey: imageKey,
+                            name: name)
     
         members.append(member)
         
@@ -97,14 +99,20 @@ extension MembersManagerCore {
 
 // MARK: API(Rx)
 extension MembersManagerCore {
-    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool = false) -> Single<Member?> {
+    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool = false) -> Single<Member?> {
         Single<Member?>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                event(.success(this.add(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: setAsCurrent)))
+                let member = this.add(memberUnit: memberUnit,
+                                      temperatureUnit: temperatureUnit,
+                                      imageKey: imageKey,
+                                      name: name,
+                                      setAsCurrent: setAsCurrent)
+                
+                event(.success(member))
                 
                 return Disposables.create()
             }

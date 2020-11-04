@@ -9,7 +9,7 @@ import RxSwift
 
 protocol MembersManager: class {
     // MARK: API
-    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool) -> Member?
+    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool) -> Member?
     func remove(memberId: Int)
     func has(memberUnit: MemberUnit) -> Bool
     func get(memberId: Int) -> Member?
@@ -18,7 +18,7 @@ protocol MembersManager: class {
     func currentMember() -> Member?
     
     // MARK: API(Rx)
-    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, setAsCurrent: Bool) -> Single<Member?>
+    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool) -> Single<Member?>
     func rxRemove(memberId: Int) -> Completable
     func rxHas(memberUnit: MemberUnit) -> Single<Bool>
     func rxGet(memberId: Int) -> Single<Member?>

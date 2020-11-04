@@ -16,10 +16,13 @@ final class AddMemberViewModel {
     
     let selectMemberUnit = PublishRelay<MemberUnit>()
     let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
+    let createImageKey = PublishRelay<String>()
+    let inputName = PublishRelay<String>()
     
     let addMember = PublishRelay<Void>()
     
     private let membersManager = MembersManagerCore()
+    private let imageManager = ImageManagerCore()
     
     func disabledMembersUnits() -> Driver<[MemberUnit]> {
         membersManager
@@ -28,11 +31,22 @@ final class AddMemberViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
+    func store(image: UIImage) -> Driver<String> {
+        let key = UUID().uuidString
+        
+        return imageManager
+            .rxStore(image: image, key: key)
+            .andThen(Single<String>.just(key))
+            .asDriver(onErrorDriveWith: .empty())
+    }
+    
     func step() -> Driver<Step> {
         let stub = Observable
             .combineLatest(
                 selectMemberUnit.asObservable(),
-                selectTemperatureUnit.asObservable()
+                selectTemperatureUnit.asObservable(),
+                createImageKey.asObservable(),
+                inputName.asObservable()
             )
         
         return addMember
@@ -42,10 +56,14 @@ final class AddMemberViewModel {
                     return .never()
                 }
                 
-                let (memberUnit, temperatureUnit) = stub
+                let (memberUnit, temperatureUnit, imageKey, name) = stub
                 
                 return this.membersManager
-                    .rxAdd(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: true)
+                    .rxAdd(memberUnit: memberUnit,
+                           temperatureUnit: temperatureUnit,
+                           imageKey: imageKey,
+                           name: name,
+                           setAsCurrent: true)
                     .catchErrorJustReturn(nil)
             }
             .map { member -> Step in

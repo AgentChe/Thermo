@@ -24,6 +24,8 @@ final class AddMemberViewController: UIViewController {
     
     private let transition: Transition
     
+    private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
+    
     private init(transition: Transition) {
         self.transition = transition
         
@@ -45,6 +47,7 @@ final class AddMemberViewController: UIViewController {
         
         addMemberUnitActions()
         addTemperatureUnitActions()
+        addCreateProfileActions()
         
         viewModel
             .disabledMembersUnits()
@@ -75,6 +78,25 @@ extension AddMemberViewController {
         let vc = AddMemberViewController(transition: transition)
         vc.modalPresentationStyle = .overFullScreen
         return vc
+    }
+}
+
+// MARK: ImagePickerDelegate
+extension AddMemberViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        addMemberView.createProfileView.image = image
+        
+        guard let img = image else {
+            return
+        }
+        
+        viewModel
+            .store(image: img)
+            .drive(onNext: { [weak self] key in
+                self?.viewModel.createImageKey.accept(key)
+                self?.addMemberView.createProfileView.image = img
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -189,6 +211,23 @@ private extension AddMemberViewController {
         }
     }
     
+    func addCreateProfileActions() {
+        let openImagePickerTapGesture = UITapGestureRecognizer()
+        
+        addMemberView.createProfileView.plusView.isUserInteractionEnabled = true
+        addMemberView.createProfileView.plusView.addGestureRecognizer(openImagePickerTapGesture)
+        
+        openImagePickerTapGesture.rx.event
+            .subscribe(onNext: { [weak self] event in
+                guard let this = self else {
+                    return
+                }
+                
+                this.imagePicker.present(from: this.view)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     func nextTapped() {
         guard canNext() else {
             return
@@ -211,6 +250,8 @@ private extension AddMemberViewController {
             return hasCheckedMemberUnit()
         case .temperatureUnitView:
             return hasCheckedTemperatureUnit()
+        case .createProfileView:
+            return hasFilledProfile()
         }
     }
     
@@ -230,6 +271,17 @@ private extension AddMemberViewController {
             addMemberView.temperatureUnitView.celsiusCell
         ]
         .contains(where: { $0.state == .checked })
+    }
+    
+    func hasFilledProfile() -> Bool {
+        let canNext = addMemberView.createProfileView.textField.text?.isEmpty == false
+            && addMemberView.createProfileView.image != nil
+        
+        if canNext {
+            viewModel.inputName.accept(addMemberView.createProfileView.textField.text ?? "")
+        }
+        
+        return canNext
     }
     
     func step(at step: AddMemberViewModel.Step) {
