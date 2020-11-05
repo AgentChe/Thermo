@@ -40,7 +40,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Please allow access to take your photo </string>
+	<string>The access is required to take and attach your photo to the profile</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Please allow access to load photo from your photo library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
