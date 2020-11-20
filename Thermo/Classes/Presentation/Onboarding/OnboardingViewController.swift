@@ -25,9 +25,12 @@ final class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        onboardingView
-            .button.rx.tap
+            
+        Observable
+            .merge([
+                onboardingView.trackTemperaturePurpose.button.rx.tap.asObservable(),
+                onboardingView.trackTemperatureImportant.button.rx.tap.asObservable()
+            ])
             .subscribe(onNext: { [weak self] in
                 self?.tapped()
             })

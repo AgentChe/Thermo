@@ -14,13 +14,11 @@ final class OnboardingView: GradientView {
     }
     
     lazy var scrollView = makeScrollView()
-    lazy var button = makeButton()
     lazy var trackTemperaturePurpose = TrackTemperaturePurpose()
     lazy var trackTemperatureImportant = TrackTemperatureImportant()
     
     var step = Step.trackTemperaturePurpose {
         didSet {
-            updateButton()
             scroll()
         }
     }
@@ -60,26 +58,6 @@ private extension OnboardingView {
         
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(contentViews().count),
                                         height: UIScreen.main.bounds.height)
-        
-        updateButton()
-    }
-    
-    func updateButton() {
-        let title: String
-        
-        switch step {
-        case .trackTemperaturePurpose:
-            title = "Continue".localized
-        case .trackTemperatureImportant:
-            title = "OK".localized
-        }
-        
-        let attrs = TextAttributes()
-            .textColor(UIColor.black)
-            .font(Fonts.Poppins.semiBold(size: 17.scale))
-            .lineHeight(22.scale)
-        
-        button.setAttributedTitle(title.attributed(with: attrs), for: .normal)
     }
     
     func scroll() {
@@ -111,13 +89,6 @@ private extension OnboardingView {
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-        
-        NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
-            button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -80.scale : -40.scale)
-        ])
     }
 }
 
@@ -130,15 +101,6 @@ private extension OnboardingView {
         view.isPagingEnabled = true
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeButton() -> UIButton {
-        let view = UIButton()
-        view.backgroundColor = UIColor.white
-        view.layer.cornerRadius = 28.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

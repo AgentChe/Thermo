@@ -33,10 +33,12 @@
 
 // MARK: Onboarding
 "Onboarding.TrackTemperaturePurpose.Title" = "Why do you\nwant to track\ntemperature?";
-"Onboarding.TrackTemperaturePurpose.Cell1" = "Because of pandemic";
-"Onboarding.TrackTemperaturePurpose.Cell2" = "A family memberd\nis sick";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "The doctor asked\nto do it ";
-"Onboarding.TrackTemperaturePurpose.Cell4" = "Just self-care";
+"Onboarding.TrackTemperaturePurpose.Cell1" = "Identify possible conditions\nand treatment related to\nyour symptoms";
+"Onboarding.TrackTemperaturePurpose.Cell2" = "Because of pandemic";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "A family memberd\nis sick";
+"Onboarding.TrackTemperaturePurpose.Cell4" = "The doctor asked\nto do it ";
+"Onboarding.TrackTemperaturePurpose.Cell5" = "Just self-care";
+"Onboarding.TrackTemperaturePurpose.BottomLine" = "*This tool does not provide medical advice";
 
 "Onboarding.TrackTemperatureImportant.Title" = "It’s very\nimportant\nto track your\ntemperature";
 "Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you are feeling fine,";
@@ -45,6 +47,10 @@
 "Onboarding.TrackTemperatureImportant.Cell2Part2" = " temperaturein the morning and in the evening at the same time";
 "Onboarding.TrackTemperatureImportant.Cell3Part1" = "If the temperature rises";
 "Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the normal, pey attention to other symptoms";
+"Onboarding.TrackTemperatureImportant.Cell4Part1" = "The health of animals";
+"Onboarding.TrackTemperatureImportant.Cell4Part2" = " should be watched as carefully as yours";
+"Onboarding.TrackTemperatureImportant.Cell5Part1" = "Temperature and humidity of the room";
+"Onboarding.TrackTemperatureImportant.Cell5Part2" = " are vital indicators for a person";
 
 // MARK: Add member
 "AddMember.MemberUnit.Title" = "Who we will\nbe tracking the\ntemperature\nfor?";
