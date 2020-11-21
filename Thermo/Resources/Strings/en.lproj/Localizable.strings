@@ -54,14 +54,25 @@
 
 // MARK: Add member
 "AddMember.MemberUnit.Title" = "Who we will\nbe tracking the\ntemperature\nfor?";
-"AddMember.MemberUnit.Me" = "Me";
-"AddMember.MemberUnit.Child" = "A child";
-"AddMember.MemberUnit.Parent" = "My parent";
-"AddMember.MemberUnit.Other" = "Other family member";
+"AddMember.MemberUnit.Me" = "🙂 Me";
+"AddMember.MemberUnit.Child" = "👶 A child";
+"AddMember.MemberUnit.Parent" = "💑 My parent";
+"AddMember.MemberUnit.Other" = "👫 Other family member";
+
+"AddMember.Gender.TitleForMeUnit" = "What's your gender?";
+"AddMember.Gender.TitleForNotMeUnit" = "What's their gender?";
+"AddMember.Gender.Male" = "👦 Male";
+"AddMember.Gender.Female" = "👧 Female";
 
 "AddMember.CreateProfile.Title" = "Create profile:";
 "AddMember.CreateProfile.Placeholder" = "Name";
 "AddMember.CreateProfile.Button" = "Add member";
+
+"AddMember.DateBirthday.TileForMeUnit" = "What's your date of birth?";
+"AddMember.DateBirthday.TileForNotMeUnit" = "What's their date of birth?";
+"AddMember.DateBirthday.DialogTitle" = "Why it’s needed?";
+"AddMember.DateBirthday.DialogSubTitle" = "The temperature is influenced by gender and age. In girls the body temperature stabilizes at 13-14 years old, and in boys - at about 18 years. ";
+"AddMember.DateBirthday.DialogButton" = "Next";
 
 "AddMember.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
 

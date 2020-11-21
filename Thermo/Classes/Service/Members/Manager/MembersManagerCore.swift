@@ -16,18 +16,22 @@ final class MembersManagerCore: MembersManager {
 
 // MARK: API
 extension MembersManagerCore {
-    func add(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool = false) -> Member? {
+    func add(memberUnit: MemberUnit,
+             temperatureUnit: TemperatureUnit,
+             imageKey: String,
+             name: String,
+             gender: Gender,
+             dateBirthday: Date,
+             setAsCurrent: Bool = false) -> Member? {
         var members = getAllMembers()
-        
-        guard !members.contains(where: { $0.unit == memberUnit }) else {
-            return nil
-        }
         
         let member = Member(id: Int.random(in: 0..<Int.max),
                             unit: memberUnit,
                             temperatureUnit: temperatureUnit,
                             imageKey: imageKey,
-                            name: name)
+                            name: name,
+                            gender: gender,
+                            dateBirthday: dateBirthday)
     
         members.append(member)
         
@@ -99,7 +103,13 @@ extension MembersManagerCore {
 
 // MARK: API(Rx)
 extension MembersManagerCore {
-    func rxAdd(memberUnit: MemberUnit, temperatureUnit: TemperatureUnit, imageKey: String, name: String, setAsCurrent: Bool = false) -> Single<Member?> {
+    func rxAdd(memberUnit: MemberUnit,
+               temperatureUnit: TemperatureUnit,
+               imageKey: String,
+               name: String,
+               gender: Gender,
+               dateBirthday: Date,
+               setAsCurrent: Bool = false) -> Single<Member?> {
         Single<Member?>
             .create { [weak self] event in
                 guard let this = self else {
@@ -110,6 +120,8 @@ extension MembersManagerCore {
                                       temperatureUnit: temperatureUnit,
                                       imageKey: imageKey,
                                       name: name,
+                                      gender: gender,
+                                      dateBirthday: dateBirthday,
                                       setAsCurrent: setAsCurrent)
                 
                 event(.success(member))

@@ -10,15 +10,19 @@ import UIKit
 final class AddMemberView: GradientView {
     enum Step: Int {
         case memberUnitView = 0
-        case temperatureUnitView = 1
+        case genderView = 1
         case createProfileView = 2
+        case dateBirthdayView = 3
+        case temperatureUnitView = 4
     }
     
     lazy var scrollView = makeScrollView()
     lazy var button = makeButton()
     lazy var memberUnitView = AMMemberUnitView()
-    lazy var temperatureUnitView = AMTemperatureUnitView()
+    lazy var genderView = AMGenderView()
     lazy var createProfileView = AMCreateProfileView()
+    lazy var dateBirthdayView = AMDateBirthdayView()
+    lazy var temperatureUnitView = AMTemperatureUnitView()
     
     var step = Step.memberUnitView {
         didSet {
@@ -84,18 +88,24 @@ private extension AddMemberView {
             .lineHeight(22.scale)
         
         switch step {
-        case .temperatureUnitView, .memberUnitView:
+        case .temperatureUnitView, .memberUnitView, .genderView:
+            button.isHidden = false
             button.setAttributedTitle("Next".localized.attributed(with: attrs), for: .normal)
         case .createProfileView:
+            button.isHidden = false
             button.setAttributedTitle("AddMember.CreateProfile.Button".localized.attributed(with: attrs), for: .normal)
+        case .dateBirthdayView:
+            button.isHidden = true
         }
     }
     
     func contentViews() -> [UIView] {
         [
             memberUnitView,
-            temperatureUnitView,
-            createProfileView
+            genderView,
+            createProfileView,
+            dateBirthdayView,
+            temperatureUnitView
         ]
     }
 }

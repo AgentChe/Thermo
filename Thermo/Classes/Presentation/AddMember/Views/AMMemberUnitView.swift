@@ -39,19 +39,19 @@ private extension AMMemberUnitView {
             meUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             meUnitCell.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             childUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             childUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             childUnitCell.topAnchor.constraint(equalTo: meUnitCell.bottomAnchor, constant: 16.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             parentUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             parentUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             parentUnitCell.topAnchor.constraint(equalTo: childUnitCell.bottomAnchor, constant: 16.scale)
         ])
-        
+
         NSLayoutConstraint.activate([
             otherUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             otherUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),

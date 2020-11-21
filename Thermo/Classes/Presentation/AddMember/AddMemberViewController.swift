@@ -46,18 +46,22 @@ final class AddMemberViewController: UIViewController {
         super.viewDidLoad()
         
         addMemberUnitActions()
+        addGenderActions()
         addTemperatureUnitActions()
         addCreateProfileActions()
         
         viewModel
-            .disabledMembersUnits()
+            .existingMembersUnits()
             .drive(onNext: { [weak self] units in
-                self?.disableMembersUnits(units)
+                self?.existingMembersUnits(units)
             })
             .disposed(by: disposeBag)
         
-        addMemberView
-            .button.rx.tap
+        Observable
+            .merge([
+                addMemberView.button.rx.tap.asObservable(),
+                addMemberView.dateBirthdayView.dialogButton.rx.tap.asObservable()
+            ])
             .subscribe(onNext: { [weak self] in
                 self?.nextTapped()
             })
@@ -102,18 +106,9 @@ extension AddMemberViewController: ImagePickerDelegate {
 
 // MARK: Private
 private extension AddMemberViewController {
-    func disableMembersUnits(_ units: [MemberUnit]) {
-        units.forEach { unit in
-            switch unit {
-            case .me:
-                addMemberView.memberUnitView.meUnitCell.state = .disabled
-            case .child:
-                addMemberView.memberUnitView.childUnitCell.state = .disabled
-            case .parent:
-                addMemberView.memberUnitView.parentUnitCell.state = .disabled
-            case .other:
-                addMemberView.memberUnitView.otherUnitCell.state = .disabled
-            }
+    func existingMembersUnits(_ units: [MemberUnit]) {
+        if units.contains(.me) {
+            addMemberView.memberUnitView.meUnitCell.state = .disabled
         }
     }
     
@@ -144,6 +139,8 @@ private extension AddMemberViewController {
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
                 self?.viewModel.selectMemberUnit.accept(unit)
+                self?.addMemberView.genderView.setup(with: unit)
+                self?.addMemberView.dateBirthdayView.setup(with: unit)
             })
             .disposed(by: disposeBag)
     }
@@ -169,6 +166,45 @@ private extension AddMemberViewController {
             addMemberView.memberUnitView.parentUnitCell.state = .checked
         case .other:
             addMemberView.memberUnitView.otherUnitCell.state = .checked
+        }
+    }
+    
+    func addGenderActions() {
+        let maleGesture = UITapGestureRecognizer()
+        addMemberView.genderView.maleCell.addGestureRecognizer(maleGesture)
+        addMemberView.genderView.maleCell.isUserInteractionEnabled = true
+        
+        let femaleGesture = UITapGestureRecognizer()
+        addMemberView.genderView.femaleCell.addGestureRecognizer(femaleGesture)
+        addMemberView.genderView.femaleCell.isUserInteractionEnabled = true
+        
+        Observable
+            .merge([
+                maleGesture.rx.event.map { _ in Gender.male },
+                femaleGesture.rx.event.map { _ in Gender.female },
+            ])
+            .subscribe(onNext: { [weak self] gender in
+                self?.update(checked: gender)
+                self?.viewModel.selectGender.accept(gender)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func update(checked gender: Gender) {
+        [
+            addMemberView.genderView.maleCell,
+            addMemberView.genderView.femaleCell,
+        ]
+        .filter { $0.state != .disabled }
+        .forEach {
+            $0.state = .unchecked
+        }
+        
+        switch gender {
+        case .male:
+            addMemberView.genderView.maleCell.state = .checked
+        case .female:
+            addMemberView.genderView.femaleCell.state = .checked
         }
     }
     
@@ -252,6 +288,10 @@ private extension AddMemberViewController {
             return hasCheckedTemperatureUnit()
         case .createProfileView:
             return hasFilledProfile()
+        case .dateBirthdayView:
+            return hasFilledDateBirthday()
+        case .genderView:
+            return hasCheckedGender()
         }
     }
     
@@ -282,6 +322,22 @@ private extension AddMemberViewController {
         }
         
         return canNext
+    }
+    
+    func hasFilledDateBirthday() -> Bool {
+        let selectedDate = addMemberView.dateBirthdayView.datePicker.date
+        
+        viewModel.inputDateBirthday.accept(selectedDate)
+        
+        return true
+    }
+    
+    func hasCheckedGender() -> Bool {
+        [
+            addMemberView.genderView.maleCell,
+            addMemberView.genderView.femaleCell
+        ]
+        .contains(where: { $0.state == .checked })
     }
     
     func step(at step: AddMemberViewModel.Step) {

@@ -43,6 +43,9 @@
 		966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */; };
 		966A55792548AA050099FDAE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55782548AA050099FDAE /* Toast.swift */; };
 		966A55992548AA610099FDAE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55982548AA610099FDAE /* ImagePicker.swift */; };
+		96846CC62567C84B009841BD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC52567C84B009841BD /* Gender.swift */; };
+		96846CC92567D666009841BD /* AMGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC82567D666009841BD /* AMGenderView.swift */; };
+		96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CCB2567D794009841BD /* AMDateBirthdayView.swift */; };
 		968AE4632548B46300A42C46 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4622548B46300A42C46 /* MainViewController.swift */; };
 		968AE4662548B8E400A42C46 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4652548B8E400A42C46 /* Temperature.swift */; };
 		968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4682548B96400A42C46 /* OverallFeeling.swift */; };
@@ -148,6 +151,9 @@
 		966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMTemperatureUnitView.swift; sourceTree = "<group>"; };
 		966A55782548AA050099FDAE /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		966A55982548AA610099FDAE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		96846CC52567C84B009841BD /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		96846CC82567D666009841BD /* AMGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMGenderView.swift; sourceTree = "<group>"; };
+		96846CCB2567D794009841BD /* AMDateBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMDateBirthdayView.swift; sourceTree = "<group>"; };
 		968AE4622548B46300A42C46 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		968AE4652548B8E400A42C46 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		968AE4682548B96400A42C46 /* OverallFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallFeeling.swift; sourceTree = "<group>"; };
@@ -338,6 +344,7 @@
 			children = (
 				966A555725484A970099FDAE /* Member.swift */,
 				966A556025484BD60099FDAE /* MemberUnit.swift */,
+				96846CC52567C84B009841BD /* Gender.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,6 +385,8 @@
 				966A556E254864080099FDAE /* AMMemberUnitView.swift */,
 				966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */,
 				968AE5A625529E2500A42C46 /* AMCreateProfileView.swift */,
+				96846CC82567D666009841BD /* AMGenderView.swift */,
+				96846CCB2567D794009841BD /* AMDateBirthdayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -904,6 +913,7 @@
 				966A556525484E940099FDAE /* MembersManager.swift in Sources */,
 				966A552E25472D6E0099FDAE /* UIColorExtension.swift in Sources */,
 				966A556C25485E2D0099FDAE /* AMCheckedCell.swift in Sources */,
+				96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */,
 				968AE4D22549F41000A42C46 /* JournalTableElement.swift in Sources */,
 				968AE5AA2552A98B00A42C46 /* UIViewRxExtension.swift in Sources */,
 				966A55282546FA310099FDAE /* SplashViewModel.swift in Sources */,
@@ -919,6 +929,7 @@
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
+				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
@@ -971,6 +982,7 @@
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
 				968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
+				96846CC62567C84B009841BD /* Gender.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				968AE54D25505FC700A42C46 /* Reminders.swift in Sources */,

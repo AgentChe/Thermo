@@ -15,16 +15,18 @@ final class AddMemberViewModel {
     }
     
     let selectMemberUnit = PublishRelay<MemberUnit>()
+    let selectGender = PublishRelay<Gender>()
     let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
     let createImageKey = PublishRelay<String>()
     let inputName = PublishRelay<String>()
+    let inputDateBirthday = PublishRelay<Date>()
     
     let addMember = PublishRelay<Void>()
     
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
     
-    func disabledMembersUnits() -> Driver<[MemberUnit]> {
+    func existingMembersUnits() -> Driver<[MemberUnit]> {
         membersManager
             .rxGetAllMembers()
             .map { $0.map { $0.unit } }
@@ -44,9 +46,11 @@ final class AddMemberViewModel {
         let stub = Observable
             .combineLatest(
                 selectMemberUnit.asObservable(),
+                selectGender.asObservable(),
                 selectTemperatureUnit.asObservable(),
                 createImageKey.asObservable(),
-                inputName.asObservable()
+                inputName.asObservable(),
+                inputDateBirthday.asObservable()
             )
         
         return addMember
@@ -56,13 +60,20 @@ final class AddMemberViewModel {
                     return .never()
                 }
                 
-                let (memberUnit, temperatureUnit, imageKey, name) = stub
+                let (memberUnit,
+                     gender,
+                     temperatureUnit,
+                     imageKey,
+                     name,
+                     dateBirthday) = stub
                 
                 return this.membersManager
                     .rxAdd(memberUnit: memberUnit,
                            temperatureUnit: temperatureUnit,
                            imageKey: imageKey,
                            name: name,
+                           gender: gender,
+                           dateBirthday: dateBirthday,
                            setAsCurrent: true)
                     .catchErrorJustReturn(nil)
             }
