@@ -46,6 +46,16 @@
 		96846CC62567C84B009841BD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC52567C84B009841BD /* Gender.swift */; };
 		96846CC92567D666009841BD /* AMGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC82567D666009841BD /* AMGenderView.swift */; };
 		96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CCB2567D794009841BD /* AMDateBirthdayView.swift */; };
+		96846CEF25698D10009841BD /* Medicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CEE25698D10009841BD /* Medicine.swift */; };
+		96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CF325698D61009841BD /* GetMedicinesRequest.swift */; };
+		96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CF725698E22009841BD /* GetMedicinesResponseMapper.swift */; };
+		96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CFC25698F4A009841BD /* MedicineManager.swift */; };
+		96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CFF25699120009841BD /* MedicineManagerCore.swift */; };
+		96846D0E25699947009841BD /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D0D25699947009841BD /* Symptom.swift */; };
+		96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D1125699975009841BD /* GetSymptomsRequest.swift */; };
+		96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D14256999A4009841BD /* GetSymptomsResponseMapper.swift */; };
+		96846D18256999E0009841BD /* SymptomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D17256999E0009841BD /* SymptomsManager.swift */; };
+		96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D1A25699A0E009841BD /* SymptomsManagerCore.swift */; };
 		968AE4632548B46300A42C46 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4622548B46300A42C46 /* MainViewController.swift */; };
 		968AE4662548B8E400A42C46 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4652548B8E400A42C46 /* Temperature.swift */; };
 		968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4682548B96400A42C46 /* OverallFeeling.swift */; };
@@ -154,6 +164,16 @@
 		96846CC52567C84B009841BD /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		96846CC82567D666009841BD /* AMGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMGenderView.swift; sourceTree = "<group>"; };
 		96846CCB2567D794009841BD /* AMDateBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMDateBirthdayView.swift; sourceTree = "<group>"; };
+		96846CEE25698D10009841BD /* Medicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medicine.swift; sourceTree = "<group>"; };
+		96846CF325698D61009841BD /* GetMedicinesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMedicinesRequest.swift; sourceTree = "<group>"; };
+		96846CF725698E22009841BD /* GetMedicinesResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMedicinesResponseMapper.swift; sourceTree = "<group>"; };
+		96846CFC25698F4A009841BD /* MedicineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineManager.swift; sourceTree = "<group>"; };
+		96846CFF25699120009841BD /* MedicineManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineManagerCore.swift; sourceTree = "<group>"; };
+		96846D0D25699947009841BD /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
+		96846D1125699975009841BD /* GetSymptomsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSymptomsRequest.swift; sourceTree = "<group>"; };
+		96846D14256999A4009841BD /* GetSymptomsResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSymptomsResponseMapper.swift; sourceTree = "<group>"; };
+		96846D17256999E0009841BD /* SymptomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsManager.swift; sourceTree = "<group>"; };
+		96846D1A25699A0E009841BD /* SymptomsManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsManagerCore.swift; sourceTree = "<group>"; };
 		968AE4622548B46300A42C46 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		968AE4652548B8E400A42C46 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		968AE4682548B96400A42C46 /* OverallFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallFeeling.swift; sourceTree = "<group>"; };
@@ -398,6 +418,94 @@
 				966A55982548AA610099FDAE /* ImagePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		96846CEC25698CF7009841BD /* Medicine */ = {
+			isa = PBXGroup;
+			children = (
+				96846CFB25698F34009841BD /* Manager */,
+				96846CF625698E08009841BD /* Mappers */,
+				96846CF225698D43009841BD /* Requests */,
+				96846CED25698D05009841BD /* Models */,
+			);
+			path = Medicine;
+			sourceTree = "<group>";
+		};
+		96846CED25698D05009841BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96846CEE25698D10009841BD /* Medicine.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96846CF225698D43009841BD /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				96846CF325698D61009841BD /* GetMedicinesRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		96846CF625698E08009841BD /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				96846CF725698E22009841BD /* GetMedicinesResponseMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		96846CFB25698F34009841BD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				96846CFC25698F4A009841BD /* MedicineManager.swift */,
+				96846CFF25699120009841BD /* MedicineManagerCore.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		96846D0225699900009841BD /* Symptoms */ = {
+			isa = PBXGroup;
+			children = (
+				96846D0C25699936009841BD /* Manager */,
+				96846D0B2569992F009841BD /* Mappers */,
+				96846D0A25699928009841BD /* Requests */,
+				96846D0725699921009841BD /* Models */,
+			);
+			path = Symptoms;
+			sourceTree = "<group>";
+		};
+		96846D0725699921009841BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96846D0D25699947009841BD /* Symptom.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		96846D0A25699928009841BD /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				96846D1125699975009841BD /* GetSymptomsRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		96846D0B2569992F009841BD /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				96846D14256999A4009841BD /* GetSymptomsResponseMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		96846D0C25699936009841BD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				96846D17256999E0009841BD /* SymptomsManager.swift */,
+				96846D1A25699A0E009841BD /* SymptomsManagerCore.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		968AE4612548B45400A42C46 /* Main */ = {
@@ -731,6 +839,8 @@
 		968E41AC2546E3DA006F3CFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				96846D0225699900009841BD /* Symptoms */,
+				96846CEC25698CF7009841BD /* Medicine */,
 				968AE594255295A100A42C46 /* Image */,
 				968AE52B254F5A6A00A42C46 /* Reminder */,
 				966A555B25484B030099FDAE /* Temperature */,
@@ -921,22 +1031,28 @@
 				966A555825484A970099FDAE /* Member.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
+				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
+				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
+				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
+				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
 				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
 				968AE4B725499D3000A42C46 /* OverallFeelingView.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
+				96846CEF25698D10009841BD /* Medicine.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
 				968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */,
+				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
 				968AE549255058D300A42C46 /* ReminderTime.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
 				968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */,
@@ -954,6 +1070,7 @@
 				968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */,
 				968AE4F6254A293000A42C46 /* MemberTableView.swift in Sources */,
 				968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */,
+				96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */,
 				968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
@@ -969,6 +1086,7 @@
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */,
 				968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */,
+				96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */,
 				968AE4E8254A15FF00A42C46 /* MembersViewModel.swift in Sources */,
 				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
@@ -985,6 +1103,8 @@
 				96846CC62567C84B009841BD /* Gender.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
+				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
+				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
 				968AE54D25505FC700A42C46 /* Reminders.swift in Sources */,
 				968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,

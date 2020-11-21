@@ -6,8 +6,11 @@
 //
 
 final class GlobalDefinitions {
+    static let domainUrl = "https://thermo.korrekted.com"
+    static let apiKey = "6QnZu9efRNk4BX1r"
+    
     static let sdkDomainUrl = "https://analytics.korrekted.com"
-    static let apiKey = "aax6lJfygBXJ05r8"
+    static let sdkApiKey = "aax6lJfygBXJ05r8"
     
     static let applicationTag = "THERMO"
     

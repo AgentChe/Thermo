@@ -62,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     func runProvider(on view: UIView) {
         let settings = SDKSettings(backendBaseUrl: GlobalDefinitions.sdkDomainUrl,
-                                   backendApiKey: GlobalDefinitions.apiKey,
+                                   backendApiKey: GlobalDefinitions.sdkApiKey,
                                    amplitudeApiKey: GlobalDefinitions.amplitudeApiKey,
                                    facebookActive: true,
                                    branchActive: false,
