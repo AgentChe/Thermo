@@ -12,6 +12,8 @@ struct Temperature {
     let unit: TemperatureUnit
     let overallFeeling: OverallFeeling
     let date: Date
+    let symptoms: [Symptom]
+    let medicines: [Medicine]
 }
 
 extension Temperature: Codable {}

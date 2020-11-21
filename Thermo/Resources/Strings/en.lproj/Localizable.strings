@@ -80,7 +80,15 @@
 
 // MARK: Temperature logger
 "TemperatureLogger.Temperature.Title" = "What’s your\ncurrent\ntemperature?";
-"TemperatureLogger.Feeling.Title" = "Overrall\nfeeling...";
+
+"TemperatureLogger.Feeling.Title" = "How I feel?";
+"TemperatureLogger.Feeling.Health.Title" = "Health:";
+"TemperatureLogger.Feeling.Health.Good" = "Good";
+"TemperatureLogger.Feeling.Health.Sick" = "Sick";
+"TemperatureLogger.Feeling.Health.Bad" = "Bad";
+"TemperatureLogger.Feeling.Health.Recovered" = "Recovered";
+"TemperatureLogger.Feeling.Button" = "Save";
+
 "TemperatureLogger.Log.Failure" = "Failure to log temperature";
 
 // MARK: Journal

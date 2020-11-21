@@ -188,7 +188,7 @@ private extension LoggerTemperatureView {
         
         let view = UIButton()
         view.backgroundColor = UIColor.white
-        view.layer.cornerRadius = 20.scale
+        view.layer.cornerRadius = 28.scale
         view.setAttributedTitle("Continue".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

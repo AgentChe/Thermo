@@ -101,9 +101,11 @@ extension JournalTableCell {
         switch element.overallFeeiling {
         case .bad:
             return UIImage(named: "TemperatureLogger.Feeiling.Bad")
-        case .meh:
+        case .sick:
             return UIImage(named: "TemperatureLogger.Feeiling.Meh")
         case .good:
+            return UIImage(named: "TemperatureLogger.Feeiling.Good")
+        case .recovered:
             return UIImage(named: "TemperatureLogger.Feeiling.Good")
         }
     }

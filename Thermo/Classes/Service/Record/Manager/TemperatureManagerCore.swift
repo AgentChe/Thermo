@@ -15,13 +15,20 @@ final class TemperatureManagerCore: TemperatureManager {
 
 // MARK: API
 extension TemperatureManagerCore {
-    func log(member: Member, value: Double, unit: TemperatureUnit, overallFeeling: OverallFeeling) -> Temperature? {
+    func log(member: Member,
+             value: Double,
+             unit: TemperatureUnit,
+             overallFeeling: OverallFeeling,
+             symptoms: [Symptom],
+             medicines: [Medicine]) -> Temperature? {
         let temperature = Temperature(id: Int.random(in: 0..<Int.max),
                                       member: member,
                                       value: value,
                                       unit: unit,
                                       overallFeeling: overallFeeling,
-                                      date: Date())
+                                      date: Date(),
+                                      symptoms: symptoms,
+                                      medicines: medicines)
         
         var temperatures = getAllTemperatures()
         temperatures.append(temperature)
@@ -66,14 +73,24 @@ extension TemperatureManagerCore {
 
 // MARK: API(Rx)
 extension TemperatureManagerCore {
-    func rxLog(member: Member, value: Double, unit: TemperatureUnit, overallFeeling: OverallFeeling) -> Single<Temperature?> {
+    func rxLog(member: Member,
+               value: Double,
+               unit: TemperatureUnit,
+               overallFeeling: OverallFeeling,
+               symptoms: [Symptom],
+               medicines: [Medicine]) -> Single<Temperature?> {
         Single<Temperature?>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                event(.success(this.log(member: member, value: value, unit: unit, overallFeeling: overallFeeling)))
+                event(.success(this.log(member: member,
+                                        value: value,
+                                        unit: unit,
+                                        overallFeeling: overallFeeling,
+                                        symptoms: symptoms,
+                                        medicines: medicines)))
                 
                 return Disposables.create()
             }

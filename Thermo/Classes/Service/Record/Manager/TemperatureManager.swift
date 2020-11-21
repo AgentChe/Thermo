@@ -12,7 +12,9 @@ protocol TemperatureManager: class {
     func log(member: Member,
              value: Double,
              unit: TemperatureUnit,
-             overallFeeling: OverallFeeling) -> Temperature?
+             overallFeeling: OverallFeeling,
+             symptoms: [Symptom],
+             medicines: [Medicine]) -> Temperature?
     func remove(temperatureId: Int)
     func remove(memberId: Int)
     func get(for memberId: Int) -> [Temperature]
@@ -22,7 +24,9 @@ protocol TemperatureManager: class {
     func rxLog(member: Member,
              value: Double,
              unit: TemperatureUnit,
-             overallFeeling: OverallFeeling) -> Single<Temperature?>
+             overallFeeling: OverallFeeling,
+             symptoms: [Symptom],
+             medicines: [Medicine]) -> Single<Temperature?>
     func rxRemove(temperatureId: Int) -> Completable
     func rxRemove(memberId: Int) -> Completable
     func rxGet(for memberId: Int) -> Single<[Temperature]>

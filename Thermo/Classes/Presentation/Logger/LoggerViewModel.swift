@@ -14,8 +14,13 @@ final class LoggerViewModel {
         case error(String)
     }
     
-    let selectTemperature = PublishRelay<(Double, TemperatureUnit)>()
+    let selectTemperatureValue = PublishRelay<Double>()
+    let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
     let selectOverallFeeling = PublishRelay<OverallFeeling>()
+    let selectSymptoms = PublishRelay<[Symptom]>()
+    let selectMedicines = PublishRelay<[Medicine]>()
+    
+    let create = PublishRelay<Void>()
     
     private let membersManager = MembersManagerCore()
     private let temperatureManager = TemperatureManagerCore()
@@ -30,28 +35,41 @@ final class LoggerViewModel {
     }
     
     func step() -> Driver<Step> {
-        Observable
+        let stub = Observable
             .combineLatest(
-                selectTemperature.asObservable(),
+                selectTemperatureValue.asObservable(),
+                selectTemperatureUnit.asObservable(),
                 selectOverallFeeling.asObservable(),
+                selectSymptoms.asObservable().startWith([]),
+                selectMedicines.asObservable().startWith([]),
                 membersManager.rxCurrentMember().asObservable()
             )
-            .flatMapLatest { [weak self] stub, overallFeeling, currentMember -> Single<Step> in
+            
+        return create
+            .withLatestFrom(stub)
+            .flatMapLatest { [weak self] stub -> Single<Step> in
                 guard let this = self else {
                     return .never()
                 }
+                
+                let (temperatureValue,
+                     temperatureUnit,
+                     overallFeeling,
+                     symptoms,
+                     medicines,
+                     currentMember) = stub
                 
                 guard let member = currentMember else {
                     return .just(.error("TemperatureLogger.Log.Failure".localized))
                 }
                 
-                let (temperature, unit) = stub
-                
                 return this.temperatureManager
                     .rxLog(member: member,
-                           value: temperature,
-                           unit: unit,
-                           overallFeeling: overallFeeling)
+                           value: temperatureValue,
+                           unit: temperatureUnit,
+                           overallFeeling: overallFeeling,
+                           symptoms: symptoms,
+                           medicines: medicines)
                     .catchErrorJustReturn(nil)
                     .map { temperature -> Step in
                         if let value = temperature {

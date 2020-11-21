@@ -7,15 +7,15 @@
 
 import UIKit
 
-final class LoggerView: UIView {
+final class LoggerView: GradientView {
     enum Step: Int {
         case temperature = 0
         case overallFeeling = 1
     }
     
     lazy var scrollView = makeScrollView()
-    lazy var loggerTemperatureView = LoggerTemperatureView()
-    lazy var overallFeelingView = makeOverallFeelingView()
+    lazy var temperatureView = LoggerTemperatureView()
+    lazy var feelView = LoggerFeelView()
     
     var step = Step.temperature {
         didSet {
@@ -66,8 +66,8 @@ private extension LoggerView {
     
     func contentViews() -> [UIView] {
         [
-            loggerTemperatureView,
-            overallFeelingView
+            temperatureView,
+            feelView
         ]
     }
 }
@@ -96,17 +96,6 @@ private extension LoggerView {
         view.contentInsetAdjustmentBehavior = .never
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
-        return view
-    }
-    
-    func makeOverallFeelingView() -> OverallFeelingView {
-        let view = OverallFeelingView()
-        view.gradientLayer.colors = [
-            UIColor(integralRed: 255, green: 229, blue: 212).cgColor,
-            UIColor(integralRed: 248, green: 183, blue: 203).cgColor
-        ]
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
         return view
     }
 }

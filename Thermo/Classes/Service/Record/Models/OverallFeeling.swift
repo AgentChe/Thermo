@@ -6,7 +6,8 @@
 //
 
 enum OverallFeeling: String, Codable {
-    case bad
-    case meh
     case good
+    case sick
+    case bad
+    case recovered
 }
