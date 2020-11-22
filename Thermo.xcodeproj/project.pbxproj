@@ -124,6 +124,25 @@
 		968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41C52546F4AF006F3CFC /* Fonts.swift */; };
 		968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968E41C82546F4BD006F3CFC /* ScreenSize.swift */; };
 		969EF6FF2569B68A00BEA8EC /* LoggerFeelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF6FE2569B68A00BEA8EC /* LoggerFeelView.swift */; };
+		969EF7182569CBD500BEA8EC /* PaygateManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7062569CBD500BEA8EC /* PaygateManagerCore.swift */; };
+		969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7092569CBD500BEA8EC /* PaygateMapper.swift */; };
+		969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF70B2569CBD500BEA8EC /* PaygateOption.swift */; };
+		969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF70C2569CBD500BEA8EC /* ProductPrice.swift */; };
+		969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF70D2569CBD500BEA8EC /* Paygate.swift */; };
+		969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF70E2569CBD500BEA8EC /* PaygateMainOffer.swift */; };
+		969EF71F2569CBD500BEA8EC /* PaygateSpecialOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF70F2569CBD500BEA8EC /* PaygateSpecialOffer.swift */; };
+		969EF7222569CBD500BEA8EC /* GetPaygateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7132569CBD500BEA8EC /* GetPaygateRequest.swift */; };
+		969EF7232569CBD500BEA8EC /* PaygateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7142569CBD500BEA8EC /* PaygateManager.swift */; };
+		969EF72F2569D1D300BEA8EC /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF72E2569D1D300BEA8EC /* Session.swift */; };
+		969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7312569D25200BEA8EC /* SessionManager.swift */; };
+		969EF7352569D2A500BEA8EC /* SessionManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF7342569D2A500BEA8EC /* SessionManagerCore.swift */; };
+		969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF738256A977600BEA8EC /* PaygateViewModel.swift */; };
+		969EF741256A977600BEA8EC /* PaygateViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF739256A977600BEA8EC /* PaygateViewControllerDelegate.swift */; };
+		969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73A256A977600BEA8EC /* PaygateViewController.swift */; };
+		969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73C256A977600BEA8EC /* PaygateMainView.swift */; };
+		969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73D256A977600BEA8EC /* PaygateOptionView.swift */; };
+		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
+		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +266,25 @@
 		968E41C52546F4AF006F3CFC /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		968E41C82546F4BD006F3CFC /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		969EF6FE2569B68A00BEA8EC /* LoggerFeelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerFeelView.swift; sourceTree = "<group>"; };
+		969EF7062569CBD500BEA8EC /* PaygateManagerCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateManagerCore.swift; sourceTree = "<group>"; };
+		969EF7092569CBD500BEA8EC /* PaygateMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateMapper.swift; sourceTree = "<group>"; };
+		969EF70B2569CBD500BEA8EC /* PaygateOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateOption.swift; sourceTree = "<group>"; };
+		969EF70C2569CBD500BEA8EC /* ProductPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPrice.swift; sourceTree = "<group>"; };
+		969EF70D2569CBD500BEA8EC /* Paygate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paygate.swift; sourceTree = "<group>"; };
+		969EF70E2569CBD500BEA8EC /* PaygateMainOffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateMainOffer.swift; sourceTree = "<group>"; };
+		969EF70F2569CBD500BEA8EC /* PaygateSpecialOffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOffer.swift; sourceTree = "<group>"; };
+		969EF7132569CBD500BEA8EC /* GetPaygateRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPaygateRequest.swift; sourceTree = "<group>"; };
+		969EF7142569CBD500BEA8EC /* PaygateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateManager.swift; sourceTree = "<group>"; };
+		969EF72E2569D1D300BEA8EC /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		969EF7312569D25200BEA8EC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
+		969EF7342569D2A500BEA8EC /* SessionManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManagerCore.swift; sourceTree = "<group>"; };
+		969EF738256A977600BEA8EC /* PaygateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewModel.swift; sourceTree = "<group>"; };
+		969EF739256A977600BEA8EC /* PaygateViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewControllerDelegate.swift; sourceTree = "<group>"; };
+		969EF73A256A977600BEA8EC /* PaygateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateViewController.swift; sourceTree = "<group>"; };
+		969EF73C256A977600BEA8EC /* PaygateMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateMainView.swift; sourceTree = "<group>"; };
+		969EF73D256A977600BEA8EC /* PaygateOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateOptionView.swift; sourceTree = "<group>"; };
+		969EF73E256A977600BEA8EC /* PaygateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateView.swift; sourceTree = "<group>"; };
+		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
 		E9005543DA99C1334A088B60 /* Pods-Thermo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.release.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -838,6 +876,7 @@
 		968E41AB2546E3D3006F3CFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				969EF737256A977600BEA8EC /* Paygate */,
 				968AE4E2254A158A00A42C46 /* Members */,
 				968AE487254995CD00A42C46 /* Remiinder */,
 				968AE486254995B100A42C46 /* Journal */,
@@ -853,6 +892,8 @@
 		968E41AC2546E3DA006F3CFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				969EF72B2569D1B400BEA8EC /* Session */,
+				969EF7022569CBD500BEA8EC /* Paygate */,
 				96846D0225699900009841BD /* Symptoms */,
 				96846CEC25698CF7009841BD /* Medicine */,
 				968AE594255295A100A42C46 /* Image */,
@@ -901,6 +942,94 @@
 				966A550D2546F6320099FDAE /* Weak.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		969EF7022569CBD500BEA8EC /* Paygate */ = {
+			isa = PBXGroup;
+			children = (
+				969EF7072569CBD500BEA8EC /* Mapper */,
+				969EF70A2569CBD500BEA8EC /* Models */,
+				969EF7112569CBD500BEA8EC /* Requests */,
+				969EF7142569CBD500BEA8EC /* PaygateManager.swift */,
+				969EF7062569CBD500BEA8EC /* PaygateManagerCore.swift */,
+			);
+			path = Paygate;
+			sourceTree = "<group>";
+		};
+		969EF7072569CBD500BEA8EC /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				969EF7092569CBD500BEA8EC /* PaygateMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		969EF70A2569CBD500BEA8EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				969EF70B2569CBD500BEA8EC /* PaygateOption.swift */,
+				969EF70C2569CBD500BEA8EC /* ProductPrice.swift */,
+				969EF70D2569CBD500BEA8EC /* Paygate.swift */,
+				969EF70E2569CBD500BEA8EC /* PaygateMainOffer.swift */,
+				969EF70F2569CBD500BEA8EC /* PaygateSpecialOffer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		969EF7112569CBD500BEA8EC /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				969EF7132569CBD500BEA8EC /* GetPaygateRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		969EF72B2569D1B400BEA8EC /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				969EF72D2569D1C300BEA8EC /* Models */,
+				969EF72C2569D1BC00BEA8EC /* Manager */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		969EF72C2569D1BC00BEA8EC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				969EF7312569D25200BEA8EC /* SessionManager.swift */,
+				969EF7342569D2A500BEA8EC /* SessionManagerCore.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		969EF72D2569D1C300BEA8EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				969EF72E2569D1D300BEA8EC /* Session.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		969EF737256A977600BEA8EC /* Paygate */ = {
+			isa = PBXGroup;
+			children = (
+				969EF73B256A977600BEA8EC /* Views */,
+				969EF738256A977600BEA8EC /* PaygateViewModel.swift */,
+				969EF739256A977600BEA8EC /* PaygateViewControllerDelegate.swift */,
+				969EF73A256A977600BEA8EC /* PaygateViewController.swift */,
+			);
+			path = Paygate;
+			sourceTree = "<group>";
+		};
+		969EF73B256A977600BEA8EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				969EF73C256A977600BEA8EC /* PaygateMainView.swift */,
+				969EF73D256A977600BEA8EC /* PaygateOptionView.swift */,
+				969EF73E256A977600BEA8EC /* PaygateView.swift */,
+				969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		AE4229B6DBC45CD4BED0F826 /* Frameworks */ = {
@@ -1043,31 +1172,39 @@
 				966A55282546FA310099FDAE /* SplashViewModel.swift in Sources */,
 				966A552B254729430099FDAE /* SplashView.swift in Sources */,
 				966A555825484A970099FDAE /* Member.swift in Sources */,
+				969EF7352569D2A500BEA8EC /* SessionManagerCore.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
+				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
+				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
+				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
+				969EF741256A977600BEA8EC /* PaygateViewControllerDelegate.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
 				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
+				969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
 				968AE4B725499D3000A42C46 /* OverallFeelingView.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				96846CEF25698D10009841BD /* Medicine.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
+				969EF745256A977600BEA8EC /* PaygateView.swift in Sources */,
 				968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */,
 				969EF6FF2569B68A00BEA8EC /* LoggerFeelView.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
+				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
 				968AE549255058D300A42C46 /* ReminderTime.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
 				968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */,
@@ -1075,6 +1212,7 @@
 				968AE4EB254A165100A42C46 /* MembersView.swift in Sources */,
 				968AE4712548BCF200A42C46 /* TemperatureManagerCore.swift in Sources */,
 				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
+				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				966A5547254774670099FDAE /* TrackTemperatureImportant.swift in Sources */,
 				968AE4F2254A271F00A42C46 /* MemberTableCell.swift in Sources */,
@@ -1083,9 +1221,12 @@
 				968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */,
+				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,
+				969EF7222569CBD500BEA8EC /* GetPaygateRequest.swift in Sources */,
 				968AE4F6254A293000A42C46 /* MemberTableView.swift in Sources */,
 				968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */,
 				96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */,
+				969EF7232569CBD500BEA8EC /* PaygateManager.swift in Sources */,
 				968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
@@ -1107,16 +1248,22 @@
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,
+				969EF7182569CBD500BEA8EC /* PaygateManagerCore.swift in Sources */,
 				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
+				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
+				969EF72F2569D1D300BEA8EC /* Session.swift in Sources */,
 				968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */,
+				969EF71F2569CBD500BEA8EC /* PaygateSpecialOffer.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
 				96846CC62567C84B009841BD /* Gender.swift in Sources */,
+				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
+				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
 				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
@@ -1130,6 +1277,7 @@
 				968AE542255053E900A42C46 /* ReminderManagerDelegate.swift in Sources */,
 				968AE498254996E900A42C46 /* JournalView.swift in Sources */,
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
+				969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */,

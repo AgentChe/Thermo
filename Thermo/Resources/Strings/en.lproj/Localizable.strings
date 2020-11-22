@@ -109,3 +109,6 @@
 "Track" = "Track";
 "Journal" = "Journal";
 "Reminder" = "Reminder";
+
+// MARK: Paygate
+"Paygate.Purchase.Failed" = "Failure at purchase";
