@@ -87,12 +87,12 @@ private extension MembersView {
     
     func makeAddNewButton() -> UIButton {
         let attrs = TextAttributes()
-            .textColor(UIColor.black)
+            .textColor(UIColor.white)
             .font(Fonts.Poppins.semiBold(size: 17.scale))
             .lineHeight(22.scale)
         
         let view = UIButton()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(integralRed: 80, green: 179, blue: 190)
         view.layer.cornerRadius = 28.scale
         view.setAttributedTitle("Members.AddNew".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false

@@ -95,6 +95,9 @@
 "Journal.Title" = "My journal";
 "Journal.Cell.DateTime" = "%@, %@";
 "Journal.Cell.Temperature" = "%.1f %@";
+"Journal.Report.Title" = "Receive a report in the form of a chart in PDF";
+"Journal.Report.ButtonImage" = "📨";
+"Journal.Report.ButtonTitle" = "GET";
 
 // MARK: Members
 "Members.AddNew" = "Add new";
@@ -112,3 +115,11 @@
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Failure at purchase";
+
+// MARK: Report
+"Report.Title" = "Receive the report by email";
+"Report.SubTitle" = "All your logged information in one concise report";
+"Report.EmailFieldPlaceholder" = "Email";
+"Report.ButtonTitle" = "Send";
+"Report.InvalidEmail" = "Invalid email";
+"Report.CreateFailure" = "Failure to create report";

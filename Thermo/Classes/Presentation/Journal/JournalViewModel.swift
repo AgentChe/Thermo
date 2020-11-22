@@ -12,6 +12,11 @@ final class JournalViewModel {
     private let temperatureManager = TemperatureManagerCore()
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
+    private let sessionManager = SessionManagerCore()
+    
+    func hasActiveSubscription() -> Bool {
+        sessionManager.getSession()?.activeSubscription ?? false
+    }
     
     func memberImage() -> Driver<UIImage> {
         getMember()

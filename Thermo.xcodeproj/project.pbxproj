@@ -43,6 +43,11 @@
 		966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */; };
 		966A55792548AA050099FDAE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55782548AA050099FDAE /* Toast.swift */; };
 		966A55992548AA610099FDAE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55982548AA610099FDAE /* ImagePicker.swift */; };
+		966DADE1256ABE6E00DB724E /* JournalReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADE0256ABE6E00DB724E /* JournalReportButton.swift */; };
+		966DADE5256B00B300DB724E /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADE4256B00B300DB724E /* ReportViewController.swift */; };
+		966DADE9256B010600DB724E /* ReportViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADE8256B010600DB724E /* ReportViewModel.swift */; };
+		966DADEC256B012500DB724E /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADEB256B012500DB724E /* ReportView.swift */; };
+		966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADEE256B06BC00DB724E /* GradientButton.swift */; };
 		96846CC62567C84B009841BD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC52567C84B009841BD /* Gender.swift */; };
 		96846CC92567D666009841BD /* AMGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC82567D666009841BD /* AMGenderView.swift */; };
 		96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CCB2567D794009841BD /* AMDateBirthdayView.swift */; };
@@ -143,6 +148,13 @@
 		969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73D256A977600BEA8EC /* PaygateOptionView.swift */; };
 		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
+		96F61E77256B105900540DBB /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E76256B105900540DBB /* ReportManager.swift */; };
+		96F61E7C256B10E200540DBB /* CreateReportRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E7B256B10E200540DBB /* CreateReportRequest.swift */; };
+		96F61E7F256B132200540DBB /* ReportManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E7E256B132200540DBB /* ReportManagerCore.swift */; };
+		96F61E89256B140900540DBB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E82256B140900540DBB /* ApiError.swift */; };
+		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
+		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
+		96F61E8D256B140900540DBB /* PaymentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E87256B140900540DBB /* PaymentError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +194,11 @@
 		966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMTemperatureUnitView.swift; sourceTree = "<group>"; };
 		966A55782548AA050099FDAE /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		966A55982548AA610099FDAE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		966DADE0256ABE6E00DB724E /* JournalReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalReportButton.swift; sourceTree = "<group>"; };
+		966DADE4256B00B300DB724E /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		966DADE8256B010600DB724E /* ReportViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewModel.swift; sourceTree = "<group>"; };
+		966DADEB256B012500DB724E /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
+		966DADEE256B06BC00DB724E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		96846CC52567C84B009841BD /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		96846CC82567D666009841BD /* AMGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMGenderView.swift; sourceTree = "<group>"; };
 		96846CCB2567D794009841BD /* AMDateBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMDateBirthdayView.swift; sourceTree = "<group>"; };
@@ -285,6 +302,13 @@
 		969EF73D256A977600BEA8EC /* PaygateOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateOptionView.swift; sourceTree = "<group>"; };
 		969EF73E256A977600BEA8EC /* PaygateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateView.swift; sourceTree = "<group>"; };
 		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
+		96F61E76256B105900540DBB /* ReportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManager.swift; sourceTree = "<group>"; };
+		96F61E7B256B10E200540DBB /* CreateReportRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReportRequest.swift; sourceTree = "<group>"; };
+		96F61E7E256B132200540DBB /* ReportManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportManagerCore.swift; sourceTree = "<group>"; };
+		96F61E82256B140900540DBB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
+		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
+		96F61E87256B140900540DBB /* PaymentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentError.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
 		E9005543DA99C1334A088B60 /* Pods-Thermo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.release.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -317,6 +341,7 @@
 				966A54FB2546F54F0099FDAE /* GradientView.swift */,
 				966A54FF2546F59A0099FDAE /* PaddingLabel.swift */,
 				968AE4BD25499E3E00A42C46 /* CircleView.swift */,
+				966DADEE256B06BC00DB724E /* GradientButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -460,6 +485,16 @@
 				966A55982548AA610099FDAE /* ImagePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		966DADE3256B00A500DB724E /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				966DADE4256B00B300DB724E /* ReportViewController.swift */,
+				966DADE8256B010600DB724E /* ReportViewModel.swift */,
+				966DADEB256B012500DB724E /* ReportView.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 		96846CEC25698CF7009841BD /* Medicine */ = {
@@ -667,6 +702,7 @@
 			children = (
 				968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */,
 				968AE4D82549F54600A42C46 /* JournalTableView.swift */,
+				966DADE0256ABE6E00DB724E /* JournalReportButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -876,6 +912,7 @@
 		968E41AB2546E3D3006F3CFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				966DADE3256B00A500DB724E /* Report */,
 				969EF737256A977600BEA8EC /* Paygate */,
 				968AE4E2254A158A00A42C46 /* Members */,
 				968AE487254995CD00A42C46 /* Remiinder */,
@@ -892,6 +929,7 @@
 		968E41AC2546E3DA006F3CFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				96F61E6F256B0FAF00540DBB /* Report */,
 				969EF72B2569D1B400BEA8EC /* Session */,
 				969EF7022569CBD500BEA8EC /* Paygate */,
 				96846D0225699900009841BD /* Symptoms */,
@@ -934,6 +972,7 @@
 		968E41BD2546F47D006F3CFC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				96F61E81256B140900540DBB /* Error */,
 				968E41BE2546F48A006F3CFC /* TextAttributes.swift */,
 				968E41C12546F49E006F3CFC /* Scalable.swift */,
 				968E41C52546F4AF006F3CFC /* Fonts.swift */,
@@ -1030,6 +1069,51 @@
 				969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96F61E6F256B0FAF00540DBB /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				96F61E7A256B10C300540DBB /* Requests */,
+				96F61E75256B104A00540DBB /* Manager */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		96F61E75256B104A00540DBB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				96F61E76256B105900540DBB /* ReportManager.swift */,
+				96F61E7E256B132200540DBB /* ReportManagerCore.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		96F61E7A256B10C300540DBB /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				96F61E7B256B10E200540DBB /* CreateReportRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		96F61E81256B140900540DBB /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				96F61E85256B140900540DBB /* Checker */,
+				96F61E82256B140900540DBB /* ApiError.swift */,
+				96F61E83256B140900540DBB /* SignError.swift */,
+				96F61E87256B140900540DBB /* PaymentError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		96F61E85256B140900540DBB /* Checker */ = {
+			isa = PBXGroup;
+			children = (
+				96F61E86256B140900540DBB /* ErrorChecker.swift */,
+			);
+			path = Checker;
 			sourceTree = "<group>";
 		};
 		AE4229B6DBC45CD4BED0F826 /* Frameworks */ = {
@@ -1174,22 +1258,27 @@
 				966A555825484A970099FDAE /* Member.swift in Sources */,
 				969EF7352569D2A500BEA8EC /* SessionManagerCore.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
+				96F61E77256B105900540DBB /* ReportManager.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
+				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
 				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
+				966DADE1256ABE6E00DB724E /* JournalReportButton.swift in Sources */,
+				96F61E8D256B140900540DBB /* PaymentError.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				969EF741256A977600BEA8EC /* PaygateViewControllerDelegate.swift in Sources */,
+				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
 				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
@@ -1235,16 +1324,21 @@
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
 				968AE4A5254997B500A42C46 /* LoggerView.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
+				966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
 				966A553525472F610099FDAE /* OnboardingViewModel.swift in Sources */,
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
+				96F61E7C256B10E200540DBB /* CreateReportRequest.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */,
 				968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */,
 				96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */,
+				966DADEC256B012500DB724E /* ReportView.swift in Sources */,
+				96F61E7F256B132200540DBB /* ReportManagerCore.swift in Sources */,
 				968AE4E8254A15FF00A42C46 /* MembersViewModel.swift in Sources */,
 				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
+				966DADE5256B00B300DB724E /* ReportViewController.swift in Sources */,
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,
@@ -1279,9 +1373,11 @@
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
 				969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
+				966DADE9256B010600DB724E /* ReportViewModel.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */,
 				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
+				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,
 				968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */,
 				968AE5A725529E2500A42C46 /* AMCreateProfileView.swift in Sources */,

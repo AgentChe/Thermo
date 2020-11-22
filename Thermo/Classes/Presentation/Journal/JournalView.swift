@@ -11,6 +11,7 @@ final class JournalView: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var imageView = makeImageView()
     lazy var tableView = makeTableView()
+    lazy var journalReportButton = makeJournalReportButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,8 +44,15 @@ private extension JournalView {
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: journalReportButton.topAnchor, constant: -6.scale),
             tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            journalReportButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            journalReportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            journalReportButton.heightAnchor.constraint(equalToConstant: 72.scale),
+            journalReportButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -32.scale : -16.scale)
         ])
     }
 }
@@ -79,6 +87,20 @@ private extension JournalView {
         let view = JournalTableView()
         view.separatorStyle = .none
         view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeJournalReportButton() -> JournalReportButton {
+        let view = JournalReportButton()
+        view.gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        view.gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        view.gradientLayer.colors = [
+            UIColor(integralRed: 255, green: 165, blue: 2).cgColor,
+            UIColor(integralRed: 255, green: 99, blue: 72).cgColor
+        ]
+        view.layer.cornerRadius = 36.scale
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

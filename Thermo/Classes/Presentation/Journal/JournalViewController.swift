@@ -27,6 +27,7 @@ final class JournalViewController: UIViewController {
         super.viewDidLoad()
         
         addActionsToMember()
+        addActionsToReportButton()
         
         viewModel
             .memberImage()
@@ -61,6 +62,29 @@ private extension JournalViewController {
         tapGesture.rx.event
             .subscribe(onNext: { [weak self] _ in
                 self?.delegate?.journalViewControllerDidTappedMember()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func addActionsToReportButton() {
+        let tapGesture = UITapGestureRecognizer()
+        journalView.journalReportButton.isUserInteractionEnabled = true
+        journalView.journalReportButton.addGestureRecognizer(tapGesture)
+        
+        tapGesture.rx.event
+            .subscribe(onNext: { [weak self] _ in
+                guard let viewModel = self?.viewModel else {
+                    return
+                }
+                
+                switch viewModel.hasActiveSubscription() {
+                case true:
+                    let vc = ReportViewController.make()
+                    self?.present(vc, animated: true)
+                case false:
+                    let vc = PaygateViewController.make()
+                    self?.present(vc, animated: true)
+                }
             })
             .disposed(by: disposeBag)
     }
