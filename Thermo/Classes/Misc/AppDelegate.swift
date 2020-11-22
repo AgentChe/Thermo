@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
+        addDelegates()
+        
         FirebaseApp.configure()
         
         runProvider(on: vc.view)
@@ -58,6 +60,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+// MARK: SDKPurchaseMediatorDelegate
+extension AppDelegate: SDKPurchaseMediatorDelegate {
+    func purchaseMediatorDidValidateReceipt(response: ReceiptValidateResponse?) {
+        guard let response = response else {
+            return
+        }
+        
+        let session = Session(response: response)
+        
+        SessionManagerCore().store(session: session)
+    }
+}
+
 // MARK: Private
 private extension AppDelegate {
     func runProvider(on view: UIView) {
@@ -68,8 +83,8 @@ private extension AppDelegate {
                                    branchActive: false,
                                    firebaseActive: true,
                                    applicationTag: GlobalDefinitions.applicationTag,
-                                   userToken: nil,
-                                   userId: nil,
+                                   userToken: SessionManagerCore().getSession()?.userToken,
+                                   userId: SessionManagerCore().getSession()?.userId,
                                    view: view,
                                    shouldAddStorePayment: false,
                                    isTest: false)
@@ -77,5 +92,9 @@ private extension AppDelegate {
         sdkProvider.initialize(settings: settings) { [weak self] in
             self?.generateStepInSplash.accept(Void())
         }
+    }
+    
+    func addDelegates() {
+        SDKStorage.shared.purchaseMediator.add(delegate: self)
     }
 }
