@@ -58,13 +58,13 @@ private extension LoggerFeelView {
         NSLayoutConstraint.activate([
             symptomsView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             symptomsView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            symptomsView.topAnchor.constraint(equalTo: overallFeelingView.bottomAnchor, constant: 44.scale)
+            symptomsView.topAnchor.constraint(equalTo: overallFeelingView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 44.scale : 16.scale)
         ])
         
         NSLayoutConstraint.activate([
             medicinesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             medicinesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            medicinesView.topAnchor.constraint(equalTo: symptomsView.bottomAnchor, constant: 44.scale)
+            medicinesView.topAnchor.constraint(equalTo: symptomsView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 44.scale : 16.scale)
         ])
         
         NSLayoutConstraint.activate([
