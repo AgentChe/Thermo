@@ -17,31 +17,50 @@ final class LoggerViewModel {
     let selectTemperatureValue = PublishRelay<Double>()
     let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
     let selectOverallFeeling = PublishRelay<OverallFeeling>()
-    let selectSymptoms = PublishRelay<[Symptom]>()
-    let selectMedicines = PublishRelay<[Medicine]>()
+    let selectSymptoms = BehaviorRelay<[Symptom]>(value: [])
+    let selectMedicines = BehaviorRelay<[Medicine]>(value: [])
     
     let create = PublishRelay<Void>()
     
     private let membersManager = MembersManagerCore()
     private let temperatureManager = TemperatureManagerCore()
+    private let sessionManager = SessionManagerCore()
+    private let medicineManager = MedicineManagerCore()
+    private let symptomsManager = SymptomsManagerCore()
+    
+    // TODO
+    func symptoms() -> Driver<[Symptom]> {
+        symptomsManager.rxRetrieveSymptoms(forceUpdate: true).asDriver(onErrorJustReturn: [])
+    }
+    
+    // TODO
+    func medicines() -> Driver<[Medicine]> {
+        medicineManager.rxRetrieveMedicines(forceUpdate: true).asDriver(onErrorJustReturn: [])
+    }
+    
+    func hasActiveSubscription() -> Bool {
+        sessionManager.getSession()?.activeSubscription ?? false
+    }
     
     func temperatureRange() -> Driver<TemperatureRange> {
-        membersManager
-            .rxCurrentMember()
-            .map { currentMember -> TemperatureRange in
-                TemperatureRange(unit: currentMember?.temperatureUnit ?? .celsius)
-            }
-            .asDriver(onErrorDriveWith: .empty())
+        makeTemperatureRange()
     }
     
     func step() -> Driver<Step> {
+        makeStep()
+    }
+}
+
+// MARK: Private
+private extension LoggerViewModel {
+    func makeStep() -> Driver<Step> {
         let stub = Observable
             .combineLatest(
                 selectTemperatureValue.asObservable(),
                 selectTemperatureUnit.asObservable(),
                 selectOverallFeeling.asObservable(),
-                selectSymptoms.asObservable().startWith([]),
-                selectMedicines.asObservable().startWith([]),
+                selectSymptoms.asObservable(),
+                selectMedicines.asObservable(),
                 membersManager.rxCurrentMember().asObservable()
             )
             
@@ -78,6 +97,15 @@ final class LoggerViewModel {
                             return .error("TemperatureLogger.Log.Failure".localized)
                         }
                     }
+            }
+            .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func makeTemperatureRange() -> Driver<TemperatureRange> {
+        membersManager
+            .rxCurrentMember()
+            .map { currentMember -> TemperatureRange in
+                TemperatureRange(unit: currentMember?.temperatureUnit ?? .celsius)
             }
             .asDriver(onErrorDriveWith: .empty())
     }

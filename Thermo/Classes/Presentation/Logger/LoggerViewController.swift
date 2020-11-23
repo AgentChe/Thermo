@@ -62,7 +62,30 @@ final class LoggerViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel
+            .medicines()
+            .drive(onNext: { [weak self] models in
+                self?.loggerView.feelView.medicinesView.models = models
+                    .map {
+                        ComboBoxModel(id: $0.id, name: $0.name)
+                    }
+            })
+            .disposed(by: disposeBag)
+            
+        viewModel
+            .symptoms()
+            .drive(onNext: { [weak self] models in
+                self?.loggerView.feelView.symptomsView.models = models
+                    .map {
+                        ComboBoxModel(id: $0.id, name: $0.name)
+                    }
+            })
+            .disposed(by: disposeBag)
+        
         addOverallFeelingActions()
+        updatePaymentBlocks()
+        addActionsToSymptomsBlocks()
+        addActionsToMedicinesBlocks()
     }
 }
 
@@ -73,8 +96,147 @@ extension LoggerViewController {
     }
 }
 
+// MARK: PaygateViewControllerDelegate
+extension LoggerViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        updatePaymentBlocks()
+    }
+}
+
 // MARK: Private
 private extension LoggerViewController {
+    func updatePaymentBlocks() {
+        let comboBoxStyle: ComboBox.Style = viewModel.hasActiveSubscription() ? .cell : .payment
+
+        // TODO
+        loggerView.feelView.symptomsView.style = .cell
+        loggerView.feelView.medicinesView.style = .cell
+    }
+    
+    func addActionsToSymptomsBlocks() {
+        let tapGesture = UITapGestureRecognizer()
+        loggerView.feelView.symptomsView.fieldBackgroundView.isUserInteractionEnabled = true
+        loggerView.feelView.symptomsView.fieldBackgroundView.addGestureRecognizer(tapGesture)
+        
+        tapGesture.rx.event
+            .subscribe(onNext: { [weak self] event in
+                guard let this = self else {
+                    return
+                }
+                
+                switch this.loggerView.feelView.symptomsView.style {
+                case .payment:
+                    this.showPaygate()
+                case .cell:
+                    this.loggerView.feelView.symptomsView.style = .expanded
+                case .expanded:
+                    this.loggerView.feelView.symptomsView.style = .cell
+                }
+                
+                this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
+                this.loggerView.feelView.symptomsView.layoutIfNeeded()
+            })
+            .disposed(by: disposeBag)
+        
+        loggerView.feelView.symptomsView.didSelect = { [weak self] model in
+            guard let this = self else {
+                return
+            }
+            
+            model.isSelected = true
+            
+            this.loggerView.feelView.symptomsView.addTagView(model: model)
+            this.loggerView.feelView.symptomsView.updateVisibility()
+            this.loggerView.feelView.symptomsView.tableView?.reloadData()
+            
+            var storedSymptoms = this.viewModel.selectSymptoms.value
+            storedSymptoms.append(Symptom(id: model.id, name: model.name))
+            this.viewModel.selectSymptoms.accept(storedSymptoms)
+        }
+        
+        loggerView.feelView.symptomsView.didRemoveTagView = { [weak self] tagView in
+            guard let this = self else {
+                return
+            }
+            
+            var storedSymptoms = this.viewModel.selectSymptoms.value
+            storedSymptoms.removeAll(where: { $0.id == tagView.model.id })
+            this.viewModel.selectSymptoms.accept(storedSymptoms)
+            
+            this.loggerView.feelView.symptomsView.models.first(where: { $0.id == tagView.model.id })?.isSelected = false
+            
+            this.loggerView.feelView.symptomsView.tagsView.removeTagView(tagView)
+            this.loggerView.feelView.symptomsView.tagsView.layoutIfNeeded()
+            this.loggerView.feelView.symptomsView.updateVisibility()
+            this.loggerView.feelView.symptomsView.tableView?.reloadData()
+        }
+    }
+    
+    func addActionsToMedicinesBlocks() {
+        let tapGesture = UITapGestureRecognizer()
+        loggerView.feelView.medicinesView.fieldBackgroundView.isUserInteractionEnabled = true
+        loggerView.feelView.medicinesView.fieldBackgroundView.addGestureRecognizer(tapGesture)
+        
+        tapGesture.rx.event
+            .subscribe(onNext: { [weak self] event in
+                guard let this = self else {
+                    return
+                }
+                
+                switch this.loggerView.feelView.medicinesView.style {
+                case .payment:
+                    this.showPaygate()
+                case .cell:
+                    this.loggerView.feelView.medicinesView.style = .expanded
+                case .expanded:
+                    this.loggerView.feelView.medicinesView.style = .cell
+                }
+                
+                this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
+                this.loggerView.feelView.medicinesView.layoutIfNeeded()
+            })
+            .disposed(by: disposeBag)
+        
+        loggerView.feelView.medicinesView.didSelect = { [weak self] model in
+            guard let this = self else {
+                return
+            }
+            
+            model.isSelected = true
+            
+            this.loggerView.feelView.medicinesView.addTagView(model: model)
+            this.loggerView.feelView.medicinesView.updateVisibility()
+            this.loggerView.feelView.medicinesView.tableView?.reloadData()
+            
+            var storedMedicines = this.viewModel.selectMedicines.value
+            storedMedicines.append(Medicine(id: model.id, name: model.name))
+            this.viewModel.selectMedicines.accept(storedMedicines)
+        }
+        
+        loggerView.feelView.medicinesView.didRemoveTagView = { [weak self] tagView in
+            guard let this = self else {
+                return
+            }
+            
+            var storedMedicines = this.viewModel.selectMedicines.value
+            storedMedicines.removeAll(where: { $0.id == tagView.model.id })
+            this.viewModel.selectMedicines.accept(storedMedicines)
+            
+            this.loggerView.feelView.medicinesView.models.first(where: { $0.id == tagView.model.id })?.isSelected = false
+            
+            this.loggerView.feelView.medicinesView.tagsView.removeTagView(tagView)
+            this.loggerView.feelView.medicinesView.tagsView.layoutIfNeeded()
+            this.loggerView.feelView.medicinesView.updateVisibility()
+            this.loggerView.feelView.medicinesView.tableView?.reloadData()
+        }
+    }
+    
+    func showPaygate() {
+        let vc = PaygateViewController.make()
+        vc.delegate = self
+        present(vc, animated: true)
+    }
+    
     func addOverallFeelingActions() {
         let badGesture = UITapGestureRecognizer()
         loggerView.feelView.overallFeelingView.badItem.addGestureRecognizer(badGesture)

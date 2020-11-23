@@ -114,7 +114,7 @@ private extension JournalReportButton {
             .letterSpacing(0.16.scale)
         
         let view = UILabel()
-        view.attributedText = "Journal.Report.ButtonImage".localized.attributed(with: attrs)
+        view.attributedText = "📨".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         buttonView.addSubview(view)
         return view

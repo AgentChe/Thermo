@@ -10,6 +10,8 @@ import UIKit
 final class LoggerFeelView: GradientView {
     lazy var titleLabel = makeTitleLabel()
     lazy var overallFeelingView = makeOverallFeelingView()
+    lazy var symptomsView = makeSymtomsView()
+    lazy var medicinesView = makeMedicinesView()
     lazy var saveButton = makeSaveButton()
     
     override init(frame: CGRect) {
@@ -54,6 +56,18 @@ private extension LoggerFeelView {
         ])
         
         NSLayoutConstraint.activate([
+            symptomsView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            symptomsView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            symptomsView.topAnchor.constraint(equalTo: overallFeelingView.bottomAnchor, constant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            medicinesView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
+            medicinesView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            medicinesView.topAnchor.constraint(equalTo: symptomsView.bottomAnchor, constant: 44.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
             saveButton.widthAnchor.constraint(equalToConstant: 180.scale),
             saveButton.heightAnchor.constraint(equalToConstant: 56.scale),
             saveButton.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -81,6 +95,42 @@ private extension LoggerFeelView {
     
     func makeOverallFeelingView() -> OverallFeelingView {
         let view = OverallFeelingView()
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeSymtomsView() -> ComboBox {
+        let view = ComboBox()
+        view.titleLabel.attributedText = "TemperatureLogger.Feeling.Symptoms.Title".localized
+            .attributed(with: TextAttributes()
+                            .font(Fonts.Poppins.bold(size: 14.scale))
+                            .lineHeight(21.scale)
+                            .textColor(UIColor.white)
+                            .letterSpacing(0.5.scale))
+        view.leftIconLabel.attributedText = "📝"
+            .attributed(with: TextAttributes()
+                            .lineHeight(20.scale)
+                            .font(Fonts.Poppins.regular(size: 15.scale)))
+        view.backgroundColor = UIColor.clear
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeMedicinesView() -> ComboBox {
+        let view = ComboBox()
+        view.titleLabel.attributedText = "TemperatureLogger.Feeling.Medicines.Title".localized
+            .attributed(with: TextAttributes()
+                            .font(Fonts.Poppins.bold(size: 14.scale))
+                            .lineHeight(21.scale)
+                            .textColor(UIColor.white)
+                            .letterSpacing(0.5.scale))
+        view.leftIconLabel.attributedText = "💊"
+            .attributed(with: TextAttributes()
+                            .lineHeight(20.scale)
+                            .font(Fonts.Poppins.regular(size: 15.scale)))
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)

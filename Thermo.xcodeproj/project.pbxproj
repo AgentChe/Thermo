@@ -155,6 +155,11 @@
 		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
 		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
 		96F61E8D256B140900540DBB /* PaymentError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E87256B140900540DBB /* PaymentError.swift */; };
+		96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ECE256BAA4200540DBB /* TagCloseButton.swift */; };
+		96F61ED2256BAA5800540DBB /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED1256BAA5800540DBB /* TagView.swift */; };
+		96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED4256BAA8500540DBB /* TagListView.swift */; };
+		96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED8256BAAB500540DBB /* TagViewModel.swift */; };
+		96F61EDE256BAF3200540DBB /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EDD256BAF3200540DBB /* ComboBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -309,6 +314,11 @@
 		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
 		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
 		96F61E87256B140900540DBB /* PaymentError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentError.swift; sourceTree = "<group>"; };
+		96F61ECE256BAA4200540DBB /* TagCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCloseButton.swift; sourceTree = "<group>"; };
+		96F61ED1256BAA5800540DBB /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		96F61ED4256BAA8500540DBB /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		96F61ED8256BAAB500540DBB /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
+		96F61EDD256BAF3200540DBB /* ComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboBox.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
 		E9005543DA99C1334A088B60 /* Pods-Thermo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.release.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +347,7 @@
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				96F61ECD256BAA3600540DBB /* TagsView */,
 				968AE4AA2549988800A42C46 /* NavigationController */,
 				966A54FB2546F54F0099FDAE /* GradientView.swift */,
 				966A54FF2546F59A0099FDAE /* PaddingLabel.swift */,
@@ -676,6 +687,7 @@
 				96846D1F2569AC5C009841BD /* OverallFeelingView */,
 				968AE4B325499A5300A42C46 /* LoggerTemperatureView.swift */,
 				969EF6FE2569B68A00BEA8EC /* LoggerFeelView.swift */,
+				96F61EDD256BAF3200540DBB /* ComboBox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1116,6 +1128,25 @@
 			path = Checker;
 			sourceTree = "<group>";
 		};
+		96F61ECD256BAA3600540DBB /* TagsView */ = {
+			isa = PBXGroup;
+			children = (
+				96F61ED7256BAAAA00540DBB /* Models */,
+				96F61ECE256BAA4200540DBB /* TagCloseButton.swift */,
+				96F61ED1256BAA5800540DBB /* TagView.swift */,
+				96F61ED4256BAA8500540DBB /* TagListView.swift */,
+			);
+			path = TagsView;
+			sourceTree = "<group>";
+		};
+		96F61ED7256BAAAA00540DBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96F61ED8256BAAB500540DBB /* TagViewModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AE4229B6DBC45CD4BED0F826 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1257,6 +1288,7 @@
 				966A552B254729430099FDAE /* SplashView.swift in Sources */,
 				966A555825484A970099FDAE /* Member.swift in Sources */,
 				969EF7352569D2A500BEA8EC /* SessionManagerCore.swift in Sources */,
+				96F61EDE256BAF3200540DBB /* ComboBox.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				96F61E77256B105900540DBB /* ReportManager.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
@@ -1289,7 +1321,9 @@
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				96846CEF25698D10009841BD /* Medicine.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
+				96F61ED2256BAA5800540DBB /* TagView.swift in Sources */,
 				969EF745256A977600BEA8EC /* PaygateView.swift in Sources */,
+				96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */,
 				968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */,
 				969EF6FF2569B68A00BEA8EC /* LoggerFeelView.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
@@ -1358,12 +1392,14 @@
 				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
+				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
 				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
 				968AE54D25505FC700A42C46 /* Reminders.swift in Sources */,
 				968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
+				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
 				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
 				96846D222569AC76009841BD /* OverallFeelingItemView.swift in Sources */,
 				966A5541254735F30099FDAE /* OnbrdInfoCell.swift in Sources */,
