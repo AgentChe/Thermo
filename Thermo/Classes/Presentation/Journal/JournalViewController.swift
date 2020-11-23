@@ -37,9 +37,9 @@ final class JournalViewController: UIViewController {
             .disposed(by: disposeBag)
         
         viewModel
-            .elements()
-            .drive(onNext: { [weak self] elements in
-                self?.journalView.tableView.setup(elements: elements)
+            .sections()
+            .drive(onNext: { [weak self] sections in
+                self?.journalView.tableView.setup(sections: sections)
             })
             .disposed(by: disposeBag)
     }

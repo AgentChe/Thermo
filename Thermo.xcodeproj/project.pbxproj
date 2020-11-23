@@ -160,6 +160,8 @@
 		96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED4256BAA8500540DBB /* TagListView.swift */; };
 		96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED8256BAAB500540DBB /* TagViewModel.swift */; };
 		96F61EDE256BAF3200540DBB /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EDD256BAF3200540DBB /* ComboBox.swift */; };
+		96F61EE9256C706F00540DBB /* JournalTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EE8256C706F00540DBB /* JournalTableSection.swift */; };
+		96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -319,6 +321,8 @@
 		96F61ED4256BAA8500540DBB /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		96F61ED8256BAAB500540DBB /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		96F61EDD256BAF3200540DBB /* ComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboBox.swift; sourceTree = "<group>"; };
+		96F61EE8256C706F00540DBB /* JournalTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableSection.swift; sourceTree = "<group>"; };
+		96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableTagsCell.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
 		E9005543DA99C1334A088B60 /* Pods-Thermo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.release.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -715,6 +719,7 @@
 				968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */,
 				968AE4D82549F54600A42C46 /* JournalTableView.swift */,
 				966DADE0256ABE6E00DB724E /* JournalReportButton.swift */,
+				96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				968AE4D12549F41000A42C46 /* JournalTableElement.swift */,
+				96F61EE8256C706F00540DBB /* JournalTableSection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1310,6 +1316,7 @@
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				969EF741256A977600BEA8EC /* PaygateViewControllerDelegate.swift in Sources */,
+				96F61EE9256C706F00540DBB /* JournalTableSection.swift in Sources */,
 				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
@@ -1330,6 +1337,7 @@
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
 				968AE549255058D300A42C46 /* ReminderTime.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
+				96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */,
 				968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */,
 				968AE4A22549979F00A42C46 /* LoggerViewModel.swift in Sources */,
 				968AE4EB254A165100A42C46 /* MembersView.swift in Sources */,

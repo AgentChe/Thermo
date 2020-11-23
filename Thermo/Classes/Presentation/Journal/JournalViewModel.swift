@@ -33,7 +33,7 @@ final class JournalViewModel {
             .asDriver(onErrorDriveWith: .empty())
     }
     
-    func elements() -> Driver<[JournalTableElement]> {
+    func sections() -> Driver<[JournalTableSection]> {
         getMember()
             .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest { [weak self] member -> Observable<[Temperature]> in
@@ -73,16 +73,33 @@ final class JournalViewModel {
                         return result
                     }
             }
-            .map { list -> [JournalTableElement] in
+            .map { list -> [JournalTableSection] in
                 list
                     .sorted(by: {
                         $0.date.compare($1.date) == .orderedDescending
                     })
-                    .map {
-                        JournalTableElement(date: $0.date,
-                                            temperature: $0.value,
-                                            unit: $0.unit,
-                                            overallFeeiling: $0.overallFeeling)
+                    .map { temperature -> JournalTableSection in
+                        var elements = [JournalTableElement]()
+                        
+                        let report = JTReport(date: temperature.date,
+                                              temperature: temperature.value,
+                                              unit: temperature.unit,
+                                              overallFeeiling: temperature.overallFeeling)
+                        elements.append(.report(report))
+                        
+                        if !temperature.medicines.isEmpty {
+                            let tags = JTTags(style: .medicines, tags: temperature.medicines.map { TagViewModel(id: $0.id, name: $0.name) })
+                            
+                            elements.append(.tags(tags))
+                        }
+                        
+                        if !temperature.symptoms.isEmpty {
+                            let tags = JTTags(style: .symptoms, tags: temperature.symptoms.map { TagViewModel(id: $0.id, name: $0.name) })
+                            
+                            elements.append(.tags(tags))
+                        }
+                        
+                        return JournalTableSection(elements: elements)
                 }
             }
             .observeOn(MainScheduler.asyncInstance)

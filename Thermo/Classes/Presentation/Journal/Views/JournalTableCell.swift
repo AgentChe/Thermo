@@ -8,10 +8,9 @@
 import UIKit
 
 final class JournalTableCell: UITableViewCell {
-    lazy var container = makeContainer()
     lazy var dateTimeLabel = makeDateTimeLabel()
     lazy var temperatureLabel = makeTemperatureLabel()
-    lazy var overallFeelingImageView = makeOverallFeelingImageView()
+    lazy var overallFeelingEmojiView = makeOverallFeelingEmojiView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -27,28 +26,28 @@ final class JournalTableCell: UITableViewCell {
 
 // MARK: API
 extension JournalTableCell {
-    func setup(element: JournalTableElement) {
-        dateTimeLabel.attributedText = dateTime(from: element)
-        temperatureLabel.attributedText = temperature(from: element)
-        overallFeelingImageView.image = overallFeeling(from: element)
+    func setup(report: JTReport) {
+        dateTimeLabel.attributedText = dateTime(from: report)
+        temperatureLabel.attributedText = temperature(from: report)
+        overallFeelingEmojiView.text = overallFeeling(from: report)
     }
     
-    func dateTime(from element: JournalTableElement) -> NSAttributedString {
+    func dateTime(from report: JTReport) -> NSAttributedString {
         let dateFormatter = DateFormatter()
         
         dateFormatter.dateFormat = "dd MMM,  "
         let date = dateFormatter
-            .string(from: element.date)
+            .string(from: report.date)
             .attributed(with: TextAttributes()
                             .textColor(UIColor(integralRed: 50, green: 50, blue: 52))
-                            .font(Fonts.OpenSans.regular(size: 17.scale))
+                            .font(Fonts.Poppins.regular(size: 17.scale))
                             .lineHeight(22.scale)
                             .letterSpacing(-0.4.scale)
                             .textAlignment(.center))
         
         dateFormatter.dateFormat = "HH:mm"
         let time = dateFormatter
-            .string(from: element.date)
+            .string(from: report.date)
             .attributed(with: TextAttributes()
                             .textColor(UIColor(integralRed: 50, green: 50, blue: 52, alpha: 0.5))
                             .font(Fonts.Poppins.semiBold(size: 17.scale))
@@ -63,12 +62,12 @@ extension JournalTableCell {
         return dateTime
     }
     
-    func temperature(from element: JournalTableElement) -> NSAttributedString {
+    func temperature(from report: JTReport) -> NSAttributedString {
         let coldTemperature: Double
         let fireTemperature: Double
         
         let unit: String
-        switch element.unit {
+        switch report.unit {
         case .fahrenheit:
             coldTemperature = 96.8
             fireTemperature = 98.78
@@ -82,31 +81,31 @@ extension JournalTableCell {
         }
         
         let color: UIColor
-        if element.temperature > fireTemperature {
+        if report.temperature > fireTemperature {
             color = UIColor(integralRed: 255, green: 126, blue: 103)
-        } else if element.temperature < coldTemperature {
+        } else if report.temperature < coldTemperature {
             color = UIColor(integralRed: 108, green: 22, blue: 245)
         } else {
             color = UIColor(integralRed: 50, green: 50, blue: 52)
         }
         
-        return String(format: "%.1f %@", element.temperature, unit)
+        return String(format: "%.1f %@", report.temperature, unit)
             .attributed(with: TextAttributes()
                             .textColor(color)
-                            .font(Fonts.OpenSans.regular(size: 20.scale))
+                            .font(Fonts.Poppins.regular(size: 20.scale))
                             .lineHeight(25.scale))
     }
     
-    func overallFeeling(from element: JournalTableElement) -> UIImage? {
-        switch element.overallFeeiling {
+    func overallFeeling(from report: JTReport) -> String {
+        switch report.overallFeeiling {
         case .bad:
-            return UIImage(named: "TemperatureLogger.Feeiling.Bad")
+            return "😞"
         case .sick:
-            return UIImage(named: "TemperatureLogger.Feeiling.Meh")
+            return "🤒"
         case .good:
-            return UIImage(named: "TemperatureLogger.Feeiling.Good")
+            return "😀"
         case .recovered:
-            return UIImage(named: "TemperatureLogger.Feeiling.Good")
+            return "😇"
         }
     }
 }
@@ -127,61 +126,45 @@ private extension JournalTableCell {
 private extension JournalTableCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16.scale),
-            container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16.scale),
-            container.heightAnchor.constraint(equalToConstant: 50.scale),
-            container.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            dateTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24.scale),
+            dateTimeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            dateTimeLabel.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 8.scale),
-            dateTimeLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
+            temperatureLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -81.scale),
+            temperatureLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            temperatureLabel.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -65.scale),
-            temperatureLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            overallFeelingImageView.widthAnchor.constraint(equalToConstant: 34.scale),
-            overallFeelingImageView.heightAnchor.constraint(equalToConstant: 34.scale),
-            overallFeelingImageView.centerYAnchor.constraint(equalTo: container.centerYAnchor),
-            overallFeelingImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -8.scale)
+            overallFeelingEmojiView.widthAnchor.constraint(equalToConstant: 34.scale),
+            overallFeelingEmojiView.heightAnchor.constraint(equalToConstant: 34.scale),
+            overallFeelingEmojiView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            overallFeelingEmojiView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24.scale)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension JournalTableCell {
-    func makeContainer() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor(integralRed: 239, green: 239, blue: 244)
-        view.layer.cornerRadius = 11.scale
-        view.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(view)
-        return view
-    }
-    
     func makeDateTimeLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        contentView.addSubview(view)
         return view
     }
     
     func makeTemperatureLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        contentView.addSubview(view)
         return view
     }
     
-    func makeOverallFeelingImageView() -> UIImageView {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+    func makeOverallFeelingEmojiView() -> UILabel {
+        let view = UILabel()
+        view.font = Fonts.Poppins.regular(size: 32.scale)
         view.translatesAutoresizingMaskIntoConstraints = false
-        container.addSubview(view)
+        contentView.addSubview(view)
         return view
     }
 }
