@@ -14,8 +14,34 @@ final class SplashViewModel {
     }
     
     private let membersManager = MembersManagerCore()
+    private let medicinesManager = MedicineManagerCore()
+    private let symptomsManager = SymptomsManagerCore()
     
     func step() -> Driver<Step> {
+        library()
+            .andThen(generateStep())
+            .asDriver(onErrorDriveWith: .empty())
+    }
+}
+
+// MARK: Private
+private extension SplashViewModel {
+    func library() -> Completable {
+        Completable
+            .zip([
+                medicinesManager
+                    .rxRetrieveMedicines(forceUpdate: true)
+                    .catchErrorJustReturn([])
+                    .asCompletable(),
+                
+                symptomsManager
+                    .rxRetrieveSymptoms(forceUpdate: true)
+                    .catchErrorJustReturn([])
+                    .asCompletable()
+            ])
+    }
+    
+    func generateStep() -> Observable<Step> {
         .deferred { [membersManager] in
             if !OnboardingViewController.wasViewed() {
                 return .just(Step.onboarding)

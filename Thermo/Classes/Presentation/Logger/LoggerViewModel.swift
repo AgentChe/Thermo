@@ -28,14 +28,16 @@ final class LoggerViewModel {
     private let medicineManager = MedicineManagerCore()
     private let symptomsManager = SymptomsManagerCore()
     
-    // TODO
     func symptoms() -> Driver<[Symptom]> {
-        symptomsManager.rxRetrieveSymptoms(forceUpdate: true).asDriver(onErrorJustReturn: [])
+        symptomsManager
+            .rxRetrieveSymptoms(forceUpdate: false)
+            .asDriver(onErrorJustReturn: [])
     }
     
-    // TODO
     func medicines() -> Driver<[Medicine]> {
-        medicineManager.rxRetrieveMedicines(forceUpdate: true).asDriver(onErrorJustReturn: [])
+        medicineManager
+            .rxRetrieveMedicines(forceUpdate: false)
+            .asDriver(onErrorJustReturn: [])
     }
     
     func hasActiveSubscription() -> Bool {
