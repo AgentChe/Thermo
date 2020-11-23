@@ -108,9 +108,8 @@ private extension LoggerViewController {
     func updatePaymentBlocks() {
         let comboBoxStyle: ComboBox.Style = viewModel.hasActiveSubscription() ? .cell : .payment
 
-        // TODO
-        loggerView.feelView.symptomsView.style = .cell
-        loggerView.feelView.medicinesView.style = .cell
+        loggerView.feelView.symptomsView.style = comboBoxStyle
+        loggerView.feelView.medicinesView.style = comboBoxStyle
     }
     
     func addActionsToSymptomsBlocks() {
