@@ -23,22 +23,39 @@ final class MemberTableCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        avatarImageView.image = nil
+    }
 }
 
 // MARK: API
 extension MemberTableCell {
     func setup(member: Member) {
-        label.attributedText = member.name
+        let name: String
+        let imageKey: String?
+        
+        switch member.unit {
+        case .me(let human), .child(let human), .parent(let human), .other(let human):
+            name = human.name
+            imageKey = human.imageKey
+        }
+        
+        label.attributedText = name
             .attributed(with: TextAttributes()
                             .textColor(UIColor.black)
                             .font(Fonts.Poppins.semiBold(size: 17.scale))
                             .lineHeight(27.scale)
                             .letterSpacing(-0.4.scale))
         
-        imageManager
-            .retrieve(key: member.imageKey) { [weak self] image in
-                self?.avatarImageView.image = image
-            }
+        if let imgKey = imageKey {
+            imageManager
+                .retrieve(key: imgKey) { [weak self] image in
+                    self?.avatarImageView.image = image
+                }
+        }
     }
 }
 

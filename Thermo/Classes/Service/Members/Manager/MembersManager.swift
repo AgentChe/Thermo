@@ -11,10 +11,6 @@ protocol MembersManager: class {
     // MARK: API
     func add(memberUnit: MemberUnit,
              temperatureUnit: TemperatureUnit,
-             imageKey: String,
-             name: String,
-             gender: Gender,
-             dateBirthday: Date,
              setAsCurrent: Bool) -> Member?
     func remove(memberId: Int)
     func has(memberUnit: MemberUnit) -> Bool
@@ -26,10 +22,6 @@ protocol MembersManager: class {
     // MARK: API(Rx)
     func rxAdd(memberUnit: MemberUnit,
                temperatureUnit: TemperatureUnit,
-               imageKey: String,
-               name: String,
-               gender: Gender,
-               dateBirthday: Date,
                setAsCurrent: Bool) -> Single<Member?>
     func rxRemove(memberId: Int) -> Completable
     func rxHas(memberUnit: MemberUnit) -> Single<Bool>

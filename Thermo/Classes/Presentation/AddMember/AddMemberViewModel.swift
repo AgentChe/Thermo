@@ -15,7 +15,7 @@ final class AddMemberViewModel {
         case paygate
     }
     
-    let selectMemberUnit = PublishRelay<MemberUnit>()
+    let selectMemberUnit = PublishRelay<AMMemberUnit>()
     let selectGender = PublishRelay<Gender>()
     let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
     let createImageKey = PublishRelay<String>()
@@ -28,10 +28,23 @@ final class AddMemberViewModel {
     private let imageManager = ImageManagerCore()
     private let sessionManager = SessionManagerCore()
     
-    func existingMembersUnits() -> Driver<[MemberUnit]> {
+    func existingMembersUnits() -> Driver<[AMMemberUnit]> {
         membersManager
             .rxGetAllMembers()
-            .map { $0.map { $0.unit } }
+            .map { members -> [AMMemberUnit] in
+                members.map { member -> AMMemberUnit in
+                    switch member.unit {
+                    case .me:
+                        return .me
+                    case .child:
+                        return .child
+                    case .parent:
+                        return .parent
+                    case .other:
+                        return .other
+                    }
+                }
+            }
             .asDriver(onErrorJustReturn: [])
     }
     
@@ -78,13 +91,25 @@ final class AddMemberViewModel {
                      name,
                      dateBirthday) = fields
                 
+                let human = Human(name: name,
+                                  imageKey: imageKey,
+                                  gender: gender,
+                                  dateBirthday: dateBirthday)
+                let unit: MemberUnit
+                switch memberUnit {
+                case .me:
+                    unit = .me(human)
+                case .child:
+                    unit = .child(human)
+                case .parent:
+                    unit = .parent(human)
+                case .other:
+                    unit = .other(human)
+                }
+                
                 return this.membersManager
-                    .rxAdd(memberUnit: memberUnit,
+                    .rxAdd(memberUnit: unit,
                            temperatureUnit: temperatureUnit,
-                           imageKey: imageKey,
-                           name: name,
-                           gender: gender,
-                           dateBirthday: dateBirthday,
                            setAsCurrent: true)
                     .catchErrorJustReturn(nil)
                     .map { member -> Step in

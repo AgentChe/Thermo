@@ -14,7 +14,7 @@ struct JTReport {
     let date: Date
     let temperature: Double
     let unit: TemperatureUnit
-    let overallFeeiling: OverallFeeling
+    let overallFeeiling: OverallFeeling?
 }
 
 struct JTTags {

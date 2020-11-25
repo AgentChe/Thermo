@@ -25,7 +25,7 @@ final class AMGenderView: UIView {
 
 // MARK: API
 extension AMGenderView {
-    func setup(with selectedUnit: MemberUnit) {
+    func setup(with selectedUnit: AMMemberUnit) {
         let attrs = TextAttributes()
             .textColor(UIColor.black)
             .font(Fonts.OpenSans.bold(size: 34.scale))

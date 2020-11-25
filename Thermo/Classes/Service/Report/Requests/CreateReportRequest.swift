@@ -10,14 +10,14 @@ import Alamofire
 struct CreateReportRequest: APIRequestBody {
     private let email: String
     private let member: Member
-    private let temperatures: [Temperature]
+    private let records: [Record]
     
     init(email: String,
          member: Member,
-         temperatures: [Temperature]) {
+         records: [Record]) {
         self.email = email
         self.member = member
-        self.temperatures = temperatures
+        self.records = records
     }
     
     var url: String {
@@ -29,23 +29,52 @@ struct CreateReportRequest: APIRequestBody {
     }
     
     var parameters: Parameters? {
+        let name: String
+        let type: String
+        
+        switch member.unit {
+        case .me(let human):
+            name = human.name
+            type = "me"
+        case .child(let human):
+            name = human.name
+            type = "child"
+        case .parent(let human):
+            name = human.name
+            type = "parent"
+        case .other(let human):
+            name = human.name
+            type = "other"
+        }
+        
         var params: [String: Any] = [
             "_api_key": GlobalDefinitions.apiKey,
-            "name": member.name,
-            "type": String(describing: member.unit)
+            "name": name,
+            "type": type
         ]
         
-        params["data"] = temperatures
-            .map { temperature -> [String: Any] in
-                [
-                    "temp": temperature.value,
-                    "timestamp": temperature.date.timeIntervalSince1970,
-                    "feeling": String(describing: temperature.overallFeeling),
-                    "symtoms": temperature.symptoms.map { $0.id },
-                    "meds": temperature.medicines.map { $0.id }
-                ]
+        params["data"] = records
+            .compactMap {record -> [String: Any]? in
+                if let humanRecord = record as? HumanRecord {
+                    return data(from: humanRecord)
+                }
+                
+                return nil
             }
         
         return params
+    }
+}
+
+// MARK: Private
+private extension CreateReportRequest {
+    func data(from humanRecord: HumanRecord) -> [String: Any] {
+        [
+            "temp": humanRecord.temperature.value,
+            "timestamp": humanRecord.date.timeIntervalSince1970,
+            "feeling": String(describing: humanRecord.overallFeeling),
+            "symtoms": humanRecord.symptoms.map { $0.id },
+            "meds": humanRecord.medicines.map { $0.id }
+        ]
     }
 }

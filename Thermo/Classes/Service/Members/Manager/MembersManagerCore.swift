@@ -18,20 +18,12 @@ final class MembersManagerCore: MembersManager {
 extension MembersManagerCore {
     func add(memberUnit: MemberUnit,
              temperatureUnit: TemperatureUnit,
-             imageKey: String,
-             name: String,
-             gender: Gender,
-             dateBirthday: Date,
              setAsCurrent: Bool = false) -> Member? {
         var members = getAllMembers()
         
         let member = Member(id: Int.random(in: 0..<Int.max),
                             unit: memberUnit,
-                            temperatureUnit: temperatureUnit,
-                            imageKey: imageKey,
-                            name: name,
-                            gender: gender,
-                            dateBirthday: dateBirthday)
+                            temperatureUnit: temperatureUnit)
     
         members.append(member)
         
@@ -105,10 +97,6 @@ extension MembersManagerCore {
 extension MembersManagerCore {
     func rxAdd(memberUnit: MemberUnit,
                temperatureUnit: TemperatureUnit,
-               imageKey: String,
-               name: String,
-               gender: Gender,
-               dateBirthday: Date,
                setAsCurrent: Bool = false) -> Single<Member?> {
         Single<Member?>
             .create { [weak self] event in
@@ -118,10 +106,6 @@ extension MembersManagerCore {
                 
                 let member = this.add(memberUnit: memberUnit,
                                       temperatureUnit: temperatureUnit,
-                                      imageKey: imageKey,
-                                      name: name,
-                                      gender: gender,
-                                      dateBirthday: dateBirthday,
                                       setAsCurrent: setAsCurrent)
                 
                 event(.success(member))

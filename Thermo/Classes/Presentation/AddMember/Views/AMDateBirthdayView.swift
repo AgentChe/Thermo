@@ -30,7 +30,7 @@ final class AMDateBirthdayView: UIView {
 
 // MARK: API
 extension AMDateBirthdayView {
-    func setup(with selectedUnit: MemberUnit) {
+    func setup(with selectedUnit: AMMemberUnit) {
         let attrs = TextAttributes()
             .textColor(UIColor.black)
             .font(Fonts.OpenSans.bold(size: 34.scale))

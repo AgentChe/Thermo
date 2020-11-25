@@ -106,7 +106,7 @@ extension AddMemberViewController: ImagePickerDelegate {
 
 // MARK: Private
 private extension AddMemberViewController {
-    func existingMembersUnits(_ units: [MemberUnit]) {
+    func existingMembersUnits(_ units: [AMMemberUnit]) {
         if units.contains(.me) {
             addMemberView.memberUnitView.meUnitCell.state = .disabled
         }
@@ -131,10 +131,10 @@ private extension AddMemberViewController {
         
         Observable
             .merge([
-                meGesture.rx.event.map { _ in MemberUnit.me },
-                childGesture.rx.event.map { _ in MemberUnit.child },
-                parentGesture.rx.event.map { _ in MemberUnit.parent },
-                otherGesture.rx.event.map { _ in MemberUnit.other },
+                meGesture.rx.event.map { _ in AMMemberUnit.me },
+                childGesture.rx.event.map { _ in AMMemberUnit.child },
+                parentGesture.rx.event.map { _ in AMMemberUnit.parent },
+                otherGesture.rx.event.map { _ in AMMemberUnit.other },
             ])
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
@@ -145,7 +145,7 @@ private extension AddMemberViewController {
             .disposed(by: disposeBag)
     }
     
-    func update(checked memberUnit: MemberUnit) {
+    func update(checked memberUnit: AMMemberUnit) {
         [
             addMemberView.memberUnitView.meUnitCell,
             addMemberView.memberUnitView.childUnitCell,

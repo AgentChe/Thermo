@@ -5,15 +5,9 @@
 //  Created by Andrey Chernyshev on 27.10.2020.
 //
 
-struct Temperature {
-    let id: Int
-    let member: Member
+struct Temperature: Hashable {
     let value: Double
     let unit: TemperatureUnit
-    let overallFeeling: OverallFeeling
-    let date: Date
-    let symptoms: [Symptom]
-    let medicines: [Medicine]
 }
 
 extension Temperature: Codable {}

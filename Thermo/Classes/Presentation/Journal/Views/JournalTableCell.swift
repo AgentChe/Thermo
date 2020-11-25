@@ -97,7 +97,11 @@ extension JournalTableCell {
     }
     
     func overallFeeling(from report: JTReport) -> String {
-        switch report.overallFeeiling {
+        guard let overallFeeiling = report.overallFeeiling else {
+            return ""
+        }
+        
+        switch overallFeeiling {
         case .bad:
             return "😞"
         case .sick:

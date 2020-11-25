@@ -20,7 +20,7 @@ final class ReportViewModel {
     
     private let reportManager = ReportManagerCore()
     private let membersManager = MembersManagerCore()
-    private let temperaturesManager = TemperatureManagerCore()
+    private let recordsManager = RecordManagerCore()
 }
 
 // MARK: Private
@@ -38,10 +38,10 @@ private extension ReportViewModel {
                     }
                 }
                 
-                let temperatures = this.temperaturesManager.get(for: currentMember.id)
+                let records = this.recordsManager.get(for: currentMember.id)
                 
                 return this.reportManager
-                    .rxCreateReport(email: email, member: currentMember, temperatures: temperatures)
+                    .rxCreateReport(email: email, member: currentMember, records: records)
                     .map { $0 ? Step.created : Step.failure }
             }
             .asDriver(onErrorJustReturn: .failure)

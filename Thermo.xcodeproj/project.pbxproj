@@ -10,6 +10,10 @@
 		6C691D5005FFCDE9E6E3D901 /* Pods_Thermo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
+		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
+		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
+		963BF596256EA56D00285350 /* HumanRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF595256EA56D00285350 /* HumanRecord.swift */; };
+		963BF59F256EDB7700285350 /* AMMemberUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF59E256EDB7700285350 /* AMMemberUnit.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -67,8 +71,8 @@
 		968AE4632548B46300A42C46 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4622548B46300A42C46 /* MainViewController.swift */; };
 		968AE4662548B8E400A42C46 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4652548B8E400A42C46 /* Temperature.swift */; };
 		968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4682548B96400A42C46 /* OverallFeeling.swift */; };
-		968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE46C2548BACF00A42C46 /* TemperatureManager.swift */; };
-		968AE4712548BCF200A42C46 /* TemperatureManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4702548BCF200A42C46 /* TemperatureManagerCore.swift */; };
+		968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE46C2548BACF00A42C46 /* RecordManager.swift */; };
+		968AE4712548BCF200A42C46 /* RecordManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4702548BCF200A42C46 /* RecordManagerCore.swift */; };
 		968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4732548C5F000A42C46 /* MainViewModel.swift */; };
 		968AE4772548C63B00A42C46 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4762548C63B00A42C46 /* MainView.swift */; };
 		968AE47C2549814900A42C46 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE47B2549814900A42C46 /* TabItemView.swift */; };
@@ -89,8 +93,8 @@
 		968AE4B725499D3000A42C46 /* OverallFeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4B625499D3000A42C46 /* OverallFeelingView.swift */; };
 		968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4BD25499E3E00A42C46 /* CircleView.swift */; };
 		968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C12549A6F300A42C46 /* TemperatureRange.swift */; };
-		968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */; };
-		968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */; };
+		968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C52549D6B800A42C46 /* RecordManagerMediator.swift */; };
+		968AE4C92549D74400A42C46 /* RecordManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C82549D74400A42C46 /* RecordManagerMediatorDelegate.swift */; };
 		968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */; };
 		968AE4D22549F41000A42C46 /* JournalTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D12549F41000A42C46 /* JournalTableElement.swift */; };
 		968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D82549F54600A42C46 /* JournalTableView.swift */; };
@@ -170,6 +174,10 @@
 		090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
+		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
+		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		963BF595256EA56D00285350 /* HumanRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanRecord.swift; sourceTree = "<group>"; };
+		963BF59E256EDB7700285350 /* AMMemberUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMemberUnit.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -227,8 +235,8 @@
 		968AE4622548B46300A42C46 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		968AE4652548B8E400A42C46 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		968AE4682548B96400A42C46 /* OverallFeeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallFeeling.swift; sourceTree = "<group>"; };
-		968AE46C2548BACF00A42C46 /* TemperatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManager.swift; sourceTree = "<group>"; };
-		968AE4702548BCF200A42C46 /* TemperatureManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerCore.swift; sourceTree = "<group>"; };
+		968AE46C2548BACF00A42C46 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
+		968AE4702548BCF200A42C46 /* RecordManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerCore.swift; sourceTree = "<group>"; };
 		968AE4732548C5F000A42C46 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		968AE4762548C63B00A42C46 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		968AE47B2549814900A42C46 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
@@ -249,8 +257,8 @@
 		968AE4B625499D3000A42C46 /* OverallFeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallFeelingView.swift; sourceTree = "<group>"; };
 		968AE4BD25499E3E00A42C46 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		968AE4C12549A6F300A42C46 /* TemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureRange.swift; sourceTree = "<group>"; };
-		968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediator.swift; sourceTree = "<group>"; };
-		968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureManagerMediatorDelegate.swift; sourceTree = "<group>"; };
+		968AE4C52549D6B800A42C46 /* RecordManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerMediator.swift; sourceTree = "<group>"; };
+		968AE4C82549D74400A42C46 /* RecordManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerMediatorDelegate.swift; sourceTree = "<group>"; };
 		968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
 		968AE4D12549F41000A42C46 /* JournalTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableElement.swift; sourceTree = "<group>"; };
 		968AE4D82549F54600A42C46 /* JournalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableView.swift; sourceTree = "<group>"; };
@@ -352,6 +360,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		963BF59D256EDB6600285350 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				963BF59E256EDB7700285350 /* AMMemberUnit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +443,7 @@
 		966A5549254790360099FDAE /* AddMember */ = {
 			isa = PBXGroup;
 			children = (
+				963BF59D256EDB6600285350 /* Models */,
 				966A556A25485E100099FDAE /* Views */,
 				966A554A254790510099FDAE /* AddMemberViewController.swift */,
 				966A554F2548498D0099FDAE /* AddMemberViewModel.swift */,
@@ -451,6 +468,7 @@
 				966A555725484A970099FDAE /* Member.swift */,
 				966A556025484BD60099FDAE /* MemberUnit.swift */,
 				96846CC52567C84B009841BD /* Gender.swift */,
+				963BF586256E924800285350 /* Human.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -471,6 +489,8 @@
 				966A555D25484B180099FDAE /* TemperatureUnit.swift */,
 				968AE4652548B8E400A42C46 /* Temperature.swift */,
 				968AE4682548B96400A42C46 /* OverallFeeling.swift */,
+				963BF592256EA54F00285350 /* Record.swift */,
+				963BF595256EA56D00285350 /* HumanRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,8 +648,8 @@
 		968AE46B2548BAC000A42C46 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				968AE46C2548BACF00A42C46 /* TemperatureManager.swift */,
-				968AE4702548BCF200A42C46 /* TemperatureManagerCore.swift */,
+				968AE46C2548BACF00A42C46 /* RecordManager.swift */,
+				968AE4702548BCF200A42C46 /* RecordManagerCore.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -711,8 +731,8 @@
 		968AE4C42549D6A400A42C46 /* Mediator */ = {
 			isa = PBXGroup;
 			children = (
-				968AE4C52549D6B800A42C46 /* TemperatureManagerMediator.swift */,
-				968AE4C82549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift */,
+				968AE4C52549D6B800A42C46 /* RecordManagerMediator.swift */,
+				968AE4C82549D74400A42C46 /* RecordManagerMediatorDelegate.swift */,
 			);
 			path = Mediator;
 			sourceTree = "<group>";
@@ -749,7 +769,6 @@
 		968AE4E2254A158A00A42C46 /* Members */ = {
 			isa = PBXGroup;
 			children = (
-				968AE4F4254A28B300A42C46 /* Models */,
 				968AE4F0254A270A00A42C46 /* Views */,
 				968AE4E3254A15B200A42C46 /* MembersViewController.swift */,
 				968AE4E7254A15FF00A42C46 /* MembersViewModel.swift */,
@@ -765,13 +784,6 @@
 				968AE4F5254A293000A42C46 /* MemberTableView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		968AE4F4254A28B300A42C46 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		968AE51B254F30DC00A42C46 /* Views */ = {
@@ -1310,6 +1322,7 @@
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
+				963BF587256E924800285350 /* Human.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
@@ -1327,7 +1340,7 @@
 				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
-				968AE4C92549D74400A42C46 /* TemperatureManagerMediatorDelegate.swift in Sources */,
+				968AE4C92549D74400A42C46 /* RecordManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
@@ -1349,7 +1362,7 @@
 				968AE4E4254A15B200A42C46 /* MembersViewController.swift in Sources */,
 				968AE4A22549979F00A42C46 /* LoggerViewModel.swift in Sources */,
 				968AE4EB254A165100A42C46 /* MembersView.swift in Sources */,
-				968AE4712548BCF200A42C46 /* TemperatureManagerCore.swift in Sources */,
+				968AE4712548BCF200A42C46 /* RecordManagerCore.swift in Sources */,
 				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
 				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
@@ -1381,7 +1394,8 @@
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				96F61E7C256B10E200540DBB /* CreateReportRequest.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
-				968AE46D2548BACF00A42C46 /* TemperatureManager.swift in Sources */,
+				963BF596256EA56D00285350 /* HumanRecord.swift in Sources */,
+				968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */,
 				968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */,
 				96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */,
 				966DADEC256B012500DB724E /* ReportView.swift in Sources */,
@@ -1397,6 +1411,7 @@
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
+				963BF59F256EDB7700285350 /* AMMemberUnit.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
 				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
@@ -1421,13 +1436,14 @@
 				966A5541254735F30099FDAE /* OnbrdInfoCell.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,
 				968AE542255053E900A42C46 /* ReminderManagerDelegate.swift in Sources */,
+				963BF593256EA54F00285350 /* Record.swift in Sources */,
 				968AE498254996E900A42C46 /* JournalView.swift in Sources */,
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
 				969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
 				966DADE9256B010600DB724E /* ReportViewModel.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
-				968AE4C62549D6B900A42C46 /* TemperatureManagerMediator.swift in Sources */,
+				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
 				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,

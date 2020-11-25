@@ -9,5 +9,5 @@ import RxSwift
 
 protocol ReportManager: class {
     // MARK: API(Rx)
-    func rxCreateReport(email: String, member: Member, temperatures: [Temperature]) -> Single<Bool>
+    func rxCreateReport(email: String, member: Member, records: [Record]) -> Single<Bool>
 }

@@ -7,87 +7,83 @@
 
 import RxSwift
 
-final class TemperatureManagerCore: TemperatureManager {
+final class RecordManagerCore: RecordManager {
     struct Constants {
-        static let cachedTemperaturesKey = "temperature_manager_core_cached_temperatures_key"
+        static let cachedHumanRecordsKey = "record_manager_core_cached_human_records_key"
     }
 }
 
 // MARK: API
-extension TemperatureManagerCore {
-    func log(member: Member,
-             value: Double,
-             unit: TemperatureUnit,
+extension RecordManagerCore {
+    func log(human: Member,
+             temperature: Temperature,
              overallFeeling: OverallFeeling,
              symptoms: [Symptom],
-             medicines: [Medicine]) -> Temperature? {
-        let temperature = Temperature(id: Int.random(in: 0..<Int.max),
-                                      member: member,
-                                      value: value,
-                                      unit: unit,
-                                      overallFeeling: overallFeeling,
+             medicines: [Medicine]) -> HumanRecord? {
+        let humanRecord = HumanRecord(id: Int.random(in: 0..<Int.max),
+                                      member: human,
                                       date: Date(),
+                                      temperature: temperature,
+                                      overallFeeling: overallFeeling,
                                       symptoms: symptoms,
                                       medicines: medicines)
         
-        var temperatures = getAllTemperatures()
-        temperatures.append(temperature)
+        var humanRecords = getHumanRecords()
+        humanRecords.append(humanRecord)
         
-        guard store(temperatures: temperatures) else {
+        guard store(humanRecords: humanRecords) else {
             return nil
         }
         
-        TemperatureManagerMediator.shared.notifyAboutLogged(temperature: temperature)
+        RecordManagerMediator.shared.notifyAboutLogged(record: humanRecord)
         
-        return temperature
+        return humanRecord
     }
     
-    func remove(temperatureId: Int) {
-        var temperatures = getAllTemperatures()
-        temperatures.removeAll(where: { $0.id == temperatureId })
+    func remove(recordId: Int) {
+        var humanRecords = getHumanRecords()
+        humanRecords.removeAll(where: { $0.id == recordId })
         
-        store(temperatures: temperatures)
+        store(humanRecords: humanRecords)
         
-        TemperatureManagerMediator.shared.notifyAboutRemoved(temperatureId: temperatureId)
+        RecordManagerMediator.shared.notifyAboutRemoved(recordId: recordId)
     }
     
     func remove(memberId: Int) {
-        var temperatures = getAllTemperatures()
-        temperatures.removeAll(where: { $0.member.id == memberId })
+        var humanRecords = getHumanRecords()
+        humanRecords.removeAll(where: { $0.member.id == memberId })
         
-        store(temperatures: temperatures)
+        store(humanRecords: humanRecords)
         
-        TemperatureManagerMediator.shared.notifyAboutRemovedAll(for: memberId)
+        RecordManagerMediator.shared.notifyAboutRemovedAllRecords(for: memberId)
     }
     
-    func get(for memberId: Int) -> [Temperature] {
-        getAllTemperatures()
+    func get(for memberId: Int) -> [Record] {
+        getAllRecords()
             .filter { $0.member.id == memberId }
     }
     
-    func get(temperatureId: Int) -> Temperature? {
-        getAllTemperatures()
-            .first(where: { $0.id == temperatureId })
+    func get(recordId: Int) -> Record? {
+        getAllRecords()
+            .first(where: { $0.id == recordId })
     }
 }
 
 // MARK: API(Rx)
-extension TemperatureManagerCore {
-    func rxLog(member: Member,
-               value: Double,
-               unit: TemperatureUnit,
+extension RecordManagerCore {
+    func rxLog(human: Member,
+               temperature: Temperature,
                overallFeeling: OverallFeeling,
                symptoms: [Symptom],
-               medicines: [Medicine]) -> Single<Temperature?> {
-        Single<Temperature?>
+               medicines: [Medicine]) -> Single<HumanRecord?> {
+        Single<HumanRecord?>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                event(.success(this.log(member: member,
-                                        value: value,
-                                        unit: unit,
+                event(.success(this.log(human: human,
+                                        temperature: temperature,
                                         overallFeeling: overallFeeling,
                                         symptoms: symptoms,
                                         medicines: medicines)))
@@ -98,14 +94,14 @@ extension TemperatureManagerCore {
             .observeOn(MainScheduler.asyncInstance)
     }
     
-    func rxRemove(temperatureId: Int) -> Completable {
+    func rxRemove(recordId: Int) -> Completable {
         Completable
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                this.remove(temperatureId: temperatureId)
+                this.remove(recordId: recordId)
                 
                 event(.completed)
                 
@@ -132,8 +128,8 @@ extension TemperatureManagerCore {
             .observeOn(MainScheduler.asyncInstance)
     }
     
-    func rxGet(for memberId: Int) -> Single<[Temperature]> {
-        Single<[Temperature]>
+    func rxGet(for memberId: Int) -> Single<[Record]> {
+        Single<[Record]>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
@@ -147,14 +143,14 @@ extension TemperatureManagerCore {
             .observeOn(MainScheduler.asyncInstance)
     }
     
-    func rxGet(temperatureId: Int) -> Single<Temperature?> {
-        Single<Temperature?>
+    func rxGet(recordId: Int) -> Single<Record?> {
+        Single<Record?>
             .create { [weak self] event in
                 guard let this = self else {
                     return Disposables.create()
                 }
                 
-                event(.success(this.get(temperatureId: temperatureId)))
+                event(.success(this.get(recordId: recordId)))
                 
                 return Disposables.create()
             }
@@ -164,26 +160,32 @@ extension TemperatureManagerCore {
 }
 
 // MARK: Private
-private extension TemperatureManagerCore {
+private extension RecordManagerCore {
     @discardableResult
-    func store(temperatures: [Temperature]) -> Bool {
-        guard let data = try? JSONEncoder().encode(temperatures) else {
+    func store(humanRecords: [HumanRecord]) -> Bool {
+        guard let data = try? JSONEncoder().encode(humanRecords) else {
             return false
         }
         
-        UserDefaults.standard.setValue(data, forKeyPath: Constants.cachedTemperaturesKey)
+        UserDefaults.standard.setValue(data, forKeyPath: Constants.cachedHumanRecordsKey)
         
         return true
     }
     
-    func getAllTemperatures() -> [Temperature] {
+    func getAllRecords() -> [Record] {
+        let humanRecords = getHumanRecords()
+        
+        return humanRecords
+    }
+    
+    func getHumanRecords() -> [HumanRecord] {
         guard
-            let data = UserDefaults.standard.data(forKey: Constants.cachedTemperaturesKey),
-            let temperatures = try? JSONDecoder().decode([Temperature].self, from: data)
+            let data = UserDefaults.standard.data(forKey: Constants.cachedHumanRecordsKey),
+            let records = try? JSONDecoder().decode([HumanRecord].self, from: data)
         else {
             return []
         }
         
-        return temperatures
+        return records
     }
 }

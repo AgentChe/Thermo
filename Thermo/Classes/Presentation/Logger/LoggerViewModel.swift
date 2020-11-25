@@ -10,7 +10,7 @@ import RxCocoa
 
 final class LoggerViewModel {
     enum Step {
-        case logged(Temperature)
+        case logged(Record)
         case error(String)
     }
     
@@ -23,7 +23,7 @@ final class LoggerViewModel {
     let create = PublishRelay<Void>()
     
     private let membersManager = MembersManagerCore()
-    private let temperatureManager = TemperatureManagerCore()
+    private let recordManager = RecordManagerCore()
     private let sessionManager = SessionManagerCore()
     private let medicineManager = MedicineManagerCore()
     private let symptomsManager = SymptomsManagerCore()
@@ -84,16 +84,17 @@ private extension LoggerViewModel {
                     return .just(.error("TemperatureLogger.Log.Failure".localized))
                 }
                 
-                return this.temperatureManager
-                    .rxLog(member: member,
-                           value: temperatureValue,
-                           unit: temperatureUnit,
+                let temperature = Temperature(value: temperatureValue, unit: temperatureUnit)
+                
+                return this.recordManager
+                    .rxLog(human: member,
+                           temperature: temperature,
                            overallFeeling: overallFeeling,
                            symptoms: symptoms,
                            medicines: medicines)
                     .catchErrorJustReturn(nil)
-                    .map { temperature -> Step in
-                        if let value = temperature {
+                    .map { record -> Step in
+                        if let value = record {
                             return .logged(value)
                         } else {
                             return .error("TemperatureLogger.Log.Failure".localized)
@@ -107,11 +108,7 @@ private extension LoggerViewModel {
         membersManager
             .rxCurrentMember()
             .compactMap { $0 }
-            .map { currentMember -> TemperatureRange in
-                TemperatureRange(for: currentMember)
-//                TemperatureRange(step: 0.1,
-//                                 unit: currentMember?.temperatureUnit ?? .celsius)
-            }
+            .map { TemperatureRange(for: $0) }
             .asDriver(onErrorDriveWith: .empty())
     }
 }
