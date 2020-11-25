@@ -94,7 +94,7 @@ private extension LoggerTemperatureView {
             return
         }
         
-        for value in stride(from: range.min, to: range.max + 0.1, by: 0.1) {
+        for value in stride(from: range.min, to: range.max + range.step, by: range.step) {
             temperatures.append(value)
         }
         

@@ -106,8 +106,11 @@ private extension LoggerViewModel {
     func makeTemperatureRange() -> Driver<TemperatureRange> {
         membersManager
             .rxCurrentMember()
+            .compactMap { $0 }
             .map { currentMember -> TemperatureRange in
-                TemperatureRange(unit: currentMember?.temperatureUnit ?? .celsius)
+                TemperatureRange(for: currentMember)
+//                TemperatureRange(step: 0.1,
+//                                 unit: currentMember?.temperatureUnit ?? .celsius)
             }
             .asDriver(onErrorDriveWith: .empty())
     }
