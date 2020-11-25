@@ -102,6 +102,11 @@ final class AddMemberViewModel {
 // MARK: Private
 private extension AddMemberViewModel {
     func needPayment() -> Observable<Bool> {
+        let membersCount = membersManager
+            .rxGetAllMembers()
+            .map { $0.count }
+            .asObservable()
+        
         let initial = Observable<Bool>.deferred { [weak self] in
             guard let this = self else {
                 return .empty()
@@ -109,17 +114,26 @@ private extension AddMemberViewModel {
             
             let activeSubscription = this.sessionManager.getSession()?.activeSubscription ?? false
             
-            return .just(!activeSubscription)
+            return .just(activeSubscription)
         }
         
         let updated = SDKStorage.shared
             .purchaseMediator
             .rxPurchaseMediatorDidValidateReceipt
             .map { $0?.activeSubscription ?? false }
-            .map { !$0 }
             .asObservable()
         
-        return Observable
+        let activeSubscription = Observable
             .merge(initial, updated)
+        
+        return Observable
+            .combineLatest(membersCount, activeSubscription)
+            .map { membersCount, activeSubscription -> Bool in
+                guard membersCount >= 1 else {
+                    return false
+                }
+                
+                return !activeSubscription
+            }
     }
 }

@@ -29,26 +29,26 @@
 "ImagePicker.PhotoLibrary" = "Photo library";
 
 // MARK: Splash
-"Splash.Title" = "Helping to track\nyour tempterature\nand symptom";
+"Splash.Title" = "Helping to track\ntemperature and the symptoms\nfor the whole family";
 
 // MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "Why do you\nwant to track\ntemperature?";
+"Onboarding.TrackTemperaturePurpose.Title" = "Why would you\nwant to track\ntemperature";
 "Onboarding.TrackTemperaturePurpose.Cell1" = "Identify possible conditions\nand treatment related to\nyour symptoms";
 "Onboarding.TrackTemperaturePurpose.Cell2" = "Because of pandemic";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "A family memberd\nis sick";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "A family member\nis sick";
 "Onboarding.TrackTemperaturePurpose.Cell4" = "The doctor asked\nto do it ";
 "Onboarding.TrackTemperaturePurpose.Cell5" = "Just self-care";
 "Onboarding.TrackTemperaturePurpose.BottomLine" = "*This tool does not provide medical advice";
 
 "Onboarding.TrackTemperatureImportant.Title" = "It’s very\nimportant\nto track your\ntemperature";
-"Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you are feeling fine,";
-"Onboarding.TrackTemperatureImportant.Cell1Part2" = " tracing the temperature will helo to detect thr illness early";
-"Onboarding.TrackTemperatureImportant.Cell2Part1" = "It’s best to track";
-"Onboarding.TrackTemperatureImportant.Cell2Part2" = " temperaturein the morning and in the evening at the same time";
+"Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you're feeling fine";
+"Onboarding.TrackTemperatureImportant.Cell1Part2" = " tracking the temperature will help to detect the illness early";
+"Onboarding.TrackTemperatureImportant.Cell2Part1" = "It's best to track";
+"Onboarding.TrackTemperatureImportant.Cell2Part2" = " temperature in the morning and in the evening";
 "Onboarding.TrackTemperatureImportant.Cell3Part1" = "If the temperature rises";
-"Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the normal, pey attention to other symptoms";
-"Onboarding.TrackTemperatureImportant.Cell4Part1" = "The health of animals";
-"Onboarding.TrackTemperatureImportant.Cell4Part2" = " should be watched as carefully as yours";
+"Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the norm pay attention to other symptoms";
+"Onboarding.TrackTemperatureImportant.Cell4Part1" = "The animals";
+"Onboarding.TrackTemperatureImportant.Cell4Part2" = " should be looked after with the same level of attention";
 "Onboarding.TrackTemperatureImportant.Cell5Part1" = "Temperature and humidity of the room";
 "Onboarding.TrackTemperatureImportant.Cell5Part2" = " are vital indicators for a person";
 
@@ -66,12 +66,12 @@
 
 "AddMember.CreateProfile.Title" = "Create profile:";
 "AddMember.CreateProfile.Placeholder" = "Name";
-"AddMember.CreateProfile.Button" = "Add member";
+"AddMember.CreateProfile.Button" = "Proceed";
 
 "AddMember.DateBirthday.TileForMeUnit" = "What's your date of birth?";
 "AddMember.DateBirthday.TileForNotMeUnit" = "What's their date of birth?";
-"AddMember.DateBirthday.DialogTitle" = "Why it’s needed?";
-"AddMember.DateBirthday.DialogSubTitle" = "The temperature is influenced by gender and age. In girls the body temperature stabilizes at 13-14 years old, and in boys - at about 18 years. ";
+"AddMember.DateBirthday.DialogTitle" = "Why we ask?";
+"AddMember.DateBirthday.DialogSubTitle" = "The normal temperature is different for different ages and geneders. We'll take the gender and date of birth into account.";
 "AddMember.DateBirthday.DialogButton" = "Next";
 
 "AddMember.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
@@ -79,9 +79,9 @@
 "AddMember.Add.Failure" = "Failure to add member";
 
 // MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "What’s your\ncurrent\ntemperature?";
+"TemperatureLogger.Temperature.Title" = "What's the current temperature?";
 
-"TemperatureLogger.Feeling.Title" = "How I feel?";
+"TemperatureLogger.Feeling.Title" = "How's the overall feeling?";
 "TemperatureLogger.Feeling.Health.Title" = "Health:";
 "TemperatureLogger.Feeling.Health.Good" = "Good";
 "TemperatureLogger.Feeling.Health.Sick" = "Sick";
@@ -94,10 +94,10 @@
 "TemperatureLogger.Log.Failure" = "Failure to log temperature";
 
 // MARK: Journal
-"Journal.Title" = "My journal";
+"Journal.Title" = "Journal";
 "Journal.Cell.DateTime" = "%@, %@";
 "Journal.Cell.Temperature" = "%.1f %@";
-"Journal.Report.Title" = "Receive a report in the form of a chart in PDF";
+"Journal.Report.Title" = "Receive a PDF report by email";
 "Journal.Report.ButtonTitle" = "GET";
 
 // MARK: Members
@@ -105,7 +105,7 @@
 "Members.SetCurrentMember" = "Failed to set current member";
 
 // MARK: Reminder
-"Reminder.TimeTitle" = "Remind AT";
+"Reminder.TimeTitle" = "Remind at";
 "Reminder.WeekdayTitle" = "Days of the week";
 "Reminder.Notification.Body" = "It's time to track your temperature!";
 
