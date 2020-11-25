@@ -255,13 +255,8 @@ private extension PaygateViewController {
         paygateView.mainView.isHidden = false
         
         UIView.animate(withDuration: 1, animations: { [weak self] in
-            self?.paygateView.mainView.titleLabel.alpha = 1
-            self?.paygateView.mainView.subTitleLabel.alpha = 1
-            self?.paygateView.mainView.lockImageView.alpha = 1
-            self?.paygateView.mainView.termsOfferLabel.alpha = 1
             self?.paygateView.mainView.leftOptionView.alpha = 1
             self?.paygateView.mainView.rightOptionView.alpha = 1
-            self?.paygateView.mainView.restoreButton.alpha = 1
         })
     }
     

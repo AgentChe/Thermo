@@ -128,3 +128,16 @@
 // MARK: ComboBox
 "ComboBox.Premium" = "Premium";
 "ComboBox.TagsPlaceholder" = "Enter the keyword...";
+
+// MARK: Paygate
+"Paygate.Title" = "Track temperature, symptoms and meds for the entire family";
+"Paygate.Item1" = "Individual accounts";
+"Paygate.Item2" = "Symptoms and meds tracking";
+"Paygate.Item3" = "Reminders for each account";
+"Paygate.Item4" = "Log export";
+"Paygate.Secured" = "Secured with iTunes. Cancel anytime.";
+"Paygate.BuyButton" = "Continue";
+"Paygate.RestoreButton" = "Restore purchases";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = " and ";
+"Paygate.PrivacyPolicy" = "Privacy policy";

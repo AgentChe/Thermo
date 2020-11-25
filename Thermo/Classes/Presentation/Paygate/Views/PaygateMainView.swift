@@ -11,12 +11,16 @@ import UIKit
 final class PaygateMainView: GradientView {
     lazy var restoreButton = makeRestoreButton()
     lazy var titleLabel = makeTitleLabel()
-    lazy var subTitleLabel = makeSubTitleLabel()
+    lazy var infoCell1 = makeInfoCell(image: "Paygate.InfoCell1", title: "Paygate.Item1")
+    lazy var infoCell2 = makeInfoCell(image: "Paygate.InfoCell2", title: "Paygate.Item2")
+    lazy var infoCell3 = makeInfoCell(image: "Paygate.InfoCell3", title: "Paygate.Item3")
+    lazy var infoCell4 = makeInfoCell(image: "Paygate.InfoCell4", title: "Paygate.Item4")
     lazy var leftOptionView = makeOptionView()
     lazy var rightOptionView = makeOptionView()
     lazy var continueButton = makeContinueButton()
     lazy var lockImageView = makeLockIconView()
-    lazy var termsOfferLabel = makeTermsOfferLabel()
+    lazy var securedLabel = makeSecuredLabel()
+    lazy var termsAndPolicyLabel = makeTermsAndPolicyLabel()
     lazy var purchasePreloaderView = makePreloaderView()
     
     override init(frame: CGRect) {
@@ -31,12 +35,6 @@ final class PaygateMainView: GradientView {
     }
     
     func setup(paygate: PaygateMainOffer) {
-        titleLabel.attributedText = paygate.title
-        subTitleLabel.attributedText = paygate.subTitle
-        continueButton.setAttributedTitle(paygate.button, for: .normal)
-        termsOfferLabel.attributedText = paygate.subButton
-        restoreButton.setAttributedTitle(paygate.restore, for: .normal)
-        
         let options = paygate.options?.prefix(2) ?? []
         
         if let leftOption = options.first {
@@ -67,6 +65,30 @@ private extension PaygateMainView {
             UIColor(integralRed: 102, green: 150, blue: 241).cgColor
         ]
     }
+    
+    @objc
+    private func termsAndPolicyTapped(sender: UITapGestureRecognizer) {
+        guard let label = sender.view as? UILabel, let text = label.text as NSString? else {
+            return
+        }
+        
+        let termsRange = text.range(of: "Paygate.TermsOfUse".localized)
+        let policyRange = text.range(of: "Paygate.PrivacyPolicy".localized)
+        
+        var url: URL?
+
+        if sender.didTapAttributedTextInLabel(label: label, inRange: termsRange) {
+            url = URL(string: GlobalDefinitions.termsOfServiceUrl)
+        } else if sender.didTapAttributedTextInLabel(label: label, inRange: policyRange) {
+            url = URL(string: GlobalDefinitions.privacyPolicyUrl)
+        }
+        
+        guard let openUrl = url else {
+            return
+        }
+        
+        UIApplication.shared.open(openUrl, options: [:])
+    }
 }
 
 // MARK: Make constraints
@@ -75,13 +97,37 @@ private extension PaygateMainView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 11.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -11.scale),
-            titleLabel.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor, constant: ScreenSize.isIphoneXFamily ? -44.scale : -16.scale)
+            titleLabel.bottomAnchor.constraint(equalTo: infoCell1.topAnchor, constant: ScreenSize.isIphoneXFamily ? -44.scale : -16.scale)
         ])
         
         NSLayoutConstraint.activate([
-            subTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.scale),
-            subTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20.scale),
-            subTitleLabel.bottomAnchor.constraint(equalTo: leftOptionView.topAnchor, constant: ScreenSize.isIphoneXFamily ? -44.scale : -16.scale)
+            restoreButton.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 45.scale : 29.scale),
+            restoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
+            restoreButton.heightAnchor.constraint(equalToConstant: 30.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            infoCell1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 37.scale),
+            infoCell1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.scale),
+            infoCell1.bottomAnchor.constraint(equalTo: infoCell2.topAnchor, constant: -8.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            infoCell2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 37.scale),
+            infoCell2.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.scale),
+            infoCell2.bottomAnchor.constraint(equalTo: infoCell3.topAnchor, constant: -8.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            infoCell3.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 37.scale),
+            infoCell3.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.scale),
+            infoCell3.bottomAnchor.constraint(equalTo: infoCell4.topAnchor, constant: -8.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            infoCell4.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 37.scale),
+            infoCell4.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.scale),
+            infoCell4.bottomAnchor.constraint(equalTo: leftOptionView.topAnchor, constant: ScreenSize.isIphoneXFamily ? -44.scale : -16.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -101,13 +147,13 @@ private extension PaygateMainView {
         NSLayoutConstraint.activate([
             lockImageView.widthAnchor.constraint(equalToConstant: 12.scale),
             lockImageView.heightAnchor.constraint(equalToConstant: 16.scale),
-            lockImageView.trailingAnchor.constraint(equalTo: termsOfferLabel.leadingAnchor, constant: -10.scale),
+            lockImageView.trailingAnchor.constraint(equalTo: securedLabel.leadingAnchor, constant: -10.scale),
             lockImageView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: ScreenSize.isIphoneXFamily ? -18.scale : -6.scale)
         ])
         
         NSLayoutConstraint.activate([
-            termsOfferLabel.centerYAnchor.constraint(equalTo: lockImageView.centerYAnchor),
-            termsOfferLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 10.scale)
+            securedLabel.centerYAnchor.constraint(equalTo: lockImageView.centerYAnchor),
+            securedLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 10.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -118,10 +164,9 @@ private extension PaygateMainView {
         ])
         
         NSLayoutConstraint.activate([
-            restoreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -25.scale : -10.scale),
-            restoreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
-            restoreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            restoreButton.heightAnchor.constraint(equalToConstant: 30.scale)
+            termsAndPolicyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.scale),
+            termsAndPolicyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.scale),
+            termsAndPolicyLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -133,27 +178,24 @@ private extension PaygateMainView {
 
 // MARK: Lazy initialization
 private extension PaygateMainView {
-    func makeRestoreButton() -> UIButton {
-        let view = UIButton()
-        view.alpha = 0
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
     func makeTitleLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor.white)
+            .font(Fonts.Poppins.bold(size: 28.scale))
+            .lineHeight(41.scale)
+        
         let view = UILabel()
-        view.alpha = 0
+        view.attributedText = "Paygate.Title".localized.attributed(with: attrs)
         view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
-    func makeSubTitleLabel() -> UILabel {
-        let view = UILabel()
-        view.alpha = 0
-        view.numberOfLines = 0
+    func makeInfoCell(image: String, title: String) -> PaygateMainInfoCell {
+        let view = PaygateMainInfoCell()
+        view.emojiView.image = UIImage(named: image)
+        view.title = title.localized
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -162,6 +204,7 @@ private extension PaygateMainView {
     func makeOptionView() -> PaygateOptionView {
         let view = PaygateOptionView()
         view.alpha = 0
+        view.isHidden = true
         view.layer.cornerRadius = 8.scale
         view.layer.borderWidth = 2.scale
         view.layer.borderColor = UIColor.white.cgColor
@@ -171,10 +214,18 @@ private extension PaygateMainView {
     }
     
     func makeContinueButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(UIColor(integralRed: 21, green: 21, blue: 34))
+            .font(Fonts.Poppins.semiBold(size: 16.scale))
+            .lineHeight(22.scale)
+        
         let view = UIButton()
+        view.setAttributedTitle("Paygate.BuyButton".localized.attributed(with: attrs), for: .normal)
         view.isHidden = true
         view.backgroundColor = .white
         view.layer.cornerRadius = 28.scale
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = UIColor(integralRed: 209, green: 107, blue: 152).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -182,8 +233,6 @@ private extension PaygateMainView {
     
     func makeLockIconView() -> UIImageView {
         let view = UIImageView()
-        view.alpha = 0
-        view.clipsToBounds = true
         view.contentMode = .scaleAspectFit
         view.image = UIImage(named: "Paygate.MainOffer.Lock")
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -191,9 +240,61 @@ private extension PaygateMainView {
         return view
     }
     
-    func makeTermsOfferLabel() -> UILabel {
+    func makeSecuredLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor.white)
+            .font(Fonts.Poppins.semiBold(size: 13.scale))
+            .lineHeight(19.5.scale)
+            .letterSpacing(-0.6.scale)
+        
         let view = UILabel()
-        view.alpha = 0
+        view.attributedText = "Paygate.Secured".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeRestoreButton() -> UIButton {
+        let attrs = TextAttributes()
+            .textColor(UIColor.white)
+            .font(Fonts.Poppins.regular(size: 13.scale))
+            .lineHeight(19.5.scale)
+            .letterSpacing(-0.6.scale)
+        
+        let view = UIButton()
+        view.setAttributedTitle("Paygate.RestoreButton".localized.attributed(with: attrs), for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeTermsAndPolicyLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .font(Fonts.Poppins.regular(size: 13.scale))
+            .lineHeight(19.5.scale)
+            .letterSpacing(-0.6.scale)
+            .textColor(UIColor.white)
+            .textAlignment(.center)
+            .dictionary
+        
+        var underlineAtts = attrs
+        underlineAtts[.underlineStyle] = NSUnderlineStyle.single.rawValue
+        
+        let terms = NSAttributedString(string: "Paygate.TermsOfUse".localized, attributes: underlineAtts)
+        let and = NSAttributedString(string: "Paygate.And".localized, attributes: attrs)
+        let policy = NSAttributedString(string: "Paygate.PrivacyPolicy".localized, attributes: underlineAtts)
+        
+        let attributedText = NSMutableAttributedString()
+        attributedText.append(terms)
+        attributedText.append(and)
+        attributedText.append(policy)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(termsAndPolicyTapped(sender:)))
+        
+        let view = UILabel()
+        view.attributedText = attributedText
+        view.addGestureRecognizer(tapGesture)
+        view.isUserInteractionEnabled = true
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

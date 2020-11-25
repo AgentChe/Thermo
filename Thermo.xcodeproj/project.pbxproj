@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6C691D5005FFCDE9E6E3D901 /* Pods_Thermo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */; };
+		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
+		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -166,6 +168,8 @@
 
 /* Begin PBXFileReference section */
 		090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
+		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -983,6 +987,7 @@
 			children = (
 				968E41BA2546F43F006F3CFC /* StringExtension.swift */,
 				966A552D25472D6E0099FDAE /* UIColorExtension.swift */,
+				963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1085,6 +1090,7 @@
 				969EF73D256A977600BEA8EC /* PaygateOptionView.swift */,
 				969EF73E256A977600BEA8EC /* PaygateView.swift */,
 				969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */,
+				963BF521256DB27200285350 /* PaygateMainInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1299,6 +1305,7 @@
 				96F61E77256B105900540DBB /* ReportManager.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
+				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
@@ -1334,6 +1341,7 @@
 				968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */,
 				969EF6FF2569B68A00BEA8EC /* LoggerFeelView.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
+				963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */,
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
 				968AE549255058D300A42C46 /* ReminderTime.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,

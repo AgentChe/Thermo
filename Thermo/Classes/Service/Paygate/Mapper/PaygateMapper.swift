@@ -20,74 +20,30 @@ final class PaygateMapper {
             return nil
         }
         
-        let mainJSON = data["main"] as? [String: Any]
-        let main = map(main: mainJSON, productsPrices: productsPrices)
+        let main = map(main: data, productsPrices: productsPrices)
         
         let specialOfferJSON = data["special_offer"] as? [String: Any]
         let specialOffer = map(specialOffer: specialOfferJSON, productsPrices: productsPrices)
         
         let paygate = Paygate(main: main, specialOffer: specialOffer)
         
-        let productIds = getProductIds(mainJSON: mainJSON, specialOfferJSON: specialOfferJSON)
+        let productIds = getProductIds(mainJSON: data, specialOfferJSON: specialOfferJSON)
         
         return PaygateResponse(json, paygate, productIds)
     }
 }
 
 // MARK: Private
-
 private extension PaygateMapper {
     static func map(main: [String: Any]?, productsPrices: [ProductPrice]?) -> PaygateMainOffer? {
         guard let main = main else {
             return nil
         }
         
-        let title = (main["greeting"] as? String ?? "")
-            .attributed(with: TextAttributes()
-                .font(Fonts.Poppins.bold(size: 28.scale))
-                .textColor(UIColor.white)
-                .lineHeight(41.scale)
-                .textAlignment(.left))
-        
-        let subTitle = (main["text"] as? [String] ?? [])
-            .joined(separator: "\n")
-            .attributed(with: TextAttributes()
-                .font(Fonts.Poppins.regular(size: 17.scale))
-                .textColor(UIColor.white)
-                .lineHeight(28.scale)
-                .textAlignment(.center)
-                .letterSpacing(-0.5.scale))
-        
-        let button = (main["button"] as? String ?? "")
-            .uppercased()
-            .attributed(with: TextAttributes()
-                .font(Fonts.Poppins.semiBold(size: 16.scale))
-                .lineHeight(22.scale)
-                .textColor(UIColor(integralRed: 21, green: 21, blue: 34))
-                .textAlignment(.center))
-        
-        let subButton = (main["prebutton"] as? String ?? "")
-            .attributed(with: TextAttributes()
-                .font(Fonts.Poppins.semiBold(size: 13.scale))
-                .lineHeight(19.5.scale)
-                .textColor(UIColor.white)
-                .letterSpacing(-0.6.scale))
-        
-        let restore = (main["restore"] as? String ?? "")
-            .attributed(with: TextAttributes()
-                .font(Fonts.Poppins.semiBold(size: 13.scale))
-                .lineHeight(19.5.scale)
-                .textColor(UIColor.white))
-        
         let optionsJSONArray = (main["options"] as? [[String: Any]]) ?? []
         let options = optionsJSONArray.enumerated().compactMap { map(option: $1, productsPrices: productsPrices, index: $0) }
         
-        return PaygateMainOffer(title: title,
-                                subTitle: subTitle,
-                                options: options,
-                                button: button,
-                                subButton: subButton,
-                                restore: restore)
+        return PaygateMainOffer(options: options)
     }
     
     static func map(option: [String: Any], productsPrices: [ProductPrice]?, index: Int) -> PaygateOption? {

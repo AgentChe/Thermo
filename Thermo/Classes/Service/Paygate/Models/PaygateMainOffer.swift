@@ -9,10 +9,5 @@
 import Foundation.NSAttributedString
 
 struct PaygateMainOffer {
-    let title: NSAttributedString?
-    let subTitle: NSAttributedString?
     let options: [PaygateOption]?
-    let button: NSAttributedString?
-    let subButton: NSAttributedString?
-    let restore: NSAttributedString?
 }
