@@ -58,6 +58,8 @@
 "AddMember.MemberUnit.Child" = "👶 A child";
 "AddMember.MemberUnit.Parent" = "💑 My parent";
 "AddMember.MemberUnit.Other" = "👫 Other family member";
+"AddMember.MemberUnit.Animals" = "🐈 Animals";
+"AddMember.MemberUnit.Objects" = "🏠 Objects / rooms";
 
 "AddMember.Gender.TitleForMeUnit" = "What's your gender?";
 "AddMember.Gender.TitleForNotMeUnit" = "What's their gender?";
