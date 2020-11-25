@@ -346,6 +346,9 @@ private extension AddMemberViewController {
             closed()
         case .error(let message):
             Toast.notify(with: message, style: .danger)
+        case .paygate:
+            let vc = PaygateViewController.make()
+            present(vc, animated: true)
         }
     }
     

@@ -5,6 +5,8 @@
 //  Created by Andrey Chernyshev on 22.11.2020.
 //
 
+import RxCocoa
+
 final class SessionManagerCore: SessionManager {
     struct Constants {
         static let sessionCacheKey = "session_manage_core_session_cache_key"

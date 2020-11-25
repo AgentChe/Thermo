@@ -12,6 +12,7 @@ final class AddMemberViewModel {
     enum Step {
         case added(Member)
         case error(String)
+        case paygate
     }
     
     let selectMemberUnit = PublishRelay<MemberUnit>()
@@ -25,6 +26,7 @@ final class AddMemberViewModel {
     
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
+    private let sessionManager = SessionManagerCore()
     
     func existingMembersUnits() -> Driver<[MemberUnit]> {
         membersManager
@@ -43,7 +45,7 @@ final class AddMemberViewModel {
     }
     
     func step() -> Driver<Step> {
-        let stub = Observable
+        let fields = Observable
             .combineLatest(
                 selectMemberUnit.asObservable(),
                 selectGender.asObservable(),
@@ -53,11 +55,20 @@ final class AddMemberViewModel {
                 inputDateBirthday.asObservable()
             )
         
+        let stub = Observable
+            .combineLatest(fields, needPayment())
+        
         return addMember
             .withLatestFrom(stub)
-            .flatMapLatest { [weak self] stub -> Single<Member?> in
+            .flatMapLatest { [weak self] stub -> Single<Step> in
                 guard let this = self else {
                     return .never()
+                }
+                
+                let (fields, needPayment) = stub
+                
+                guard !needPayment else {
+                    return .just(.paygate)
                 }
                 
                 let (memberUnit,
@@ -65,7 +76,7 @@ final class AddMemberViewModel {
                      temperatureUnit,
                      imageKey,
                      name,
-                     dateBirthday) = stub
+                     dateBirthday) = fields
                 
                 return this.membersManager
                     .rxAdd(memberUnit: memberUnit,
@@ -76,14 +87,39 @@ final class AddMemberViewModel {
                            dateBirthday: dateBirthday,
                            setAsCurrent: true)
                     .catchErrorJustReturn(nil)
-            }
-            .map { member -> Step in
-                if let _member = member {
-                    return .added(_member)
-                } else {
-                    return .error("AddMember.Add.Failure".localized)
-                }
+                    .map { member -> Step in
+                        if let _member = member {
+                            return .added(_member)
+                        } else {
+                            return .error("AddMember.Add.Failure".localized)
+                        }
+                    }
             }
             .asDriver(onErrorJustReturn: .error("AddMember.Add.Failure".localized))
+    }
+}
+
+// MARK: Private
+private extension AddMemberViewModel {
+    func needPayment() -> Observable<Bool> {
+        let initial = Observable<Bool>.deferred { [weak self] in
+            guard let this = self else {
+                return .empty()
+            }
+            
+            let activeSubscription = this.sessionManager.getSession()?.activeSubscription ?? false
+            
+            return .just(!activeSubscription)
+        }
+        
+        let updated = SDKStorage.shared
+            .purchaseMediator
+            .rxPurchaseMediatorDidValidateReceipt
+            .map { $0?.activeSubscription ?? false }
+            .map { !$0 }
+            .asObservable()
+        
+        return Observable
+            .merge(initial, updated)
     }
 }
