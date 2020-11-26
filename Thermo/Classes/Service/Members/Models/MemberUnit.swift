@@ -10,33 +10,38 @@ enum MemberUnit: Hashable {
     case child(Human)
     case parent(Human)
     case other(Human)
+    case animal(Animal)
+    case object(Object)
 }
 
 // MARK: Codable
 extension MemberUnit: Codable {
     private enum Keys: String, CodingKey {
-        case human, cases
+        case value, cases
     }
     
     private enum Cases: String, Codable {
-        case me, child, parent, other
+        case me, child, parent, other, animal, object
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: Keys.self)
         
-        let human = try container.decode(Human.self, forKey: .human)
         let cases = try container.decode(Cases.self, forKey: .cases)
         
         switch cases {
         case .me:
-            self = .me(human)
+            self = .me(try container.decode(Human.self, forKey: .value))
         case .child:
-            self = .child(human)
+            self = .child(try container.decode(Human.self, forKey: .value))
         case .parent:
-            self = .parent(human)
+            self = .parent(try container.decode(Human.self, forKey: .value))
         case .other:
-            self = .other(human)
+            self = .other(try container.decode(Human.self, forKey: .value))
+        case .animal:
+            self = .animal(try container.decode(Animal.self, forKey: .value))
+        case .object:
+            self = .object(try container.decode(Object.self, forKey: .value))
         }
     }
     
@@ -44,7 +49,9 @@ extension MemberUnit: Codable {
         var container = encoder.container(keyedBy: Keys.self)
         
         let cases: Cases
-        let human: Human
+        var human: Human?
+        var animal: Animal?
+        var object: Object?
         
         switch self {
         case .me(let value):
@@ -59,9 +66,22 @@ extension MemberUnit: Codable {
         case .other(let value):
             cases = .other
             human = value
+        case .animal(let value):
+            cases = .animal
+            animal = value
+        case .object(let value):
+            cases = .object
+            object = value
         }
         
         try container.encode(cases, forKey: .cases)
-        try container.encode(human, forKey: .human)
+        
+        if let _human = human {
+            try container.encode(_human, forKey: .value)
+        } else if let _animal = animal {
+            try container.encode(_animal, forKey: .value)
+        } else if let _object = object {
+            try container.encode(_object, forKey: .value)
+        }
     }
 }

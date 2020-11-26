@@ -45,6 +45,12 @@ struct CreateReportRequest: APIRequestBody {
         case .other(let human):
             name = human.name
             type = "other"
+        case .animal(let animal):
+            name = animal.name
+            type = "animal"
+        case .object(let object):
+            name = object.name
+            type = "object"
         }
         
         var params: [String: Any] = [
@@ -58,6 +64,8 @@ struct CreateReportRequest: APIRequestBody {
                 if let humanRecord = record as? HumanRecord {
                     return data(from: humanRecord)
                 }
+                
+                // TODO: animals and objects
                 
                 return nil
             }

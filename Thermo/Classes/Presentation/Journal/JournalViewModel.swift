@@ -43,6 +43,14 @@ private extension JournalViewModel {
                     return this.imageManager
                         .rxRetrieve(key: human.imageKey)
                         .asObservable().compactMap { $0 }
+                case .animal:
+                    return Observable<UIImage?>
+                        .just(UIImage(named: "Members.Animal.Default"))
+                        .compactMap { $0 }
+                case .object:
+                    return Observable<UIImage?>
+                        .just(UIImage(named: "Members.Object.Default"))
+                        .compactMap { $0 }
                 }
             }
     }
@@ -102,7 +110,7 @@ private extension JournalViewModel {
             return map(humanRecord: humanRecord)
         }
         
-        return nil 
+        return nil
     }
     
     func map(humanRecord: HumanRecord) -> JournalTableSection {

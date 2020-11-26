@@ -35,12 +35,18 @@ final class MemberTableCell: UITableViewCell {
 extension MemberTableCell {
     func setup(member: Member) {
         let name: String
-        let imageKey: String?
         
         switch member.unit {
         case .me(let human), .child(let human), .parent(let human), .other(let human):
             name = human.name
-            imageKey = human.imageKey
+            
+            loadImage(with: human.imageKey)
+        case .animal(let animal):
+            name = animal.name
+            setImage(with: "Members.Animal.Default")
+        case .object(let object):
+            name = object.name
+            setImage(with: "Members.Object.Default")
         }
         
         label.attributedText = name
@@ -49,13 +55,17 @@ extension MemberTableCell {
                             .font(Fonts.Poppins.semiBold(size: 17.scale))
                             .lineHeight(27.scale)
                             .letterSpacing(-0.4.scale))
-        
-        if let imgKey = imageKey {
-            imageManager
-                .retrieve(key: imgKey) { [weak self] image in
-                    self?.avatarImageView.image = image
-                }
-        }
+    }
+    
+    func loadImage(with imageKey: String) {
+        imageManager
+            .retrieve(key: imageKey) { [weak self] image in
+                self?.avatarImageView.image = image
+            }
+    }
+    
+    func setImage(with imageKey: String) {
+        avatarImageView.image = UIImage(named: imageKey)
     }
 }
 

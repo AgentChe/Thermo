@@ -13,6 +13,8 @@ final class AMMemberUnitView: UIView {
     lazy var childUnitCell = makeCell(title: "AddMember.MemberUnit.Child")
     lazy var parentUnitCell = makeCell(title: "AddMember.MemberUnit.Parent")
     lazy var otherUnitCell = makeCell(title: "AddMember.MemberUnit.Other")
+    lazy var animalsUnitCell = makeCell(title: "AddMember.MemberUnit.Animals")
+    lazy var objectsUnitCell = makeCell(title: "AddMember.MemberUnit.Objects")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,6 +58,18 @@ private extension AMMemberUnitView {
             otherUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
             otherUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
             otherUnitCell.topAnchor.constraint(equalTo: parentUnitCell.bottomAnchor, constant: 16.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            animalsUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            animalsUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
+            animalsUnitCell.topAnchor.constraint(equalTo: otherUnitCell.bottomAnchor, constant: 16.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            objectsUnitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            objectsUnitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
+            objectsUnitCell.topAnchor.constraint(equalTo: animalsUnitCell.bottomAnchor, constant: 16.scale)
         ])
     }
 }

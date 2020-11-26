@@ -35,7 +35,7 @@ extension AMGenderView {
         switch selectedUnit {
         case .me:
             title = "AddMember.Gender.TitleForMeUnit".localized
-        case .child, .other, .parent:
+        case .child, .other, .parent, .animal, .object:
             title = "AddMember.Gender.TitleForNotMeUnit".localized
         }
         

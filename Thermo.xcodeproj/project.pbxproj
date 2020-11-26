@@ -14,6 +14,10 @@
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
 		963BF596256EA56D00285350 /* HumanRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF595256EA56D00285350 /* HumanRecord.swift */; };
 		963BF59F256EDB7700285350 /* AMMemberUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF59E256EDB7700285350 /* AMMemberUnit.swift */; };
+		963BF5A2256F14FE00285350 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5A1256F14FE00285350 /* Animal.swift */; };
+		963BF5A9256F153C00285350 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5A8256F153C00285350 /* Object.swift */; };
+		963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */; };
+		963BF5B525700A2100285350 /* AMStepChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B425700A2100285350 /* AMStepChecker.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -178,6 +182,10 @@
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		963BF595256EA56D00285350 /* HumanRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanRecord.swift; sourceTree = "<group>"; };
 		963BF59E256EDB7700285350 /* AMMemberUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMemberUnit.swift; sourceTree = "<group>"; };
+		963BF5A1256F14FE00285350 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		963BF5A8256F153C00285350 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMCreateProfileStyleMaker.swift; sourceTree = "<group>"; };
+		963BF5B425700A2100285350 /* AMStepChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMStepChecker.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -368,6 +376,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		963BF5AB2570012E00285350 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */,
+				963BF5B425700A2100285350 /* AMStepChecker.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +460,7 @@
 		966A5549254790360099FDAE /* AddMember */ = {
 			isa = PBXGroup;
 			children = (
+				963BF5AB2570012E00285350 /* Utils */,
 				963BF59D256EDB6600285350 /* Models */,
 				966A556A25485E100099FDAE /* Views */,
 				966A554A254790510099FDAE /* AddMemberViewController.swift */,
@@ -469,6 +487,8 @@
 				966A556025484BD60099FDAE /* MemberUnit.swift */,
 				96846CC52567C84B009841BD /* Gender.swift */,
 				963BF586256E924800285350 /* Human.swift */,
+				963BF5A1256F14FE00285350 /* Animal.swift */,
+				963BF5A8256F153C00285350 /* Object.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1322,6 +1342,7 @@
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
+				963BF5B525700A2100285350 /* AMStepChecker.swift in Sources */,
 				963BF587256E924800285350 /* Human.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
@@ -1406,6 +1427,7 @@
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,
+				963BF5A2256F14FE00285350 /* Animal.swift in Sources */,
 				969EF7182569CBD500BEA8EC /* PaygateManagerCore.swift in Sources */,
 				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
@@ -1423,6 +1445,7 @@
 				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
+				963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
@@ -1441,6 +1464,7 @@
 				968AE4662548B8E400A42C46 /* Temperature.swift in Sources */,
 				969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */,
 				966A556125484BD60099FDAE /* MemberUnit.swift in Sources */,
+				963BF5A9256F153C00285350 /* Object.swift in Sources */,
 				966DADE9256B010600DB724E /* ReportViewModel.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,

@@ -9,11 +9,21 @@ import UIKit
 import RxSwift
 
 final class AMCreateProfileView: UIView {
+    enum Style {
+        case withImage, withoutImage
+    }
+    
     lazy var titleLabel = makeTitleLabel()
     lazy var imageView = makeImageView()
     lazy var placeholderImageView = makePlaceholderImageView()
     lazy var plusView = makePlusView()
     lazy var textField = makeTextField()
+    
+    var style: Style = .withImage {
+        didSet {
+            updateStyle()
+        }
+    }
     
     var image: UIImage? {
         didSet {
@@ -26,8 +36,9 @@ final class AMCreateProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
         makeConstraints()
+        configure()
+        updateStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -54,6 +65,19 @@ private extension AMCreateProfileView {
         
         placeholderImageView.isHidden = true
         imageView.image = image
+    }
+    
+    func updateStyle() {
+        switch style {
+        case .withImage:
+            imageView.isHidden = false
+            placeholderImageView.isHidden = false
+            plusView.isHidden = false
+        case .withoutImage:
+            imageView.isHidden = true
+            placeholderImageView.isHidden = true
+            plusView.isHidden = true
+        }
     }
 }
 

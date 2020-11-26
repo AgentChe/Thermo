@@ -6,5 +6,5 @@
 //
 
 enum AMMemberUnit {
-    case me, child, parent, other
+    case me, child, parent, other, animal, object
 }

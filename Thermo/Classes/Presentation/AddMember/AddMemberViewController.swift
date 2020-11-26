@@ -25,6 +25,7 @@ final class AddMemberViewController: UIViewController {
     private let transition: Transition
     
     private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
+    private lazy var stepChecker = AMStepChecker(vc: self, viewModel: viewModel)
     
     private init(transition: Transition) {
         self.transition = transition
@@ -129,18 +130,30 @@ private extension AddMemberViewController {
         addMemberView.memberUnitView.otherUnitCell.addGestureRecognizer(otherGesture)
         addMemberView.memberUnitView.otherUnitCell.isUserInteractionEnabled = true
         
+        let animalsGesture = UITapGestureRecognizer()
+        addMemberView.memberUnitView.animalsUnitCell.addGestureRecognizer(animalsGesture)
+        addMemberView.memberUnitView.animalsUnitCell.isUserInteractionEnabled = true
+        
+        let objectsGesture = UITapGestureRecognizer()
+        addMemberView.memberUnitView.objectsUnitCell.addGestureRecognizer(objectsGesture)
+        addMemberView.memberUnitView.objectsUnitCell.isUserInteractionEnabled = true
+        
         Observable
             .merge([
-                meGesture.rx.event.map { _ in AMMemberUnit.me },
-                childGesture.rx.event.map { _ in AMMemberUnit.child },
-                parentGesture.rx.event.map { _ in AMMemberUnit.parent },
-                otherGesture.rx.event.map { _ in AMMemberUnit.other },
+                meGesture.rx.event.map { event in AMMemberUnit.me },
+                childGesture.rx.event.map { event in AMMemberUnit.child },
+                parentGesture.rx.event.map { event in AMMemberUnit.parent },
+                otherGesture.rx.event.map { event in AMMemberUnit.other },
+                animalsGesture.rx.event.map { event in AMMemberUnit.animal },
+                objectsGesture.rx.event.map { event in AMMemberUnit.object }
             ])
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
                 self?.viewModel.selectMemberUnit.accept(unit)
                 self?.addMemberView.genderView.setup(with: unit)
                 self?.addMemberView.dateBirthdayView.setup(with: unit)
+                self?.addMemberView.createProfileView.style = AMCreateProfileStyleMaker.make(at: unit)
+                self?.stepChecker.selectedUnit = unit
             })
             .disposed(by: disposeBag)
     }
@@ -150,7 +163,9 @@ private extension AddMemberViewController {
             addMemberView.memberUnitView.meUnitCell,
             addMemberView.memberUnitView.childUnitCell,
             addMemberView.memberUnitView.parentUnitCell,
-            addMemberView.memberUnitView.otherUnitCell
+            addMemberView.memberUnitView.otherUnitCell,
+            addMemberView.memberUnitView.animalsUnitCell,
+            addMemberView.memberUnitView.objectsUnitCell
         ]
         .filter { $0.state != .disabled }
         .forEach {
@@ -166,6 +181,10 @@ private extension AddMemberViewController {
             addMemberView.memberUnitView.parentUnitCell.state = .checked
         case .other:
             addMemberView.memberUnitView.otherUnitCell.state = .checked
+        case .animal:
+            addMemberView.memberUnitView.animalsUnitCell.state = .checked
+        case .object:
+            addMemberView.memberUnitView.objectsUnitCell.state = .checked
         }
     }
     
@@ -265,7 +284,7 @@ private extension AddMemberViewController {
     }
     
     func nextTapped() {
-        guard canNext() else {
+        guard stepChecker.canNext() else {
             return
         }
         
@@ -278,66 +297,6 @@ private extension AddMemberViewController {
         }
         
         addMemberView.step = nextStep
-    }
-    
-    func canNext() -> Bool {
-        switch addMemberView.step {
-        case .memberUnitView:
-            return hasCheckedMemberUnit()
-        case .temperatureUnitView:
-            return hasCheckedTemperatureUnit()
-        case .createProfileView:
-            return hasFilledProfile()
-        case .dateBirthdayView:
-            return hasFilledDateBirthday()
-        case .genderView:
-            return hasCheckedGender()
-        }
-    }
-    
-    func hasCheckedMemberUnit() -> Bool {
-        [
-            addMemberView.memberUnitView.meUnitCell,
-            addMemberView.memberUnitView.childUnitCell,
-            addMemberView.memberUnitView.parentUnitCell,
-            addMemberView.memberUnitView.otherUnitCell
-        ]
-        .contains(where: { $0.state == .checked })
-    }
-    
-    func hasCheckedTemperatureUnit() -> Bool {
-        [
-            addMemberView.temperatureUnitView.fahrenheitCell,
-            addMemberView.temperatureUnitView.celsiusCell
-        ]
-        .contains(where: { $0.state == .checked })
-    }
-    
-    func hasFilledProfile() -> Bool {
-        let canNext = addMemberView.createProfileView.textField.text?.isEmpty == false
-            && addMemberView.createProfileView.image != nil
-        
-        if canNext {
-            viewModel.inputName.accept(addMemberView.createProfileView.textField.text ?? "")
-        }
-        
-        return canNext
-    }
-    
-    func hasFilledDateBirthday() -> Bool {
-        let selectedDate = addMemberView.dateBirthdayView.datePicker.date
-        
-        viewModel.inputDateBirthday.accept(selectedDate)
-        
-        return true
-    }
-    
-    func hasCheckedGender() -> Bool {
-        [
-            addMemberView.genderView.maleCell,
-            addMemberView.genderView.femaleCell
-        ]
-        .contains(where: { $0.state == .checked })
     }
     
     func step(at step: AddMemberViewModel.Step) {

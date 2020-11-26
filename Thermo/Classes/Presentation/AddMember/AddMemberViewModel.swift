@@ -42,6 +42,10 @@ final class AddMemberViewModel {
                         return .parent
                     case .other:
                         return .other
+                    case .animal:
+                        return .animal
+                    case .object:
+                        return .object
                     }
                 }
             }
@@ -57,6 +61,7 @@ final class AddMemberViewModel {
             .asDriver(onErrorDriveWith: .empty())
     }
     
+    // TODO - переписать метод, вынести в datasource
     func step() -> Driver<Step> {
         let fields = Observable
             .combineLatest(
@@ -95,6 +100,11 @@ final class AddMemberViewModel {
                                   imageKey: imageKey,
                                   gender: gender,
                                   dateBirthday: dateBirthday)
+                
+                let animal = Animal(name: name)
+                
+                let object = Object(name: name)
+                
                 let unit: MemberUnit
                 switch memberUnit {
                 case .me:
@@ -105,6 +115,10 @@ final class AddMemberViewModel {
                     unit = .parent(human)
                 case .other:
                     unit = .other(human)
+                case .animal:
+                    unit = .animal(animal)
+                case .object:
+                    unit = .object(object)
                 }
                 
                 return this.membersManager

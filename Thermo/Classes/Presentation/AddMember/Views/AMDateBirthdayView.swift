@@ -40,7 +40,7 @@ extension AMDateBirthdayView {
         switch selectedUnit {
         case .me:
             title = "AddMember.DateBirthday.TileForMeUnit".localized
-        case .child, .other, .parent:
+        case .child, .other, .parent, .animal, .object:
             title = "AddMember.DateBirthday.TileForNotMeUnit".localized
         }
         

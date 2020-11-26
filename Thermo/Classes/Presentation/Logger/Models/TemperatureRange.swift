@@ -31,6 +31,32 @@ struct TemperatureRange {
                 max = 107.6
                 normal = 97.88
             }
+        case .animal:
+            step = 0.5
+            
+            switch unit.temperatureUnit {
+            case .celsius:
+                min = 5
+                max = 45.0
+                normal = 30.0
+            case .fahrenheit:
+                min = 41
+                max = 113
+                normal = 6
+            }
+        case .object:
+            step = 0.5
+            
+            switch unit.temperatureUnit {
+            case .celsius:
+                min = -30
+                max = 100
+                normal = 10
+            case .fahrenheit:
+                min = -22
+                max = 212
+                normal = 50
+            }
         }
     }
 }
