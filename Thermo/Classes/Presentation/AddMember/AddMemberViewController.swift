@@ -158,6 +158,7 @@ private extension AddMemberViewController {
                 self?.memberAttributiionsMaker.memberUnit = unit
                 self?.stepChecker.selectedUnit = unit
                 self?.stepMaker.selectedUnit = unit
+                self?.addMemberView.setupContentViews(for: self?.stepMaker.steps() ?? [])
             })
             .disposed(by: disposeBag)
     }

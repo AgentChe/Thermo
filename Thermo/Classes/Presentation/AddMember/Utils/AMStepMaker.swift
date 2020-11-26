@@ -36,6 +36,19 @@ extension AMStepMaker {
             return incrementObjectStep()
         }
     }
+    
+    func steps() -> [AddMemberView.Step] {
+        guard let selectedUnit = self.selectedUnit else {
+            return [.memberUnitView, .genderView, .createProfileView, .dateBirthdayView, .temperatureUnitView]
+        }
+        
+        switch selectedUnit {
+        case .me, .child, .parent, .other:
+            return [.memberUnitView, .genderView, .createProfileView, .dateBirthdayView, .temperatureUnitView]
+        case .animal, .object:
+            return [.memberUnitView, .createProfileView, .temperatureUnitView]
+        }
+    }
 }
 
 // MARK: Private

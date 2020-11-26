@@ -31,16 +31,36 @@ final class AddMemberView: GradientView {
         }
     }
     
+    private lazy var contentViews: [UIView] = {
+        [
+            memberUnitView,
+            genderView,
+            createProfileView,
+            dateBirthdayView,
+            temperatureUnitView
+        ]
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configure()
+        setupScrollView()
         updateButtonText()
         makeConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: API
+extension AddMemberView {
+    func setupContentViews(for steps: [Step]) {
+        contentViews = steps.map(map(step:))
+        
+        setupScrollView()
     }
 }
 
@@ -54,8 +74,12 @@ private extension AddMemberView {
         
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+    }
+    
+    func setupScrollView() {
+        scrollView.subviews.forEach { $0.removeFromSuperview() }
         
-        contentViews()
+        contentViews
             .enumerated()
             .forEach { index, view in
                 scrollView.addSubview(view)
@@ -65,18 +89,12 @@ private extension AddMemberView {
                                          height: UIScreen.main.bounds.height)
             }
         
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(contentViews().count),
+        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(contentViews.count),
                                         height: UIScreen.main.bounds.height)
     }
     
     func scroll() {
-        let index = step.rawValue
-        
-        guard contentViews().indices.contains(index) else {
-            return
-        }
-        
-        let frame = contentViews()[index].frame
+        let frame = map(step: step).frame
         
         scrollView.scrollRectToVisible(frame, animated: true)
     }
@@ -99,14 +117,19 @@ private extension AddMemberView {
         }
     }
     
-    func contentViews() -> [UIView] {
-        [
-            memberUnitView,
-            genderView,
-            createProfileView,
-            dateBirthdayView,
-            temperatureUnitView
-        ]
+    func map(step: Step) -> UIView {
+        switch step {
+        case .memberUnitView:
+            return memberUnitView
+        case .genderView:
+            return genderView
+        case .dateBirthdayView:
+            return dateBirthdayView
+        case .createProfileView:
+            return createProfileView
+        case .temperatureUnitView:
+            return temperatureUnitView
+        }
     }
 }
 
@@ -124,7 +147,7 @@ private extension AddMemberView {
             button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
             button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -26.scale : -40.scale)
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -26.scale : -12.scale)
         ])
     }
 }
