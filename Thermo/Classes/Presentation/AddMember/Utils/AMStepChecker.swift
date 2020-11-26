@@ -10,12 +10,13 @@ import UIKit
 final class AMStepChecker {
     var selectedUnit: AMMemberUnit?
     
-    private weak var vc: AddMemberViewController?
-    private weak var memberAttributiionsMaker: AMMemberAttributionsMaker?
+    var foundNameOnCheck: ((String?) -> Void)?
+    var foundDateBirthdayOnCheck: ((Date) -> Void)?
     
-    init(vc: AddMemberViewController, memberAttributiionsMaker: AMMemberAttributionsMaker) {
+    private weak var vc: AddMemberViewController?
+    
+    init(vc: AddMemberViewController) {
         self.vc = vc
-        self.memberAttributiionsMaker = memberAttributiionsMaker
     }
 }
 
@@ -92,7 +93,7 @@ private extension AMStepChecker {
         }
         
         if canNext {
-            memberAttributiionsMaker?.name = vc.addMemberView.createProfileView.textField.text
+            foundNameOnCheck?(vc.addMemberView.createProfileView.textField.text)
         }
         
         return canNext
@@ -103,7 +104,7 @@ private extension AMStepChecker {
             return false
         }
         
-        memberAttributiionsMaker?.dateBirthday = vc.addMemberView.dateBirthdayView.datePicker.date
+        foundDateBirthdayOnCheck?(vc.addMemberView.dateBirthdayView.datePicker.date)
         
         return true
     }

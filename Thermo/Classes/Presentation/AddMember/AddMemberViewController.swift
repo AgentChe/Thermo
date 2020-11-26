@@ -25,8 +25,9 @@ final class AddMemberViewController: UIViewController {
     private let transition: Transition
     
     private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
-    private lazy var stepChecker = AMStepChecker(vc: self, memberAttributiionsMaker: memberAttributiionsMaker)
+    private lazy var stepChecker = AMStepChecker(vc: self)
     private lazy var memberAttributiionsMaker = AMMemberAttributionsMaker(vc: self)
+    private lazy var stepMaker = AMStepMaker(initialStep: addMemberView.step)
     
     private init(transition: Transition) {
         self.transition = transition
@@ -46,11 +47,6 @@ final class AddMemberViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        addMemberUnitActions()
-        addGenderActions()
-        addTemperatureUnitActions()
-        addCreateProfileActions()
         
         viewModel
             .existingMembersUnits()
@@ -75,6 +71,12 @@ final class AddMemberViewController: UIViewController {
                 self?.step(at: step)
             })
             .disposed(by: disposeBag)
+        
+        addMemberUnitActions()
+        addGenderActions()
+        addTemperatureUnitActions()
+        addCreateProfileActions()
+        addActionsOnStepChecker()
     }
 }
 
@@ -155,6 +157,7 @@ private extension AddMemberViewController {
                 self?.addMemberView.createProfileView.style = AMCreateProfileStyleMaker.make(at: unit)
                 self?.memberAttributiionsMaker.memberUnit = unit
                 self?.stepChecker.selectedUnit = unit
+                self?.stepMaker.selectedUnit = unit
             })
             .disposed(by: disposeBag)
     }
@@ -284,22 +287,33 @@ private extension AddMemberViewController {
             .disposed(by: disposeBag)
     }
     
+    func addActionsOnStepChecker() {
+        stepChecker.foundNameOnCheck = { [weak self] name in
+            self?.memberAttributiionsMaker.name = name
+        }
+        
+        stepChecker.foundDateBirthdayOnCheck = { [weak self] date in
+            self?.memberAttributiionsMaker.dateBirthday = date
+        }
+    }
+    
     func nextTapped() {
         guard stepChecker.canNext() else {
             return
         }
         
-        let nextStepIndex = addMemberView.step.rawValue + 1
-        
-        guard let nextStep = AddMemberView.Step(rawValue: nextStepIndex) else {
-            if let attributions = memberAttributiionsMaker.makeAttributions() {
-                viewModel.addMember.accept(attributions)
-            }
-            
+        guard let action = stepMaker.makeStep() else {
             return
         }
         
-        addMemberView.step = nextStep
+        switch action {
+        case .navigateToStep(let step):
+            addMemberView.step = step
+        case .finish:
+            if let attributions = memberAttributiionsMaker.makeAttributions() {
+                viewModel.addMember.accept(attributions)
+            }
+        }
     }
     
     func step(at step: AddMemberViewModel.Step) {
