@@ -18,6 +18,7 @@
 		963BF5A9256F153C00285350 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5A8256F153C00285350 /* Object.swift */; };
 		963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */; };
 		963BF5B525700A2100285350 /* AMStepChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B425700A2100285350 /* AMStepChecker.swift */; };
+		963BF5B92570151400285350 /* AMMemberAttributionsMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B82570151400285350 /* AMMemberAttributionsMaker.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -186,6 +187,7 @@
 		963BF5A8256F153C00285350 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMCreateProfileStyleMaker.swift; sourceTree = "<group>"; };
 		963BF5B425700A2100285350 /* AMStepChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMStepChecker.swift; sourceTree = "<group>"; };
+		963BF5B82570151400285350 /* AMMemberAttributionsMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMemberAttributionsMaker.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 			children = (
 				963BF5B02570059D00285350 /* AMCreateProfileStyleMaker.swift */,
 				963BF5B425700A2100285350 /* AMStepChecker.swift */,
+				963BF5B82570151400285350 /* AMMemberAttributionsMaker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1468,6 +1471,7 @@
 				966DADE9256B010600DB724E /* ReportViewModel.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
+				963BF5B92570151400285350 /* AMMemberAttributionsMaker.swift in Sources */,
 				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,

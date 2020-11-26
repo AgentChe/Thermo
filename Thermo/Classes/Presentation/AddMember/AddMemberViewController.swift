@@ -25,7 +25,8 @@ final class AddMemberViewController: UIViewController {
     private let transition: Transition
     
     private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
-    private lazy var stepChecker = AMStepChecker(vc: self, viewModel: viewModel)
+    private lazy var stepChecker = AMStepChecker(vc: self, memberAttributiionsMaker: memberAttributiionsMaker)
+    private lazy var memberAttributiionsMaker = AMMemberAttributionsMaker(vc: self)
     
     private init(transition: Transition) {
         self.transition = transition
@@ -98,7 +99,7 @@ extension AddMemberViewController: ImagePickerDelegate {
         viewModel
             .store(image: img)
             .drive(onNext: { [weak self] key in
-                self?.viewModel.createImageKey.accept(key)
+                self?.memberAttributiionsMaker.imageKey = key
                 self?.addMemberView.createProfileView.image = img
             })
             .disposed(by: disposeBag)
@@ -149,10 +150,10 @@ private extension AddMemberViewController {
             ])
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
-                self?.viewModel.selectMemberUnit.accept(unit)
                 self?.addMemberView.genderView.setup(with: unit)
                 self?.addMemberView.dateBirthdayView.setup(with: unit)
                 self?.addMemberView.createProfileView.style = AMCreateProfileStyleMaker.make(at: unit)
+                self?.memberAttributiionsMaker.memberUnit = unit
                 self?.stepChecker.selectedUnit = unit
             })
             .disposed(by: disposeBag)
@@ -204,7 +205,7 @@ private extension AddMemberViewController {
             ])
             .subscribe(onNext: { [weak self] gender in
                 self?.update(checked: gender)
-                self?.viewModel.selectGender.accept(gender)
+                self?.memberAttributiionsMaker.gender = gender
             })
             .disposed(by: disposeBag)
     }
@@ -243,7 +244,7 @@ private extension AddMemberViewController {
             ])
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
-                self?.viewModel.selectTemperatureUnit.accept(unit)
+                self?.memberAttributiionsMaker.temperatureUnit = unit
             })
             .disposed(by: disposeBag)
     }
@@ -291,7 +292,9 @@ private extension AddMemberViewController {
         let nextStepIndex = addMemberView.step.rawValue + 1
         
         guard let nextStep = AddMemberView.Step(rawValue: nextStepIndex) else {
-            viewModel.addMember.accept(Void())
+            if let attributions = memberAttributiionsMaker.makeAttributions() {
+                viewModel.addMember.accept(attributions)
+            }
             
             return
         }

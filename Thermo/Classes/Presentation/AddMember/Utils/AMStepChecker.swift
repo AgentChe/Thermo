@@ -6,17 +6,16 @@
 //
 
 import UIKit
-import RxCocoa
 
 final class AMStepChecker {
-    private weak var vc: AddMemberViewController?
-    private let viewModel: AddMemberViewModel
-    
     var selectedUnit: AMMemberUnit?
     
-    init(vc: AddMemberViewController, viewModel: AddMemberViewModel) {
+    private weak var vc: AddMemberViewController?
+    private weak var memberAttributiionsMaker: AMMemberAttributionsMaker?
+    
+    init(vc: AddMemberViewController, memberAttributiionsMaker: AMMemberAttributionsMaker) {
         self.vc = vc
-        self.viewModel = viewModel
+        self.memberAttributiionsMaker = memberAttributiionsMaker
     }
 }
 
@@ -93,7 +92,7 @@ private extension AMStepChecker {
         }
         
         if canNext {
-            viewModel.inputName.accept(vc.addMemberView.createProfileView.textField.text ?? "")
+            memberAttributiionsMaker?.name = vc.addMemberView.createProfileView.textField.text
         }
         
         return canNext
@@ -104,8 +103,7 @@ private extension AMStepChecker {
             return false
         }
         
-        let selectedDate = vc.addMemberView.dateBirthdayView.datePicker.date
-        viewModel.inputDateBirthday.accept(selectedDate)
+        memberAttributiionsMaker?.dateBirthday = vc.addMemberView.dateBirthdayView.datePicker.date
         
         return true
     }

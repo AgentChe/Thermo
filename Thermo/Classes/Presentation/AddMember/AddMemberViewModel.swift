@@ -15,14 +15,7 @@ final class AddMemberViewModel {
         case paygate
     }
     
-    let selectMemberUnit = PublishRelay<AMMemberUnit>()
-    let selectGender = PublishRelay<Gender>()
-    let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
-    let createImageKey = PublishRelay<String>()
-    let inputName = PublishRelay<String>()
-    let inputDateBirthday = PublishRelay<Date>()
-    
-    let addMember = PublishRelay<Void>()
+    let addMember = PublishRelay<AMMemberAttributionsMaker.AMMemberAttributions>()
     
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
@@ -61,70 +54,26 @@ final class AddMemberViewModel {
             .asDriver(onErrorDriveWith: .empty())
     }
     
-    // TODO - переписать метод, вынести в datasource
     func step() -> Driver<Step> {
-        let fields = Observable
-            .combineLatest(
-                selectMemberUnit.asObservable(),
-                selectGender.asObservable(),
-                selectTemperatureUnit.asObservable(),
-                createImageKey.asObservable(),
-                inputName.asObservable(),
-                inputDateBirthday.asObservable()
-            )
-        
-        let stub = Observable
-            .combineLatest(fields, needPayment())
+        let needPayment = self.needPayment()
         
         return addMember
-            .withLatestFrom(stub)
+            .withLatestFrom(needPayment) { ($0, $1) }
             .flatMapLatest { [weak self] stub -> Single<Step> in
                 guard let this = self else {
                     return .never()
                 }
                 
-                let (fields, needPayment) = stub
+                let (attributions, needPayment) = stub
                 
                 guard !needPayment else {
                     return .just(.paygate)
                 }
                 
-                let (memberUnit,
-                     gender,
-                     temperatureUnit,
-                     imageKey,
-                     name,
-                     dateBirthday) = fields
-                
-                let human = Human(name: name,
-                                  imageKey: imageKey,
-                                  gender: gender,
-                                  dateBirthday: dateBirthday)
-                
-                let animal = Animal(name: name)
-                
-                let object = Object(name: name)
-                
-                let unit: MemberUnit
-                switch memberUnit {
-                case .me:
-                    unit = .me(human)
-                case .child:
-                    unit = .child(human)
-                case .parent:
-                    unit = .parent(human)
-                case .other:
-                    unit = .other(human)
-                case .animal:
-                    unit = .animal(animal)
-                case .object:
-                    unit = .object(object)
-                }
+                let (memberUnit, temperatureUnit) = attributions
                 
                 return this.membersManager
-                    .rxAdd(memberUnit: unit,
-                           temperatureUnit: temperatureUnit,
-                           setAsCurrent: true)
+                    .rxAdd(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: true)
                     .catchErrorJustReturn(nil)
                     .map { member -> Step in
                         if let _member = member {
