@@ -133,13 +133,14 @@ private extension AddMemberViewController {
         addMemberView.memberUnitView.otherUnitCell.addGestureRecognizer(otherGesture)
         addMemberView.memberUnitView.otherUnitCell.isUserInteractionEnabled = true
         
-        let animalsGesture = UITapGestureRecognizer()
-        addMemberView.memberUnitView.animalsUnitCell.addGestureRecognizer(animalsGesture)
-        addMemberView.memberUnitView.animalsUnitCell.isUserInteractionEnabled = true
-        
-        let objectsGesture = UITapGestureRecognizer()
-        addMemberView.memberUnitView.objectsUnitCell.addGestureRecognizer(objectsGesture)
-        addMemberView.memberUnitView.objectsUnitCell.isUserInteractionEnabled = true
+        // TODO
+//        let animalsGesture = UITapGestureRecognizer()
+//        addMemberView.memberUnitView.animalsUnitCell.addGestureRecognizer(animalsGesture)
+//        addMemberView.memberUnitView.animalsUnitCell.isUserInteractionEnabled = true
+//
+//        let objectsGesture = UITapGestureRecognizer()
+//        addMemberView.memberUnitView.objectsUnitCell.addGestureRecognizer(objectsGesture)
+//        addMemberView.memberUnitView.objectsUnitCell.isUserInteractionEnabled = true
         
         Observable
             .merge([
@@ -147,8 +148,8 @@ private extension AddMemberViewController {
                 childGesture.rx.event.map { event in AMMemberUnit.child },
                 parentGesture.rx.event.map { event in AMMemberUnit.parent },
                 otherGesture.rx.event.map { event in AMMemberUnit.other },
-                animalsGesture.rx.event.map { event in AMMemberUnit.animal },
-                objectsGesture.rx.event.map { event in AMMemberUnit.object }
+//                animalsGesture.rx.event.map { event in AMMemberUnit.animal }, // TODO
+//                objectsGesture.rx.event.map { event in AMMemberUnit.object } // TODO
             ])
             .subscribe(onNext: { [weak self] unit in
                 self?.update(checked: unit)
@@ -169,8 +170,8 @@ private extension AddMemberViewController {
             addMemberView.memberUnitView.childUnitCell,
             addMemberView.memberUnitView.parentUnitCell,
             addMemberView.memberUnitView.otherUnitCell,
-            addMemberView.memberUnitView.animalsUnitCell,
-            addMemberView.memberUnitView.objectsUnitCell
+//            addMemberView.memberUnitView.animalsUnitCell, // TODO
+//            addMemberView.memberUnitView.objectsUnitCell // TODO
         ]
         .filter { $0.state != .disabled }
         .forEach {
@@ -187,9 +188,11 @@ private extension AddMemberViewController {
         case .other:
             addMemberView.memberUnitView.otherUnitCell.state = .checked
         case .animal:
-            addMemberView.memberUnitView.animalsUnitCell.state = .checked
+//            addMemberView.memberUnitView.animalsUnitCell.state = .checked // TODO
+        break
         case .object:
-            addMemberView.memberUnitView.objectsUnitCell.state = .checked
+//            addMemberView.memberUnitView.objectsUnitCell.state = .checked // TODO
+        break
         }
     }
     

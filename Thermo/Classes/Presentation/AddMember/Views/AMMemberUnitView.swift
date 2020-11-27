@@ -14,8 +14,8 @@ final class AMMemberUnitView: UIView {
     lazy var childUnitCell = makeCell(title: "AddMember.MemberUnit.Child")
     lazy var parentUnitCell = makeCell(title: "AddMember.MemberUnit.Parent")
     lazy var otherUnitCell = makeCell(title: "AddMember.MemberUnit.Other")
-    lazy var animalsUnitCell = makeCell(title: "AddMember.MemberUnit.Animals")
-    lazy var objectsUnitCell = makeCell(title: "AddMember.MemberUnit.Objects")
+//    lazy var animalsUnitCell = makeCell(title: "AddMember.MemberUnit.Animals") TODO
+//    lazy var objectsUnitCell = makeCell(title: "AddMember.MemberUnit.Objects") TODO
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,21 +67,24 @@ private extension AMMemberUnitView {
         NSLayoutConstraint.activate([
             otherUnitCell.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40.scale),
             otherUnitCell.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40.scale),
-            otherUnitCell.topAnchor.constraint(equalTo: parentUnitCell.bottomAnchor, constant: 16.scale)
+            otherUnitCell.topAnchor.constraint(equalTo: parentUnitCell.bottomAnchor, constant: 16.scale),
+            otherUnitCell.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.scale) // TODO удалить
         ])
         
-        NSLayoutConstraint.activate([
-            animalsUnitCell.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40.scale),
-            animalsUnitCell.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40.scale),
-            animalsUnitCell.topAnchor.constraint(equalTo: otherUnitCell.bottomAnchor, constant: 16.scale)
-        ])
+        // TODO
+//        NSLayoutConstraint.activate([
+//            animalsUnitCell.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40.scale),
+//            animalsUnitCell.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40.scale),
+//            animalsUnitCell.topAnchor.constraint(equalTo: otherUnitCell.bottomAnchor, constant: 16.scale)
+//        ])
         
-        NSLayoutConstraint.activate([
-            objectsUnitCell.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40.scale),
-            objectsUnitCell.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40.scale),
-            objectsUnitCell.topAnchor.constraint(equalTo: animalsUnitCell.bottomAnchor, constant: 16.scale),
-            objectsUnitCell.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.scale)
-        ])
+        // TODO
+//        NSLayoutConstraint.activate([
+//            objectsUnitCell.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40.scale),
+//            objectsUnitCell.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40.scale),
+//            objectsUnitCell.topAnchor.constraint(equalTo: animalsUnitCell.bottomAnchor, constant: 16.scale),
+//            objectsUnitCell.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.scale)
+//        ])
     }
 }
 
