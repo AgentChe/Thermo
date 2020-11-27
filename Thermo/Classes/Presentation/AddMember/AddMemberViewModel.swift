@@ -20,6 +20,7 @@ final class AddMemberViewModel {
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
     private let sessionManager = SessionManagerCore()
+    private let monetizationManager = MonetizationManagerCore()
     
     func existingMembersUnits() -> Driver<[AMMemberUnit]> {
         membersManager
@@ -93,6 +94,13 @@ private extension AddMemberViewModel {
         let membersCount = membersManager
             .rxGetAllMembers()
             .map { $0.count }
+            .catchErrorJustReturn(0)
+            .asObservable()
+        
+        let freeMembers = monetizationManager
+            .rxRetrieveMonetizationConfig(forceUpdate: false)
+            .map { $0?.maxFreeProfiles ?? 0 }
+            .catchErrorJustReturn(0)
             .asObservable()
         
         let initial = Observable<Bool>.deferred { [weak self] in
@@ -115,9 +123,9 @@ private extension AddMemberViewModel {
             .merge(initial, updated)
         
         return Observable
-            .combineLatest(membersCount, activeSubscription)
-            .map { membersCount, activeSubscription -> Bool in
-                guard membersCount >= 1 else {
+            .combineLatest(membersCount, freeMembers, activeSubscription)
+            .map { membersCount, freeMembers, activeSubscription -> Bool in
+                guard membersCount >= freeMembers else {
                     return false
                 }
                 

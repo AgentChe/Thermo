@@ -16,6 +16,7 @@ final class SplashViewModel {
     private let membersManager = MembersManagerCore()
     private let medicinesManager = MedicineManagerCore()
     private let symptomsManager = SymptomsManagerCore()
+    private let monetizationManager = MonetizationManagerCore()
     
     func step() -> Driver<Step> {
         library()
@@ -37,6 +38,11 @@ private extension SplashViewModel {
                 symptomsManager
                     .rxRetrieveSymptoms(forceUpdate: true)
                     .catchErrorJustReturn([])
+                    .asCompletable(),
+                
+                monetizationManager
+                    .rxRetrieveMonetizationConfig(forceUpdate: true)
+                    .catchErrorJustReturn(nil)
                     .asCompletable()
             ])
     }

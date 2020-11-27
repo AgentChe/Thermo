@@ -230,12 +230,6 @@ private extension LoggerViewController {
         }
     }
     
-    func showPaygate() {
-        let vc = PaygateViewController.make()
-        vc.delegate = self
-        present(vc, animated: true)
-    }
-    
     func addOverallFeelingActions() {
         let badGesture = UITapGestureRecognizer()
         loggerView.feelView.overallFeelingView.badItem.addGestureRecognizer(badGesture)
@@ -297,6 +291,14 @@ private extension LoggerViewController {
             navigationController?.popViewController(animated: true)
         case .error(let message):
             Toast.notify(with: message, style: .danger)
+        case .paygate:
+            showPaygate()
         }
+    }
+    
+    func showPaygate() {
+        let vc = PaygateViewController.make()
+        vc.delegate = self
+        present(vc, animated: true)
     }
 }

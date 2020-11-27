@@ -15,6 +15,8 @@ final class OnboardingViewController: UIViewController {
     
     var onboardingView = OnboardingView()
     
+    private let viewModel = OnboardingViewModel()
+    
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -52,6 +54,13 @@ extension OnboardingViewController {
     }
 }
 
+// MARK: PaygateViewControllerDelegate
+extension OnboardingViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        openAddMemberController()
+    }
+}
+
 // MARK: Private
 private extension OnboardingViewController {
     func tapped() {
@@ -67,6 +76,16 @@ private extension OnboardingViewController {
     }
     
     func goToNext() {
+        if viewModel.needPayment() {
+            let vc = PaygateViewController.make()
+            vc.delegate = self
+            present(vc, animated: true)
+        } else {
+            openAddMemberController()
+        }
+    }
+    
+    func openAddMemberController() {
         UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
         
         UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root)

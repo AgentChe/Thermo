@@ -20,6 +20,11 @@
 		963BF5B525700A2100285350 /* AMStepChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B425700A2100285350 /* AMStepChecker.swift */; };
 		963BF5B92570151400285350 /* AMMemberAttributionsMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5B82570151400285350 /* AMMemberAttributionsMaker.swift */; };
 		963BF5BE2570201C00285350 /* AMStepMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5BD2570201C00285350 /* AMStepMaker.swift */; };
+		963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C0257054E500285350 /* GetMonetizationConfigRequest.swift */; };
+		963BF5C42570550200285350 /* MonetizationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C32570550200285350 /* MonetizationConfig.swift */; };
+		963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C62571646C00285350 /* GetMonetizationResponseMapper.swift */; };
+		963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C9257168EF00285350 /* MonetizationManager.swift */; };
+		963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5CC257169F700285350 /* MonetizationManagerCore.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -190,6 +195,11 @@
 		963BF5B425700A2100285350 /* AMStepChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMStepChecker.swift; sourceTree = "<group>"; };
 		963BF5B82570151400285350 /* AMMemberAttributionsMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMMemberAttributionsMaker.swift; sourceTree = "<group>"; };
 		963BF5BD2570201C00285350 /* AMStepMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMStepMaker.swift; sourceTree = "<group>"; };
+		963BF5C0257054E500285350 /* GetMonetizationConfigRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMonetizationConfigRequest.swift; sourceTree = "<group>"; };
+		963BF5C32570550200285350 /* MonetizationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationConfig.swift; sourceTree = "<group>"; };
+		963BF5C62571646C00285350 /* GetMonetizationResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMonetizationResponseMapper.swift; sourceTree = "<group>"; };
+		963BF5C9257168EF00285350 /* MonetizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManager.swift; sourceTree = "<group>"; };
+		963BF5CC257169F700285350 /* MonetizationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManagerCore.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -1052,6 +1062,8 @@
 				969EF7112569CBD500BEA8EC /* Requests */,
 				969EF7142569CBD500BEA8EC /* PaygateManager.swift */,
 				969EF7062569CBD500BEA8EC /* PaygateManagerCore.swift */,
+				963BF5C9257168EF00285350 /* MonetizationManager.swift */,
+				963BF5CC257169F700285350 /* MonetizationManagerCore.swift */,
 			);
 			path = Paygate;
 			sourceTree = "<group>";
@@ -1060,6 +1072,7 @@
 			isa = PBXGroup;
 			children = (
 				969EF7092569CBD500BEA8EC /* PaygateMapper.swift */,
+				963BF5C62571646C00285350 /* GetMonetizationResponseMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -1072,6 +1085,7 @@
 				969EF70D2569CBD500BEA8EC /* Paygate.swift */,
 				969EF70E2569CBD500BEA8EC /* PaygateMainOffer.swift */,
 				969EF70F2569CBD500BEA8EC /* PaygateSpecialOffer.swift */,
+				963BF5C32570550200285350 /* MonetizationConfig.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1080,6 +1094,7 @@
 			isa = PBXGroup;
 			children = (
 				969EF7132569CBD500BEA8EC /* GetPaygateRequest.swift */,
+				963BF5C0257054E500285350 /* GetMonetizationConfigRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -1342,6 +1357,7 @@
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				96F61E77256B105900540DBB /* ReportManager.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
+				963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
@@ -1352,6 +1368,7 @@
 				963BF587256E924800285350 /* Human.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
+				963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */,
 				968AE4DD254A033F00A42C46 /* MembersManagerMediator.swift in Sources */,
 				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
@@ -1362,6 +1379,7 @@
 				968AE49B2549977A00A42C46 /* LoggerViewController.swift in Sources */,
 				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
+				963BF5C42570550200285350 /* MonetizationConfig.swift in Sources */,
 				969EF741256A977600BEA8EC /* PaygateViewControllerDelegate.swift in Sources */,
 				96F61EE9256C706F00540DBB /* JournalTableSection.swift in Sources */,
 				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
@@ -1397,6 +1415,7 @@
 				966A5547254774670099FDAE /* TrackTemperatureImportant.swift in Sources */,
 				968AE4F2254A271F00A42C46 /* MemberTableCell.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
+				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
 				966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */,
 				968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
@@ -1453,6 +1472,7 @@
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
 				963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */,
+				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,

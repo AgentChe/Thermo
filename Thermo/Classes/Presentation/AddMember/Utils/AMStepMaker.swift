@@ -68,7 +68,6 @@ private extension AMStepMaker {
             lastStep = .temperatureUnitView
             return .navigateToStep(.temperatureUnitView)
         case .temperatureUnitView:
-            lastStep = .memberUnitView
             return .finish
         }
     }
@@ -81,7 +80,6 @@ private extension AMStepMaker {
             lastStep = .temperatureUnitView
             return .navigateToStep(.temperatureUnitView)
         } else if lastStep == .temperatureUnitView {
-            lastStep = .memberUnitView
             return .finish
         }
         
@@ -96,7 +94,6 @@ private extension AMStepMaker {
             lastStep = .temperatureUnitView
             return .navigateToStep(.temperatureUnitView)
         } else if lastStep == .temperatureUnitView {
-            lastStep = .memberUnitView
             return .finish
         }
         
