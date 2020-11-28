@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ComboBoxModel {
+class LoggerSelectionViewItem {
     let id: Int
     let name: String
     var isSelected: Bool
@@ -21,19 +21,18 @@ class ComboBoxModel {
     }
 }
 
-final class ComboBox: UIView {
+final class LoggerSelectionView: UIView {
     enum Style {
-        case payment, cell, expanded
+        case payment, cell
     }
-    
-    var didSelect: ((ComboBoxModel) -> Void)?
-    var didRemoveTagView: ((TagView) -> Void)?
     
     var style = Style.payment {
         didSet {
             updateStyle()
         }
     }
+    
+    var didRemoveTagView: ((TagView) -> Void)?
     
     lazy var titleLabel = makeTitleLabel()
     lazy var fieldBackgroundView = makeFieldBackgroundView()
@@ -42,13 +41,8 @@ final class ComboBox: UIView {
     lazy var premiumLabel = makePremiumLabel()
     lazy var tagsView = makeTagsView()
     lazy var tagsPlaceholderLabel = makeTagsPlaceholderLabel()
-    var tableView: UITableView?
     
-    var models = [ComboBoxModel]() {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+    var models = [LoggerSelectionViewItem]()
     
     private let disposeBag = DisposeBag()
     
@@ -72,44 +66,12 @@ final class ComboBox: UIView {
         }
         result += cell
         
-        if style == .expanded {
-            result += 8.scale + 90.scale
-        }
-        
         return CGSize(width: 327.scale, height: result)
     }
 }
 
-// MARK: UITableViewDataSource
-extension ComboBox: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        models.filter { !$0.isSelected }.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
-        cell.textLabel?.attributedText = models.filter { !$0.isSelected }[indexPath.row].name
-            .attributed(with: TextAttributes()
-                            .textColor(UIColor(integralRed: 63, green: 51, blue: 85))
-                            .font(Fonts.Poppins.regular(size: 15.scale))
-                            .lineHeight(20.scale))
-        cell.backgroundColor = UIColor.white
-        cell.contentView.backgroundColor = UIColor.white
-        return cell
-    }
-}
-
-// MARK: UITableViewDelegate
-extension ComboBox: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let model = models.filter { !$0.isSelected }[indexPath.row]
-        
-        didSelect?(model)
-    }
-}
-
 // MARK: API
-extension ComboBox {
+extension LoggerSelectionView {
     func updateVisibility() {
         let selectedModels = models.filter { $0.isSelected }
         
@@ -118,31 +80,26 @@ extension ComboBox {
         tagsView.isHidden = style == .payment || selectedModels.isEmpty
     }
     
-    func addTagView(model: ComboBoxModel) {
+    func addTagView(model: LoggerSelectionViewItem) {
         let view = makeTagView(tag: model)
         tagsView.addTagView(view)
-        tagsView.layoutIfNeeded()
     }
 }
 
 // MARK: Private
-private extension ComboBox {
+private extension LoggerSelectionView {
     func updateStyle() {
         updateVisibility()
-        removeListView()
         
         switch style {
         case .payment:
-            rightIconView.image = UIImage(named: "ComboBox.Lock")
+            rightIconView.image = UIImage(named: "TemperatureLogger.Feeiling.Lock")
         case .cell:
-            rightIconView.image = UIImage(named: "ComboBox.Arrow")
-        case .expanded:
-            rightIconView.image = UIImage(named: "ComboBox.Arrow")
-            showListView()
+            rightIconView.image = UIImage(named: "TemperatureLogger.Feeiling.Arrow")
         }
     }
 
-    func makeTagView(tag: ComboBoxModel) -> TagView {
+    func makeTagView(tag: LoggerSelectionViewItem) -> TagView {
         let view = TagView(model: TagViewModel(id: tag.id, name: tag.name))
         view.textColor = UIColor(integralRed: 105, green: 121, blue: 248)
         view.selectedTextColor = UIColor(integralRed: 105, green: 121, blue: 248)
@@ -169,38 +126,10 @@ private extension ComboBox {
         
         didRemoveTagView?(sender)
     }
-    
-    func showListView() {
-        let tableView = UITableView()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.backgroundColor = UIColor.white
-        tableView.layer.cornerRadius = 10.scale
-        tableView.separatorStyle = .none
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(tableView)
-        
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.scale),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.scale),
-            tableView.topAnchor.constraint(equalTo: fieldBackgroundView.bottomAnchor, constant: 8.scale),
-            tableView.heightAnchor.constraint(greaterThanOrEqualToConstant: 90.scale)
-        ])
-        
-        tableView.reloadData()
-        
-        self.tableView = tableView
-    }
-    
-    func removeListView() {
-        tableView?.removeFromSuperview()
-        tableView = nil
-    }
 }
 
 // MARK: Make constraints
-private extension ComboBox {
+private extension LoggerSelectionView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -249,7 +178,7 @@ private extension ComboBox {
 }
 
 // MARK: Lazy initialization
-private extension ComboBox {
+private extension LoggerSelectionView {
     func makeTitleLabel() -> UILabel {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false

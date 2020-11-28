@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6C691D5005FFCDE9E6E3D901 /* Pods_Thermo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */; };
+		960486AB2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486AA2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift */; };
+		960486AF2571CE40003B5DE9 /* LSSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486AE2571CE40003B5DE9 /* LSSearchView.swift */; };
+		960486B4257273FC003B5DE9 /* LSTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486B3257273FC003B5DE9 /* LSTableTitleCell.swift */; };
+		960486B725727451003B5DE9 /* LSTableCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486B625727451003B5DE9 /* LSTableCheckCell.swift */; };
+		960486BB25727D56003B5DE9 /* LSTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486BA25727D56003B5DE9 /* LSTableElement.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
@@ -25,6 +30,7 @@
 		963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C62571646C00285350 /* GetMonetizationResponseMapper.swift */; };
 		963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C9257168EF00285350 /* MonetizationManager.swift */; };
 		963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5CC257169F700285350 /* MonetizationManagerCore.swift */; };
+		963BF5D12571BF5100285350 /* LoggerSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5D02571BF5100285350 /* LoggerSelectionController.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -176,13 +182,18 @@
 		96F61ED2256BAA5800540DBB /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED1256BAA5800540DBB /* TagView.swift */; };
 		96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED4256BAA8500540DBB /* TagListView.swift */; };
 		96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED8256BAAB500540DBB /* TagViewModel.swift */; };
-		96F61EDE256BAF3200540DBB /* ComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EDD256BAF3200540DBB /* ComboBox.swift */; };
+		96F61EDE256BAF3200540DBB /* LoggerSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EDD256BAF3200540DBB /* LoggerSelectionView.swift */; };
 		96F61EE9256C706F00540DBB /* JournalTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EE8256C706F00540DBB /* JournalTableSection.swift */; };
 		96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		960486AA2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSelectionControllerView.swift; sourceTree = "<group>"; };
+		960486AE2571CE40003B5DE9 /* LSSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSearchView.swift; sourceTree = "<group>"; };
+		960486B3257273FC003B5DE9 /* LSTableTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableTitleCell.swift; sourceTree = "<group>"; };
+		960486B625727451003B5DE9 /* LSTableCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableCheckCell.swift; sourceTree = "<group>"; };
+		960486BA25727D56003B5DE9 /* LSTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableElement.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -200,6 +211,7 @@
 		963BF5C62571646C00285350 /* GetMonetizationResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMonetizationResponseMapper.swift; sourceTree = "<group>"; };
 		963BF5C9257168EF00285350 /* MonetizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManager.swift; sourceTree = "<group>"; };
 		963BF5CC257169F700285350 /* MonetizationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManagerCore.swift; sourceTree = "<group>"; };
+		963BF5D02571BF5100285350 /* LoggerSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSelectionController.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -354,7 +366,7 @@
 		96F61ED1256BAA5800540DBB /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		96F61ED4256BAA8500540DBB /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		96F61ED8256BAAB500540DBB /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
-		96F61EDD256BAF3200540DBB /* ComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComboBox.swift; sourceTree = "<group>"; };
+		96F61EDD256BAF3200540DBB /* LoggerSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSelectionView.swift; sourceTree = "<group>"; };
 		96F61EE8256C706F00540DBB /* JournalTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableSection.swift; sourceTree = "<group>"; };
 		96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableTagsCell.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -382,6 +394,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		960486AD2571CE33003B5DE9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				960486AE2571CE40003B5DE9 /* LSSearchView.swift */,
+				960486B3257273FC003B5DE9 /* LSTableTitleCell.swift */,
+				960486B625727451003B5DE9 /* LSTableCheckCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		960486B925727D48003B5DE9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				960486BA25727D56003B5DE9 /* LSTableElement.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		963BF59D256EDB6600285350 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +429,25 @@
 				963BF5BD2570201C00285350 /* AMStepMaker.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		963BF5CF2571BF3A00285350 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				963BF5D82571CA6800285350 /* Selection */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		963BF5D82571CA6800285350 /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				960486B925727D48003B5DE9 /* Models */,
+				960486AD2571CE33003B5DE9 /* Views */,
+				963BF5D02571BF5100285350 /* LoggerSelectionController.swift */,
+				960486AA2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift */,
+			);
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -702,6 +751,7 @@
 		968AE485254995A300A42C46 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				963BF5CF2571BF3A00285350 /* Controllers */,
 				968AE4C02549A6E100A42C46 /* Models */,
 				968AE4B225499A3F00A42C46 /* Views */,
 				968AE49A2549977A00A42C46 /* LoggerViewController.swift */,
@@ -751,7 +801,7 @@
 				96846D1F2569AC5C009841BD /* OverallFeelingView */,
 				968AE4B325499A5300A42C46 /* LoggerTemperatureView.swift */,
 				969EF6FE2569B68A00BEA8EC /* LoggerFeelView.swift */,
-				96F61EDD256BAF3200540DBB /* ComboBox.swift */,
+				96F61EDD256BAF3200540DBB /* LoggerSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1353,10 +1403,11 @@
 				966A552B254729430099FDAE /* SplashView.swift in Sources */,
 				966A555825484A970099FDAE /* Member.swift in Sources */,
 				969EF7352569D2A500BEA8EC /* SessionManagerCore.swift in Sources */,
-				96F61EDE256BAF3200540DBB /* ComboBox.swift in Sources */,
+				96F61EDE256BAF3200540DBB /* LoggerSelectionView.swift in Sources */,
 				968AE4E0254A034E00A42C46 /* MembersManagerMediatorDelegate.swift in Sources */,
 				96F61E77256B105900540DBB /* ReportManager.swift in Sources */,
 				966A55992548AA610099FDAE /* ImagePicker.swift in Sources */,
+				960486BB25727D56003B5DE9 /* LSTableElement.swift in Sources */,
 				963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
@@ -1385,6 +1436,7 @@
 				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
+				960486B725727451003B5DE9 /* LSTableCheckCell.swift in Sources */,
 				968AE4C92549D74400A42C46 /* RecordManagerMediatorDelegate.swift in Sources */,
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */,
@@ -1413,6 +1465,7 @@
 				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				966A5547254774670099FDAE /* TrackTemperatureImportant.swift in Sources */,
+				960486B4257273FC003B5DE9 /* LSTableTitleCell.swift in Sources */,
 				968AE4F2254A271F00A42C46 /* MemberTableCell.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
 				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
@@ -1422,6 +1475,7 @@
 				968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,
 				969EF7222569CBD500BEA8EC /* GetPaygateRequest.swift in Sources */,
+				960486AF2571CE40003B5DE9 /* LSSearchView.swift in Sources */,
 				968AE4F6254A293000A42C46 /* MemberTableView.swift in Sources */,
 				968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */,
 				96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */,
@@ -1470,9 +1524,11 @@
 				96846CC62567C84B009841BD /* Gender.swift in Sources */,
 				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
+				960486AB2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
 				963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */,
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
+				963BF5D12571BF5100285350 /* LoggerSelectionController.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				968AE4742548C5F000A42C46 /* MainViewModel.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,

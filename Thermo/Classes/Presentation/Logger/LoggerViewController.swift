@@ -67,7 +67,7 @@ final class LoggerViewController: UIViewController {
             .drive(onNext: { [weak self] models in
                 self?.loggerView.feelView.medicinesView.models = models
                     .map {
-                        ComboBoxModel(id: $0.id, name: $0.name)
+                        LoggerSelectionViewItem(id: $0.id, name: $0.name)
                     }
             })
             .disposed(by: disposeBag)
@@ -77,7 +77,7 @@ final class LoggerViewController: UIViewController {
             .drive(onNext: { [weak self] models in
                 self?.loggerView.feelView.symptomsView.models = models
                     .map {
-                        ComboBoxModel(id: $0.id, name: $0.name)
+                        LoggerSelectionViewItem(id: $0.id, name: $0.name)
                     }
             })
             .disposed(by: disposeBag)
@@ -106,10 +106,10 @@ extension LoggerViewController: PaygateViewControllerDelegate {
 // MARK: Private
 private extension LoggerViewController {
     func updatePaymentBlocks() {
-        let comboBoxStyle: ComboBox.Style = viewModel.hasActiveSubscription() ? .cell : .payment
+        let style: LoggerSelectionView.Style = viewModel.hasActiveSubscription() ? .cell : .payment
 
-        loggerView.feelView.symptomsView.style = comboBoxStyle
-        loggerView.feelView.medicinesView.style = comboBoxStyle
+        loggerView.feelView.symptomsView.style = style
+        loggerView.feelView.medicinesView.style = style
     }
     
     func addActionsToSymptomsBlocks() {
@@ -127,31 +127,29 @@ private extension LoggerViewController {
                 case .payment:
                     this.showPaygate()
                 case .cell:
-                    this.loggerView.feelView.symptomsView.style = .expanded
-                case .expanded:
-                    this.loggerView.feelView.symptomsView.style = .cell
+                    let vc = LoggerSelectionController.make(style: .symptoms,
+                                                            models: this.loggerView.feelView.symptomsView.models,
+                                                            didSelect: { model in
+                        this.loggerView.feelView.symptomsView.addTagView(model: model)
+                        this.loggerView.feelView.symptomsView.updateVisibility()
+                                                                
+                        this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
+                        this.loggerView.feelView.symptomsView.layoutIfNeeded()
+                        
+                        var storedSymptoms = this.viewModel.selectSymptoms.value
+                        storedSymptoms.append(Symptom(id: model.id, name: model.name))
+                        this.viewModel.selectSymptoms.accept(storedSymptoms)
+                    }, didUnselect: { model in
+                        guard let tagView = this.loggerView.feelView.symptomsView.tagsView.tagViews.first(where: { $0.model.id == model.id }) else {
+                            return
+                        }
+                        
+                        this.loggerView.feelView.symptomsView.didRemoveTagView?(tagView)
+                    })
+                    this.navigationController?.pushViewController(vc, animated: true)
                 }
-                
-                this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
-                this.loggerView.feelView.symptomsView.layoutIfNeeded()
             })
             .disposed(by: disposeBag)
-        
-        loggerView.feelView.symptomsView.didSelect = { [weak self] model in
-            guard let this = self else {
-                return
-            }
-            
-            model.isSelected = true
-            
-            this.loggerView.feelView.symptomsView.addTagView(model: model)
-            this.loggerView.feelView.symptomsView.updateVisibility()
-            this.loggerView.feelView.symptomsView.tableView?.reloadData()
-            
-            var storedSymptoms = this.viewModel.selectSymptoms.value
-            storedSymptoms.append(Symptom(id: model.id, name: model.name))
-            this.viewModel.selectSymptoms.accept(storedSymptoms)
-        }
         
         loggerView.feelView.symptomsView.didRemoveTagView = { [weak self] tagView in
             guard let this = self else {
@@ -165,9 +163,10 @@ private extension LoggerViewController {
             this.loggerView.feelView.symptomsView.models.first(where: { $0.id == tagView.model.id })?.isSelected = false
             
             this.loggerView.feelView.symptomsView.tagsView.removeTagView(tagView)
-            this.loggerView.feelView.symptomsView.tagsView.layoutIfNeeded()
             this.loggerView.feelView.symptomsView.updateVisibility()
-            this.loggerView.feelView.symptomsView.tableView?.reloadData()
+            
+            this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
+            this.loggerView.feelView.symptomsView.layoutIfNeeded()
         }
     }
     
@@ -186,31 +185,29 @@ private extension LoggerViewController {
                 case .payment:
                     this.showPaygate()
                 case .cell:
-                    this.loggerView.feelView.medicinesView.style = .expanded
-                case .expanded:
-                    this.loggerView.feelView.medicinesView.style = .cell
+                    let vc = LoggerSelectionController.make(style: .medicines,
+                                                            models: this.loggerView.feelView.medicinesView.models,
+                                                            didSelect: { model in
+                        this.loggerView.feelView.medicinesView.addTagView(model: model)
+                        this.loggerView.feelView.medicinesView.updateVisibility()
+                                                                
+                        this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
+                        this.loggerView.feelView.medicinesView.layoutIfNeeded()
+                        
+                        var storedMedicines = this.viewModel.selectMedicines.value
+                        storedMedicines.append(Medicine(id: model.id, name: model.name))
+                        this.viewModel.selectMedicines.accept(storedMedicines)
+                    }, didUnselect: { model in
+                        guard let tagView = this.loggerView.feelView.medicinesView.tagsView.tagViews.first(where: { $0.model.id == model.id }) else {
+                            return
+                        }
+                        
+                        this.loggerView.feelView.medicinesView.didRemoveTagView?(tagView)
+                    })
+                    this.navigationController?.pushViewController(vc, animated: true)
                 }
-                
-                this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
-                this.loggerView.feelView.medicinesView.layoutIfNeeded()
             })
             .disposed(by: disposeBag)
-        
-        loggerView.feelView.medicinesView.didSelect = { [weak self] model in
-            guard let this = self else {
-                return
-            }
-            
-            model.isSelected = true
-            
-            this.loggerView.feelView.medicinesView.addTagView(model: model)
-            this.loggerView.feelView.medicinesView.updateVisibility()
-            this.loggerView.feelView.medicinesView.tableView?.reloadData()
-            
-            var storedMedicines = this.viewModel.selectMedicines.value
-            storedMedicines.append(Medicine(id: model.id, name: model.name))
-            this.viewModel.selectMedicines.accept(storedMedicines)
-        }
         
         loggerView.feelView.medicinesView.didRemoveTagView = { [weak self] tagView in
             guard let this = self else {
@@ -224,9 +221,10 @@ private extension LoggerViewController {
             this.loggerView.feelView.medicinesView.models.first(where: { $0.id == tagView.model.id })?.isSelected = false
             
             this.loggerView.feelView.medicinesView.tagsView.removeTagView(tagView)
-            this.loggerView.feelView.medicinesView.tagsView.layoutIfNeeded()
             this.loggerView.feelView.medicinesView.updateVisibility()
-            this.loggerView.feelView.medicinesView.tableView?.reloadData()
+            
+            this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
+            this.loggerView.feelView.medicinesView.layoutIfNeeded()
         }
     }
     

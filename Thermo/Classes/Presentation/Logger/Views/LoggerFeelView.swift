@@ -101,8 +101,8 @@ private extension LoggerFeelView {
         return view
     }
     
-    func makeSymtomsView() -> ComboBox {
-        let view = ComboBox()
+    func makeSymtomsView() -> LoggerSelectionView {
+        let view = LoggerSelectionView()
         view.titleLabel.attributedText = "TemperatureLogger.Feeling.Symptoms.Title".localized
             .attributed(with: TextAttributes()
                             .font(Fonts.Poppins.bold(size: 14.scale))
@@ -119,8 +119,8 @@ private extension LoggerFeelView {
         return view
     }
     
-    func makeMedicinesView() -> ComboBox {
-        let view = ComboBox()
+    func makeMedicinesView() -> LoggerSelectionView {
+        let view = LoggerSelectionView()
         view.titleLabel.attributedText = "TemperatureLogger.Feeling.Medicines.Title".localized
             .attributed(with: TextAttributes()
                             .font(Fonts.Poppins.bold(size: 14.scale))
