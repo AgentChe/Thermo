@@ -65,7 +65,13 @@ struct CreateReportRequest: APIRequestBody {
                     return data(from: humanRecord)
                 }
                 
-                // TODO: animals and objects
+                if let animalRecord = record as? AnimalRecord {
+                    return data(from: animalRecord)
+                }
+                
+                if let objectAnimal = record as? ObjectRecord {
+                    return data(from: objectAnimal)
+                }
                 
                 return nil
             }
@@ -83,6 +89,20 @@ private extension CreateReportRequest {
             "feeling": String(describing: humanRecord.overallFeeling),
             "symtoms": humanRecord.symptoms.map { $0.id },
             "meds": humanRecord.medicines.map { $0.id }
+        ]
+    }
+    
+    func data(from animalRecord: AnimalRecord) -> [String: Any] {
+        [
+            "temp": animalRecord.temperature.value,
+            "timestamp": animalRecord.date.timeIntervalSince1970
+        ]
+    }
+    
+    func data(from objectRecord: ObjectRecord) -> [String: Any] {
+        [
+            "temp": objectRecord.temperature.value,
+            "timestamp": objectRecord.date.timeIntervalSince1970
         ]
     }
 }

@@ -13,6 +13,8 @@
 		960486B4257273FC003B5DE9 /* LSTableTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486B3257273FC003B5DE9 /* LSTableTitleCell.swift */; };
 		960486B725727451003B5DE9 /* LSTableCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486B625727451003B5DE9 /* LSTableCheckCell.swift */; };
 		960486BB25727D56003B5DE9 /* LSTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486BA25727D56003B5DE9 /* LSTableElement.swift */; };
+		960486C22572E793003B5DE9 /* AnimalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C12572E793003B5DE9 /* AnimalRecord.swift */; };
+		960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C72572E800003B5DE9 /* ObjectRecord.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
@@ -194,6 +196,8 @@
 		960486B3257273FC003B5DE9 /* LSTableTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableTitleCell.swift; sourceTree = "<group>"; };
 		960486B625727451003B5DE9 /* LSTableCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableCheckCell.swift; sourceTree = "<group>"; };
 		960486BA25727D56003B5DE9 /* LSTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableElement.swift; sourceTree = "<group>"; };
+		960486C12572E793003B5DE9 /* AnimalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRecord.swift; sourceTree = "<group>"; };
+		960486C72572E800003B5DE9 /* ObjectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRecord.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -576,6 +580,8 @@
 				968AE4682548B96400A42C46 /* OverallFeeling.swift */,
 				963BF592256EA54F00285350 /* Record.swift */,
 				963BF595256EA56D00285350 /* HumanRecord.swift */,
+				960486C12572E793003B5DE9 /* AnimalRecord.swift */,
+				960486C72572E800003B5DE9 /* ObjectRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1485,6 +1491,7 @@
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
 				968AE4632548B46300A42C46 /* MainViewController.swift in Sources */,
 				968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */,
+				960486C22572E793003B5DE9 /* AnimalRecord.swift in Sources */,
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
 				968AE4A5254997B500A42C46 /* LoggerView.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
@@ -1526,6 +1533,7 @@
 				968AE546255058C300A42C46 /* ReminderWeekday.swift in Sources */,
 				960486AB2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
+				960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */,
 				963BF5B12570059D00285350 /* AMCreateProfileStyleMaker.swift in Sources */,
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
 				963BF5D12571BF5100285350 /* LoggerSelectionController.swift in Sources */,

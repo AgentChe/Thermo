@@ -5,7 +5,7 @@
 //  Created by Andrey Chernyshev on 25.11.2020.
 //
 
-struct HumanRecord: Record, Hashable, Codable {
+struct HumanRecord: Record, Hashable {
     let id: Int
     let member: Member
     let date: Date
@@ -14,3 +14,6 @@ struct HumanRecord: Record, Hashable, Codable {
     let symptoms: [Symptom]
     let medicines: [Medicine]
 }
+
+// MARK: Codable
+extension HumanRecord: Codable {}

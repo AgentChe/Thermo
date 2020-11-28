@@ -10,6 +10,8 @@ import RxSwift
 final class RecordManagerCore: RecordManager {
     struct Constants {
         static let cachedHumanRecordsKey = "record_manager_core_cached_human_records_key"
+        static let cachedAnimalRecordsKey = "record_manager_core_cached_animal_records_key"
+        static let cachedObjectRecordsKey = "record_manager_core_cached_objects_records_key"
     }
 }
 
@@ -38,6 +40,44 @@ extension RecordManagerCore {
         RecordManagerMediator.shared.notifyAboutLogged(record: humanRecord)
         
         return humanRecord
+    }
+    
+    func log(animal: Member,
+             temperature: Temperature) -> AnimalRecord? {
+        let animalRecord = AnimalRecord(id: Int.random(in: 0..<Int.max),
+                                        member: animal,
+                                        date: Date(),
+                                        temperature: temperature)
+        
+        var animalRecords = getAnimalRecords()
+        animalRecords.append(animalRecord)
+        
+        guard store(animalRecords: animalRecords) else {
+            return nil
+        }
+        
+        RecordManagerMediator.shared.notifyAboutLogged(record: animalRecord)
+        
+        return animalRecord
+    }
+    
+    func log(object: Member,
+             temperature: Temperature) -> ObjectRecord? {
+        let objectRecord = ObjectRecord(id: Int.random(in: 0..<Int.max),
+                                        member: object,
+                                        date: Date(),
+                                        temperature: temperature)
+        
+        var objectRecords = getObjectRecords()
+        objectRecords.append(objectRecord)
+        
+        guard store(objectRecords: objectRecords) else {
+            return nil
+        }
+        
+        RecordManagerMediator.shared.notifyAboutLogged(record: objectRecord)
+        
+        return objectRecord
     }
     
     func remove(recordId: Int) {
@@ -87,6 +127,40 @@ extension RecordManagerCore {
                                         overallFeeling: overallFeeling,
                                         symptoms: symptoms,
                                         medicines: medicines)))
+                
+                return Disposables.create()
+            }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+    }
+    
+    func rxLog(animal: Member,
+               temperature: Temperature) -> Single<AnimalRecord?> {
+        Single<AnimalRecord?>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                event(.success(this.log(animal: animal,
+                                        temperature: temperature)))
+                
+                return Disposables.create()
+            }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observeOn(MainScheduler.asyncInstance)
+    }
+    
+    func rxLog(object: Member,
+               temperature: Temperature) -> Single<ObjectRecord?> {
+        Single<ObjectRecord?>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                event(.success(this.log(object: object,
+                                        temperature: temperature)))
                 
                 return Disposables.create()
             }
@@ -172,16 +246,62 @@ private extension RecordManagerCore {
         return true
     }
     
+    @discardableResult
+    func store(animalRecords: [AnimalRecord]) -> Bool {
+        guard let data = try? JSONEncoder().encode(animalRecords) else {
+            return false
+        }
+        
+        UserDefaults.standard.setValue(data, forKeyPath: Constants.cachedAnimalRecordsKey)
+        
+        return true
+    }
+    
+    @discardableResult
+    func store(objectRecords: [ObjectRecord]) -> Bool {
+        guard let data = try? JSONEncoder().encode(objectRecords) else {
+            return false
+        }
+        
+        UserDefaults.standard.setValue(data, forKeyPath: Constants.cachedObjectRecordsKey)
+        
+        return true
+    }
+    
     func getAllRecords() -> [Record] {
         let humanRecords = getHumanRecords()
+        let animalRecords = getAnimalRecords()
+        let objectRecords = getObjectRecords()
         
-        return humanRecords
+        return humanRecords + animalRecords + objectRecords
     }
     
     func getHumanRecords() -> [HumanRecord] {
         guard
             let data = UserDefaults.standard.data(forKey: Constants.cachedHumanRecordsKey),
             let records = try? JSONDecoder().decode([HumanRecord].self, from: data)
+        else {
+            return []
+        }
+        
+        return records
+    }
+    
+    func getAnimalRecords() -> [AnimalRecord] {
+        guard
+            let data = UserDefaults.standard.data(forKey: Constants.cachedAnimalRecordsKey),
+            let records = try? JSONDecoder().decode([AnimalRecord].self, from: data)
+        else {
+            return []
+        }
+        
+        return records
+    }
+    
+    func getObjectRecords() -> [ObjectRecord] {
+        guard
+            let data = UserDefaults.standard.data(forKey: Constants.cachedObjectRecordsKey),
+            let records = try? JSONDecoder().decode([ObjectRecord].self, from: data)
         else {
             return []
         }

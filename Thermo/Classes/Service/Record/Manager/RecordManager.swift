@@ -14,6 +14,10 @@ protocol RecordManager: class {
              overallFeeling: OverallFeeling,
              symptoms: [Symptom],
              medicines: [Medicine]) -> HumanRecord?
+    func log(animal: Member,
+             temperature: Temperature) -> AnimalRecord?
+    func log(object: Member,
+             temperature: Temperature) -> ObjectRecord?
     func remove(recordId: Int)
     func remove(memberId: Int)
     func get(for memberId: Int) -> [Record]
@@ -25,6 +29,10 @@ protocol RecordManager: class {
                overallFeeling: OverallFeeling,
                symptoms: [Symptom],
                medicines: [Medicine]) -> Single<HumanRecord?>
+    func rxLog(animal: Member,
+               temperature: Temperature) -> Single<AnimalRecord?>
+    func rxLog(object: Member,
+               temperature: Temperature) -> Single<ObjectRecord?>
     func rxRemove(recordId: Int) -> Completable
     func rxRemove(memberId: Int) -> Completable
     func rxGet(for memberId: Int) -> Single<[Record]>
