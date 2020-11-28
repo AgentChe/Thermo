@@ -54,8 +54,8 @@ private extension AMStepChecker {
             vc.addMemberView.memberUnitView.childUnitCell,
             vc.addMemberView.memberUnitView.parentUnitCell,
             vc.addMemberView.memberUnitView.otherUnitCell,
-//            vc.addMemberView.memberUnitView.animalsUnitCell, // TODO
-//            vc.addMemberView.memberUnitView.objectsUnitCell // TODO
+            vc.addMemberView.memberUnitView.animalsUnitCell,
+            vc.addMemberView.memberUnitView.objectsUnitCell 
         ]
         .contains(where: { $0.state == .checked })
     }

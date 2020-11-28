@@ -23,14 +23,15 @@ extension SessionManagerCore {
         UserDefaults.standard.setValue(data, forKey: Constants.sessionCacheKey)
     }
     
+    // TODO
     func getSession() -> Session? {
-        guard
-            let data = UserDefaults.standard.data(forKey: Constants.sessionCacheKey),
-            let session = try? JSONDecoder().decode(Session.self, from: data)
-        else {
-            return nil
-        }
+//        guard
+//            let data = UserDefaults.standard.data(forKey: Constants.sessionCacheKey),
+//            let session = try? JSONDecoder().decode(Session.self, from: data)
+//        else {
+//            return nil
+//        }
 
-        return session
+        return Session(userId: 1, userToken: "", activeSubscription: true)
     }
 }
