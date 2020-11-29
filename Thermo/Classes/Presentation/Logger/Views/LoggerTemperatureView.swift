@@ -110,14 +110,17 @@ private extension LoggerTemperatureView {
             return
         }
         
-        let topRed = calculateColor(min: 108, max: 255, range: range, current: current) + 108
-        let bottomRed = calculateColor(min: 53, max: 255, range: range, current: current) + 108
-        let topBlue = 255 - calculateColor(min: 108, max: 255, range: range, current: current)
-        let bottomBlue = 255 - calculateColor(min: 53, max: 255, range: range, current: current)
+        let topRed = calculateColor(min: range.topRedColor.min, max: range.topRedColor.max, range: range, current: current) + range.topRedColor.min
+        let topGreen = calculateColor(min: range.topGreenColor.min, max: range.topGreenColor.max, range: range, current: current) + range.topGreenColor.min
+        let topBlue = calculateColor(min: range.topBlueColor.min, max: range.topBlueColor.max, range: range, current: current) + range.topBlueColor.min
+        
+        let bottomRed = calculateColor(min: range.bottomRedColor.min, max: range.bottomRedColor.max, range: range, current: current) + range.bottomRedColor.min
+        let bottomGreen = calculateColor(min: range.bottomGreenColor.min, max: range.bottomGreenColor.max, range: range, current: current) + range.bottomGreenColor.min
+        let bottomBlue = calculateColor(min: range.bottomBlueColor.min, max: range.bottomBlueColor.max, range: range, current: current) + range.bottomBlueColor.min
         
         gradientLayer.colors = [
-            UIColor(integralRed: topRed, green: 0, blue: topBlue).cgColor,
-            UIColor(integralRed: bottomRed, green: 150, blue: bottomBlue).cgColor
+            UIColor(integralRed: topRed, green: topGreen, blue: topBlue).cgColor,
+            UIColor(integralRed: bottomRed, green: bottomGreen, blue: bottomBlue).cgColor
         ]
     }
     

@@ -14,6 +14,13 @@ struct TemperatureRange {
     let normal: Double
     let unit: TemperatureUnit
     
+    let topRedColor: (min: CGFloat, max: CGFloat)
+    let topGreenColor: (min: CGFloat, max: CGFloat)
+    let topBlueColor: (min: CGFloat, max: CGFloat)
+    let bottomRedColor: (min: CGFloat, max: CGFloat)
+    let bottomGreenColor: (min: CGFloat, max: CGFloat)
+    let bottomBlueColor: (min: CGFloat, max: CGFloat)
+    
     init(for unit: Member) {
         self.unit = unit.temperatureUnit
         
@@ -31,6 +38,14 @@ struct TemperatureRange {
                 max = 107.6
                 normal = 97.88
             }
+            
+            topRedColor = (129, 211)
+            topGreenColor = (140, 106)
+            topBlueColor = (225, 143)
+            bottomRedColor = (108, 173)
+            bottomGreenColor = (200, 106)
+            bottomBlueColor = (230, 197)
+            
         case .animal:
             step = 0.5
             
@@ -44,6 +59,14 @@ struct TemperatureRange {
                 max = 113
                 normal = 6
             }
+            
+            topRedColor = (253, 253)
+            topGreenColor = (158, 192)
+            topBlueColor = (112, 111)
+            bottomRedColor = (253, 251)
+            bottomGreenColor = (191, 131)
+            bottomBlueColor = (113, 83)
+            
         case .object:
             step = 0.5
             
@@ -57,6 +80,13 @@ struct TemperatureRange {
                 max = 212
                 normal = 50
             }
+            
+            topRedColor = (254, 253)
+            topGreenColor = (226, 191)
+            topBlueColor = (89, 4)
+            bottomRedColor = (253, 253)
+            bottomGreenColor = (204, 170)
+            bottomBlueColor = (86, 81)
         }
     }
 }
