@@ -110,6 +110,14 @@ private extension JournalViewModel {
             return map(humanRecord: humanRecord)
         }
         
+        if let animalRecord = record as? AnimalRecord {
+            return map(animalRecord: animalRecord)
+        }
+        
+        if let objectRecord = record as? ObjectRecord {
+            return map(objectRecord: objectRecord)
+        }
+        
         return nil
     }
     
@@ -133,6 +141,30 @@ private extension JournalViewModel {
             
             elements.append(.tags(tags))
         }
+        
+        return JournalTableSection(elements: elements)
+    }
+    
+    func map(animalRecord: AnimalRecord) -> JournalTableSection {
+        var elements = [JournalTableElement]()
+        
+        let jtRecord = JTReport(date: animalRecord.date,
+                                temperature: animalRecord.temperature.value,
+                                unit: animalRecord.temperature.unit,
+                                overallFeeiling: nil)
+        elements.append(.report(jtRecord))
+        
+        return JournalTableSection(elements: elements)
+    }
+    
+    func map(objectRecord: ObjectRecord) -> JournalTableSection {
+        var elements = [JournalTableElement]()
+        
+        let jtRecord = JTReport(date: objectRecord.date,
+                                temperature: objectRecord.temperature.value,
+                                unit: objectRecord.temperature.unit,
+                                overallFeeiling: nil)
+        elements.append(.report(jtRecord))
         
         return JournalTableSection(elements: elements)
     }

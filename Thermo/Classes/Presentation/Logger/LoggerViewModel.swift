@@ -68,16 +68,12 @@ final class LoggerViewModel {
     }
     
     func step() -> Driver<Step> {
-        makeStep()
+        recordMaker.makeRecord()
     }
 }
 
 // MARK: Private
 private extension LoggerViewModel {
-    func makeStep() -> Driver<Step> {
-        recordMaker.makeRecord()
-    }
-    
     func makeTemperatureRange() -> Driver<TemperatureRange> {
         membersManager
             .rxCurrentMember()
