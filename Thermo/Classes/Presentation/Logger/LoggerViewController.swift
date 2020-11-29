@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class LoggerViewController: UIViewController {
     var loggerView = LoggerView()
@@ -23,29 +24,39 @@ final class LoggerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let temperatureRange = viewModel.temperatureRange()
+        let currentMember = viewModel.currentMember()
 
-        viewModel
-            .temperatureRange()
+        temperatureRange
             .drive(onNext: { [weak self] range in
                 self?.loggerView.temperatureView.range = range
             })
             .disposed(by: disposeBag)
+        
+        let temperatureRangeAndCurrentMember = Driver
+            .combineLatest(temperatureRange, currentMember)
 
         loggerView
             .temperatureView
             .continueButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                guard
-                    let unit = self?.loggerView.temperatureView.range?.unit,
-                    let temperature = self?.loggerView.temperatureView.value
-                else {
+            .withLatestFrom(temperatureRangeAndCurrentMember)
+            .subscribe(onNext: { [weak self] stub in
+                guard let this = self else {
                     return
                 }
                 
-                self?.viewModel.selectTemperatureUnit.accept(unit)
-                self?.viewModel.selectTemperatureValue.accept(temperature)
+                let (temperatureRange, currentMember) = stub
                 
-                self?.loggerView.step = .overallFeeling
+                this.viewModel.selectTemperatureUnit.accept(temperatureRange.unit)
+                this.viewModel.selectTemperatureValue.accept(this.loggerView.temperatureView.value)
+                
+                switch currentMember.unit {
+                case .me, .child, .parent, .other:
+                    this.loggerView.step = .overallFeeling
+                case .animal, .object:
+                    this.viewModel.create.accept(Void())
+                }
             })
             .disposed(by: disposeBag)
         

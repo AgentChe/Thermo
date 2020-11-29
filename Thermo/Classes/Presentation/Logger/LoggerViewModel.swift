@@ -30,6 +30,16 @@ final class LoggerViewModel {
     private let symptomsManager = SymptomsManagerCore()
     private let monetizationManager = MonetizationManagerCore()
     
+    private lazy var recordMaker = LoggerRecordMaker(selectTemperatureValue: selectTemperatureValue,
+                                                     selectTemperatureUnit: selectTemperatureUnit,
+                                                     selectOverallFeeling: selectOverallFeeling,
+                                                     selectSymptoms: selectSymptoms,
+                                                     selectMedicines: selectMedicines,
+                                                     membersManager: membersManager,
+                                                     recordManager: recordManager,
+                                                     needPayment: needPayment(),
+                                                     create: create)
+    
     func symptoms() -> Driver<[Symptom]> {
         symptomsManager
             .rxRetrieveSymptoms(forceUpdate: false)
@@ -50,6 +60,13 @@ final class LoggerViewModel {
         makeTemperatureRange()
     }
     
+    func currentMember() -> Driver<Member> {
+        membersManager
+            .rxCurrentMember()
+            .asDriver(onErrorJustReturn: nil)
+            .compactMap { $0 }
+    }
+    
     func step() -> Driver<Step> {
         makeStep()
     }
@@ -58,63 +75,7 @@ final class LoggerViewModel {
 // MARK: Private
 private extension LoggerViewModel {
     func makeStep() -> Driver<Step> {
-        let attributes = Observable
-            .combineLatest(
-                selectTemperatureValue.asObservable(),
-                selectTemperatureUnit.asObservable(),
-                selectOverallFeeling.asObservable(),
-                selectSymptoms.asObservable(),
-                selectMedicines.asObservable(),
-                membersManager.rxCurrentMember().asObservable()
-            )
-        
-        let needPayment = self.needPayment()
-        
-        let stub = Observable
-            .combineLatest(attributes, needPayment)
-            
-        return create
-            .withLatestFrom(stub)
-            .flatMapLatest { [weak self] stub -> Single<Step> in
-                guard let this = self else {
-                    return .never()
-                }
-                
-                let (attributes, needPayment) = stub
-                
-                guard !needPayment else {
-                    return .just(.paygate)
-                }
-                
-                let (temperatureValue,
-                     temperatureUnit,
-                     overallFeeling,
-                     symptoms,
-                     medicines,
-                     currentMember) = attributes
-                
-                guard let member = currentMember else {
-                    return .just(.error("TemperatureLogger.Log.Failure".localized))
-                }
-                
-                let temperature = Temperature(value: temperatureValue, unit: temperatureUnit)
-                
-                return this.recordManager
-                    .rxLog(human: member,
-                           temperature: temperature,
-                           overallFeeling: overallFeeling,
-                           symptoms: symptoms,
-                           medicines: medicines)
-                    .catchErrorJustReturn(nil)
-                    .map { record -> Step in
-                        if let value = record {
-                            return .logged(value)
-                        } else {
-                            return .error("TemperatureLogger.Log.Failure".localized)
-                        }
-                    }
-            }
-            .asDriver(onErrorDriveWith: .empty())
+        recordMaker.makeRecord()
     }
     
     func makeTemperatureRange() -> Driver<TemperatureRange> {

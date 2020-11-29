@@ -15,6 +15,7 @@
 		960486BB25727D56003B5DE9 /* LSTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486BA25727D56003B5DE9 /* LSTableElement.swift */; };
 		960486C22572E793003B5DE9 /* AnimalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C12572E793003B5DE9 /* AnimalRecord.swift */; };
 		960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C72572E800003B5DE9 /* ObjectRecord.swift */; };
+		960486CC2573FC83003B5DE9 /* LoggerRecordMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
@@ -198,6 +199,7 @@
 		960486BA25727D56003B5DE9 /* LSTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSTableElement.swift; sourceTree = "<group>"; };
 		960486C12572E793003B5DE9 /* AnimalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRecord.swift; sourceTree = "<group>"; };
 		960486C72572E800003B5DE9 /* ObjectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRecord.swift; sourceTree = "<group>"; };
+		960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerRecordMaker.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -414,6 +416,14 @@
 				960486BA25727D56003B5DE9 /* LSTableElement.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		960486CA2573FA93003B5DE9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		963BF59D256EDB6600285350 /* Models */ = {
@@ -757,6 +767,7 @@
 		968AE485254995A300A42C46 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				960486CA2573FA93003B5DE9 /* Utils */,
 				963BF5CF2571BF3A00285350 /* Controllers */,
 				968AE4C02549A6E100A42C46 /* Models */,
 				968AE4B225499A3F00A42C46 /* Views */,
@@ -1418,6 +1429,7 @@
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
+				960486CC2573FC83003B5DE9 /* LoggerRecordMaker.swift in Sources */,
 				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
