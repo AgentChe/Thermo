@@ -77,26 +77,18 @@ private extension AMStepChecker {
             return false
         }
         
-        let isEmptyName = vc.addMemberView.createProfileView.textField.text?.isEmpty ?? true
-        let isEmptyImage = vc.addMemberView.createProfileView.image == nil
-        
         guard let selectedUnit = self.selectedUnit else {
             return false
         }
         
-        let canNext: Bool
-        switch selectedUnit {
-        case .me, .parent, .child, .other:
-            canNext = !isEmptyName && !isEmptyImage
-        case .animal, .object:
-            canNext = !isEmptyName
+        var name = vc.addMemberView.createProfileView.textField.text ?? ""
+        if name.isEmpty {
+            name = String(describing: selectedUnit)
         }
         
-        if canNext {
-            foundNameOnCheck?(vc.addMemberView.createProfileView.textField.text)
-        }
+        foundNameOnCheck?(name)
         
-        return canNext
+        return true
     }
     
     func hasFilledDateBirthday() -> Bool {

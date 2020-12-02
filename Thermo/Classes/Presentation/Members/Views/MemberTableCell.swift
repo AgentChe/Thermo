@@ -57,9 +57,15 @@ extension MemberTableCell {
                             .letterSpacing(-0.4.scale))
     }
     
-    func loadImage(with imageKey: String) {
+    func loadImage(with imageKey: String?) {
+        guard let imgKey = imageKey else {
+            setImage(with: "Members.Animal.Default") // TODO: заменить
+            
+            return
+        }
+        
         imageManager
-            .retrieve(key: imageKey) { [weak self] image in
+            .retrieve(key: imgKey) { [weak self] image in
                 self?.avatarImageView.image = image
             }
     }

@@ -7,7 +7,7 @@
 
 struct Human: Hashable {
     let name: String
-    let imageKey: String
+    let imageKey: String?
     let gender: Gender
     let dateBirthday: Date
 }

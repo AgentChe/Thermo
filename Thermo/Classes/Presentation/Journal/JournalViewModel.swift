@@ -53,8 +53,14 @@ private extension JournalViewModel {
                 
                 switch member.unit {
                 case .me(let human), .child(let human), .parent(let human), .other(let human):
+                    guard let imageKey = human.imageKey else {
+                        return Observable<UIImage?>
+                            .just(UIImage(named: "Members.Animal.Default")) // TODO: заменить на иконку человека
+                            .compactMap { $0 }
+                    }
+                    
                     return this.imageManager
-                        .rxRetrieve(key: human.imageKey)
+                        .rxRetrieve(key: imageKey)
                         .asObservable().compactMap { $0 }
                 case .animal:
                     return Observable<UIImage?>

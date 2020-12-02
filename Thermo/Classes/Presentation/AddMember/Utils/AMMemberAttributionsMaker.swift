@@ -81,7 +81,6 @@ private extension AMMemberAttributionsMaker {
     func makeHuman() -> Human? {
         guard
             let gender = self.gender,
-            let imageKey = self.imageKey,
             let name = self.name,
             let dateBirthday = self.dateBirthday
         else {
