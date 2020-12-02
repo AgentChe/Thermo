@@ -40,17 +40,12 @@
 "Onboarding.TrackTemperaturePurpose.Cell5" = "Just self-care";
 "Onboarding.TrackTemperaturePurpose.BottomLine" = "*This tool does not provide medical advice";
 
-"Onboarding.TrackTemperatureImportant.Title" = "It’s very\nimportant\nto track your\ntemperature";
-"Onboarding.TrackTemperatureImportant.Cell1Part1" = "Even if you're feeling fine";
-"Onboarding.TrackTemperatureImportant.Cell1Part2" = " tracking the temperature will help to detect the illness early";
-"Onboarding.TrackTemperatureImportant.Cell2Part1" = "It's best to track";
-"Onboarding.TrackTemperatureImportant.Cell2Part2" = " temperature in the morning and in the evening";
-"Onboarding.TrackTemperatureImportant.Cell3Part1" = "If the temperature rises";
-"Onboarding.TrackTemperatureImportant.Cell3Part2" = " above the norm pay attention to other symptoms";
-"Onboarding.TrackTemperatureImportant.Cell4Part1" = "The animals";
-"Onboarding.TrackTemperatureImportant.Cell4Part2" = " should be looked after with the same level of attention";
-"Onboarding.TrackTemperatureImportant.Cell5Part1" = "Temperature and humidity of the room";
-"Onboarding.TrackTemperatureImportant.Cell5Part2" = " are vital indicators for a person";
+"Onboarding.TrackTemperatureImportant.Title" = "It's important to\ntrack the\ntemperature";
+"Onboarding.TrackTemperatureImportant.Cell1" = "Detect the illness early";
+"Onboarding.TrackTemperatureImportant.Cell2" = "Notice the slightest changes";
+"Onboarding.TrackTemperatureImportant.Cell3" = "Even for animals";
+"Onboarding.TrackTemperatureImportant.Cell4" = "Even for living spaces";
+"Onboarding.TrackTemperatureImportant.Cell5" = "Two measurements is enough";
 
 // MARK: Add member
 "AddMember.MemberUnit.Title" = "Who we will\nbe tracking the\ntemperature\nfor?";

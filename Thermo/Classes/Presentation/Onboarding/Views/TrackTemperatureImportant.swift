@@ -10,21 +10,17 @@ import UIKit
 final class TrackTemperatureImportant: UIView {
     lazy var titleLabel = makeTitleLabel()
     lazy var cell1 = makeCell(image: "Onboarding.TrackTemperatureImportant.Cell1",
-                              part1: "Onboarding.TrackTemperatureImportant.Cell1Part1",
-                              part2: "Onboarding.TrackTemperatureImportant.Cell1Part2")
+                              text: "Onboarding.TrackTemperatureImportant.Cell1")
     lazy var cell2 = makeCell(image: "Onboarding.TrackTemperatureImportant.Cell2",
-                              part1: "Onboarding.TrackTemperatureImportant.Cell2Part1",
-                              part2: "Onboarding.TrackTemperatureImportant.Cell2Part2")
+                              text: "Onboarding.TrackTemperatureImportant.Cell2")
     lazy var cell3 = makeCell(image: "Onboarding.TrackTemperatureImportant.Cell3",
-                              part1: "Onboarding.TrackTemperatureImportant.Cell3Part1",
-                              part2: "Onboarding.TrackTemperatureImportant.Cell3Part2")
+                              text: "Onboarding.TrackTemperatureImportant.Cell3")
     lazy var cell4 = makeCell(image: "Onboarding.TrackTemperatureImportant.Cell4",
-                              part1: "Onboarding.TrackTemperatureImportant.Cell4Part1",
-                              part2: "Onboarding.TrackTemperatureImportant.Cell4Part2")
+                              text: "Onboarding.TrackTemperatureImportant.Cell4")
     lazy var cell5 = makeCell(image: "Onboarding.TrackTemperatureImportant.Cell5",
-                              part1: "Onboarding.TrackTemperatureImportant.Cell5Part1",
-                              part2: "Onboarding.TrackTemperatureImportant.Cell5Part2")
+                              text: "Onboarding.TrackTemperatureImportant.Cell5")
     lazy var button = makeButton()
+    lazy var bottomLineLabel = makeBottomLineLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -80,7 +76,13 @@ private extension TrackTemperatureImportant {
             button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
             button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
             button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -26.scale : -13.scale)
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -62.scale : -36.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bottomLineLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.scale),
+            bottomLineLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.scale),
+            bottomLineLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -18.scale : -9.scale)
         ])
     }
 }
@@ -101,26 +103,17 @@ private extension TrackTemperatureImportant {
         return view
     }
     
-    func makeCell(image: String, part1: String, part2: String) -> OnbrdIInfoCell {
+    func makeCell(image: String, text: String) -> OnbrdIInfoCell {
         let attrs = TextAttributes()
             .lineHeight(18.scale)
             .letterSpacing(-0.4.scale)
-        
-        let part1Attrs = attrs
-            .textColor(UIColor.black)
-            .font(Fonts.Poppins.bold(size: 13.scale))
-        
-        let part2Attrs = attrs
             .textColor(UIColor(integralRed: 50, green: 50, blue: 52))
             .font(Fonts.Poppins.semiBold(size: 13.scale))
-        
-        let text = NSMutableAttributedString()
-        text.append(part1.localized.attributed(with: part1Attrs))
-        text.append(part2.localized.attributed(with: part2Attrs))
-        
+    
         let view = OnbrdIInfoCell()
         view.imageView.image = UIImage(named: image)
-        view.label.attributedText = text
+        view.imageView.contentMode = .scaleAspectFit
+        view.label.attributedText = text.localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -136,6 +129,22 @@ private extension TrackTemperatureImportant {
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 28.scale
         view.setAttributedTitle("OK".localized.attributed(with: attrs), for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeBottomLineLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor(integralRed: 65, green: 65, blue: 65))
+            .font(Fonts.Poppins.semiBold(size: 15.scale))
+            .lineHeight(20.scale)
+            .letterSpacing(-0.4.scale)
+            .textAlignment(.center)
+        
+        let view = UILabel()
+        view.numberOfLines = 0
+        view.attributedText = "Onboarding.TrackTemperaturePurpose.BottomLine".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
