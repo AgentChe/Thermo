@@ -42,6 +42,11 @@ final class JournalViewController: UIViewController {
                 self?.journalView.tableView.setup(sections: sections)
             })
             .disposed(by: disposeBag)
+        
+        viewModel
+            .currentMemberIsHuman()
+            .drive(onNext: currentMemberIsHuman(_:))
+            .disposed(by: disposeBag)
     }
 }
 
@@ -87,5 +92,9 @@ private extension JournalViewController {
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    func currentMemberIsHuman(_ isHuman: Bool) {
+        journalView.journalReportButton.isHidden = !isHuman
     }
 }

@@ -27,6 +27,19 @@ final class JournalViewModel {
         makeSections()
             .asDriver(onErrorJustReturn: [])
     }
+    
+    func currentMemberIsHuman() -> Driver<Bool> {
+        getMember()
+            .map { member in
+                switch member.unit {
+                case .me, .child, .parent, .other:
+                    return true
+                case .animal, .object:
+                    return false
+                }
+            }
+            .asDriver(onErrorJustReturn: false)
+    }
 }
 
 // MARK: Private
