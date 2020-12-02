@@ -79,8 +79,8 @@ private extension JournalViewController {
                 
                 switch viewModel.hasActiveSubscription() {
                 case true:
-                    let vc = ReportViewController.make()
-                    self?.present(vc, animated: true)
+                    let vc = TreatmentsViewController.make()
+                    self?.navigationController?.pushViewController(vc, animated: true)
                 case false:
                     let vc = PaygateViewController.make()
                     self?.present(vc, animated: true)

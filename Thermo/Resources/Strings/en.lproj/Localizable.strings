@@ -143,3 +143,11 @@
 "Paygate.TermsOfUse" = "Terms of use";
 "Paygate.And" = " and ";
 "Paygate.PrivacyPolicy" = "Privacy policy";
+
+// MARK: Treatments
+"Treatments.Preloader" = "Analyzing...";
+"Treatments.List.Title" = "Conditions that match your symptoms";
+"Treatments.List.Button" = "Treatment Options";
+"Treatments.Details.Button" = "Next Condition";
+"Treatments.Details.TreatmentButton" = "Treatment 💊";
+"Treatments.Treatment.Title" = "Treatment";

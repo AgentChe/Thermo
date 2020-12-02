@@ -1,0 +1,21 @@
+{
+    "_data": {
+        "conditions": [
+            {
+                "name": "Acute Sinusitis",
+                "status": "Moderate match",
+                "score": 95,
+                "detail": "A stuffed nose and pressure on our cheekbones, near the eyes, or over the forehead may mean that you have acute sinusitis.\n\nAcute sinusitis, also called acute rhinosinusitis, is a short-term inflammation of the membranes that line your nose and surrounding sinuses. This impedes your ability to drain mucus from your nose and sinuses\n\nAcute sinusitis is most commonly due to a cold causing viral infection. However, it can be due to noninfectious causes as well. According to the American Academy of Otolaryngology, acute sinusitis is common. It affects around 1 in 8 adults per year.",
+                "treatment": "- Saline nasal sprays to keep your nose moist\n- Corticosteroid nasal sprays to help treat swelling\n- Decongestants to help ease a stuffy nose\n- Over-the-counter pain relievers\n- Antibiotics for sinusitis that is caused by a bacterial infection\n- Over-the-counter pain relievers\n- Antibiotics for sinusitis that is caused by a bacterial infection"
+            },
+            
+            {
+                "name": "Chronic Sinusitis",
+                "status": "Moderate match",
+                "score": 7,
+                "detail": "A stuffed nose and pressure on our cheekbones, near the eyes, or over the forehead may mean that you have acute sinusitis.\n\nAcute sinusitis, also called acute rhinosinusitis, is a short-term inflammation of the membranes that line your nose and surrounding sinuses. This impedes your ability to drain mucus from your nose and sinuses\n\nAcute sinusitis is most commonly due to a cold causing viral infection. However, it can be due to noninfectious causes as well. According to the American Academy of Otolaryngology, acute sinusitis is common. It affects around 1 in 8 adults per year.",
+                "treatment": "<p>You will see <samp>SENDING ERROR</samp> when you discontinue sending.</p>\n\n\n- Saline nasal sprays to keep your nose moist\n- Corticosteroid nasal sprays to help treat swelling\n- Decongestants to help ease a stuffy nose\n- Over-the-counter pain relievers\n- Antibiotics for sinusitis that is caused by a bacterial infection\n- Over-the-counter pain relievers\n- Antibiotics for sinusitis that is caused by a bacterial infection"
+            }
+        ]
+    }
+}
