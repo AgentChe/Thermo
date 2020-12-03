@@ -90,6 +90,7 @@
 		96818C0D257800570048C18E /* TCListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818C0C257800570048C18E /* TCListCell.swift */; };
 		96818C1425781B730048C18E /* TCScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818C1325781B730048C18E /* TCScoreView.swift */; };
 		96818C172578237B0048C18E /* TCConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818C162578237B0048C18E /* TCConditionViewController.swift */; };
+		96818C1A2578F5FC0048C18E /* TextImageMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818C192578F5FC0048C18E /* TextImageMaker.swift */; };
 		96846CC62567C84B009841BD /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC52567C84B009841BD /* Gender.swift */; };
 		96846CC92567D666009841BD /* AMGenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CC82567D666009841BD /* AMGenderView.swift */; };
 		96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846CCB2567D794009841BD /* AMDateBirthdayView.swift */; };
@@ -287,6 +288,7 @@
 		96818C0C257800570048C18E /* TCListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCListCell.swift; sourceTree = "<group>"; };
 		96818C1325781B730048C18E /* TCScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCScoreView.swift; sourceTree = "<group>"; };
 		96818C162578237B0048C18E /* TCConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCConditionViewController.swift; sourceTree = "<group>"; };
+		96818C192578F5FC0048C18E /* TextImageMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextImageMaker.swift; sourceTree = "<group>"; };
 		96846CC52567C84B009841BD /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		96846CC82567D666009841BD /* AMGenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMGenderView.swift; sourceTree = "<group>"; };
 		96846CCB2567D794009841BD /* AMDateBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMDateBirthdayView.swift; sourceTree = "<group>"; };
@@ -1230,6 +1232,7 @@
 				968E41C82546F4BD006F3CFC /* ScreenSize.swift */,
 				966A550A2546F61A0099FDAE /* Device.swift */,
 				966A550D2546F6320099FDAE /* Weak.swift */,
+				96818C192578F5FC0048C18E /* TextImageMaker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1624,6 +1627,7 @@
 				968AE4E8254A15FF00A42C46 /* MembersViewModel.swift in Sources */,
 				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
+				96818C1A2578F5FC0048C18E /* TextImageMaker.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
 				966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */,
 				963BF5A2256F14FE00285350 /* Animal.swift in Sources */,

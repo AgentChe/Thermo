@@ -40,7 +40,7 @@ extension MemberTableCell {
         case .me(let human), .child(let human), .parent(let human), .other(let human):
             name = human.name
             
-            loadImage(with: human.imageKey)
+            loadImage(with: human)
         case .animal(let animal):
             name = animal.name
             setImage(with: "Members.Animal.Default")
@@ -57,9 +57,9 @@ extension MemberTableCell {
                             .letterSpacing(-0.4.scale))
     }
     
-    func loadImage(with imageKey: String?) {
-        guard let imgKey = imageKey else {
-            setImage(with: "Members.Animal.Default") // TODO: заменить
+    func loadImage(with human: Human) {
+        guard let imgKey = human.imageKey else {
+            setImage(by: human.name)
             
             return
         }
@@ -72,6 +72,17 @@ extension MemberTableCell {
     
     func setImage(with imageKey: String) {
         avatarImageView.image = UIImage(named: imageKey)
+    }
+    
+    func setImage(by name: String) {
+        avatarImageView.image = TextImageMaker().make(size: CGSize(width: 36.scale, height: 36.scale),
+                                                      attributedString: String(name.prefix(2))
+                                                        .attributed(with: TextAttributes()
+                                                                        .textColor(UIColor(integralRed: 208, green: 201, blue: 214))
+                                                                        .font(Fonts.Poppins.semiBold(size: 18.scale))
+                                                                        .lineHeight(20.scale)
+                                                                        .textAlignment(.center)),
+                                                      backgroundColor: UIColor(integralRed: 243, green: 243, blue: 243))
     }
 }
 
