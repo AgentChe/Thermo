@@ -14,6 +14,11 @@ final class JournalViewModel {
     private let imageManager = ImageManagerCore()
     private let sessionManager = SessionManagerCore()
     
+    func currentMemberHasSymptoms() -> Single<Bool> {
+        getCurrentMemberSymptomsCount()
+            .map { $0 > 0 }
+    }
+    
     func hasActiveSubscription() -> Bool {
         sessionManager.getSession()?.activeSubscription ?? false
     }
@@ -44,6 +49,30 @@ final class JournalViewModel {
 
 // MARK: Private
 private extension JournalViewModel {
+    func getCurrentMemberSymptomsCount() -> Single<Int> {
+        membersManager
+            .rxCurrentMember()
+            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .flatMap { [weak self] member -> Single<Int> in
+                guard let this = self, let currentMember = member else {
+                    return .never()
+                }
+                
+                return this.recordManager
+                    .rxGet(for: currentMember.id)
+                    .map { records -> Int in
+                        records.reduce(0) { count, record in
+                            guard let humanRecord = record as? HumanRecord else {
+                                return count
+                            }
+                            
+                            return count + humanRecord.symptoms.count
+                        }
+                    }
+            }
+            .observeOn(MainScheduler.asyncInstance)
+    }
+    
     func getMemberImage() -> Observable<UIImage> {
         getMember()
             .flatMapLatest { [weak self] member -> Observable<UIImage> in
@@ -70,7 +99,8 @@ private extension JournalViewModel {
                     
                     return this.imageManager
                         .rxRetrieve(key: imageKey)
-                        .asObservable().compactMap { $0 }
+                        .asObservable()
+                        .compactMap { $0 }
                 case .animal:
                     return Observable<UIImage?>
                         .just(UIImage(named: "Members.Animal.Default"))

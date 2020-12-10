@@ -94,8 +94,9 @@
 "Journal.Title" = "Journal";
 "Journal.Cell.DateTime" = "%@, %@";
 "Journal.Cell.Temperature" = "%.1f %@";
-"Journal.Report.Title" = "Receive a PDF report by email";
+"Journal.Report.Title" = "Check for possible conditions";
 "Journal.Report.ButtonTitle" = "GET";
+"Journal.ReportAlert.Message" = "Please track at least one symptom";
 
 // MARK: Members
 "Members.AddNew" = "Add new";

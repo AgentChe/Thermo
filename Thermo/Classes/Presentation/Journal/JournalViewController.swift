@@ -77,12 +77,29 @@ private extension JournalViewController {
         journalView.journalReportButton.addGestureRecognizer(tapGesture)
         
         tapGesture.rx.event
-            .subscribe(onNext: { [weak self] _ in
-                guard let viewModel = self?.viewModel else {
+            .flatMapLatest { [weak self] event -> Single<Bool> in
+                guard let this = self else {
+                    return .never()
+                }
+                
+                return this.viewModel
+                    .currentMemberHasSymptoms()
+            }
+            .subscribe(onNext: { [weak self] hasSymptoms in
+                guard let this = self else {
                     return
                 }
                 
-                switch viewModel.hasActiveSubscription() {
+                guard hasSymptoms else {
+                    let alert = UIAlertController(title: nil, message: "Journal.ReportAlert.Message".localized, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
+                    
+                    this.present(alert, animated: true)
+                    
+                    return
+                }
+                
+                switch this.viewModel.hasActiveSubscription() {
                 case true:
                     let vc = TreatmentsViewController.make()
                     self?.navigationController?.pushViewController(vc, animated: true)
