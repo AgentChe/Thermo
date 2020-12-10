@@ -79,7 +79,7 @@
 "TemperatureLogger.Temperature.Title" = "What's the current temperature?";
 
 "TemperatureLogger.Feeling.Title" = "How's the overall feeling?";
-"TemperatureLogger.Feeling.Health.Title" = "Health:";
+"TemperatureLogger.Feeling.Health.Title" = "Feeling:";
 "TemperatureLogger.Feeling.Health.Good" = "Good";
 "TemperatureLogger.Feeling.Health.Sick" = "Sick";
 "TemperatureLogger.Feeling.Health.Bad" = "Bad";

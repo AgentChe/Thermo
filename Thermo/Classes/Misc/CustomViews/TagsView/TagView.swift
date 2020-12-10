@@ -174,6 +174,7 @@ open class TagView: UIButton {
         titleLabel?.lineBreakMode = titleLineBreakMode
 
         frame.size = intrinsicContentSize
+        removeButton.isUserInteractionEnabled = false
         addSubview(removeButton)
         removeButton.tagView = self
         
