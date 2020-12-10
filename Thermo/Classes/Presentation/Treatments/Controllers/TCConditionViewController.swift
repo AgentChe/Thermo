@@ -9,15 +9,17 @@ import UIKit
 import RxSwift
 
 final class TCConditionViewController: UIViewController {
-    var mainView = TCDetailView()
+    lazy var mainView = TCDetailView(hideNextButton: isLast)
     
     private let disposeBag = DisposeBag()
     
     private let condition: TreatmentCondition
+    private let isLast: Bool
     private let onNext: (() -> Void)
     
-    private init(condition: TreatmentCondition, onNext: @escaping (() -> Void)) {
+    private init(condition: TreatmentCondition, isLast: Bool, onNext: @escaping (() -> Void)) {
         self.condition = condition
+        self.isLast = isLast
         self.onNext = onNext
         
         super.init(nibName: nil, bundle: nil)
@@ -63,8 +65,8 @@ final class TCConditionViewController: UIViewController {
 
 // MARK: Make
 extension TCConditionViewController {
-    static func make(condition: TreatmentCondition, onNext: @escaping (() -> Void)) -> TCConditionViewController {
-        TCConditionViewController(condition: condition, onNext: onNext)
+    static func make(condition: TreatmentCondition, isLast: Bool, onNext: @escaping (() -> Void)) -> TCConditionViewController {
+        TCConditionViewController(condition: condition, isLast: isLast, onNext: onNext)
     }
 }
 

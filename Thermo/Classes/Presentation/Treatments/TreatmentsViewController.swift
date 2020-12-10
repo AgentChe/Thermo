@@ -84,7 +84,9 @@ private extension TreatmentsViewController {
             return
         }
         
-        let vc = TCConditionViewController.make(condition: conditions[index], onNext: { [weak self] in
+        let vc = TCConditionViewController.make(condition: conditions[index],
+                                                isLast: (conditions.count - 1) == index,
+                                                onNext: { [weak self] in
             self?.open(index: index + 1, conditions: conditions)
         })
         navigationController?.pushViewController(vc, animated: true)

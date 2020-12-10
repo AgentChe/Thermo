@@ -14,8 +14,12 @@ final class TCDetailView: GradientView {
     lazy var textView = makeTextView()
     lazy var button = makeButton()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    private let hideNextButton: Bool
+    
+    init(hideNextButton: Bool) {
+        self.hideNextButton = hideNextButton
+        
+        super.init(frame: .zero)
         
         makeConstraints()
         configure()
@@ -64,7 +68,7 @@ private extension TCDetailView {
             textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.scale),
             textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24.scale),
             textView.topAnchor.constraint(equalTo: scoreView.bottomAnchor, constant: 37.scale),
-            textView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16.scale)
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: hideNextButton ? -29.scale : -101.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -111,6 +115,7 @@ private extension TCDetailView {
             .textAlignment(.center)
         
         let view = UIButton()
+        view.isHidden = hideNextButton
         view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 28.scale
         view.setAttributedTitle("Treatments.Details.Button".localized.attributed(with: attrs), for: .normal)
