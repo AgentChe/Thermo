@@ -17,7 +17,7 @@ final class LoggerViewModel {
     
     let selectTemperatureValue = PublishRelay<Double>()
     let selectTemperatureUnit = PublishRelay<TemperatureUnit>()
-    let selectOverallFeeling = PublishRelay<OverallFeeling>()
+    let selectOverallFeeling = BehaviorRelay<OverallFeeling>(value: .recovered)
     let selectSymptoms = BehaviorRelay<[Symptom]>(value: [])
     let selectMedicines = BehaviorRelay<[Medicine]>(value: [])
     

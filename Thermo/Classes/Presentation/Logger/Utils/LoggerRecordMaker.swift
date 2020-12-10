@@ -11,7 +11,7 @@ import RxCocoa
 final class LoggerRecordMaker {
     private let selectTemperatureValue: PublishRelay<Double>
     private let selectTemperatureUnit: PublishRelay<TemperatureUnit>
-    private let selectOverallFeeling: PublishRelay<OverallFeeling>
+    private let selectOverallFeeling: BehaviorRelay<OverallFeeling>
     private let selectSymptoms: BehaviorRelay<[Symptom]>
     private let selectMedicines: BehaviorRelay<[Medicine]>
     
@@ -24,7 +24,7 @@ final class LoggerRecordMaker {
     
     init(selectTemperatureValue: PublishRelay<Double>,
          selectTemperatureUnit: PublishRelay<TemperatureUnit>,
-         selectOverallFeeling: PublishRelay<OverallFeeling>,
+         selectOverallFeeling: BehaviorRelay<OverallFeeling>,
          selectSymptoms: BehaviorRelay<[Symptom]>,
          selectMedicines: BehaviorRelay<[Medicine]>,
          membersManager: MembersManagerCore,
