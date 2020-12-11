@@ -16,9 +16,8 @@ final class LoggerSelectionController: UIViewController {
     var mainView = LoggerSelectionControllerView()
     
     private let style: Style
-    private let models: [LoggerSelectionViewItem]
-    private let didSelect: ((LoggerSelectionViewItem) -> Void)
-    private let didUnselect: ((LoggerSelectionViewItem) -> Void)
+    private let models: [LSSelectionControllerItem]
+    private let selectedItems: (([LoggerSelectionViewItem]) -> Void)
     
     private let disposeBag = DisposeBag()
     
@@ -26,12 +25,10 @@ final class LoggerSelectionController: UIViewController {
     
     private init(style: Style,
                  models: [LoggerSelectionViewItem],
-                 didSelect: @escaping ((LoggerSelectionViewItem) -> Void),
-                 didUnselect: @escaping ((LoggerSelectionViewItem) -> Void)) {
+                 selectedItems: @escaping (([LoggerSelectionViewItem]) -> Void)) {
         self.style = style
-        self.models = models
-        self.didSelect = didSelect
-        self.didUnselect = didUnselect
+        self.models = models.map { LSSelectionControllerItem(viewItem: $0) }
+        self.selectedItems = selectedItems
         
         super.init(nibName: nil, bundle: .main)
     }
@@ -48,6 +45,7 @@ final class LoggerSelectionController: UIViewController {
         super.viewDidLoad()
         
         configure()
+        addSaveNavItem()
         addKeyboardHandler()
         addFilter()
     }
@@ -57,13 +55,12 @@ final class LoggerSelectionController: UIViewController {
 extension LoggerSelectionController {
     static func make(style: Style,
                      models: [LoggerSelectionViewItem],
-                     didSelect: @escaping ((LoggerSelectionViewItem) -> Void),
-                     didUnselect: @escaping ((LoggerSelectionViewItem) -> Void)) -> LoggerSelectionController {
-        LoggerSelectionController(style: style, models: models, didSelect: didSelect, didUnselect: didUnselect)
+                     selectedItems: @escaping (([LoggerSelectionViewItem]) -> Void)) -> LoggerSelectionController {
+        LoggerSelectionController(style: style, models: models, selectedItems: selectedItems)
     }
 }
 
-// MARK; UITableViewDataSource
+// MARK: UITableViewDataSource
 extension LoggerSelectionController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableElements.count
@@ -77,26 +74,20 @@ extension LoggerSelectionController: UITableViewDataSource {
             return cell
         case .item(let item):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LSTableCheckCell.self)) as! LSTableCheckCell
-            cell.setup(item: item)
+            cell.setup(isSelected: item.isSelected, name: item.name)
             return cell
         }
     }
 }
 
-// MARK; UITableViewDelegate
+// MARK: UITableViewDelegate
 extension LoggerSelectionController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableElements[indexPath.row] {
         case .item(let model):
             model.isSelected = !model.isSelected
-            
+
             mainView.tableView.reloadRows(at: [indexPath], with: .automatic)
-            
-            if model.isSelected {
-                didSelect(model)
-            } else {
-                didUnselect(model)
-            }
         case .title:
             break
         }
@@ -107,7 +98,7 @@ extension LoggerSelectionController: UITableViewDelegate {
     }
 }
 
-// MARK: Make
+// MARK: Private
 private extension LoggerSelectionController {
     func configure() {
         let attrs = TextAttributes()
@@ -123,6 +114,27 @@ private extension LoggerSelectionController {
         
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
+    }
+    
+    func addSaveNavItem() {
+        let item = UIBarButtonItem(title: "OK".localized, style: .plain, target: self, action: #selector(saveTapped))
+        navigationItem.rightBarButtonItem = item
+    }
+    
+    @objc
+    func saveTapped() {
+        let selected = models
+            .filter { $0.isSelected }
+            .compactMap { model -> LoggerSelectionViewItem? in
+                let item = model.viewItem
+                item?.isSelected = true
+                
+                return item
+            }
+        
+        selectedItems(selected)
+        
+        navigationController?.popViewController(animated: true)
     }
     
     func addKeyboardHandler() {

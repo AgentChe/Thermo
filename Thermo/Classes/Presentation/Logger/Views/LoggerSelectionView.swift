@@ -59,19 +59,26 @@ final class LoggerSelectionView: UIView {
     
     override var intrinsicContentSize: CGSize {
         var result = 21.scale + 14.scale
-        
+
         var cell = fieldBackgroundView.frame.height
         if cell < 48.scale {
             cell = 48.scale
         }
         result += cell
-        
+
         return CGSize(width: 327.scale, height: result)
     }
 }
 
 // MARK: API
 extension LoggerSelectionView {
+    func set(selected: [LoggerSelectionViewItem]) {
+        tagsView.removeAllTags()
+        
+        let list = selected.map(makeTagView(tag:))
+        tagsView.addTagViews(list)
+    }
+    
     func updateVisibility() {
         let selectedModels = models.filter { $0.isSelected }
         

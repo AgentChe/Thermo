@@ -7,5 +7,5 @@
 
 enum LSTableElement {
     case title(String)
-    case item(LoggerSelectionViewItem)
+    case item(LSSelectionControllerItem)
 }

@@ -140,22 +140,14 @@ private extension LoggerViewController {
                 case .cell:
                     let vc = LoggerSelectionController.make(style: .symptoms,
                                                             models: this.loggerView.feelView.symptomsView.models,
-                                                            didSelect: { model in
-                        this.loggerView.feelView.symptomsView.addTagView(model: model)
-                        this.loggerView.feelView.symptomsView.updateVisibility()
+                                                            selectedItems: { models in
+                        this.viewModel.selectSymptoms.accept(models.map { Symptom(id: $0.id, name: $0.name) })
                                                                 
+                        this.loggerView.feelView.symptomsView.set(selected: models)
+                        this.loggerView.feelView.symptomsView.updateVisibility()
+                        
                         this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
                         this.loggerView.feelView.symptomsView.layoutIfNeeded()
-                        
-                        var storedSymptoms = this.viewModel.selectSymptoms.value
-                        storedSymptoms.append(Symptom(id: model.id, name: model.name))
-                        this.viewModel.selectSymptoms.accept(storedSymptoms)
-                    }, didUnselect: { model in
-                        guard let tagView = this.loggerView.feelView.symptomsView.tagsView.tagViews.first(where: { $0.model.id == model.id }) else {
-                            return
-                        }
-                        
-                        this.loggerView.feelView.symptomsView.didRemoveTagView?(tagView)
                     })
                     this.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -198,22 +190,14 @@ private extension LoggerViewController {
                 case .cell:
                     let vc = LoggerSelectionController.make(style: .medicines,
                                                             models: this.loggerView.feelView.medicinesView.models,
-                                                            didSelect: { model in
-                        this.loggerView.feelView.medicinesView.addTagView(model: model)
-                        this.loggerView.feelView.medicinesView.updateVisibility()
+                                                            selectedItems: { models in
+                        this.viewModel.selectMedicines.accept(models.map { Medicine(id: $0.id, name: $0.name) })
                                                                 
+                        this.loggerView.feelView.medicinesView.set(selected: models)
+                        this.loggerView.feelView.medicinesView.updateVisibility()
+                        
                         this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
                         this.loggerView.feelView.medicinesView.layoutIfNeeded()
-                        
-                        var storedMedicines = this.viewModel.selectMedicines.value
-                        storedMedicines.append(Medicine(id: model.id, name: model.name))
-                        this.viewModel.selectMedicines.accept(storedMedicines)
-                    }, didUnselect: { model in
-                        guard let tagView = this.loggerView.feelView.medicinesView.tagsView.tagViews.first(where: { $0.model.id == model.id }) else {
-                            return
-                        }
-                        
-                        this.loggerView.feelView.medicinesView.didRemoveTagView?(tagView)
                     })
                     this.navigationController?.pushViewController(vc, animated: true)
                 }

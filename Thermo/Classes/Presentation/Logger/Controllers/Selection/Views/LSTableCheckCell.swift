@@ -27,18 +27,18 @@ final class LSTableCheckCell: UITableViewCell {
 
 // MARK: API
 extension LSTableCheckCell {
-    func setup(item: LoggerSelectionViewItem) {
-        checkedBackgroundView.isHidden = !item.isSelected
+    func setup(isSelected: Bool, name: String) {
+        checkedBackgroundView.isHidden = !isSelected
         
         let selectedCheckImage = UIImage(named: "TemperatureLogger.Feeiling.Select")
         let unselectedCheckImage = UIImage(named: "TemperatureLogger.Feeiling.Deselect")
-        checkImageView.image = item.isSelected ? selectedCheckImage : unselectedCheckImage
+        checkImageView.image = isSelected ? selectedCheckImage : unselectedCheckImage
         
         let selectedColor = UIColor(integralRed: 106, green: 121, blue: 248)
         let unselectedColor = UIColor.black
-        label.attributedText = item.name
+        label.attributedText = name
             .attributed(with: TextAttributes()
-                            .textColor(item.isSelected ? selectedColor : unselectedColor)
+                            .textColor(isSelected ? selectedColor : unselectedColor)
                             .font(Fonts.Poppins.regular(size: 16.scale))
                             .lineHeight(20.scale))
     }

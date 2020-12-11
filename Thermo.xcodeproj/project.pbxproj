@@ -191,6 +191,7 @@
 		969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73D256A977600BEA8EC /* PaygateOptionView.swift */; };
 		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
+		96CDB791258291470048F008 /* LSSelectionControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDB790258291470048F008 /* LSSelectionControllerItem.swift */; };
 		96F61E89256B140900540DBB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E82256B140900540DBB /* ApiError.swift */; };
 		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
 		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
@@ -393,6 +394,7 @@
 		969EF73E256A977600BEA8EC /* PaygateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateView.swift; sourceTree = "<group>"; };
 		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
 		96CDB6AF257A23DC0048F008 /* Thermo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thermo.entitlements; sourceTree = "<group>"; };
+		96CDB790258291470048F008 /* LSSelectionControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSelectionControllerItem.swift; sourceTree = "<group>"; };
 		96F61E82256B140900540DBB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
 		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				960486BA25727D56003B5DE9 /* LSTableElement.swift */,
+				96CDB790258291470048F008 /* LSSelectionControllerItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1639,6 +1642,7 @@
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
 				963BF59F256EDB7700285350 /* AMMemberUnit.swift in Sources */,
+				96CDB791258291470048F008 /* LSSelectionControllerItem.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
 				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
