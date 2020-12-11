@@ -145,9 +145,6 @@ private extension LoggerViewController {
                                                                 
                         this.loggerView.feelView.symptomsView.set(selected: models)
                         this.loggerView.feelView.symptomsView.updateVisibility()
-                        
-                        this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
-                        this.loggerView.feelView.symptomsView.layoutIfNeeded()
                     })
                     this.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -167,9 +164,6 @@ private extension LoggerViewController {
             
             this.loggerView.feelView.symptomsView.tagsView.removeTagView(tagView)
             this.loggerView.feelView.symptomsView.updateVisibility()
-            
-            this.loggerView.feelView.symptomsView.invalidateIntrinsicContentSize()
-            this.loggerView.feelView.symptomsView.layoutIfNeeded()
         }
     }
     
@@ -195,9 +189,6 @@ private extension LoggerViewController {
                                                                 
                         this.loggerView.feelView.medicinesView.set(selected: models)
                         this.loggerView.feelView.medicinesView.updateVisibility()
-                        
-                        this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
-                        this.loggerView.feelView.medicinesView.layoutIfNeeded()
                     })
                     this.navigationController?.pushViewController(vc, animated: true)
                 }
@@ -217,9 +208,6 @@ private extension LoggerViewController {
             
             this.loggerView.feelView.medicinesView.tagsView.removeTagView(tagView)
             this.loggerView.feelView.medicinesView.updateVisibility()
-            
-            this.loggerView.feelView.medicinesView.invalidateIntrinsicContentSize()
-            this.loggerView.feelView.medicinesView.layoutIfNeeded()
         }
     }
     

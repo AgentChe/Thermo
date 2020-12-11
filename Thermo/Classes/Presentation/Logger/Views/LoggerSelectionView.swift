@@ -56,18 +56,6 @@ final class LoggerSelectionView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override var intrinsicContentSize: CGSize {
-        var result = 21.scale + 14.scale
-
-        var cell = fieldBackgroundView.frame.height
-        if cell < 48.scale {
-            cell = 48.scale
-        }
-        result += cell
-
-        return CGSize(width: 327.scale, height: result)
-    }
 }
 
 // MARK: API
@@ -148,7 +136,8 @@ private extension LoggerSelectionView {
             fieldBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8.scale),
             fieldBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.scale),
             fieldBackgroundView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 14.scale),
-            fieldBackgroundView.heightAnchor.constraint(greaterThanOrEqualToConstant: 48.scale)
+            fieldBackgroundView.heightAnchor.constraint(greaterThanOrEqualToConstant: 48.scale),
+            fieldBackgroundView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
