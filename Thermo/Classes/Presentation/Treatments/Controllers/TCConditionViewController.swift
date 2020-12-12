@@ -9,18 +9,14 @@ import UIKit
 import RxSwift
 
 final class TCConditionViewController: UIViewController {
-    lazy var mainView = TCDetailView(hideNextButton: isLast)
+    lazy var mainView = TCDetailView()
     
     private let disposeBag = DisposeBag()
     
     private let condition: TreatmentCondition
-    private let isLast: Bool
-    private let onNext: (() -> Void)
     
-    private init(condition: TreatmentCondition, isLast: Bool, onNext: @escaping (() -> Void)) {
+    private init(condition: TreatmentCondition) {
         self.condition = condition
-        self.isLast = isLast
-        self.onNext = onNext
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,18 +51,13 @@ final class TCConditionViewController: UIViewController {
                             .textAlignment(.center))
         
         mainView.textView.attributedText = HTMLString(string: condition.detail).htmlAttributedString
-        
-        mainView.button.rx
-            .tap
-            .subscribe(onNext: onNext)
-            .disposed(by: disposeBag)
     }
 }
 
 // MARK: Make
 extension TCConditionViewController {
-    static func make(condition: TreatmentCondition, isLast: Bool, onNext: @escaping (() -> Void)) -> TCConditionViewController {
-        TCConditionViewController(condition: condition, isLast: isLast, onNext: onNext)
+    static func make(condition: TreatmentCondition) -> TCConditionViewController {
+        TCConditionViewController(condition: condition)
     }
 }
 

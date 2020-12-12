@@ -9,6 +9,7 @@ import UIKit
 
 final class TCTreatmentView: GradientView {
     lazy var titleLabel = makeTitleLabel()
+    lazy var desclaimerView = makeDesclaimerView()
     lazy var imageView = makeImageView()
     lazy var textView = makeTextView()
     
@@ -55,21 +56,27 @@ private extension TCTreatmentView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: ScreenSize.isIphoneXFamily ? -30.scale : -16.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 112.scale : 60.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            desclaimerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
+            desclaimerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
+            desclaimerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 30.scale : 16.scale)
         ])
         
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 191.scale : 150.scale),
+            imageView.topAnchor.constraint(equalTo: desclaimerView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 49.scale : 25.scale),
             imageView.heightAnchor.constraint(equalToConstant: 103.57.scale)
         ])
         
         NSLayoutConstraint.activate([
             textView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
             textView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
-            textView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 318.57.scale : 270.scale),
-            textView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16.scale)
+            textView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 24.scale : 12.scale),
+            textView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
@@ -86,6 +93,17 @@ private extension TCTreatmentView {
         let view = UILabel()
         view.attributedText = "Treatments.Treatment.Title".localized.attributed(with: attrs)
         view.numberOfLines = 2
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeDesclaimerView() -> TCDisclaimerView {
+        let view = TCDisclaimerView()
+        view.backgroundColor = UIColor(integralRed: 252, green: 242, blue: 250)
+        view.layer.cornerRadius = 4.scale
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = UIColor(integralRed: 241, green: 223, blue: 238).cgColor
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

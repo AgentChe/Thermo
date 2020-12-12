@@ -143,7 +143,6 @@
 // MARK: Treatments
 "Treatments.Preloader" = "Analyzing...";
 "Treatments.List.Title" = "Possible\nconditions";
-"Treatments.Details.Button" = "Next Condition";
 "Treatments.Details.TreatmentButton" = "Treatment 💊";
 "Treatments.Treatment.Title" = "Treatment";
 "Treatments.Disclaimer.DISCLAIMER" = "DISCLAIMER: ";
