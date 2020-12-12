@@ -71,6 +71,7 @@
 		966A55992548AA610099FDAE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55982548AA610099FDAE /* ImagePicker.swift */; };
 		966DADE1256ABE6E00DB724E /* JournalReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADE0256ABE6E00DB724E /* JournalReportButton.swift */; };
 		966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADEE256B06BC00DB724E /* GradientButton.swift */; };
+		967A86C925851A2600B51007 /* TCDisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A86C825851A2600B51007 /* TCDisclaimerView.swift */; };
 		96818BC92577D6780048C18E /* TreatmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818BC82577D6780048C18E /* TreatmentsViewController.swift */; };
 		96818BCD2577D67F0048C18E /* TreatmentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818BCC2577D67F0048C18E /* TreatmentsViewModel.swift */; };
 		96818BD42577D6960048C18E /* TreatmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96818BD32577D6960048C18E /* TreatmentsView.swift */; };
@@ -270,6 +271,7 @@
 		966A55982548AA610099FDAE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		966DADE0256ABE6E00DB724E /* JournalReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalReportButton.swift; sourceTree = "<group>"; };
 		966DADEE256B06BC00DB724E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		967A86C825851A2600B51007 /* TCDisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCDisclaimerView.swift; sourceTree = "<group>"; };
 		96818BC82577D6780048C18E /* TreatmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsViewController.swift; sourceTree = "<group>"; };
 		96818BCC2577D67F0048C18E /* TreatmentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsViewModel.swift; sourceTree = "<group>"; };
 		96818BD32577D6960048C18E /* TreatmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreatmentsView.swift; sourceTree = "<group>"; };
@@ -726,6 +728,7 @@
 				96818BF82577E3AC0048C18E /* TCTreatmentView.swift */,
 				96818C0C257800570048C18E /* TCListCell.swift */,
 				96818C1325781B730048C18E /* TCScoreView.swift */,
+				967A86C825851A2600B51007 /* TCDisclaimerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1666,6 +1669,7 @@
 				968AE54D25505FC700A42C46 /* Reminders.swift in Sources */,
 				968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
+				967A86C925851A2600B51007 /* TCDisclaimerView.swift in Sources */,
 				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
 				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
 				96846D222569AC76009841BD /* OverallFeelingItemView.swift in Sources */,

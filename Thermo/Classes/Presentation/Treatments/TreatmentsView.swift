@@ -11,7 +11,6 @@ final class TreatmentsView: GradientView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        makeConstraints()
         configure()
     }
     
@@ -31,16 +30,4 @@ private extension TreatmentsView {
             UIColor(integralRed: 174, green: 108, blue: 199).cgColor,
         ]
     }
-}
-
-// MARK: Make constraints
-private extension TreatmentsView {
-    func makeConstraints() {
-        
-    }
-}
-
-// MARK: Lazy initialization
-private extension TreatmentsView {
-    
 }

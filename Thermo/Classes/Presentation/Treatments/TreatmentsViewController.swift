@@ -46,6 +46,18 @@ extension TreatmentsViewController {
 // MARK: Private(List)
 private extension TreatmentsViewController {
     func list(conditions: [TreatmentCondition]) {
+        if conditions.isEmpty {
+            let alert = UIAlertController(title: nil, message: "Treatments.AlertEmptyText".localized, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel) { [weak self] action in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            present(alert, animated: true)
+        } else {
+            form(conditions: conditions)
+        }
+    }
+    
+    func form(conditions: [TreatmentCondition]) {
         let view = TCListView()
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -57,13 +69,6 @@ private extension TreatmentsViewController {
             
             this.open(index: index, conditions: conditions)
         }
-        
-        view.button.rx
-            .tap
-            .subscribe(onNext: { [weak self] in
-                self?.open(index: 0, conditions: conditions)
-            })
-            .disposed(by: disposeBag)
         
         mainView.addSubview(view)
         

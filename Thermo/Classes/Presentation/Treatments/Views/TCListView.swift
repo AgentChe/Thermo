@@ -17,8 +17,8 @@ final class TCListView: UIView {
     }
     
     lazy var titleLabel = makeTitleLabel()
+    lazy var desclaimerView = makeDesclaimerView()
     lazy var tableView = makeTableView()
-    lazy var button = makeButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -79,17 +79,16 @@ private extension TCListView {
         ])
         
         NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
-            tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 30.scale : 16.scale),
-            tableView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16.scale)
+            desclaimerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
+            desclaimerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
+            desclaimerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 30.scale : 16.scale)
         ])
         
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
-            button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -29.scale : -12.scale)
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
+            tableView.topAnchor.constraint(equalTo: desclaimerView.bottomAnchor, constant: 18.scale),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -29.scale : -12.scale)
         ])
     }
 }
@@ -111,6 +110,17 @@ private extension TCListView {
         return view
     }
     
+    func makeDesclaimerView() -> TCDisclaimerView {
+        let view = TCDisclaimerView()
+        view.backgroundColor = UIColor(integralRed: 252, green: 242, blue: 250)
+        view.layer.cornerRadius = 4.scale
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = UIColor(integralRed: 241, green: 223, blue: 238).cgColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
     func makeTableView() -> UITableView {
         let view = UITableView()
         view.register(TCListCell.self, forCellReuseIdentifier: String(describing: TCListCell.self))
@@ -119,22 +129,6 @@ private extension TCListView {
         view.showsVerticalScrollIndicator = false
         view.separatorStyle = .none
         view.backgroundColor = UIColor.clear
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeButton() -> UIButton {
-        let attrs = TextAttributes()
-            .textColor(UIColor.black)
-            .font(Fonts.Poppins.semiBold(size: 17.scale))
-            .lineHeight(22.scale)
-            .textAlignment(.center)
-        
-        let view = UIButton()
-        view.backgroundColor = UIColor.white
-        view.layer.cornerRadius = 28.scale
-        view.setAttributedTitle("Treatments.List.Button".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
