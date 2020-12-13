@@ -22,6 +22,12 @@ final class AddMemberViewModel {
     private let sessionManager = SessionManagerCore()
     private let monetizationManager = MonetizationManagerCore()
     
+    private let from: AddMemberViewController.From
+
+    init(from: AddMemberViewController.From) {
+        self.from = from
+    }
+    
     func existingMembersUnits() -> Driver<[AMMemberUnit]> {
         membersManager
             .rxGetAllMembers()
@@ -91,6 +97,38 @@ final class AddMemberViewModel {
 // MARK: Private
 private extension AddMemberViewModel {
     func needPayment() -> Observable<Bool> {
+        switch from {
+        case .onboarding:
+            return needPaymentAfterOnboarding()
+        case .other:
+            return needPaymentAfterOtherScreen()
+        }
+    }
+    
+    func needPaymentAfterOnboarding() -> Observable<Bool> {
+        let initial = Observable<Bool>.deferred { [weak self] in
+            guard let this = self else {
+                return .empty()
+            }
+            
+            let afterOnboarding = this.monetizationManager.getMonetizationConfig()?.afterOnboarding ?? false
+            let activeSubscription = this.sessionManager.getSession()?.activeSubscription ?? false
+            
+            if afterOnboarding {
+                return .just(!activeSubscription)
+            }
+            
+            return .just(false)
+        }
+        
+        let updated = addMember
+            .skip(1)
+            .map { _ in false }
+        
+        return Observable.merge(initial, updated)
+    }
+    
+    func needPaymentAfterOtherScreen() -> Observable<Bool> {
         let membersCount = membersManager
             .rxGetAllMembers()
             .map { $0.count }

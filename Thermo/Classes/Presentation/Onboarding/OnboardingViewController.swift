@@ -54,20 +54,13 @@ extension OnboardingViewController {
     }
 }
 
-// MARK: PaygateViewControllerDelegate
-extension OnboardingViewController: PaygateViewControllerDelegate {
-    func paygateDidClosed(with result: PaygateViewControllerResult) {
-        openAddMemberController()
-    }
-}
-
 // MARK: Private
 private extension OnboardingViewController {
     func tapped() {
         let nextStepIndex = onboardingView.step.rawValue + 1
         
         guard let nextStep = OnboardingView.Step(rawValue: nextStepIndex) else {
-            goToNext()
+            openAddMemberController()
             
             return
         }
@@ -75,19 +68,9 @@ private extension OnboardingViewController {
         onboardingView.step = nextStep
     }
     
-    func goToNext() {
-        if viewModel.needPayment() {
-            let vc = PaygateViewController.make()
-            vc.delegate = self
-            present(vc, animated: true)
-        } else {
-            openAddMemberController()
-        }
-    }
-    
     func openAddMemberController() {
         UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
         
-        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root)
+        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root, from: .onboarding)
     }
 }

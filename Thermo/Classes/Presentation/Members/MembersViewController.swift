@@ -52,7 +52,7 @@ final class MembersViewController: UIViewController {
         membersView
             .addNewButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.present(AddMemberViewController.make(transition: .present), animated: true)
+                self?.present(AddMemberViewController.make(transition: .present, from: .other), animated: true)
             })
             .disposed(by: disposeBag)
     }

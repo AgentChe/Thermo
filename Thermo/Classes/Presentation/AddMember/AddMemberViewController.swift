@@ -16,21 +16,28 @@ final class AddMemberViewController: UIViewController {
         case root
     }
     
+    // С какого экрана был открыт vc
+    enum From {
+        case onboarding, other
+    }
+    
     var addMemberView = AddMemberView()
     
-    private let viewModel = AddMemberViewModel()
+    private lazy var viewModel = AddMemberViewModel(from: from)
     
     private let disposeBag = DisposeBag()
     
     private let transition: Transition
+    private let from: From
     
     private lazy var imagePicker = ImagePicker(presentationController: self, delegate: self)
     private lazy var stepChecker = AMStepChecker(vc: self)
     private lazy var memberAttributiionsMaker = AMMemberAttributionsMaker(vc: self)
     private lazy var stepMaker = AMStepMaker(initialStep: addMemberView.step)
     
-    private init(transition: Transition) {
+    private init(transition: Transition, from: From) {
         self.transition = transition
+        self.from = from 
         
         super.init(nibName: nil, bundle: .main)
     }
@@ -82,8 +89,8 @@ final class AddMemberViewController: UIViewController {
 
 // MARK: Make
 extension AddMemberViewController {
-    static func make(transition: Transition) -> AddMemberViewController {
-        let vc = AddMemberViewController(transition: transition)
+    static func make(transition: Transition, from: From) -> AddMemberViewController {
+        let vc = AddMemberViewController(transition: transition, from: from)
         vc.modalPresentationStyle = .overFullScreen
         return vc
     }

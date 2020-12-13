@@ -8,10 +8,4 @@
 import RxSwift
 import RxCocoa
 
-final class OnboardingViewModel {
-    private let monetizationManager = MonetizationManagerCore()
-    
-    func needPayment() -> Bool {
-        monetizationManager.getMonetizationConfig()?.afterOnboarding ?? false
-    }
-}
+final class OnboardingViewModel {}
