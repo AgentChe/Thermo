@@ -13,14 +13,22 @@ final class JournalViewModel {
     private let membersManager = MembersManagerCore()
     private let imageManager = ImageManagerCore()
     private let sessionManager = SessionManagerCore()
+    private let monetizationManager = MonetizationManagerCore()
     
     func currentMemberHasSymptoms() -> Single<Bool> {
         getCurrentMemberSymptomsCount()
             .map { $0 > 0 }
     }
-    
-    func hasActiveSubscription() -> Bool {
-        sessionManager.getSession()?.activeSubscription ?? false
+
+    func needPaymentForAnalyze() -> Bool {
+        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
+        let needPayment = monetizationManager.getMonetizationConfig()?.beforeAnalyzeSymptoms ?? false
+        
+        if hasActiveSubscription {
+            return false
+        }
+        
+        return needPayment
     }
     
     func memberImage() -> Driver<UIImage> {

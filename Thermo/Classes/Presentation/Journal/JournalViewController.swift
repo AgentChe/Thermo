@@ -99,11 +99,11 @@ private extension JournalViewController {
                     return
                 }
                 
-                switch this.viewModel.hasActiveSubscription() {
-                case true:
+                switch this.viewModel.needPaymentForAnalyze() {
+                case false:
                     let vc = TreatmentsViewController.make()
                     self?.navigationController?.pushViewController(vc, animated: true)
-                case false:
+                case true:
                     let vc = PaygateViewController.make()
                     self?.present(vc, animated: true)
                 }

@@ -10,6 +10,7 @@ struct MonetizationConfig: Hashable {
     let maxFreeTracking: Int
     let afterOnboarding: Bool
     let afterTemperatureTracking: Bool
+    let beforeAnalyzeSymptoms: Bool
 }
 
 // MARK: Codable

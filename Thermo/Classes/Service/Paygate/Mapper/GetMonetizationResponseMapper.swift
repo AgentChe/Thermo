@@ -17,6 +17,7 @@ final class GetMonetizationResponseMapper {
         return MonetizationConfig(maxFreeProfiles: data["max_free_profiles"] as? Int ?? 0,
                                   maxFreeTracking: data["max_free_trackings"] as? Int ?? 0,
                                   afterOnboarding: data["after_onboarding"] as? Bool ?? false,
-                                  afterTemperatureTracking: data["after_temperature_tracking"] as? Bool ?? false)
+                                  afterTemperatureTracking: data["after_temperature_tracking"] as? Bool ?? false,
+                                  beforeAnalyzeSymptoms: data["analyze_symptoms"] as? Bool ?? false)
     }
 }
