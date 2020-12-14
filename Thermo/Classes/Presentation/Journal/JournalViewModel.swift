@@ -91,14 +91,7 @@ private extension JournalViewModel {
                 switch member.unit {
                 case .me(let human), .child(let human), .parent(let human), .other(let human):
                     guard let imageKey = human.imageKey else {
-                        let image = TextImageMaker().make(size: CGSize(width: 56.scale, height: 56.scale),
-                                                          attributedString: String(human.name.prefix(2))
-                                                            .attributed(with: TextAttributes()
-                                                            .textColor(UIColor(integralRed: 208, green: 201, blue: 214))
-                                                            .font(Fonts.Poppins.semiBold(size: 36.scale))
-                                                            .lineHeight(41.scale)
-                                                            .textAlignment(.center)),
-                                                          backgroundColor: UIColor(integralRed: 243, green: 243, blue: 243))
+                        let image = this.image(for: member.unit)
                         
                         return Observable<UIImage?>
                             .just(image)
@@ -111,11 +104,11 @@ private extension JournalViewModel {
                         .compactMap { $0 }
                 case .animal:
                     return Observable<UIImage?>
-                        .just(UIImage(named: "Members.Animal.Default"))
+                        .just(this.image(for: member.unit))
                         .compactMap { $0 }
                 case .object:
                     return Observable<UIImage?>
-                        .just(UIImage(named: "Members.Object.Default"))
+                        .just(this.image(for: member.unit))
                         .compactMap { $0 }
                 }
             }
@@ -241,5 +234,22 @@ private extension JournalViewModel {
                 membersManager.rxCurrentMember().asObservable().compactMap { $0 },
                 MembersManagerMediator.shared.rxDidSetCurrentMember.asObservable()
             ])
+    }
+    
+    func image(for memberUnit: MemberUnit) -> UIImage? {
+        switch memberUnit {
+        case .me:
+            return UIImage(named: "Members.Me.Default")
+        case .child:
+            return UIImage(named: "Members.Child.Default")
+        case .parent:
+            return UIImage(named: "Members.Parent.Default")
+        case .other:
+            return UIImage(named: "Members.Other.Default")
+        case .animal:
+            return UIImage(named: "Members.Animal.Default")
+        case .object:
+            return UIImage(named: "Members.Object.Default")
+        }
     }
 }

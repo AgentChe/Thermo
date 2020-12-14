@@ -40,13 +40,13 @@ extension MemberTableCell {
         case .me(let human), .child(let human), .parent(let human), .other(let human):
             name = human.name
             
-            loadImage(with: human)
+            loadImage(for: human, memberUnit: member.unit)
         case .animal(let animal):
             name = animal.name
-            setImage(with: "Members.Animal.Default")
+            avatarImageView.image = image(for: .animal(animal))
         case .object(let object):
             name = object.name
-            setImage(with: "Members.Object.Default")
+            avatarImageView.image = image(for: .object(object))
         }
         
         label.attributedText = name
@@ -57,32 +57,17 @@ extension MemberTableCell {
                             .letterSpacing(-0.4.scale))
     }
     
-    func loadImage(with human: Human) {
-        guard let imgKey = human.imageKey else {
-            setImage(by: human.name)
+    func loadImage(for human: Human, memberUnit: MemberUnit) {
+        guard let imageKey = human.imageKey else {
+            avatarImageView.image = image(for: memberUnit)
             
             return
         }
         
         imageManager
-            .retrieve(key: imgKey) { [weak self] image in
+            .retrieve(key: imageKey) { [weak self] image in
                 self?.avatarImageView.image = image
             }
-    }
-    
-    func setImage(with imageKey: String) {
-        avatarImageView.image = UIImage(named: imageKey)
-    }
-    
-    func setImage(by name: String) {
-        avatarImageView.image = TextImageMaker().make(size: CGSize(width: 36.scale, height: 36.scale),
-                                                      attributedString: String(name.prefix(2))
-                                                        .attributed(with: TextAttributes()
-                                                                        .textColor(UIColor(integralRed: 208, green: 201, blue: 214))
-                                                                        .font(Fonts.Poppins.semiBold(size: 18.scale))
-                                                                        .lineHeight(20.scale)
-                                                                        .textAlignment(.center)),
-                                                      backgroundColor: UIColor(integralRed: 243, green: 243, blue: 243))
     }
 }
 
@@ -95,6 +80,23 @@ private extension MemberTableCell {
         let selectedView = UIView()
         selectedView.backgroundColor = UIColor.clear
         selectedBackgroundView = selectedView
+    }
+    
+    func image(for memberUnit: MemberUnit) -> UIImage? {
+        switch memberUnit {
+        case .me:
+            return UIImage(named: "Members.Me.Default")
+        case .child:
+            return UIImage(named: "Members.Child.Default")
+        case .parent:
+            return UIImage(named: "Members.Parent.Default")
+        case .other:
+            return UIImage(named: "Members.Other.Default")
+        case .animal:
+            return UIImage(named: "Members.Animal.Default")
+        case .object:
+            return UIImage(named: "Members.Object.Default")
+        }
     }
 }
 
