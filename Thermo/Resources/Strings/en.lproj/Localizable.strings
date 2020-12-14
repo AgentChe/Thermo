@@ -94,9 +94,10 @@
 "Journal.Title" = "Journal";
 "Journal.Cell.DateTime" = "%@, %@";
 "Journal.Cell.Temperature" = "%.1f %@";
-"Journal.Report.Title" = "Check for possible conditions";
-"Journal.Report.ButtonTitle" = "GET";
+"Journal.Report.Title1" = "Add your first measurement";
+"Journal.Report.Title2" = "Check for possible conditions";
 "Journal.ReportAlert.Message" = "Please track at least one symptom";
+"Journal.Empty" = "🌡\nYour measurements\nwill appear here";
 
 // MARK: Members
 "Members.AddNew" = "Add new";

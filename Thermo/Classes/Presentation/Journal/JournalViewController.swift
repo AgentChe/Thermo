@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class JournalViewController: UIViewController {
     weak var delegate: JournalViewControllerDelegate?
@@ -36,16 +37,26 @@ final class JournalViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel
-            .sections()
+        let sections = viewModel.sections()
+            
+        sections
             .drive(onNext: { [weak self] sections in
                 self?.journalView.tableView.setup(sections: sections)
+                self?.updateReportButtonTitle(sections: sections)
             })
             .disposed(by: disposeBag)
         
-        viewModel
-            .currentMemberIsHuman()
-            .drive(onNext: currentMemberIsHuman(_:))
+        sections
+            .drive(onNext: emptyPlaceholder(sections:))
+            .disposed(by: disposeBag)
+            
+        Driver
+            .combineLatest(viewModel.currentMemberIsHuman(), sections)
+            .drive(onNext: { [weak self] stub in
+                let (currentMemberIsHuman, sections) = stub
+                
+                self?.currentMemberIsHuman(currentMemberIsHuman, sections: sections)
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -111,7 +122,30 @@ private extension JournalViewController {
             .disposed(by: disposeBag)
     }
     
-    func currentMemberIsHuman(_ isHuman: Bool) {
+    func currentMemberIsHuman(_ isHuman: Bool, sections: [JournalTableSection]) {
         journalView.journalReportButton.isHidden = !isHuman
+        
+        journalView.desclaimerView(hidden: !isHuman || sections.isEmpty)
+    }
+    
+    func updateReportButtonTitle(sections: [JournalTableSection]) {
+        let attrs = TextAttributes()
+            .textColor(UIColor.white)
+            .font(Fonts.Poppins.semiBold(size: 14.scale))
+            .lineHeight(20.scale)
+            .letterSpacing(0.2.scale)
+            .textAlignment(.center)
+        
+        let text = sections.isEmpty ? "Journal.Report.Title1" : "Journal.Report.Title2"
+        
+        journalView
+            .journalReportButton.titleLabel.attributedText = text.localized.attributed(with: attrs)
+    }
+    
+    func emptyPlaceholder(sections: [JournalTableSection]) {
+        let isEmpty = sections.isEmpty
+        
+        journalView.tableView.isHidden = isEmpty
+        journalView.emptyLabel.isHidden = !isEmpty
     }
 }

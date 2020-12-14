@@ -12,6 +12,10 @@ final class JournalView: UIView {
     lazy var imageView = makeImageView()
     lazy var tableView = makeTableView()
     lazy var journalReportButton = makeJournalReportButton()
+    lazy var desclaimerView = makeDesclaimerView()
+    lazy var emptyLabel = makeEmptyLabel()
+    
+    private var journalReportButtonBottomConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,6 +27,22 @@ final class JournalView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: API
+extension JournalView {
+    func desclaimerView(hidden: Bool) {
+        desclaimerView.isHidden = hidden
+        
+        let bottom = hidden ? bottomAnchor : desclaimerView.topAnchor
+        
+        journalReportButtonBottomConstraint.isActive = false
+        
+        journalReportButtonBottomConstraint = journalReportButton.bottomAnchor.constraint(equalTo: bottom, constant: -18.scale)
+        journalReportButtonBottomConstraint.isActive = true
+        
+        journalReportButton.layoutIfNeeded()
     }
 }
 
@@ -48,11 +68,23 @@ private extension JournalView {
             tableView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40.scale)
         ])
         
+        journalReportButtonBottomConstraint = journalReportButton.bottomAnchor.constraint(equalTo: desclaimerView.topAnchor, constant: -18.scale)
         NSLayoutConstraint.activate([
             journalReportButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             journalReportButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             journalReportButton.heightAnchor.constraint(equalToConstant: 72.scale),
-            journalReportButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -32.scale : -16.scale)
+            journalReportButtonBottomConstraint
+        ])
+        
+        NSLayoutConstraint.activate([
+            desclaimerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25.scale),
+            desclaimerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25.scale),
+            desclaimerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            emptyLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
@@ -101,6 +133,33 @@ private extension JournalView {
             UIColor(integralRed: 255, green: 99, blue: 72).cgColor
         ]
         view.layer.cornerRadius = 36.scale
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeDesclaimerView() -> TCDisclaimerView {
+        let view = TCDisclaimerView()
+        view.backgroundColor = UIColor(integralRed: 252, green: 242, blue: 250)
+        view.layer.cornerRadius = 4.scale
+        view.layer.borderWidth = 1.scale
+        view.layer.borderColor = UIColor(integralRed: 241, green: 223, blue: 238).cgColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeEmptyLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor.black.withAlphaComponent(0.4))
+            .font(Fonts.Poppins.regular(size: 18.scale))
+            .lineHeight(22.scale)
+            .letterSpacing(0.2.scale)
+            .textAlignment(.center)
+        
+        let view = UILabel()
+        view.attributedText = "Journal.Empty".localized.attributed(with: attrs)
+        view.numberOfLines = 0
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
