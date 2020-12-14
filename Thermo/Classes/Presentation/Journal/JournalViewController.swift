@@ -27,9 +27,6 @@ final class JournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addActionsToMember()
-        addActionsToReportButton()
-        
         viewModel
             .memberImage()
             .drive(onNext: { [weak self] image in
@@ -58,6 +55,9 @@ final class JournalViewController: UIViewController {
                 self?.currentMemberIsHuman(currentMemberIsHuman, sections: sections)
             })
             .disposed(by: disposeBag)
+        
+        addActionsToMember()
+        addActionsToReportButton(sections: sections)
     }
 }
 
@@ -82,22 +82,32 @@ private extension JournalViewController {
             .disposed(by: disposeBag)
     }
     
-    func addActionsToReportButton() {
+    func addActionsToReportButton(sections: Driver<[JournalTableSection]>) {
         let tapGesture = UITapGestureRecognizer()
         journalView.journalReportButton.isUserInteractionEnabled = true
         journalView.journalReportButton.addGestureRecognizer(tapGesture)
         
         tapGesture.rx.event
-            .flatMapLatest { [weak self] event -> Single<Bool> in
+            .withLatestFrom(sections)
+            .flatMapLatest { [weak self] sections -> Single<([JournalTableSection], Bool)> in
                 guard let this = self else {
                     return .never()
                 }
                 
                 return this.viewModel
                     .currentMemberHasSymptoms()
+                    .map { (sections, $0) }
             }
-            .subscribe(onNext: { [weak self] hasSymptoms in
+            .subscribe(onNext: { [weak self] stub in
                 guard let this = self else {
+                    return
+                }
+                
+                let (sections, hasSymptoms) = stub
+                
+                guard !sections.isEmpty else {
+                    this.delegate?.journalViewControllerDidLogRecord()
+                    
                     return
                 }
                 

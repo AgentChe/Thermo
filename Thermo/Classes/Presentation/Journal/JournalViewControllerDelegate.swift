@@ -7,8 +7,10 @@
 
 protocol JournalViewControllerDelegate: class {
     func journalViewControllerDidTappedMember()
+    func journalViewControllerDidLogRecord()
 }
 
 extension JournalViewControllerDelegate {
     func journalViewControllerDidTappedMember() {}
+    func journalViewControllerDidLogRecord() {}
 }

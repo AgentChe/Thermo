@@ -29,7 +29,7 @@ private extension JournalReportButton {
             leftImageView.widthAnchor.constraint(equalToConstant: 31.scale),
             leftImageView.heightAnchor.constraint(equalToConstant: 31.scale),
             leftImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            leftImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 44.scale)
+            leftImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24.scale)
         ])
         
         NSLayoutConstraint.activate([

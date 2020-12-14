@@ -53,6 +53,10 @@ extension MainViewController: JournalViewControllerDelegate {
     func journalViewControllerDidTappedMember() {
         present(MembersViewController.make(), animated: true)
     }
+    
+    func journalViewControllerDidLogRecord() {
+        update(selectedTab: .log)
+    }
 }
  
 // MARK: Private
