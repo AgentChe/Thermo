@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (5.4.0)
+  - Alamofire (5.4.1)
   - Amplitude-iOS (4.10.0)
   - Branch (0.36.0)
   - FacebookSDK (8.2.0):
@@ -97,7 +97,7 @@ PODS:
     - MarqueeLabel (~> 4.0.0)
     - SnapKit (~> 5.0.0)
   - PromisesObjC (1.2.11)
-  - RushSDK (1.4.11):
+  - RushSDK (1.4.13):
     - Alamofire
     - Amplitude-iOS
     - Branch
@@ -155,11 +155,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RushSDK:
-    :commit: 0c8057dc3e9679f8d858c110143ad51e785db4ab
+    :commit: 79c04d25dbc5179f135f24622d2d2282dba0549c
     :git: https://github.com/AgentChe/RushSDK.git
 
 SPEC CHECKSUMS:
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Amplitude-iOS: 7d8cdc3408ba35c2e68368fc7c692cd104606b94
   Branch: 8aebcb7a6465f19f9f4d315acced369ae078d3f2
   FacebookSDK: 7aa80d5e6eaf235f492328ad40c36dbc16440e52
@@ -179,13 +179,13 @@ SPEC CHECKSUMS:
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  RushSDK: 2ac638fc6b3d551ec589634a7662022f28583485
+  RushSDK: 014932285cc649395639c6f583dda7c4918190a0
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 70ab8e6534726aaf21a940f2198ad4858ad4438e
+PODFILE CHECKSUM: 5b90378198970bb7076903ca0f392b8bc43e9a9f
 
 COCOAPODS: 1.10.0.rc.1
