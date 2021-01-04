@@ -130,8 +130,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxLog(animal: Member,
@@ -147,8 +147,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxLog(object: Member,
@@ -164,8 +164,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxRemove(recordId: Int) -> Completable {
@@ -181,8 +181,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxRemove(memberId: Int) -> Completable {
@@ -198,8 +198,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxGet(for memberId: Int) -> Single<[Record]> {
@@ -213,8 +213,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxGet(recordId: Int) -> Single<Record?> {
@@ -228,8 +228,8 @@ extension RecordManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }
 

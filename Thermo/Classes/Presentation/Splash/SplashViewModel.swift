@@ -32,17 +32,17 @@ private extension SplashViewModel {
             .zip([
                 medicinesManager
                     .rxRetrieveMedicines(forceUpdate: true)
-                    .catchErrorJustReturn([])
+                    .catchAndReturn([])
                     .asCompletable(),
                 
                 symptomsManager
                     .rxRetrieveSymptoms(forceUpdate: true)
-                    .catchErrorJustReturn([])
+                    .catchAndReturn([])
                     .asCompletable(),
                 
                 monetizationManager
                     .rxRetrieveMonetizationConfig(forceUpdate: true)
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .asCompletable()
             ])
     }

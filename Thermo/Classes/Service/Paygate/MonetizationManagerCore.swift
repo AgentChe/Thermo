@@ -52,7 +52,7 @@ private extension MonetizationManagerCore {
             .restApiTransport
             .callServerApi(requestBody: request)
             .map { GetMonetizationResponseMapper.map(from: $0) }
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .do(onSuccess: { [weak self] config in
                 guard let config = config else {
                     return

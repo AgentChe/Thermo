@@ -28,7 +28,7 @@ extension TreatmentsManagerMock {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }

@@ -77,7 +77,7 @@ extension ImageManagerCore {
                             let image = UIImage(cgImage: cgImage)
                             event(.success(image))
                         case .failure(let error):
-                            event(.error(error))
+                            event(.failure(error))
                         }
                     }
                 

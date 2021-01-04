@@ -215,6 +215,20 @@
 		960486C12572E793003B5DE9 /* AnimalRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalRecord.swift; sourceTree = "<group>"; };
 		960486C72572E800003B5DE9 /* ObjectRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRecord.swift; sourceTree = "<group>"; };
 		960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerRecordMaker.swift; sourceTree = "<group>"; };
+		9619CB0D25A34FC200C0D03C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB0E25A34FC200C0D03C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9619CB1025A34FE300C0D03C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB1125A34FE300C0D03C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9619CB1225A34FFD00C0D03C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB1325A34FFE00C0D03C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9619CB1425A3501900C0D03C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB1525A3501900C0D03C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9619CB1625A3503000C0D03C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB1725A3503000C0D03C /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9619CB1825A3504600C0D03C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		9619CB1925A3504600C0D03C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		9619CB1A25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9619CB1B25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -1425,6 +1439,13 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				it,
+				ja,
+				ru,
+				"zh-Hans",
+				es,
 			);
 			mainGroup = 968E41662546E045006F3CFC;
 			productRefGroup = 968E41702546E045006F3CFC /* Products */;
@@ -1698,6 +1719,13 @@
 			isa = PBXVariantGroup;
 			children = (
 				968E417E2546E047006F3CFC /* Base */,
+				9619CB0D25A34FC200C0D03C /* fr */,
+				9619CB1025A34FE300C0D03C /* de */,
+				9619CB1225A34FFD00C0D03C /* it */,
+				9619CB1425A3501900C0D03C /* ja */,
+				9619CB1625A3503000C0D03C /* ru */,
+				9619CB1825A3504600C0D03C /* zh-Hans */,
+				9619CB1A25A3505F00C0D03C /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1706,6 +1734,13 @@
 			isa = PBXVariantGroup;
 			children = (
 				968E41B32546E42E006F3CFC /* en */,
+				9619CB0E25A34FC200C0D03C /* fr */,
+				9619CB1125A34FE300C0D03C /* de */,
+				9619CB1325A34FFE00C0D03C /* it */,
+				9619CB1525A3501900C0D03C /* ja */,
+				9619CB1725A3503000C0D03C /* ru */,
+				9619CB1925A3504600C0D03C /* zh-Hans */,
+				9619CB1B25A3505F00C0D03C /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1717,6 +1752,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1778,6 +1814,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1838,7 +1875,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				INFOPLIST_FILE = "$(SRCROOT)/Thermo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1846,7 +1883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.3;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo Development";
@@ -1865,7 +1902,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 17;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				INFOPLIST_FILE = "$(SRCROOT)/Thermo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1873,7 +1910,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.3;
+				MARKETING_VERSION = 1.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo AppStore";

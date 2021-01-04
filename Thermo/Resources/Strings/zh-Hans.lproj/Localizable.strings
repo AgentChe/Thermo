@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Thermo
+
+  Created by Andrey Chernyshev on 26.10.2020.
+  
+*/
+
+// MARK: General
+"Continue" = "继续";
+"OK" = "确定";
+"Next" = "下一个";
+"Fahrenheit" = "华氏度";
+"Celsius" = "摄氏度";
+"Cancel" = "取消";
+
+// MARK: Weekdays
+"Monday" = "星期一";
+"Tuesday " = "星期二 ";
+"Wednesday" = "星期三";
+"Thursday" = "星期四";
+"Friday" = "星期五";
+"Saturday" = "星期六";
+"Sunday" = "星期日";
+
+// MARK: ImagePicker
+"ImagePicker.TakePhoto" = "拍照";
+"ImagePicker.CameraRoll" = "相机胶卷";
+"ImagePicker.PhotoLibrary" = "照片库";
+
+// MARK: Splash
+"Splash.Title" = "帮助追踪整个家庭的\n体温和症状\n";
+
+// MARK: Onboarding
+"Onboarding.TrackTemperaturePurpose.Title" = "您为什么\n要追踪\n体温";
+"Onboarding.TrackTemperaturePurpose.Cell1" = "确定可能的状况以及与您的症状\n相关的治疗\n";
+"Onboarding.TrackTemperaturePurpose.Cell2" = "由于疫情";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "家庭成员\n生病了";
+"Onboarding.TrackTemperaturePurpose.Cell4" = "医生要求\n这样做 ";
+"Onboarding.TrackTemperaturePurpose.Cell5" = "只是自我照顾";
+"Onboarding.TrackTemperaturePurpose.BottomLine" = "*此工具不提供医疗建议";
+
+"Onboarding.TrackTemperatureImportant.Title" = "\n追踪\n体温很重要";
+"Onboarding.TrackTemperatureImportant.Cell1" = "及早发现疾病";
+"Onboarding.TrackTemperatureImportant.Cell2" = "注意最细微的变化";
+"Onboarding.TrackTemperatureImportant.Cell3" = "即使是动物";
+"Onboarding.TrackTemperatureImportant.Cell4" = "即使是居住空间";
+"Onboarding.TrackTemperatureImportant.Cell5" = "两次测量就足够了";
+
+// MARK: Add member
+"AddMember.MemberUnit.Title" = "我们将\n要 追踪谁的\n体温\n？";
+"AddMember.MemberUnit.Me" = "🙂 我";
+"AddMember.MemberUnit.Child" = "👶 小孩";
+"AddMember.MemberUnit.Parent" = "💑 我的父母";
+"AddMember.MemberUnit.Other" = "👫 其他家庭成员";
+"AddMember.MemberUnit.Animals" = "🐈 动物";
+"AddMember.MemberUnit.Objects" = "🏠 物品/房间";
+
+"AddMember.Gender.TitleForMeUnit" = "您的性别是什么？";
+"AddMember.Gender.TitleForNotMeUnit" = "他们的性别是什么？";
+"AddMember.Gender.Male" = "👦 男性";
+"AddMember.Gender.Female" = "👧 女性";
+
+"AddMember.CreateProfile.Title" = "创建档案：";
+"AddMember.CreateProfile.Placeholder" = "姓名";
+"AddMember.CreateProfile.Button" = "继续";
+
+"AddMember.DateBirthday.TileForMeUnit" = "您的出生日期是什么？";
+"AddMember.DateBirthday.TileForNotMeUnit" = "他们的出生日期是什么？";
+"AddMember.DateBirthday.DialogTitle" = "为什么我们要询问？";
+"AddMember.DateBirthday.DialogSubTitle" = "不同年龄和性别的正常温度不同。我们会把性别和出生日期考虑在内。";
+"AddMember.DateBirthday.DialogButton" = "下一个";
+
+"AddMember.TemperatureUnit.Title" = "华氏度还是摄氏度？";
+
+"AddMember.Add.Failure" = "添加成员失败";
+
+// MARK: Temperature logger
+"TemperatureLogger.Temperature.Title" = "当前体温是多少？";
+
+"TemperatureLogger.Feeling.Title" = "整体感觉如何？";
+"TemperatureLogger.Feeling.Health.Title" = "感觉：";
+"TemperatureLogger.Feeling.Health.Good" = "良好";
+"TemperatureLogger.Feeling.Health.Sick" = "生病";
+"TemperatureLogger.Feeling.Health.Bad" = "糟糕";
+"TemperatureLogger.Feeling.Health.Recovered" = "已恢复";
+"TemperatureLogger.Feeling.Button" = "保存";
+"TemperatureLogger.Feeling.Symptoms.Title" = "症状：";
+"TemperatureLogger.Feeling.Medicines.Title" = "目前的药物：";
+
+"TemperatureLogger.Log.Failure" = "记录体温失败";
+
+// MARK: Journal
+"Journal.Title" = "日志";
+"Journal.Cell.DateTime" = "%1$@, %2$@";
+"Journal.Cell.Temperature" = "%1$.1f %2$@";
+"Journal.Report.Title1" = "添加您的首次测量";
+"Journal.Report.Title2" = "检查可能的状况";
+"Journal.ReportAlert.Message" = "请追踪至少一种症状";
+"Journal.Empty" = "🌡\n您的测量结果\n将显示在这里";
+
+// MARK: Members
+"Members.AddNew" = "新增";
+"Members.SetCurrentMember" = "设置当前成员失败";
+
+// MARK: Reminder
+"Reminder.TimeTitle" = "提醒时间：";
+"Reminder.WeekdayTitle" = "一周中的某天";
+"Reminder.Notification.Body" = "是时候追踪您的体温了！";
+
+// MARK: Tabs
+"Track" = "追踪";
+"Journal" = "日志";
+"Reminder" = "提醒";
+
+// MARK: Paygate
+"Paygate.Purchase.Failed" = "购买失败";
+
+// MARK: Report
+"Report.Title" = "通过电子邮件接收报告";
+"Report.SubTitle" = "一份简明报告包含您的所有记录信息";
+"Report.EmailFieldPlaceholder" = "电子邮箱";
+"Report.ButtonTitle" = "发送";
+"Report.InvalidEmail" = "无效的电子邮箱";
+"Report.CreateFailure" = "创建报告失败";
+
+// MARK: ComboBox
+"ComboBox.Premium" = "高级";
+"ComboBox.TagsPlaceholder" = "输入关键字...";
+
+// MARK: Paygate
+"Paygate.Title" = "追踪整个家庭的体温、症状和药物";
+"Paygate.Item1" = "个人账户";
+"Paygate.Item2" = "症状和药物追踪";
+"Paygate.Item3" = "每个账户的提醒";
+"Paygate.Item4" = "日志导出";
+"Paygate.Secured" = "受iTunes保护。可随时取消。";
+"Paygate.BuyButton" = "继续";
+"Paygate.RestoreButton" = "恢复购买";
+"Paygate.TermsOfUse" = "使用条款";
+"Paygate.And" = "和 ";
+"Paygate.PrivacyPolicy" = "隐私政策";
+
+// MARK: Treatments
+"Treatments.Preloader" = "正在分析...";
+"Treatments.List.Title" = "可能的\n状况";
+"Treatments.Details.TreatmentButton" = "治疗💊";
+"Treatments.Treatment.Title" = "治疗";
+"Treatments.Disclaimer.DISCLAIMER" = "免责声明： ";
+"Treatments.Disclaimer.Text" = "我们不提供医疗建议。本应用程序仅供参考，不能代替专业的医疗诊断或治疗。 ";
+"Treatments.Disclaimer.LearnMore" = "了解更多...";
+"Treatments.AlertEmptyText" = "数据不足。请在进行新的体温测量时提供更多的症状或者您正在服用的药物";
+

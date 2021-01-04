@@ -39,8 +39,8 @@ extension MedicineManagerCore {
                 }
                 
                 return Single.just(this.getMedicines())
-                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                    .observeOn(MainScheduler.asyncInstance)
+                    .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+                    .observe(on: MainScheduler.asyncInstance)
             }
         }
     }
@@ -54,7 +54,7 @@ private extension MedicineManagerCore {
             .callServerApi(requestBody: GetMedicinesRequest())
             .map { GetMedicinesResponseMapper.map(response: $0) }
             .flatMap(store(medicines:))
-            .catchErrorJustReturn([])
+            .catchAndReturn([])
     }
     
     func store(medicines: [Medicine]) -> Single<[Medicine]> {
@@ -72,7 +72,7 @@ private extension MedicineManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }

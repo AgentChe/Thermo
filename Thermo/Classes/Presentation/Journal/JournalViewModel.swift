@@ -60,7 +60,7 @@ private extension JournalViewModel {
     func getCurrentMemberSymptomsCount() -> Single<Int> {
         membersManager
             .rxCurrentMember()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMap { [weak self] member -> Single<Int> in
                 guard let this = self, let currentMember = member else {
                     return .never()
@@ -78,7 +78,7 @@ private extension JournalViewModel {
                         }
                     }
             }
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func getMemberImage() -> Observable<UIImage> {
@@ -116,10 +116,10 @@ private extension JournalViewModel {
     
     func makeSections() -> Observable<[JournalTableSection]> {
         getMember()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMapLatest(getRecords(member:))
             .map(sortAndMap(records:))
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func getRecords(member: Member) -> Observable<[Record]> {

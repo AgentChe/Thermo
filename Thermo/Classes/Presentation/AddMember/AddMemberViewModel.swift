@@ -81,7 +81,7 @@ final class AddMemberViewModel {
                 
                 return this.membersManager
                     .rxAdd(memberUnit: memberUnit, temperatureUnit: temperatureUnit, setAsCurrent: true)
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .map { member -> Step in
                         if let _member = member {
                             return .added(_member)
@@ -132,13 +132,13 @@ private extension AddMemberViewModel {
         let membersCount = membersManager
             .rxGetAllMembers()
             .map { $0.count }
-            .catchErrorJustReturn(0)
+            .catchAndReturn(0)
             .asObservable()
         
         let freeMembers = monetizationManager
             .rxRetrieveMonetizationConfig(forceUpdate: false)
             .map { $0?.maxFreeProfiles ?? 0 }
-            .catchErrorJustReturn(0)
+            .catchAndReturn(0)
             .asObservable()
         
         let initial = Observable<Bool>.deferred { [weak self] in

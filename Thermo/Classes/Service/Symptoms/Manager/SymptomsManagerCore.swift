@@ -39,8 +39,8 @@ extension SymptomsManagerCore {
                 }
                 
                 return Single.just(this.getSymptoms())
-                    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-                    .observeOn(MainScheduler.asyncInstance)
+                    .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+                    .observe(on: MainScheduler.asyncInstance)
             }
         }
     }
@@ -54,7 +54,7 @@ private extension SymptomsManagerCore {
             .callServerApi(requestBody: GetSymptomsRequest())
             .map { GetSymptomsResponseMapper.map(response: $0) }
             .flatMap(store(symptoms:))
-            .catchErrorJustReturn([])
+            .catchAndReturn([])
     }
     
     func store(symptoms: [Symptom]) -> Single<[Symptom]> {
@@ -72,7 +72,7 @@ private extension SymptomsManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }

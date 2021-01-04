@@ -130,8 +130,8 @@ extension ReminderManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxSet(timeId: String, checked: Bool) -> Single<Bool> {
@@ -147,8 +147,8 @@ extension ReminderManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxSet(weekday: Weekday, checked: Bool) -> Single<Bool> {
@@ -164,8 +164,8 @@ extension ReminderManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxObtainRemindersTime() -> Single<[ReminderTime]> {
@@ -181,8 +181,8 @@ extension ReminderManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
     
     func rxObtainRemindersWeekday() -> Single<[ReminderWeekday]> {
@@ -198,8 +198,8 @@ extension ReminderManagerCore {
                 
                 return Disposables.create()
             }
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }
 

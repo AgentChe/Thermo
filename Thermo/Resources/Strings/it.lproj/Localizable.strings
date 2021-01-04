@@ -1,0 +1,153 @@
+/*
+  Localizable.strings
+  Thermo
+
+  Created by Andrey Chernyshev on 26.10.2020.
+  
+*/
+
+// MARK: General
+"Continue" = "Continua";
+"OK" = "OK";
+"Next" = "Prossimo";
+"Fahrenheit" = "°F";
+"Celsius" = "°C";
+"Cancel" = "Annulla";
+
+// MARK: Weekdays
+"Monday" = "Lunedì";
+"Tuesday " = "Martedì ";
+"Wednesday" = "Mercoledì";
+"Thursday" = "Giovedì";
+"Friday" = "Venerdì";
+"Saturday" = "Sabato";
+"Sunday" = "Domenica";
+
+// MARK: ImagePicker
+"ImagePicker.TakePhoto" = "Fai una foto";
+"ImagePicker.CameraRoll" = "Rullino fotografico";
+"ImagePicker.PhotoLibrary" = "Galleria fotografica";
+
+// MARK: Splash
+"Splash.Title" = "Aiuta a monitorare\nla temperatura e i sintomi\ndi tutta la famiglia";
+
+// MARK: Onboarding
+"Onboarding.TrackTemperaturePurpose.Title" = "Perché dovresti\nmonitorare\nla temperatura";
+"Onboarding.TrackTemperaturePurpose.Cell1" = "Identifica la possibile malattia\ne la cura in relazione\nai tuoi sintomi";
+"Onboarding.TrackTemperaturePurpose.Cell2" = "A causa della pandemia";
+"Onboarding.TrackTemperaturePurpose.Cell3" = "un membro della famiglia\nè malato";
+"Onboarding.TrackTemperaturePurpose.Cell4" = "Il medico ha chiesto\ndi farlo ";
+"Onboarding.TrackTemperaturePurpose.Cell5" = "Semplicemente curarsi da sé";
+"Onboarding.TrackTemperaturePurpose.BottomLine" = "*Questo strumento non fornisce una consulenza medica";
+
+"Onboarding.TrackTemperatureImportant.Title" = "È importante\nmonitorare la\ntemperatura";
+"Onboarding.TrackTemperatureImportant.Cell1" = "Scopri la malattia precocemente";
+"Onboarding.TrackTemperatureImportant.Cell2" = "Nota i minimi cambiamenti";
+"Onboarding.TrackTemperatureImportant.Cell3" = "Anche per gli animali";
+"Onboarding.TrackTemperatureImportant.Cell4" = "Anche per gli spazi abitativi";
+"Onboarding.TrackTemperatureImportant.Cell5" = "Sono sufficienti due misurazioni";
+
+// MARK: Add member
+"AddMember.MemberUnit.Title" = "A chi\n misureremo\nla temperatura?\n?";
+"AddMember.MemberUnit.Me" = "🙂 A me";
+"AddMember.MemberUnit.Child" = "👶 A un bambino";
+"AddMember.MemberUnit.Parent" = "💑 A un mio genitore";
+"AddMember.MemberUnit.Other" = "👫 A un altro membro della famiglia";
+"AddMember.MemberUnit.Animals" = "🐈 Ad animali";
+"AddMember.MemberUnit.Objects" = "🏠 A oggetti/stanze";
+
+"AddMember.Gender.TitleForMeUnit" = "Di che sesso sei?";
+"AddMember.Gender.TitleForNotMeUnit" = "Di che sesso sono?";
+"AddMember.Gender.Male" = "👦 Maschio";
+"AddMember.Gender.Female" = "👧 Femmina";
+
+"AddMember.CreateProfile.Title" = "Crea il profilo:";
+"AddMember.CreateProfile.Placeholder" = "Nome";
+"AddMember.CreateProfile.Button" = "Procedi";
+
+"AddMember.DateBirthday.TileForMeUnit" = "Qual è la tua data di nascita?";
+"AddMember.DateBirthday.TileForNotMeUnit" = "Qual è la loro data di nascita?";
+"AddMember.DateBirthday.DialogTitle" = "Perché te lo chiediamo?";
+"AddMember.DateBirthday.DialogSubTitle" = "La temperatura normale varia a seconda dell'età e del sesso. Terremo conto del sesso e della data di nascita.";
+"AddMember.DateBirthday.DialogButton" = "Prossimo";
+
+"AddMember.TemperatureUnit.Title" = "Fahrenheit o Celsius?";
+
+"AddMember.Add.Failure" = "Aggiunta di un membro non riuscita";
+
+// MARK: Temperature logger
+"TemperatureLogger.Temperature.Title" = "Qual è la temperatura attuale?";
+
+"TemperatureLogger.Feeling.Title" = "Come è lo stato di salute generale?";
+"TemperatureLogger.Feeling.Health.Title" = "Ti senti:";
+"TemperatureLogger.Feeling.Health.Good" = "Bene";
+"TemperatureLogger.Feeling.Health.Sick" = "Malato";
+"TemperatureLogger.Feeling.Health.Bad" = "Male";
+"TemperatureLogger.Feeling.Health.Recovered" = "Guarito";
+"TemperatureLogger.Feeling.Button" = "Salvo";
+"TemperatureLogger.Feeling.Symptoms.Title" = "Sintomi:";
+"TemperatureLogger.Feeling.Medicines.Title" = "Farmaci attuali:";
+
+"TemperatureLogger.Log.Failure" = "Mancata registrazione della temperatura";
+
+// MARK: Journal
+"Journal.Title" = "Registro";
+"Journal.Cell.DateTime" = "%1$@, %2$@";
+"Journal.Cell.Temperature" = "%1$.1f %2$@";
+"Journal.Report.Title1" = "Inserisci la tua prima misurazione";
+"Journal.Report.Title2" = "Verifica le possibili malattie";
+"Journal.ReportAlert.Message" = "Inserisci almeno un sintomo";
+"Journal.Empty" = "🌡\nLe tue misurazioni\nappariranno qui";
+
+// MARK: Members
+"Members.AddNew" = "Aggiungi nuovo";
+"Members.SetCurrentMember" = "Impossibile impostare il membro corrente";
+
+// MARK: Reminder
+"Reminder.TimeTitle" = "Promemoria alle";
+"Reminder.WeekdayTitle" = "Giorni della settimana";
+"Reminder.Notification.Body" = "È ora di misurare la tua temperatura!";
+
+// MARK: Tabs
+"Track" = "Misura";
+"Journal" = "Registro";
+"Reminder" = "Promemoria";
+
+// MARK: Paygate
+"Paygate.Purchase.Failed" = "Acquisto non riuscito";
+
+// MARK: Report
+"Report.Title" = "Ricevi il rapporto via e-mail";
+"Report.SubTitle" = "Tutte le tue informazioni sintetizzate in un rapporto";
+"Report.EmailFieldPlaceholder" = "E-mail";
+"Report.ButtonTitle" = "Invio";
+"Report.InvalidEmail" = "E-mail non valido";
+"Report.CreateFailure" = "Creazione del rapporto non riuscita";
+
+// MARK: ComboBox
+"ComboBox.Premium" = "Premium";
+"ComboBox.TagsPlaceholder" = "Inserisci la keyword...";
+
+// MARK: Paygate
+"Paygate.Title" = "Monitora la temperatura, i sintomi e i farmaci di tutta la famiglia";
+"Paygate.Item1" = "Account individuali";
+"Paygate.Item2" = "Monitoraggio dei sintomi e dei farmaci";
+"Paygate.Item3" = "Promemoria per ogni account";
+"Paygate.Item4" = "Esportazione del registro";
+"Paygate.Secured" = "Protetto con iTunes. Annulla in qualsiasi momento.";
+"Paygate.BuyButton" = "Continua";
+"Paygate.RestoreButton" = "Ripristina gli acquisti";
+"Paygate.TermsOfUse" = "Condizioni d'uso";
+"Paygate.And" = " e ";
+"Paygate.PrivacyPolicy" = "Norme sulla Privacy";
+
+// MARK: Treatments
+"Treatments.Preloader" = "Analisi in corso...";
+"Treatments.List.Title" = "Possibili\nmalattie";
+"Treatments.Details.TreatmentButton" = "Cura 💊";
+"Treatments.Treatment.Title" = "Cura";
+"Treatments.Disclaimer.DISCLAIMER" = "DICHIARAZIONE DI LIMITAZIONE DI RESPONSABILITÀ: ";
+"Treatments.Disclaimer.Text" = "Non forniamo consulenza medica. Questa app è solo a scopo informativo e non sostituisce la diagnosi o il trattamento medico professionale. ";
+"Treatments.Disclaimer.LearnMore" = "Per saperne di più...";
+"Treatments.AlertEmptyText" = "Dati insufficienti. Fornisci più sintomi o farmaci che stai assumendo con nuove misurazioni della temperatura";
+

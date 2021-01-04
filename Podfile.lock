@@ -96,8 +96,8 @@ PODS:
   - NotificationBannerSwift (3.0.2):
     - MarqueeLabel (~> 4.0.0)
     - SnapKit (~> 5.0.0)
-  - PromisesObjC (1.2.11)
-  - RushSDK (1.4.13):
+  - PromisesObjC (1.2.12)
+  - RushSDK (1.7.1):
     - Alamofire
     - Amplitude-iOS
     - Branch
@@ -107,12 +107,12 @@ PODS:
     - RxCocoa
     - RxSwift
     - SwiftyStoreKit
-  - RxCocoa (5.1.1):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.1.1):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
   - SnapKit (5.0.1)
   - SwiftyStoreKit (0.16.1)
 
@@ -155,7 +155,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   RushSDK:
-    :commit: 79c04d25dbc5179f135f24622d2d2282dba0549c
+    :commit: a2900937cda05ddcb7cd4594673404b46e213cf8
     :git: https://github.com/AgentChe/RushSDK.git
 
 SPEC CHECKSUMS:
@@ -178,11 +178,11 @@ SPEC CHECKSUMS:
   MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   NotificationBannerSwift: 713e20f21b6105f4a36a00e5d9fa414a930d3d8e
-  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  RushSDK: 014932285cc649395639c6f583dda7c4918190a0
-  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  RushSDK: 6bc67fb961b6588942e06091a56e51b47a7f95b6
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 

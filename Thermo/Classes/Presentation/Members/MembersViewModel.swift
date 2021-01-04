@@ -76,7 +76,7 @@ private extension MembersViewModel {
                 return this.membersManager
                     .rxSetCurrent(member: member)
                     .andThen(Single.just(Step.updatedCurrentMember))
-                    .catchErrorJustReturn(Step.error("Members.SetCurrentMember".localized))
+                    .catchAndReturn(Step.error("Members.SetCurrentMember".localized))
             }
             .asDriver(onErrorJustReturn: Step.error("Members.SetCurrentMember".localized))
     }

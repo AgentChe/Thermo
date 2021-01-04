@@ -67,7 +67,7 @@ private extension PaygateViewModel {
                         }
                     }
                     .trackActivity(buyProcessing)
-                    .catchErrorJustReturn(false)
+                    .catchAndReturn(false)
             }
         
         return purchase
@@ -88,7 +88,7 @@ private extension PaygateViewModel {
                         }
                     }
                     .trackActivity(restoreProcessing)
-                    .catchErrorJustReturn(false)
+                    .catchAndReturn(false)
             }
         
         return purchase

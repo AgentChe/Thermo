@@ -94,12 +94,12 @@ private extension LoggerViewModel {
                     .rxGet(for: member.id)
                     .map { $0.count }
             }
-            .catchErrorJustReturn(0)
+            .catchAndReturn(0)
             .asObservable()
         
         let config = monetizationManager
             .rxRetrieveMonetizationConfig(forceUpdate: false)
-            .catchErrorJustReturn(nil)
+            .catchAndReturn(nil)
             .asObservable()
         
         let initial = Observable<Bool>.deferred { [weak self] in

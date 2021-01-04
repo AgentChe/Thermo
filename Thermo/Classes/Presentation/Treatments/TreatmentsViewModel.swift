@@ -55,14 +55,14 @@ private extension TreatmentsViewModel {
                 
                 return this.treatmentsManager
                     .rxObtainConditions(gender: gender, age: age, symptomsIds: symptomsIds, medicinesIds: medicinesIds)
-                    .catchErrorJustReturn([])
+                    .catchAndReturn([])
             }
     }
     
     func attributes() -> Single<Attributes> {
         memberManager
             .rxCurrentMember()
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
             .flatMap { [weak self] member -> Single<Attributes> in
                 guard let this = self, let currentMember = member else {
                     return .never()
@@ -104,6 +104,6 @@ private extension TreatmentsViewModel {
                         return (gender, age, symptomsIds, medicinesIds)
                     }
             }
-            .observeOn(MainScheduler.asyncInstance)
+            .observe(on: MainScheduler.asyncInstance)
     }
 }

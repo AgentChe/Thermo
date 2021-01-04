@@ -120,7 +120,7 @@ private extension LoggerRecordMaker {
                            overallFeeling: overallFeeling,
                            symptoms: symptoms,
                            medicines: medicines)
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .map { humanRecord -> LoggerViewModel.Step in
                         if let value = humanRecord {
                             return .logged(value)
@@ -164,7 +164,7 @@ private extension LoggerRecordMaker {
                 return this.recordManager
                     .rxLog(animal: currentMember,
                            temperature: temperature)
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .map { animalRecord -> LoggerViewModel.Step in
                         if let value = animalRecord {
                             return .logged(value)
@@ -208,7 +208,7 @@ private extension LoggerRecordMaker {
                 return this.recordManager
                     .rxLog(object: currentMember,
                            temperature: temperature)
-                    .catchErrorJustReturn(nil)
+                    .catchAndReturn(nil)
                     .map { objectRecord -> LoggerViewModel.Step in
                         if let value = objectRecord {
                             return .logged(value)
