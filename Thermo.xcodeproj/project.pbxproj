@@ -192,6 +192,7 @@
 		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
 		96CDB791258291470048F008 /* LSSelectionControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDB790258291470048F008 /* LSSelectionControllerItem.swift */; };
+		96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */; };
 		96F61E89256B140900540DBB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E82256B140900540DBB /* ApiError.swift */; };
 		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
 		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
@@ -409,6 +410,7 @@
 		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
 		96CDB6AF257A23DC0048F008 /* Thermo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thermo.entitlements; sourceTree = "<group>"; };
 		96CDB790258291470048F008 /* LSSelectionControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSelectionControllerItem.swift; sourceTree = "<group>"; };
+		96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerAnalytics.swift; sourceTree = "<group>"; };
 		96F61E82256B140900540DBB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
 		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
@@ -1170,6 +1172,7 @@
 		968E418C2546E077006F3CFC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				96D389F925AC77F000EADC9A /* Analytics */,
 				966A55772548A9F90099FDAE /* Components */,
 				966A55022546F5C40099FDAE /* Rx */,
 				966A54FA2546F53D0099FDAE /* CustomViews */,
@@ -1348,6 +1351,14 @@
 				963BF521256DB27200285350 /* PaygateMainInfoCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96D389F925AC77F000EADC9A /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		96F61E81256B140900540DBB /* Error */ = {
@@ -1703,6 +1714,7 @@
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
 				963BF5B92570151400285350 /* AMMemberAttributionsMaker.swift in Sources */,
+				96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */,
 				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
 				966A5544254757B30099FDAE /* TrackTemperaturePurpose.swift in Sources */,
@@ -1875,7 +1887,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				INFOPLIST_FILE = "$(SRCROOT)/Thermo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1883,7 +1895,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo Development";
@@ -1902,7 +1914,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				INFOPLIST_FILE = "$(SRCROOT)/Thermo/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1910,7 +1922,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.9.1;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo AppStore";

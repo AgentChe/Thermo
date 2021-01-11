@@ -1,6 +1,9 @@
 PODS:
   - Alamofire (5.4.1)
   - Amplitude-iOS (4.10.0)
+  - AppsFlyerFramework (6.1.3):
+    - AppsFlyerFramework/Main (= 6.1.3)
+  - AppsFlyerFramework/Main (6.1.3)
   - Branch (0.36.0)
   - FacebookSDK (8.2.0):
     - FacebookSDK/CoreKit (= 8.2.0)
@@ -117,6 +120,7 @@ PODS:
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
+  - AppsFlyerFramework
   - Kingfisher
   - NotificationBannerSwift
   - RushSDK (from `https://github.com/AgentChe/RushSDK.git`)
@@ -125,6 +129,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Amplitude-iOS
+    - AppsFlyerFramework
     - Branch
     - FacebookSDK
     - FBSDKCoreKit
@@ -161,6 +166,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   Amplitude-iOS: 7d8cdc3408ba35c2e68368fc7c692cd104606b94
+  AppsFlyerFramework: 4c735cfe40cd4dd809eba4e288e80f5fbde39d02
   Branch: 8aebcb7a6465f19f9f4d315acced369ae078d3f2
   FacebookSDK: 7aa80d5e6eaf235f492328ad40c36dbc16440e52
   FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
@@ -186,6 +192,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 5b90378198970bb7076903ca0f392b8bc43e9a9f
+PODFILE CHECKSUM: 4a0310c9213131aada504bf03e4c9e864c15158d
 
 COCOAPODS: 1.10.0.rc.1

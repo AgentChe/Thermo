@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sdkProvider.application(application, didFinishLaunchingWithOptions: launchOptions)
         SDKStorage.shared.pushNotificationsManager.application(didFinishLaunchingWithOptions: launchOptions)
         
+        AppsFlyerAnalytics.shared.applicationDidFinishLaunchingWithOptions()
+        
         return true
     }
     
@@ -45,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sdkProvider.application(application, continue: userActivity, restorationHandler: restorationHandler)
         
         return true
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        AppsFlyerAnalytics.shared.applicationDidBecomeActive()
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
