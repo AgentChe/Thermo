@@ -23,4 +23,8 @@ extension AppsFlyerAnalytics {
     func applicationDidBecomeActive() {
         AppsFlyerLib.shared().start()
     }
+    
+    func set(userId: String) {
+        AppsFlyerLib.shared().customerUserID = userId
+    }
 }

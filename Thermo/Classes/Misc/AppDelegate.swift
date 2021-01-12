@@ -76,6 +76,8 @@ extension AppDelegate: SDKPurchaseMediatorDelegate {
         let session = Session(response: response)
         
         SessionManagerCore().store(session: session)
+        
+        AppsFlyerAnalytics.shared.set(userId: String(response.userId))
     }
 }
 
