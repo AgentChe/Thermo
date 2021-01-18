@@ -151,3 +151,8 @@
 "Treatments.Disclaimer.LearnMore" = "詳細...";
 "Treatments.AlertEmptyText" = "データが十分ではありません。新しい体温測定値と共に他の症状や使用中の薬を入力してください。";
 
+// MARK: LoggerType
+"LoggerType.WithApp" = "Measure with the app";
+"LoggerType.AppleHealth" = "Track with Apple Health";
+"LoggerType.EnterManually" = "Enter manually";
+"LoggerType.Button" = "Continue";

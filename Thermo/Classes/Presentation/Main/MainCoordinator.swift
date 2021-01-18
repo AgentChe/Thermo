@@ -22,7 +22,24 @@ final class MainCoordinator {
     func change(tab: TabView.Tab) {
         switch tab {
         case .log:
-            parentVC?.navigationController?.pushViewController(LoggerViewController.make(), animated: true)
+            let vc = LSelectCaseViewController.make { [weak self] vc in
+                let openVC: UIViewController
+                
+                switch vc.selectedCase {
+                case .withApp:
+                    openVC = LoggerViewController.make()
+                case .appleHealth:
+                    openVC = UIViewController()
+                case .manually:
+                    openVC = UIViewController()
+                }
+                
+                vc.dismiss(animated: true) {
+                    self?.parentVC?.navigationController?.pushViewController(openVC, animated: true)
+                }
+            }
+            
+            parentVC?.navigationController?.present(vc, animated: true)
         case .list:
             parentVC?.mainView.tabView.selectedTab = tab
             

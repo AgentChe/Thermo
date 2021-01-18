@@ -151,3 +151,8 @@
 "Treatments.Disclaimer.LearnMore" = "Mehr erfahren ...";
 "Treatments.AlertEmptyText" = "Unzureichende Daten. Bitte geben Sie weitere Symptome oder eingenommene Medikamente mit neuen Temperaturmessungen an.";
 
+// MARK: LoggerType
+"LoggerType.WithApp" = "Measure with the app";
+"LoggerType.AppleHealth" = "Track with Apple Health";
+"LoggerType.EnterManually" = "Enter manually";
+"LoggerType.Button" = "Continue";

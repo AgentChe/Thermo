@@ -16,6 +16,7 @@
 		960486C22572E793003B5DE9 /* AnimalRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C12572E793003B5DE9 /* AnimalRecord.swift */; };
 		960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C72572E800003B5DE9 /* ObjectRecord.swift */; };
 		960486CC2573FC83003B5DE9 /* LoggerRecordMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */; };
+		962AEA7D25B580470032E7C3 /* LSCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AEA7C25B580470032E7C3 /* LSCCell.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
@@ -193,6 +194,8 @@
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
 		96CDB791258291470048F008 /* LSSelectionControllerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CDB790258291470048F008 /* LSSelectionControllerItem.swift */; };
 		96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */; };
+		96D38ACF25B1DFE400EADC9A /* LSelectCaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D38ACE25B1DFE400EADC9A /* LSelectCaseViewController.swift */; };
+		96D38AD225B1E03800EADC9A /* LSelectCaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D38AD125B1E03800EADC9A /* LSelectCaseView.swift */; };
 		96F61E89256B140900540DBB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E82256B140900540DBB /* ApiError.swift */; };
 		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
 		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
@@ -230,6 +233,7 @@
 		9619CB1925A3504600C0D03C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		9619CB1A25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9619CB1B25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		962AEA7C25B580470032E7C3 /* LSCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCCell.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 		96CDB6AF257A23DC0048F008 /* Thermo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thermo.entitlements; sourceTree = "<group>"; };
 		96CDB790258291470048F008 /* LSSelectionControllerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSSelectionControllerItem.swift; sourceTree = "<group>"; };
 		96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerAnalytics.swift; sourceTree = "<group>"; };
+		96D38ACE25B1DFE400EADC9A /* LSelectCaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSelectCaseViewController.swift; sourceTree = "<group>"; };
+		96D38AD125B1E03800EADC9A /* LSelectCaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSelectCaseView.swift; sourceTree = "<group>"; };
 		96F61E82256B140900540DBB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
 		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
@@ -474,6 +480,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		962AEA7B25B580240032E7C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				962AEA7C25B580470032E7C3 /* LSCCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		963BF59D256EDB6600285350 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +510,8 @@
 		963BF5CF2571BF3A00285350 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				96D38AC825B1DFC200EADC9A /* SelectCase */,
+				96D38AC525B1DF1200EADC9A /* WithApps */,
 				963BF5D82571CA6800285350 /* Selection */,
 			);
 			path = Controllers;
@@ -905,10 +921,6 @@
 				960486CA2573FA93003B5DE9 /* Utils */,
 				963BF5CF2571BF3A00285350 /* Controllers */,
 				968AE4C02549A6E100A42C46 /* Models */,
-				968AE4B225499A3F00A42C46 /* Views */,
-				968AE49A2549977A00A42C46 /* LoggerViewController.swift */,
-				968AE4A12549979F00A42C46 /* LoggerViewModel.swift */,
-				968AE4A4254997B500A42C46 /* LoggerView.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -1361,6 +1373,27 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		96D38AC525B1DF1200EADC9A /* WithApps */ = {
+			isa = PBXGroup;
+			children = (
+				968AE4B225499A3F00A42C46 /* Views */,
+				968AE4A4254997B500A42C46 /* LoggerView.swift */,
+				968AE4A12549979F00A42C46 /* LoggerViewModel.swift */,
+				968AE49A2549977A00A42C46 /* LoggerViewController.swift */,
+			);
+			path = WithApps;
+			sourceTree = "<group>";
+		};
+		96D38AC825B1DFC200EADC9A /* SelectCase */ = {
+			isa = PBXGroup;
+			children = (
+				962AEA7B25B580240032E7C3 /* Views */,
+				96D38ACE25B1DFE400EADC9A /* LSelectCaseViewController.swift */,
+				96D38AD125B1E03800EADC9A /* LSelectCaseView.swift */,
+			);
+			path = SelectCase;
+			sourceTree = "<group>";
+		};
 		96F61E81256B140900540DBB /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -1542,6 +1575,7 @@
 				966A552E25472D6E0099FDAE /* UIColorExtension.swift in Sources */,
 				966A556C25485E2D0099FDAE /* AMCheckedCell.swift in Sources */,
 				96846CCC2567D794009841BD /* AMDateBirthdayView.swift in Sources */,
+				962AEA7D25B580470032E7C3 /* LSCCell.swift in Sources */,
 				968AE4D22549F41000A42C46 /* JournalTableElement.swift in Sources */,
 				968AE5AA2552A98B00A42C46 /* UIViewRxExtension.swift in Sources */,
 				966A55282546FA310099FDAE /* SplashViewModel.swift in Sources */,
@@ -1595,6 +1629,8 @@
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				96846CEF25698D10009841BD /* Medicine.swift in Sources */,
 				966A556F254864080099FDAE /* AMMemberUnitView.swift in Sources */,
+				96D38AD225B1E03800EADC9A /* LSelectCaseView.swift in Sources */,
+				96D38ACF25B1DFE400EADC9A /* LSelectCaseViewController.swift in Sources */,
 				96F61ED2256BAA5800540DBB /* TagView.swift in Sources */,
 				969EF745256A977600BEA8EC /* PaygateView.swift in Sources */,
 				96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */,

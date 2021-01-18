@@ -150,3 +150,9 @@
 "Treatments.Disclaimer.Text" = "We don't provide medical advice. This app is for informational purpose only and is not a substitute for professional medical diagnosis or treatment. ";
 "Treatments.Disclaimer.LearnMore" = "Learn more...";
 "Treatments.AlertEmptyText" = "Not enough data. Please provide more symptoms or meds you're taking with new temperature measurements";
+
+// MARK: LoggerType
+"LoggerType.WithApp" = "Measure with the app";
+"LoggerType.AppleHealth" = "Track with Apple Health";
+"LoggerType.EnterManually" = "Enter manually";
+"LoggerType.Button" = "Continue";

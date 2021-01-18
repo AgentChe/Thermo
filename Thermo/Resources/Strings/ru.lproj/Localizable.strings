@@ -231,4 +231,8 @@
 
 "Treatments.AlertEmptyText" = "Недостаточно данных. Пожалуйста, укажите больше симптомов или лекарств, которые вы принимаете, а также новые измерения температуры";
 
-
+// MARK: LoggerType
+"LoggerType.WithApp" = "Measure with the app";
+"LoggerType.AppleHealth" = "Track with Apple Health";
+"LoggerType.EnterManually" = "Enter manually";
+"LoggerType.Button" = "Continue";
