@@ -156,3 +156,9 @@
 "LoggerType.AppleHealth" = "Track with Apple Health";
 "LoggerType.EnterManually" = "Enter manually";
 "LoggerType.Button" = "Continue";
+
+// MARK: LAH
+"LAH.Title1" = "Measuring your temperature";
+"LAH.Title2" = "Done!";
+"LAH.ValueEmpty" = "- -";
+"LAH.Button" = "Save";

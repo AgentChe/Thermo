@@ -17,6 +17,9 @@
 		960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486C72572E800003B5DE9 /* ObjectRecord.swift */; };
 		960486CC2573FC83003B5DE9 /* LoggerRecordMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960486CB2573FC83003B5DE9 /* LoggerRecordMaker.swift */; };
 		962AEA7D25B580470032E7C3 /* LSCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AEA7C25B580470032E7C3 /* LSCCell.swift */; };
+		962AEA8125B5D5CB0032E7C3 /* LAHViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AEA8025B5D5CB0032E7C3 /* LAHViewController.swift */; };
+		962AEA8725B5D5F40032E7C3 /* LAHView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AEA8625B5D5F40032E7C3 /* LAHView.swift */; };
+		962AEA8C25B5D9EC0032E7C3 /* LAHTemperatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962AEA8B25B5D9EC0032E7C3 /* LAHTemperatureView.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF587256E924800285350 /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF586256E924800285350 /* Human.swift */; };
@@ -234,6 +237,9 @@
 		9619CB1A25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9619CB1B25A3505F00C0D03C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		962AEA7C25B580470032E7C3 /* LSCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSCCell.swift; sourceTree = "<group>"; };
+		962AEA8025B5D5CB0032E7C3 /* LAHViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAHViewController.swift; sourceTree = "<group>"; };
+		962AEA8625B5D5F40032E7C3 /* LAHView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAHView.swift; sourceTree = "<group>"; };
+		962AEA8B25B5D9EC0032E7C3 /* LAHTemperatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAHTemperatureView.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF586256E924800285350 /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
@@ -488,6 +494,24 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		962AEA7F25B5D11A0032E7C3 /* AppleHealth */ = {
+			isa = PBXGroup;
+			children = (
+				962AEA8A25B5D9CE0032E7C3 /* Views */,
+				962AEA8025B5D5CB0032E7C3 /* LAHViewController.swift */,
+				962AEA8625B5D5F40032E7C3 /* LAHView.swift */,
+			);
+			path = AppleHealth;
+			sourceTree = "<group>";
+		};
+		962AEA8A25B5D9CE0032E7C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				962AEA8B25B5D9EC0032E7C3 /* LAHTemperatureView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		963BF59D256EDB6600285350 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +534,7 @@
 		963BF5CF2571BF3A00285350 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				962AEA7F25B5D11A0032E7C3 /* AppleHealth */,
 				96D38AC825B1DFC200EADC9A /* SelectCase */,
 				96D38AC525B1DF1200EADC9A /* WithApps */,
 				963BF5D82571CA6800285350 /* Selection */,
@@ -918,7 +943,6 @@
 		968AE485254995A300A42C46 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				960486CA2573FA93003B5DE9 /* Utils */,
 				963BF5CF2571BF3A00285350 /* Controllers */,
 				968AE4C02549A6E100A42C46 /* Models */,
 			);
@@ -1376,6 +1400,7 @@
 		96D38AC525B1DF1200EADC9A /* WithApps */ = {
 			isa = PBXGroup;
 			children = (
+				960486CA2573FA93003B5DE9 /* Utils */,
 				968AE4B225499A3F00A42C46 /* Views */,
 				968AE4A4254997B500A42C46 /* LoggerView.swift */,
 				968AE4A12549979F00A42C46 /* LoggerViewModel.swift */,
@@ -1619,6 +1644,7 @@
 				96F61EE9256C706F00540DBB /* JournalTableSection.swift in Sources */,
 				96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */,
 				96846CC92567D666009841BD /* AMGenderView.swift in Sources */,
+				962AEA8725B5D5F40032E7C3 /* LAHView.swift in Sources */,
 				96846D18256999E0009841BD /* SymptomsManager.swift in Sources */,
 				960486B725727451003B5DE9 /* LSTableCheckCell.swift in Sources */,
 				968AE4C92549D74400A42C46 /* RecordManagerMediatorDelegate.swift in Sources */,
@@ -1688,6 +1714,7 @@
 				968AE4A5254997B500A42C46 /* LoggerView.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
 				966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */,
+				962AEA8125B5D5CB0032E7C3 /* LAHViewController.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
 				966A553525472F610099FDAE /* OnboardingViewModel.swift in Sources */,
@@ -1708,6 +1735,7 @@
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
+				962AEA8C25B5D9EC0032E7C3 /* LAHTemperatureView.swift in Sources */,
 				963BF59F256EDB7700285350 /* AMMemberUnit.swift in Sources */,
 				96CDB791258291470048F008 /* LSSelectionControllerItem.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,

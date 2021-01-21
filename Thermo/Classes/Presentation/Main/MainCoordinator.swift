@@ -29,7 +29,7 @@ final class MainCoordinator {
                 case .withApp:
                     openVC = LoggerViewController.make()
                 case .appleHealth:
-                    openVC = UIViewController()
+                    openVC = LAHViewController.make()
                 case .manually:
                     openVC = UIViewController()
                 }
