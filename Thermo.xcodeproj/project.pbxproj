@@ -39,6 +39,10 @@
 		963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5CC257169F700285350 /* MonetizationManagerCore.swift */; };
 		963BF5D12571BF5100285350 /* LoggerSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5D02571BF5100285350 /* LoggerSelectionController.swift */; };
 		965CAAB125BAD79800FC74B1 /* ThermometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAAB025BAD79800FC74B1 /* ThermometerView.swift */; };
+		965CAAF925BAEB9800FC74B1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 965CAAF825BAEB9800FC74B1 /* HealthKit.framework */; };
+		965CAAFE25BAEC4D00FC74B1 /* AppleHealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAAFD25BAEC4D00FC74B1 /* AppleHealthManager.swift */; };
+		965CAB0125BAED4400FC74B1 /* AppleHealthManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB0025BAED4400FC74B1 /* AppleHealthManagerCore.swift */; };
+		965CAB0925BB142000FC74B1 /* AppleHealthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB0825BB142000FC74B1 /* AppleHealthError.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -260,6 +264,10 @@
 		963BF5CC257169F700285350 /* MonetizationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManagerCore.swift; sourceTree = "<group>"; };
 		963BF5D02571BF5100285350 /* LoggerSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSelectionController.swift; sourceTree = "<group>"; };
 		965CAAB025BAD79800FC74B1 /* ThermometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometerView.swift; sourceTree = "<group>"; };
+		965CAAF825BAEB9800FC74B1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		965CAAFD25BAEC4D00FC74B1 /* AppleHealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthManager.swift; sourceTree = "<group>"; };
+		965CAB0025BAED4400FC74B1 /* AppleHealthManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthManagerCore.swift; sourceTree = "<group>"; };
+		965CAB0825BB142000FC74B1 /* AppleHealthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleHealthError.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -446,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C691D5005FFCDE9E6E3D901 /* Pods_Thermo.framework in Frameworks */,
+				965CAAF925BAEB9800FC74B1 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +570,32 @@
 				965CAAB025BAD79800FC74B1 /* ThermometerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		965CAAF725BAEB8800FC74B1 /* AppleHealth */ = {
+			isa = PBXGroup;
+			children = (
+				965CAB0325BB13C300FC74B1 /* Models */,
+				965CAAFC25BAEC3F00FC74B1 /* Manager */,
+			);
+			path = AppleHealth;
+			sourceTree = "<group>";
+		};
+		965CAAFC25BAEC3F00FC74B1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				965CAAFD25BAEC4D00FC74B1 /* AppleHealthManager.swift */,
+				965CAB0025BAED4400FC74B1 /* AppleHealthManagerCore.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		965CAB0325BB13C300FC74B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				965CAB0825BB142000FC74B1 /* AppleHealthError.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -1251,6 +1286,7 @@
 		968E41AC2546E3DA006F3CFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				965CAAF725BAEB8800FC74B1 /* AppleHealth */,
 				96818BD82577DA660048C18E /* Treatments */,
 				969EF72B2569D1B400BEA8EC /* Session */,
 				969EF7022569CBD500BEA8EC /* Paygate */,
@@ -1471,6 +1507,7 @@
 		AE4229B6DBC45CD4BED0F826 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				965CAAF825BAEB9800FC74B1 /* HealthKit.framework */,
 				090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */,
 			);
 			name = Frameworks;
@@ -1636,6 +1673,7 @@
 				963BF587256E924800285350 /* Human.swift in Sources */,
 				96818BCD2577D67F0048C18E /* TreatmentsViewModel.swift in Sources */,
 				968AE4EE254A1B3A00A42C46 /* JournalViewControllerDelegate.swift in Sources */,
+				965CAAFE25BAEC4D00FC74B1 /* AppleHealthManager.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
 				963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */,
 				96818BDC2577DA9D0048C18E /* TreatmentCondition.swift in Sources */,
@@ -1713,6 +1751,7 @@
 				968AE4692548B96400A42C46 /* OverallFeeling.swift in Sources */,
 				96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */,
 				969EF7232569CBD500BEA8EC /* PaygateManager.swift in Sources */,
+				965CAB0925BB142000FC74B1 /* AppleHealthError.swift in Sources */,
 				968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				96818BE32577DF790048C18E /* TreatmentsManager.swift in Sources */,
@@ -1745,6 +1784,7 @@
 				969EF7182569CBD500BEA8EC /* PaygateManagerCore.swift in Sources */,
 				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
+				965CAB0125BAED4400FC74B1 /* AppleHealthManagerCore.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
 				962AEA8C25B5D9EC0032E7C3 /* LAHTemperatureView.swift in Sources */,

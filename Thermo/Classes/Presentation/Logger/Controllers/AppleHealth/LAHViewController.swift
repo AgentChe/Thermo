@@ -16,6 +16,8 @@ final class LAHViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
+    private let appleHealthManager = AppleHealthManagerCore()
+    
     override func loadView() {
         super.loadView()
         
@@ -36,6 +38,13 @@ final class LAHViewController: UIViewController {
         
         let temperatureRangeAndCurrentMember = Driver
             .combineLatest(temperatureRange, currentMember)
+        
+        temperatureRange
+            .map { $0.unit }
+            .asObservable()
+            .flatMapLatest(appleHealthManager.obtainTemperature(for:))
+            .subscribe(onNext: onReceived(temperature:), onError: onReceived(error:))
+            .disposed(by: disposeBag)
 
         loggerView
             .temperatureView
@@ -116,6 +125,33 @@ extension LAHViewController: PaygateViewControllerDelegate {
 
 // MARK: Private
 private extension LAHViewController {
+    func onReceived(temperature: Temperature?) {
+        guard let temperature = temperature else {
+            showError(message: "LAH.Error.Empty".localized)
+            
+            return
+        }
+        
+        loggerView.temperatureView.value = temperature.value
+    }
+    
+    func onReceived(error: Error) {
+        showError(message: "LAH.Error.NotAvailable".localized)
+    }
+    
+    func showError(message: String) {
+        let alert = UIAlertController(title: nil,
+                                      message: message,
+                                      preferredStyle: .alert)
+        
+        let cancel = UIAlertAction(title: "OK".localized, style: .cancel) { [weak self] _ in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+    }
+    
     func updatePaymentBlocks() {
         let style: LoggerSelectionView.Style = viewModel.hasActiveSubscription() ? .cell : .payment
 

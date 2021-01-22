@@ -51,6 +51,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>The access is required to take and attach your photo to the profile</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Give access to get information about your temperature</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Give access to get information about your temperature</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Please allow access to load photo from your photo library</string>
 	<key>NSPhotoLibraryUsageDescription</key>

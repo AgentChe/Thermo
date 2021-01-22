@@ -13,13 +13,13 @@ final class LAHTemperatureView: GradientView {
     lazy var valueLabel = makeValueLabel()
     lazy var continueButton = makeContinueButton()
     
-    var range: TemperatureRange? {
+    var range: TemperatureRange?
+    
+    var value: Double = 0 {
         didSet {
-            start()
+            update()
         }
     }
-    
-    private(set) var value: Double = 0
     
     private lazy var valueLabelBottomConstraint = NSLayoutConstraint()
     
@@ -28,7 +28,7 @@ final class LAHTemperatureView: GradientView {
         
         makeConstraints()
         initialize()
-        update(value: 0)
+        update()
     }
     
     required init?(coder: NSCoder) {
@@ -48,11 +48,7 @@ private extension LAHTemperatureView {
         ]
     }
     
-    func start() {
-        value = range?.normal ?? 0
-    }
-    
-    func update(value: Double) {
+    func update() {
         guard value > 0 else {
             titleLabel.text = "LAH.Title1".localized
             valueLabel.text = "LAH.ValueEmpty".localized
@@ -97,7 +93,7 @@ private extension LAHTemperatureView {
         ])
         
         NSLayoutConstraint.activate([
-            thermometerView.widthAnchor.constraint(equalToConstant: 170.62.scale),
+            thermometerView.widthAnchor.constraint(equalToConstant: 170.scale),
             thermometerView.heightAnchor.constraint(equalToConstant: 422.scale),
             thermometerView.centerXAnchor.constraint(equalTo: centerXAnchor),
             thermometerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.scale)

@@ -162,3 +162,5 @@
 "LAH.Title2" = "Done!";
 "LAH.ValueEmpty" = "- -";
 "LAH.Button" = "Save";
+"LAH.Error.NotAvailable" = "Apple Health not available";
+"LAH.Error.Empty" = "Failed to get temperature";
