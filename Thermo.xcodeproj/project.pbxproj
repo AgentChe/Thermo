@@ -38,6 +38,7 @@
 		963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5C9257168EF00285350 /* MonetizationManager.swift */; };
 		963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5CC257169F700285350 /* MonetizationManagerCore.swift */; };
 		963BF5D12571BF5100285350 /* LoggerSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF5D02571BF5100285350 /* LoggerSelectionController.swift */; };
+		965CAAB125BAD79800FC74B1 /* ThermometerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAAB025BAD79800FC74B1 /* ThermometerView.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -258,6 +259,7 @@
 		963BF5C9257168EF00285350 /* MonetizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManager.swift; sourceTree = "<group>"; };
 		963BF5CC257169F700285350 /* MonetizationManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonetizationManagerCore.swift; sourceTree = "<group>"; };
 		963BF5D02571BF5100285350 /* LoggerSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerSelectionController.swift; sourceTree = "<group>"; };
+		965CAAB025BAD79800FC74B1 /* ThermometerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermometerView.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -551,6 +553,14 @@
 				960486AA2571CAEB003B5DE9 /* LoggerSelectionControllerView.swift */,
 			);
 			path = Selection;
+			sourceTree = "<group>";
+		};
+		965CAAAF25BAD76700FC74B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				965CAAB025BAD79800FC74B1 /* ThermometerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -943,6 +953,7 @@
 		968AE485254995A300A42C46 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				965CAAAF25BAD76700FC74B1 /* Views */,
 				963BF5CF2571BF3A00285350 /* Controllers */,
 				968AE4C02549A6E100A42C46 /* Models */,
 			);
@@ -1692,6 +1703,7 @@
 				966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */,
 				968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
+				965CAAB125BAD79800FC74B1 /* ThermometerView.swift in Sources */,
 				968AE4C22549A6F300A42C46 /* TemperatureRange.swift in Sources */,
 				96818C062577FC7E0048C18E /* GetTreatmentsConditionsRequest.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,

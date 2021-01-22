@@ -9,6 +9,7 @@ import UIKit
 
 final class LAHTemperatureView: GradientView {
     lazy var titleLabel = makeTitleLabel()
+    lazy var thermometerView = makeThermometerView()
     lazy var valueLabel = makeValueLabel()
     lazy var continueButton = makeContinueButton()
     
@@ -57,6 +58,7 @@ private extension LAHTemperatureView {
             valueLabel.text = "LAH.ValueEmpty".localized
             valueLabelBottomConstraint.constant = -105.scale
             continueButton.isHidden = true
+            thermometerView.progress = 0
             
             valueLabel.layoutIfNeeded()
             
@@ -79,6 +81,7 @@ private extension LAHTemperatureView {
         valueLabel.text = String(format: "%.1f %@", value, unit)
         valueLabelBottomConstraint.constant = -158.scale
         continueButton.isHidden = false
+        thermometerView.progress = (value - range.min) / (range.max - range.min)
         
         valueLabel.layoutIfNeeded()
     }
@@ -91,6 +94,13 @@ private extension LAHTemperatureView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 100.scale : 100.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            thermometerView.widthAnchor.constraint(equalToConstant: 170.62.scale),
+            thermometerView.heightAnchor.constraint(equalToConstant: 422.scale),
+            thermometerView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            thermometerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.scale)
         ])
         
         valueLabelBottomConstraint = valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -158.scale)
@@ -121,6 +131,14 @@ private extension LAHTemperatureView {
         let view = UILabel()
         view.numberOfLines = 0
         view.attributedText = "TemperatureLogger.Temperature.Title".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeThermometerView() -> ThermometerView {
+        let view = ThermometerView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
