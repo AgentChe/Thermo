@@ -31,7 +31,7 @@ final class MainCoordinator {
                 case .appleHealth:
                     openVC = LAHViewController.make()
                 case .manually:
-                    openVC = UIViewController()
+                    openVC = EMViewController.make()
                 }
                 
                 vc.dismiss(animated: true) {
