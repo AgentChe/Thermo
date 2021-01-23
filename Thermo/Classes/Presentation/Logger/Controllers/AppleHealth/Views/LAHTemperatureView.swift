@@ -52,7 +52,7 @@ private extension LAHTemperatureView {
         guard value > 0 else {
             titleLabel.text = "LAH.Title1".localized
             valueLabel.text = "LAH.ValueEmpty".localized
-            valueLabelBottomConstraint.constant = -105.scale
+            valueLabelBottomConstraint.constant = ScreenSize.isIphoneXFamily ? -105.scale : -40.scale
             continueButton.isHidden = true
             thermometerView.progress = 0
             
@@ -75,7 +75,7 @@ private extension LAHTemperatureView {
         
         titleLabel.text = "LAH.Title2".localized
         valueLabel.text = String(format: "%.1f %@", value, unit)
-        valueLabelBottomConstraint.constant = -158.scale
+        valueLabelBottomConstraint.constant = ScreenSize.isIphoneXFamily ? -158.scale : -100.scale
         continueButton.isHidden = false
         thermometerView.progress = (value - range.min) / (range.max - range.min)
         
@@ -89,7 +89,7 @@ private extension LAHTemperatureView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 100.scale : 100.scale)
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 100.scale : 40.scale)
         ])
         
         NSLayoutConstraint.activate([
@@ -99,7 +99,7 @@ private extension LAHTemperatureView {
             thermometerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.scale)
         ])
         
-        valueLabelBottomConstraint = valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -158.scale)
+        valueLabelBottomConstraint = valueLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -158.scale : -100.scale)
         NSLayoutConstraint.activate([
             valueLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             valueLabel.trailingAnchor.constraint(equalTo: trailingAnchor),

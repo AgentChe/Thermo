@@ -16,7 +16,7 @@ final class EMView: GradientView {
     
     lazy var scrollView = makeScrollView()
     lazy var placeholderView = EMPlaceholderView()
-    lazy var temperatureView = EMTemperatureView()
+    lazy var temperatureView = LAHTemperatureView()
     lazy var feelView = LoggerFeelView()
     
     var step = Step.placeholder {

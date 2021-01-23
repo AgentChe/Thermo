@@ -38,20 +38,20 @@ private extension EMPlaceholderView {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            titleLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -20.scale)
+            titleLabel.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: ScreenSize.isIphoneXFamily ? -20.scale : -10.scale)
         ])
         
         NSLayoutConstraint.activate([
-            imageView.widthAnchor.constraint(equalToConstant: 313.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 332.scale),
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 313.scale : 280.scale),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 332.scale : 300.scale),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 83.scale),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 202.scale)
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 202.scale : 150.scale)
         ])
         
         NSLayoutConstraint.activate([
             bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16.scale),
             bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16.scale),
-            bottomLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 50.scale)
+            bottomLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ScreenSize.isIphoneXFamily ? 50.scale : 25.scale)
         ])
         
         NSLayoutConstraint.activate([
