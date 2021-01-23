@@ -9,5 +9,6 @@
 #define Thermo_Bridging_Header_h
 
 #import <RushSDK/RushSDK.h>
+#import "HeartRateDetectionModel.h"
 
 #endif /* Thermo_Bridging_Header_h */

@@ -16,7 +16,7 @@ final class EMView: GradientView {
     
     lazy var scrollView = makeScrollView()
     lazy var placeholderView = EMPlaceholderView()
-    lazy var temperatureView = LAHTemperatureView()
+    lazy var temperatureView = EMTemperatureView()
     lazy var feelView = LoggerFeelView()
     
     var step = Step.placeholder {
@@ -40,6 +40,8 @@ final class EMView: GradientView {
 // MARK: Private
 private extension EMView {
     func configure() {
+        backgroundColor = UIColor.white
+        
         contentViews()
             .enumerated()
             .forEach { index, view in

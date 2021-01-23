@@ -10,11 +10,17 @@ import RxSwift
 import RxCocoa
 
 final class EMViewController: UIViewController {
-    var loggerView = EMView()
+    lazy var loggerView = EMView()
     
-    private let viewModel = LoggerViewModel()
+    private lazy var viewModel = LoggerViewModel()
     
-    private let disposeBag = DisposeBag()
+    private lazy var disposeBag = DisposeBag()
+    
+    private lazy var heartModel: HeartRateDetectionModel = {
+        let model = HeartRateDetectionModel()
+        model.delegate = self
+        return model
+    }()
     
     override func loadView() {
         view = loggerView
@@ -30,6 +36,7 @@ final class EMViewController: UIViewController {
             .placeholderView.button.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.loggerView.step = .temperature
+                self?.heartModel.startDetection()
             })
             .disposed(by: disposeBag)
 
@@ -50,6 +57,8 @@ final class EMViewController: UIViewController {
                 guard let this = self else {
                     return
                 }
+                
+                this.heartModel.stopDetection()
                 
                 let (temperatureRange, currentMember) = stub
                 
@@ -109,6 +118,15 @@ final class EMViewController: UIViewController {
 extension EMViewController {
     static func make() -> EMViewController {
         EMViewController()
+    }
+}
+
+// MARK: HeartRateDetectionModelDelegate
+extension EMViewController: HeartRateDetectionModelDelegate {
+    func heartRateUpdate(_ bpm: Int32, atTime seconds: Int32) {
+        // TODO: переводить bpm в температуру
+        loggerView.temperatureView.value = 36.6
+        loggerView.temperatureView.valueLabel.text = String(format: "bpm: %i, seconds: %i)", bpm, seconds)
     }
 }
 

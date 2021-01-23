@@ -169,3 +169,4 @@
 "EMLogger.Placeholder.Title" = "Measuring temperature";
 "EMLogger.Placeholder.BottomText" = "Place your finger on the camera and flash at the same time. Don’t move or talk while measuring.";
 "EMLogger.Placeholder.Button" = "Ready";
+"EMLogger.Manually.Detecting" = "Detecting...";
