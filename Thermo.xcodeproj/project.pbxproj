@@ -47,6 +47,7 @@
 		965CAB1425BB2EDB00FC74B1 /* EMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB1325BB2EDB00FC74B1 /* EMView.swift */; };
 		965CAB1825BB2F4200FC74B1 /* EMPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB1725BB2F4200FC74B1 /* EMPlaceholderView.swift */; };
 		965CAB3425BC1AC200FC74B1 /* HeartRateDetectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB3325BC1AC200FC74B1 /* HeartRateDetectionModel.m */; };
+		965CAB3F25BC32B500FC74B1 /* HeartRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965CAB3E25BC32B500FC74B1 /* HeartRate.swift */; };
 		966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FB2546F54F0099FDAE /* GradientView.swift */; };
 		966A55002546F59A0099FDAE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A54FF2546F59A0099FDAE /* PaddingLabel.swift */; };
 		966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */; };
@@ -277,6 +278,7 @@
 		965CAB1725BB2F4200FC74B1 /* EMPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMPlaceholderView.swift; sourceTree = "<group>"; };
 		965CAB3225BC1AC200FC74B1 /* HeartRateDetectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeartRateDetectionModel.h; sourceTree = "<group>"; };
 		965CAB3325BC1AC200FC74B1 /* HeartRateDetectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartRateDetectionModel.m; sourceTree = "<group>"; };
+		965CAB3E25BC32B500FC74B1 /* HeartRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRate.swift; sourceTree = "<group>"; };
 		966A54FB2546F54F0099FDAE /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		966A54FF2546F59A0099FDAE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		966A55032546F5D20099FDAE /* RxActtivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxActtivityIndicator.swift; sourceTree = "<group>"; };
@@ -632,6 +634,7 @@
 			children = (
 				965CAB3225BC1AC200FC74B1 /* HeartRateDetectionModel.h */,
 				965CAB3325BC1AC200FC74B1 /* HeartRateDetectionModel.m */,
+				965CAB3E25BC32B500FC74B1 /* HeartRate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1794,6 +1797,7 @@
 				969EF7232569CBD500BEA8EC /* PaygateManager.swift in Sources */,
 				965CAB0925BB142000FC74B1 /* AppleHealthError.swift in Sources */,
 				968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */,
+				965CAB3F25BC32B500FC74B1 /* HeartRate.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				96818BE32577DF790048C18E /* TreatmentsManager.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
@@ -2045,7 +2049,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2058,7 +2062,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.10.1;
+				MARKETING_VERSION = 1.10.2;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo Development";
@@ -2077,7 +2081,7 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = 82M89ZGHB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2090,7 +2094,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.10.1;
+				MARKETING_VERSION = 1.10.2;
 				PRODUCT_BUNDLE_IDENTIFIER = app.thermo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Thermo AppStore";

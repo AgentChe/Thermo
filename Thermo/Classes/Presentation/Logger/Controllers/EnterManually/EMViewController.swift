@@ -16,10 +16,11 @@ final class EMViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
-    private lazy var heartModel: HeartRateDetectionModel = {
-        let model = HeartRateDetectionModel()
-        model.delegate = self
-        return model
+    private lazy var heartRate: HeartRate = {
+        HeartRate { [weak self] bpm in
+            self?.loggerView.temperatureView.value = 36.6
+            self?.loggerView.temperatureView.valueLabel.text = "bpm: \(bpm)"
+        }
     }()
     
     override func loadView() {
@@ -36,7 +37,7 @@ final class EMViewController: UIViewController {
             .placeholderView.button.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.loggerView.step = .temperature
-                self?.heartModel.startDetection()
+                self?.heartRate.start()
             })
             .disposed(by: disposeBag)
 
@@ -58,7 +59,7 @@ final class EMViewController: UIViewController {
                     return
                 }
                 
-                this.heartModel.stopDetection()
+                this.heartRate.stop()
                 
                 let (temperatureRange, currentMember) = stub
                 
@@ -118,15 +119,6 @@ final class EMViewController: UIViewController {
 extension EMViewController {
     static func make() -> EMViewController {
         EMViewController()
-    }
-}
-
-// MARK: HeartRateDetectionModelDelegate
-extension EMViewController: HeartRateDetectionModelDelegate {
-    func heartRateUpdate(_ bpm: Int32, atTime seconds: Int32) {
-        // TODO: переводить bpm в температуру
-        loggerView.temperatureView.value = 36.6
-        loggerView.temperatureView.valueLabel.text = String(format: "bpm: %i, seconds: %i)", bpm, seconds)
     }
 }
 
