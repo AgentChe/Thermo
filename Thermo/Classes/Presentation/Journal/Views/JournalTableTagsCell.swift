@@ -25,26 +25,26 @@ final class JournalTableTagsCell: UITableViewCell {
 
 // MARK: API
 extension JournalTableTagsCell {
-    func setup(tags: JTTags) {
-        leftIconLabel.text = image(tags: tags)
-        
-        tagsView.removeAllTags()
-        
-        let views = tags
-            .tags
-            .map { tag -> TagView in
-                let view = TagView(model: TagViewModel(id: tag.id, name: tag.name))
-                view.textColor = UIColor(integralRed: 105, green: 121, blue: 248)
-                view.tagBackgroundColor = UIColor(integralRed: 229, green: 231, blue: 250)
-                view.cornerRadius = 4.scale
-                view.paddingX = 8.scale
-                view.paddingY = 6.scale
-                view.textFont = Fonts.Poppins.regular(size: 11.scale)
-                return view
-            }
-        tagsView.addTagViews(views)
-        tagsView.layoutIfNeeded()
-    }
+//    func setup(tags: JTTags) {
+//        leftIconLabel.text = image(tags: tags)
+//
+//        tagsView.removeAllTags()
+//
+//        let views = tags
+//            .tags
+//            .map { tag -> TagView in
+//                let view = TagView(model: TagViewModel(id: tag.id, name: tag.name))
+//                view.textColor = UIColor(integralRed: 105, green: 121, blue: 248)
+//                view.tagBackgroundColor = UIColor(integralRed: 229, green: 231, blue: 250)
+//                view.cornerRadius = 4.scale
+//                view.paddingX = 8.scale
+//                view.paddingY = 6.scale
+//                view.textFont = Fonts.Poppins.regular(size: 11.scale)
+//                return view
+//            }
+//        tagsView.addTagViews(views)
+//        tagsView.layoutIfNeeded()
+//    }
 }
 
 // MARK: Private
@@ -56,15 +56,6 @@ private extension JournalTableTagsCell {
         let selectedView = UIView()
         selectedView.backgroundColor = .clear
         selectedBackgroundView = selectedView
-    }
-    
-    func image(tags: JTTags) -> String {
-        switch tags.style {
-        case .medicines:
-            return "💊"
-        case .symptoms:
-            return "📝"
-        }
     }
 }
 

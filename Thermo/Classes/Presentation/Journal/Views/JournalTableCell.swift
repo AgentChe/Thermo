@@ -26,92 +26,92 @@ final class JournalTableCell: UITableViewCell {
 
 // MARK: API
 extension JournalTableCell {
-    func setup(report: JTReport) {
-        dateTimeLabel.attributedText = dateTime(from: report)
-        temperatureLabel.attributedText = temperature(from: report)
-        overallFeelingEmojiView.text = overallFeeling(from: report)
-    }
+//    func setup(report: JTReport) {
+//        dateTimeLabel.attributedText = dateTime(from: report)
+//        temperatureLabel.attributedText = temperature(from: report)
+//        overallFeelingEmojiView.text = overallFeeling(from: report)
+//    }
     
-    func dateTime(from report: JTReport) -> NSAttributedString {
-        let dateFormatter = DateFormatter()
-        
-        dateFormatter.dateFormat = "dd MMM,  "
-        let date = dateFormatter
-            .string(from: report.date)
-            .attributed(with: TextAttributes()
-                            .textColor(UIColor(integralRed: 50, green: 50, blue: 52))
-                            .font(Fonts.Poppins.regular(size: 17.scale))
-                            .lineHeight(22.scale)
-                            .letterSpacing(-0.4.scale)
-                            .textAlignment(.center))
-        
-        dateFormatter.dateFormat = "HH:mm"
-        let time = dateFormatter
-            .string(from: report.date)
-            .attributed(with: TextAttributes()
-                            .textColor(UIColor(integralRed: 50, green: 50, blue: 52, alpha: 0.5))
-                            .font(Fonts.Poppins.semiBold(size: 17.scale))
-                            .lineHeight(27.scale)
-                            .letterSpacing(-0.4.scale)
-                            .textAlignment(.center))
-        
-        let dateTime = NSMutableAttributedString()
-        dateTime.append(date)
-        dateTime.append(time)
-        
-        return dateTime
-    }
+//    func dateTime(from report: JTReport) -> NSAttributedString {
+//        let dateFormatter = DateFormatter()
+//
+//        dateFormatter.dateFormat = "dd MMM,  "
+//        let date = dateFormatter
+//            .string(from: report.date)
+//            .attributed(with: TextAttributes()
+//                            .textColor(UIColor(integralRed: 50, green: 50, blue: 52))
+//                            .font(Fonts.Poppins.regular(size: 17.scale))
+//                            .lineHeight(22.scale)
+//                            .letterSpacing(-0.4.scale)
+//                            .textAlignment(.center))
+//
+//        dateFormatter.dateFormat = "HH:mm"
+//        let time = dateFormatter
+//            .string(from: report.date)
+//            .attributed(with: TextAttributes()
+//                            .textColor(UIColor(integralRed: 50, green: 50, blue: 52, alpha: 0.5))
+//                            .font(Fonts.Poppins.semiBold(size: 17.scale))
+//                            .lineHeight(27.scale)
+//                            .letterSpacing(-0.4.scale)
+//                            .textAlignment(.center))
+//
+//        let dateTime = NSMutableAttributedString()
+//        dateTime.append(date)
+//        dateTime.append(time)
+//
+//        return dateTime
+//    }
     
-    func temperature(from report: JTReport) -> NSAttributedString {
-        let coldTemperature: Double
-        let fireTemperature: Double
-        
-        let unit: String
-        switch report.unit {
-        case .fahrenheit:
-            coldTemperature = 96.8
-            fireTemperature = 98.78
-            
-            unit = "Fahrenheit".localized
-        case .celsius:
-            coldTemperature = 36.0
-            fireTemperature = 37.1
-            
-            unit = "Celsius".localized
-        }
-        
-        let color: UIColor
-        if report.temperature > fireTemperature {
-            color = UIColor(integralRed: 255, green: 126, blue: 103)
-        } else if report.temperature < coldTemperature {
-            color = UIColor(integralRed: 108, green: 22, blue: 245)
-        } else {
-            color = UIColor(integralRed: 50, green: 50, blue: 52)
-        }
-        
-        return String(format: "%.1f %@", report.temperature, unit)
-            .attributed(with: TextAttributes()
-                            .textColor(color)
-                            .font(Fonts.Poppins.regular(size: 20.scale))
-                            .lineHeight(25.scale))
-    }
+//    func temperature(from report: JTReport) -> NSAttributedString {
+//        let coldTemperature: Double
+//        let fireTemperature: Double
+//
+//        let unit: String
+//        switch report.unit {
+//        case .fahrenheit:
+//            coldTemperature = 96.8
+//            fireTemperature = 98.78
+//
+//            unit = "Fahrenheit".localized
+//        case .celsius:
+//            coldTemperature = 36.0
+//            fireTemperature = 37.1
+//
+//            unit = "Celsius".localized
+//        }
+//
+//        let color: UIColor
+//        if report.temperature > fireTemperature {
+//            color = UIColor(integralRed: 255, green: 126, blue: 103)
+//        } else if report.temperature < coldTemperature {
+//            color = UIColor(integralRed: 108, green: 22, blue: 245)
+//        } else {
+//            color = UIColor(integralRed: 50, green: 50, blue: 52)
+//        }
+//
+//        return String(format: "%.1f %@", report.temperature, unit)
+//            .attributed(with: TextAttributes()
+//                            .textColor(color)
+//                            .font(Fonts.Poppins.regular(size: 20.scale))
+//                            .lineHeight(25.scale))
+//    }
     
-    func overallFeeling(from report: JTReport) -> String {
-        guard let overallFeeiling = report.overallFeeiling else {
-            return ""
-        }
-        
-        switch overallFeeiling {
-        case .bad:
-            return "😞"
-        case .sick:
-            return "🤒"
-        case .good:
-            return "😀"
-        case .recovered:
-            return "😇"
-        }
-    }
+//    func overallFeeling(from report: JTReport) -> String {
+//        guard let overallFeeiling = report.overallFeeiling else {
+//            return ""
+//        }
+//
+//        switch overallFeeiling {
+//        case .bad:
+//            return "😞"
+//        case .sick:
+//            return "🤒"
+//        case .good:
+//            return "😀"
+//        case .recovered:
+//            return "😇"
+//        }
+//    }
 }
 
 // MARK: Private

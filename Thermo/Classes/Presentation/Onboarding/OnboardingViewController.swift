@@ -13,9 +13,7 @@ final class OnboardingViewController: UIViewController {
         static let wasViewedKey = "onboarding_view_controller_was_viewed_key"
     }
     
-    var onboardingView = OnboardingView()
-    
-    private let viewModel = OnboardingViewModel()
+    lazy var onboardingView = OnboardingView()
     
     private let disposeBag = DisposeBag()
     
@@ -71,6 +69,6 @@ private extension OnboardingViewController {
     func openAddMemberController() {
         UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
         
-        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root, from: .onboarding)
+        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make()
     }
 }

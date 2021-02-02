@@ -13,22 +13,14 @@ final class MainViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private let viewModel = MainViewModel()
-    
-    private lazy var coordinator: MainCoordinator = {
-        MainCoordinator(parentVC: self)
-    }()
+    private lazy var coordinator = MainCoordinator(parentVC: self)
     
     override func loadView() {
-        super.loadView()
-        
         view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        coordinator.temperatureListVC.delegate = self
         
         addActionsToTabs()
         
@@ -45,17 +37,6 @@ final class MainViewController: UIViewController {
 extension MainViewController {
     static func make() -> MainViewController {
         MainViewController()
-    }
-}
-
-// MARK: JournalViewControllerDelegate
-extension MainViewController: JournalViewControllerDelegate {
-    func journalViewControllerDidTappedMember() {
-        present(MembersViewController.make(), animated: true)
-    }
-    
-    func journalViewControllerDidLogRecord() {
-        update(selectedTab: .log)
     }
 }
  

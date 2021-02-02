@@ -53,7 +53,7 @@ private extension SplashViewModel {
                 return .just(Step.onboarding)
             }
             
-            if membersManager.getAllMembers().isEmpty {
+            if membersManager.get() == nil {
                 return .just(Step.addMember)
             }
             

@@ -20,35 +20,35 @@ final class MainCoordinator {
     }
     
     func change(tab: TabView.Tab) {
-        switch tab {
-        case .log:
-            let vc = LSelectCaseViewController.make { [weak self] vc in
-                let openVC: UIViewController
-                
-                switch vc.selectedCase {
-                case .withApp:
-                    openVC = LoggerViewController.make()
-                case .appleHealth:
-                    openVC = LAHViewController.make()
-                case .manually:
-                    openVC = EMViewController.make()
-                }
-                
-                vc.dismiss(animated: true) {
-                    self?.parentVC?.navigationController?.pushViewController(openVC, animated: true)
-                }
-            }
-            
-            parentVC?.navigationController?.present(vc, animated: true)
-        case .list:
-            parentVC?.mainView.tabView.selectedTab = tab
-            
-            changeVC(on: temperatureListVC)
-        case .reminder:
-            parentVC?.mainView.tabView.selectedTab = tab
-            
-            changeVC(on: reminderVC)
-        }
+//        switch tab {
+//        case .log:
+//            let vc = LSelectCaseViewController.make { [weak self] vc in
+//                let openVC: UIViewController
+//
+//                switch vc.selectedCase {
+//                case .withApp:
+//                    openVC = LoggerViewController.make()
+//                case .appleHealth:
+//                    openVC = LAHViewController.make()
+//                case .manually:
+//                    openVC = EMViewController.make()
+//                }
+//
+//                vc.dismiss(animated: true) {
+//                    self?.parentVC?.navigationController?.pushViewController(openVC, animated: true)
+//                }
+//            }
+//
+//            parentVC?.navigationController?.present(vc, animated: true)
+//        case .list:
+//            parentVC?.mainView.tabView.selectedTab = tab
+//
+//            changeVC(on: temperatureListVC)
+//        case .reminder:
+//            parentVC?.mainView.tabView.selectedTab = tab
+//
+//            changeVC(on: reminderVC)
+//        }
     }
 }
 
