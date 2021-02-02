@@ -31,78 +31,6 @@
 // MARK: Splash
 "Splash.Title" = "Hilfe dabei,\nTemperatur und Symptome\nder ganzen Familie zu verfolgen";
 
-// MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "Warum möchten Sie Ihre\nTemperatur\nverfolgen";
-"Onboarding.TrackTemperaturePurpose.Cell1" = "Zur Identifizierung möglicher Krankheiten\nund Behandlungen bezüglich\nIhrer Symptome";
-"Onboarding.TrackTemperaturePurpose.Cell2" = "Wegen der Pandemie";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "Ein Familienmitglied\nist krank";
-"Onboarding.TrackTemperaturePurpose.Cell4" = "Der Arzt hat uns gebeten,\nes zu tun. ";
-"Onboarding.TrackTemperaturePurpose.Cell5" = "Nur Selbstpflege";
-"Onboarding.TrackTemperaturePurpose.BottomLine" = "*Dieses Tool gibt keine medizinischen Ratschläge";
-
-"Onboarding.TrackTemperatureImportant.Title" = "Es ist wichtig, die Temperatur\nzu verfolgen\n";
-"Onboarding.TrackTemperatureImportant.Cell1" = "Entdecken Sie Krankheiten früh";
-"Onboarding.TrackTemperatureImportant.Cell2" = "Bemerken Sie die kleinsten Veränderungen";
-"Onboarding.TrackTemperatureImportant.Cell3" = "Selbst für Tiere";
-"Onboarding.TrackTemperatureImportant.Cell4" = "Selbst für Wohnbereiche";
-"Onboarding.TrackTemperatureImportant.Cell5" = "Zwei Messungen sind genug";
-
-// MARK: Add member
-"AddMember.MemberUnit.Title" = "Für \nwen verfolgen wir die\nTemperatur\n?";
-"AddMember.MemberUnit.Me" = "🙂 Mich";
-"AddMember.MemberUnit.Child" = "👶 Ein Kind";
-"AddMember.MemberUnit.Parent" = "💑 Einen Elternteil";
-"AddMember.MemberUnit.Other" = "👫 Ein anderes Familienmitglied";
-"AddMember.MemberUnit.Animals" = "🐈 Tiere";
-"AddMember.MemberUnit.Objects" = "🏠 Gegenstände / Räume";
-
-"AddMember.Gender.TitleForMeUnit" = "Wie lautet Ihr Geschlecht?";
-"AddMember.Gender.TitleForNotMeUnit" = "Wie lautet ihr Geschlecht?";
-"AddMember.Gender.Male" = "👦 Männlich";
-"AddMember.Gender.Female" = "👧 Weiblich";
-
-"AddMember.CreateProfile.Title" = "Profil erstellen:";
-"AddMember.CreateProfile.Placeholder" = "Name";
-"AddMember.CreateProfile.Button" = "Fortfahren";
-
-"AddMember.DateBirthday.TileForMeUnit" = "Wie lautet Ihr Geburtsdatum?";
-"AddMember.DateBirthday.TileForNotMeUnit" = "Wie lautet ihr Geburtsdatum?";
-"AddMember.DateBirthday.DialogTitle" = "Warum wir das fragen?";
-"AddMember.DateBirthday.DialogSubTitle" = "Die Normaltemperatur unterscheidet sich je nach Alter und Geschlecht. Wir beziehen Geburtsdatum und Geschlecht ein.";
-"AddMember.DateBirthday.DialogButton" = "Weiter";
-
-"AddMember.TemperatureUnit.Title" = "Fahrenheit oder Celsius?";
-
-"AddMember.Add.Failure" = "Hinzufügen des Mitgliedes fehlgeschlagen";
-
-// MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "Wie lautet die aktuelle Temperatur?";
-
-"TemperatureLogger.Feeling.Title" = "Wie ist das allgemeine Befinden?";
-"TemperatureLogger.Feeling.Health.Title" = "Befinden:";
-"TemperatureLogger.Feeling.Health.Good" = "Gut";
-"TemperatureLogger.Feeling.Health.Sick" = "Krank";
-"TemperatureLogger.Feeling.Health.Bad" = "Schlecht";
-"TemperatureLogger.Feeling.Health.Recovered" = "Erholt";
-"TemperatureLogger.Feeling.Button" = "Speichern";
-"TemperatureLogger.Feeling.Symptoms.Title" = "Symptome:";
-"TemperatureLogger.Feeling.Medicines.Title" = "Aktuelle Medikamente:";
-
-"TemperatureLogger.Log.Failure" = "Temperatur konnte nicht aufgezeichnet werden";
-
-// MARK: Journal
-"Journal.Title" = "Tagebuch";
-"Journal.Cell.DateTime" = "%1$@, %2$@";
-"Journal.Cell.Temperature" = "%1$.1f %2$@";
-"Journal.Report.Title1" = "Fügen Sie Ihre erste Messung hinzu";
-"Journal.Report.Title2" = "Überprüfen Sie auf mögliche Krankheiten";
-"Journal.ReportAlert.Message" = "Bitte verfolgen Sie mindestens ein Symptom";
-"Journal.Empty" = "🌡\nIhre Messungen\nwerden hier angezeigt";
-
-// MARK: Members
-"Members.AddNew" = "Neue Messung hinzufügen";
-"Members.SetCurrentMember" = "Aktuelles Mitglied konnte nicht eingestellt werden";
-
 // MARK: Reminder
 "Reminder.TimeTitle" = "Erinnern um";
 "Reminder.WeekdayTitle" = "Tage pro Woche";
@@ -115,20 +43,6 @@
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Kauf fehlgeschlagen";
-
-// MARK: Report
-"Report.Title" = "Bericht per E-Mail erhalten";
-"Report.SubTitle" = "Alle Ihre aufgezeichneten Informationen in einem kurzen Bericht";
-"Report.EmailFieldPlaceholder" = "E-Mail";
-"Report.ButtonTitle" = "Senden";
-"Report.InvalidEmail" = "Ungültige E-Mail";
-"Report.CreateFailure" = "Berichterstellung fehlgeschlagen";
-
-// MARK: ComboBox
-"ComboBox.Premium" = "Premium";
-"ComboBox.TagsPlaceholder" = "Schlüsselwort eingeben ...";
-
-// MARK: Paygate
 "Paygate.Title" = "Verfolgen Sie Temperatur und Symptome für die ganze Familie";
 "Paygate.Item1" = "individuelle Konten";
 "Paygate.Item2" = "Symptom- und Medikamentenverfolgung";
@@ -140,33 +54,3 @@
 "Paygate.TermsOfUse" = "Nutzungsbedingungen";
 "Paygate.And" = " und ";
 "Paygate.PrivacyPolicy" = "Datenschutzerklärung";
-
-// MARK: Treatments
-"Treatments.Preloader" = "Analysiere ...";
-"Treatments.List.Title" = "Mögliche\nErkrankungen";
-"Treatments.Details.TreatmentButton" = "Behandlung 💊";
-"Treatments.Treatment.Title" = "Behandlung";
-"Treatments.Disclaimer.DISCLAIMER" = "HAFTUNGSAUSSCHLUSS: ";
-"Treatments.Disclaimer.Text" = "Wir geben keine medizinischen Ratschläge. Diese App dient nur zu Informationszwecken und ist kein Ersatz für eine professionelle medizinische Diagnose oder Behandlung. ";
-"Treatments.Disclaimer.LearnMore" = "Mehr erfahren ...";
-"Treatments.AlertEmptyText" = "Unzureichende Daten. Bitte geben Sie weitere Symptome oder eingenommene Medikamente mit neuen Temperaturmessungen an.";
-
-// MARK: LoggerType
-"LoggerType.WithApp" = "Measure with the app";
-"LoggerType.AppleHealth" = "Track with Apple Health";
-"LoggerType.EnterManually" = "Enter manually";
-"LoggerType.Button" = "Continue";
-
-// MARK: LAH
-"LAH.Title1" = "Measuring your temperature";
-"LAH.Title2" = "Done!";
-"LAH.ValueEmpty" = "- -";
-"LAH.Button" = "Save";
-"LAH.Error.NotAvailable" = "Apple Health not available";
-"LAH.Error.Empty" = "Failed to get temperature";
-
-// MARK: EMLogger
-"EMLogger.Placeholder.Title" = "Measuring temperature";
-"EMLogger.Placeholder.BottomText" = "Place your finger on the camera and flash at the same time. Don’t move or talk while measuring.";
-"EMLogger.Placeholder.Button" = "Ready";
-"EMLogger.Manually.Detecting" = "Detecting...";
