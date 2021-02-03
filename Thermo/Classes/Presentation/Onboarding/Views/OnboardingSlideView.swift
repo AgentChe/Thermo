@@ -35,9 +35,9 @@ private extension OnboardingSlideView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 244.scale),
-            imageView.heightAnchor.constraint(equalToConstant: 234.scale),
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 212.scale)
+            imageView.widthAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 244.scale : 214.scale),
+            imageView.heightAnchor.constraint(equalToConstant: ScreenSize.isIphoneXFamily ? 234.scale : 204.scale),
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 212.scale : 120.scale)
         ])
         
         NSLayoutConstraint.activate([

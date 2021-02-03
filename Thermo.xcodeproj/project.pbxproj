@@ -51,7 +51,6 @@
 		966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A555D25484B180099FDAE /* TemperatureUnit.swift */; };
 		966A556525484E940099FDAE /* MembersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A556425484E940099FDAE /* MembersManager.swift */; };
 		966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55672548500F0099FDAE /* MembersManagerCore.swift */; };
-		966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */; };
 		966A55792548AA050099FDAE /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55782548AA050099FDAE /* Toast.swift */; };
 		966A55992548AA610099FDAE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966A55982548AA610099FDAE /* ImagePicker.swift */; };
 		966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966DADEE256B06BC00DB724E /* GradientButton.swift */; };
@@ -205,7 +204,6 @@
 		966A555D25484B180099FDAE /* TemperatureUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureUnit.swift; sourceTree = "<group>"; };
 		966A556425484E940099FDAE /* MembersManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManager.swift; sourceTree = "<group>"; };
 		966A55672548500F0099FDAE /* MembersManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembersManagerCore.swift; sourceTree = "<group>"; };
-		966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMTemperatureUnitView.swift; sourceTree = "<group>"; };
 		966A55782548AA050099FDAE /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		966A55982548AA610099FDAE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		966DADEE256B06BC00DB724E /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
@@ -473,7 +471,6 @@
 		966A556A25485E100099FDAE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				966A55742548921D0099FDAE /* AMTemperatureUnitView.swift */,
 				9632396225C9E9D800C21FD7 /* AMCheckedCell.swift */,
 			);
 			path = Views;
@@ -1228,7 +1225,6 @@
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
 				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
-				966A55752548921D0099FDAE /* AMTemperatureUnitView.swift in Sources */,
 				968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,

@@ -36,7 +36,7 @@ private extension OnboardingView {
         NSLayoutConstraint.activate([
             indicatorsView.leadingAnchor.constraint(equalTo: leadingAnchor),
             indicatorsView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            indicatorsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -192.scale),
+            indicatorsView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -192.scale : -120.scale),
             indicatorsView.heightAnchor.constraint(equalToConstant: 10.scale)
         ])
         
@@ -44,7 +44,7 @@ private extension OnboardingView {
             button.widthAnchor.constraint(equalToConstant: 180.scale),
             button.heightAnchor.constraint(equalToConstant: 56.scale),
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50.scale)
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -50.scale : -30.scale)
         ])
     }
 }

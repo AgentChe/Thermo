@@ -59,3 +59,8 @@
 "Paygate.TermsOfUse" = "Condizioni d'uso";
 "Paygate.And" = " e ";
 "Paygate.PrivacyPolicy" = "Norme sulla Privacy";
+
+// MARK: Add member
+"AddMember.Title" = "Fahrenheit or Celsius?";
+"AddMember.Button" = "Get started";
+"AddMember.FailedStore" = "Failed to create member";
