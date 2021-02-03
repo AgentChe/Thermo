@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "曜日";
 "Reminder.Notification.Body" = "体温の記録の時間です";
 
-// MARK: Tabs
-"Track" = "記録";
-"Journal" = "ジャーナル";
-"Reminder" = "リマインダー";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "購入失敗";
 "Paygate.Title" = "家族全員の体温、症状、ニーズを記録";

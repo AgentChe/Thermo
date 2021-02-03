@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "一周中的某天";
 "Reminder.Notification.Body" = "是时候追踪您的体温了！";
 
-// MARK: Tabs
-"Track" = "追踪";
-"Journal" = "日志";
-"Reminder" = "提醒";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "购买失败";
 "Paygate.Title" = "追踪整个家庭的体温、症状和药物";

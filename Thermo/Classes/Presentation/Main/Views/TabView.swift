@@ -9,15 +9,14 @@ import UIKit
 
 final class TabView: UIView {
     enum Tab {
-        case log, list, reminder
+        case reminder, feeling, journal
     }
     
-    lazy var separator = makeSeparator()
-    lazy var temperatureLogItem = makeItem(image: "Tabs.Track", title: "Track")
-    lazy var temperatureListItem = makeItem(image: "Tabs.Journal", title: "Journal")
-    lazy var reminderItem = makeItem(image: "Tabs.Reminder", title: "Reminder")
+    lazy var reminderItem = makeItem(image: "Tabs.Reminder")
+    lazy var feelingItem = makeItem(image: "Tabs.Feeling")
+    lazy var journalItem = makeItem(image: "Tabs.Journal")
     
-    var selectedTab = Tab.list {
+    lazy var selectedTab = Tab.feeling {
         didSet {
             update()
         }
@@ -37,23 +36,9 @@ final class TabView: UIView {
 // MARK: Private
 private extension TabView {
     func update() {
-        [
-            temperatureLogItem,
-            temperatureListItem,
-            reminderItem
-        ]
-        .forEach {
-            $0.state = .deselected
-        }
-        
-        switch selectedTab {
-        case .log:
-            temperatureLogItem.state = .selected
-        case .list:
-            temperatureListItem.state = .selected
-        case .reminder:
-            reminderItem.state = .selected
-        }
+        reminderItem.isSelected = selectedTab == .reminder
+        feelingItem.isSelected = selectedTab == .feeling
+        journalItem.isSelected = selectedTab == .journal
     }
 }
 
@@ -61,57 +46,34 @@ private extension TabView {
 private extension TabView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            separator.leadingAnchor.constraint(equalTo: leadingAnchor),
-            separator.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 1.scale),
-            separator.topAnchor.constraint(equalTo: topAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            temperatureLogItem.leadingAnchor.constraint(equalTo: leadingAnchor),
-            temperatureLogItem.bottomAnchor.constraint(equalTo: bottomAnchor),
-            temperatureLogItem.topAnchor.constraint(equalTo: topAnchor),
-            temperatureLogItem.widthAnchor.constraint(equalTo: temperatureListItem.widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            temperatureListItem.leadingAnchor.constraint(equalTo: temperatureLogItem.trailingAnchor),
-            temperatureListItem.bottomAnchor.constraint(equalTo: bottomAnchor),
-            temperatureListItem.topAnchor.constraint(equalTo: topAnchor),
-            temperatureListItem.widthAnchor.constraint(equalTo: reminderItem.widthAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            reminderItem.leadingAnchor.constraint(equalTo: temperatureListItem.trailingAnchor),
-            reminderItem.trailingAnchor.constraint(equalTo: trailingAnchor),
+            reminderItem.leadingAnchor.constraint(equalTo: leadingAnchor),
             reminderItem.bottomAnchor.constraint(equalTo: bottomAnchor),
-            reminderItem.topAnchor.constraint(equalTo: topAnchor)
+            reminderItem.topAnchor.constraint(equalTo: topAnchor),
+            reminderItem.widthAnchor.constraint(equalTo: feelingItem.widthAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            feelingItem.leadingAnchor.constraint(equalTo: reminderItem.trailingAnchor),
+            feelingItem.bottomAnchor.constraint(equalTo: bottomAnchor),
+            feelingItem.topAnchor.constraint(equalTo: topAnchor),
+            feelingItem.widthAnchor.constraint(equalTo: journalItem.widthAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            journalItem.leadingAnchor.constraint(equalTo: feelingItem.trailingAnchor),
+            journalItem.trailingAnchor.constraint(equalTo: trailingAnchor),
+            journalItem.bottomAnchor.constraint(equalTo: bottomAnchor),
+            journalItem.topAnchor.constraint(equalTo: topAnchor)
         ])
     }
 }
 
 // MARK: Lazy initialization
 private extension TabView {
-    func makeSeparator() -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor(integralRed: 237, green: 236, blue: 236)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view)
-        return view
-    }
-    
-    func makeItem(image: String, title: String) -> TabItemView {
-        let attrs = TextAttributes()
-            .font(Fonts.Poppins.semiBold(size: 15.scale))
-            .textColor(UIColor(integralRed: 199, green: 199, blue: 204))
-            .letterSpacing(-0.4.scale)
-            .lineHeight(20.scale)
-            .textAlignment(.center)
-        
+    func makeItem(image: String) -> TabItemView {
         let view = TabItemView()
         view.backgroundColor = UIColor.clear
         view.imageView.image = UIImage(named: image)
-        view.label.attributedText = title.localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view

@@ -16,6 +16,9 @@
 		9632397825CB12CB00C21FD7 /* OnboardingSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632397725CB12CB00C21FD7 /* OnboardingSliderDelegate.swift */; };
 		9632397B25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632397A25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift */; };
 		9632397E25CB132F00C21FD7 /* OnboardingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632397D25CB132F00C21FD7 /* OnboardingSlider.swift */; };
+		9632398325CB4B0400C21FD7 /* FeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398225CB4B0400C21FD7 /* FeelingViewController.swift */; };
+		9632398725CB4B4600C21FD7 /* FeelingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */; };
+		9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398925CB4B6700C21FD7 /* FeelingView.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -169,6 +172,9 @@
 		9632397725CB12CB00C21FD7 /* OnboardingSliderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderDelegate.swift; sourceTree = "<group>"; };
 		9632397A25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSliderIndicatorsView.swift; sourceTree = "<group>"; };
 		9632397D25CB132F00C21FD7 /* OnboardingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlider.swift; sourceTree = "<group>"; };
+		9632398225CB4B0400C21FD7 /* FeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingViewController.swift; sourceTree = "<group>"; };
+		9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingViewModel.swift; sourceTree = "<group>"; };
+		9632398925CB4B6700C21FD7 /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -332,6 +338,16 @@
 				9632397125CB0B9700C21FD7 /* OnboardingSlide.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9632398125CB4AED00C21FD7 /* Feeling */ = {
+			isa = PBXGroup;
+			children = (
+				9632398225CB4B0400C21FD7 /* FeelingViewController.swift */,
+				9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */,
+				9632398925CB4B6700C21FD7 /* FeelingView.swift */,
+			);
+			path = Feeling;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -824,6 +840,7 @@
 		968E41AB2546E3D3006F3CFC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9632398125CB4AED00C21FD7 /* Feeling */,
 				969EF737256A977600BEA8EC /* Paygate */,
 				968AE487254995CD00A42C46 /* Reminder */,
 				968AE486254995B100A42C46 /* Journal */,
@@ -1240,6 +1257,7 @@
 				968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */,
 				960486C22572E793003B5DE9 /* AnimalRecord.swift in Sources */,
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
+				9632398725CB4B4600C21FD7 /* FeelingViewModel.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
 				966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
@@ -1272,6 +1290,7 @@
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
 				960486C82572E800003B5DE9 /* ObjectRecord.swift in Sources */,
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
+				9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
@@ -1281,6 +1300,7 @@
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
 				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
 				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
+				9632398325CB4B0400C21FD7 /* FeelingViewController.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,
 				968AE542255053E900A42C46 /* ReminderManagerDelegate.swift in Sources */,
 				963BF593256EA54F00285350 /* Record.swift in Sources */,

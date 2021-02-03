@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "Tage pro Woche";
 "Reminder.Notification.Body" = "Es ist Zeit, Ihre Temperatur zu verfolgen!";
 
-// MARK: Tabs
-"Track" = "Verfolgen";
-"Journal" = "Tagebuch";
-"Reminder" = "Erinnerung";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Kauf fehlgeschlagen";
 "Paygate.Title" = "Verfolgen Sie Temperatur und Symptome für die ganze Familie";

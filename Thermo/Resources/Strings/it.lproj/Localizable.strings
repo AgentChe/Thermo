@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "Giorni della settimana";
 "Reminder.Notification.Body" = "È ora di misurare la tua temperatura!";
 
-// MARK: Tabs
-"Track" = "Misura";
-"Journal" = "Registro";
-"Reminder" = "Promemoria";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Acquisto non riuscito";
 "Paygate.Title" = "Monitora la temperatura, i sintomi e i farmaci di tutta la famiglia";

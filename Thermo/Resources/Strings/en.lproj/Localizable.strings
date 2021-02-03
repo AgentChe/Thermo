@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "Days of the week";
 "Reminder.Notification.Body" = "It's time to track your temperature!";
 
-// MARK: Tabs
-"Track" = "Track";
-"Journal" = "Journal";
-"Reminder" = "Reminder";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Failure at purchase";
 "Paygate.Title" = "Track temperature, symptoms and meds for the entire family";

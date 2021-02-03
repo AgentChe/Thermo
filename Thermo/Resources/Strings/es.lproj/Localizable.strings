@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "Días de la semana";
 "Reminder.Notification.Body" = "¡Es hora de monitorizar su temperatura!";
 
-// MARK: Tabs
-"Track" = "Monitorizar";
-"Journal" = "Diario";
-"Reminder" = "Recordatorio";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Error al comprar";
 "Paygate.Title" = "Monitorizar la temperatura, los síntomas y los medicamentos para toda la familia";

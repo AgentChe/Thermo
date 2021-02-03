@@ -46,7 +46,8 @@ private extension AddMemberViewController {
     func step(_ step: AddMemberViewModel.Step) {
         switch step {
         case .main:
-            UIApplication.shared.keyWindow?.rootViewController = MainViewController.make()
+            let vc = ThermoNavigationController(rootViewController: MainViewController.make())
+            UIApplication.shared.keyWindow?.rootViewController = vc
         case .error:
             Toast.notify(with: "AddMember.FailedStore".localized, style: .danger)
         }

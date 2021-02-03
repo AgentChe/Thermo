@@ -41,11 +41,6 @@
 "Reminder.WeekdayTitle" = "Дни недели";
 "Reminder.Notification.Body" = "Пора следить за температурой!";
 
-// MARK: Tabs
-"Track" = "Следить";
-"Journal" = "Журнал";
-"Reminder" = "Напоминание";
-
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Ошибка при покупке";
 "Paygate.Title" = "Отслеживайте температуру, симптомы и лекарства для всей семьи";
