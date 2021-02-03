@@ -13,6 +13,7 @@
 "Fahrenheit" = "° F";
 "Celsius" = "° C";
 "Cancel" = "Abbrechen";
+"Next" = "Next";
 
 // MARK: Weekdays
 "Monday" = "Montag";
@@ -30,6 +31,10 @@
 
 // MARK: Splash
 "Splash.Title" = "Hilfe dabei,\nTemperatur und Symptome\nder ganzen Familie zu verfolgen";
+
+// MARK: Onboarding
+"Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
+"Onboarding.Slide2.Title" = "Track the dynamics, watch the symptoms";
 
 // MARK: Reminder
 "Reminder.TimeTitle" = "Erinnern um";

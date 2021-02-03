@@ -13,26 +13,23 @@ final class OnboardingViewController: UIViewController {
         static let wasViewedKey = "onboarding_view_controller_was_viewed_key"
     }
     
-    lazy var onboardingView = OnboardingView()
+    lazy var mainView = OnboardingView()
     
     private let disposeBag = DisposeBag()
     
     override func loadView() {
-        super.loadView()
-        
-        view = onboardingView
+        view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        Observable
-            .merge([
-                onboardingView.trackTemperaturePurpose.button.rx.tap.asObservable(),
-                onboardingView.trackTemperatureImportant.button.rx.tap.asObservable()
-            ])
+        initializeSlider()
+        
+        mainView
+            .button.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.tapped()
+                self?.nextTapped()
             })
             .disposed(by: disposeBag)
     }
@@ -53,22 +50,42 @@ extension OnboardingViewController {
 }
 
 // MARK: Private
+extension OnboardingViewController: OnboardingSliderDelegate {
+    func onboardingSlider(changed slideIndex: Int) {
+        mainView.indicatorsView.index = slideIndex
+    }
+}
+
+// MARK: Private
 private extension OnboardingViewController {
-    func tapped() {
-        let nextStepIndex = onboardingView.step.rawValue + 1
+    func initializeSlider() {
+        mainView.slider.setup(models: [
+            OnboardingSlide(imageName: "Onboarding.Slide1", title: "Onboarding.Slide1.Title".localized),
+            OnboardingSlide(imageName: "Onboarding.Slide2", title: "Onboarding.Slide2.Title".localized)
+        ])
         
-        guard let nextStep = OnboardingView.Step(rawValue: nextStepIndex) else {
+        mainView.slider.delegate = self
+        
+        mainView.indicatorsView.count = 2
+        mainView.indicatorsView.index = 0
+    }
+    
+    func nextTapped() {
+        let currentIndex = mainView.indicatorsView.index
+        
+        if currentIndex == (mainView.indicatorsView.count - 1) {
+            markAsViewed()
             openAddMemberController()
-            
-            return
+        } else {
+            mainView.slider.scroll(to: currentIndex + 1)
         }
-        
-        onboardingView.step = nextStep
+    }
+    
+    func markAsViewed() {
+        UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
     }
     
     func openAddMemberController() {
-        UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
-        
         UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make()
     }
 }

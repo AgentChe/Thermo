@@ -13,6 +13,7 @@
 "Fahrenheit" = "华氏度";
 "Celsius" = "摄氏度";
 "Cancel" = "取消";
+"Next" = "Next";
 
 // MARK: Weekdays
 "Monday" = "星期一";
@@ -30,6 +31,10 @@
 
 // MARK: Splash
 "Splash.Title" = "帮助追踪整个家庭的\n体温和症状\n";
+
+// MARK: Onboarding
+"Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
+"Onboarding.Slide2.Title" = "Track the dynamics, watch the symptoms";
 
 // MARK: Reminder
 "Reminder.TimeTitle" = "提醒时间：";
