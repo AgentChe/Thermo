@@ -10,7 +10,7 @@ import UIKit
 final class MainCoordinator {
     weak var parentVC: MainViewController?
     
-    lazy var reminderVC = ReminderViewController.make()
+    lazy var reminderVC = RLViewController.make()
     lazy var feelingVC = FeelingViewController.make()
     lazy var journalVC = JournalViewController.make()
     

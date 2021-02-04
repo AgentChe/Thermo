@@ -19,6 +19,16 @@
 		9632398325CB4B0400C21FD7 /* FeelingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398225CB4B0400C21FD7 /* FeelingViewController.swift */; };
 		9632398725CB4B4600C21FD7 /* FeelingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */; };
 		9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398925CB4B6700C21FD7 /* FeelingView.swift */; };
+		9632398F25CC207200C21FD7 /* RLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632398E25CC207200C21FD7 /* RLViewController.swift */; };
+		9632399225CC217000C21FD7 /* RLViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632399125CC217000C21FD7 /* RLViewModel.swift */; };
+		9632399525CC21DE00C21FD7 /* RLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632399425CC21DE00C21FD7 /* RLView.swift */; };
+		9632399925CC22BF00C21FD7 /* RCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632399825CC22BF00C21FD7 /* RCViewController.swift */; };
+		9632399D25CC22C800C21FD7 /* RCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632399C25CC22C800C21FD7 /* RCViewModel.swift */; };
+		963239A025CC22D200C21FD7 /* RCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632399F25CC22D200C21FD7 /* RCView.swift */; };
+		963239A425CC26AA00C21FD7 /* RLEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239A325CC26AA00C21FD7 /* RLEmptyView.swift */; };
+		963239A825CC2A5000C21FD7 /* RLTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239A725CC2A5000C21FD7 /* RLTableView.swift */; };
+		963239AB25CC2EBA00C21FD7 /* RLTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239AA25CC2EBA00C21FD7 /* RLTableElement.swift */; };
+		963239AE25CC2F4600C21FD7 /* RLTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239AD25CC2F4600C21FD7 /* RLTableCell.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -175,6 +185,16 @@
 		9632398225CB4B0400C21FD7 /* FeelingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingViewController.swift; sourceTree = "<group>"; };
 		9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingViewModel.swift; sourceTree = "<group>"; };
 		9632398925CB4B6700C21FD7 /* FeelingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingView.swift; sourceTree = "<group>"; };
+		9632398E25CC207200C21FD7 /* RLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLViewController.swift; sourceTree = "<group>"; };
+		9632399125CC217000C21FD7 /* RLViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLViewModel.swift; sourceTree = "<group>"; };
+		9632399425CC21DE00C21FD7 /* RLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLView.swift; sourceTree = "<group>"; };
+		9632399825CC22BF00C21FD7 /* RCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewController.swift; sourceTree = "<group>"; };
+		9632399C25CC22C800C21FD7 /* RCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCViewModel.swift; sourceTree = "<group>"; };
+		9632399F25CC22D200C21FD7 /* RCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCView.swift; sourceTree = "<group>"; };
+		963239A325CC26AA00C21FD7 /* RLEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLEmptyView.swift; sourceTree = "<group>"; };
+		963239A725CC2A5000C21FD7 /* RLTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLTableView.swift; sourceTree = "<group>"; };
+		963239AA25CC2EBA00C21FD7 /* RLTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLTableElement.swift; sourceTree = "<group>"; };
+		963239AD25CC2F4600C21FD7 /* RLTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RLTableCell.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -348,6 +368,55 @@
 				9632398925CB4B6700C21FD7 /* FeelingView.swift */,
 			);
 			path = Feeling;
+			sourceTree = "<group>";
+		};
+		9632398C25CC205A00C21FD7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9632399725CC22AE00C21FD7 /* Create */,
+				9632398D25CC206200C21FD7 /* List */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9632398D25CC206200C21FD7 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				963239A225CC269D00C21FD7 /* Views */,
+				9632398E25CC207200C21FD7 /* RLViewController.swift */,
+				9632399125CC217000C21FD7 /* RLViewModel.swift */,
+				9632399425CC21DE00C21FD7 /* RLView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		9632399725CC22AE00C21FD7 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				9632399825CC22BF00C21FD7 /* RCViewController.swift */,
+				9632399C25CC22C800C21FD7 /* RCViewModel.swift */,
+				9632399F25CC22D200C21FD7 /* RCView.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		963239A225CC269D00C21FD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				963239A625CC2A4100C21FD7 /* TableView */,
+				963239A325CC26AA00C21FD7 /* RLEmptyView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		963239A625CC2A4100C21FD7 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				963239A725CC2A5000C21FD7 /* RLTableView.swift */,
+				963239AA25CC2EBA00C21FD7 /* RLTableElement.swift */,
+				963239AD25CC2F4600C21FD7 /* RLTableCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -640,6 +709,7 @@
 		968AE487254995CD00A42C46 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				9632398C25CC205A00C21FD7 /* Controllers */,
 				968AE54F25506F2A00A42C46 /* Utils */,
 				968AE51B254F30DC00A42C46 /* Views */,
 				968AE488254995F700A42C46 /* ReminderViewController.swift */,
@@ -1189,6 +1259,7 @@
 			files = (
 				966A554B254790510099FDAE /* AddMemberViewController.swift in Sources */,
 				968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */,
+				963239AE25CC2F4600C21FD7 /* RLTableCell.swift in Sources */,
 				966A556525484E940099FDAE /* MembersManager.swift in Sources */,
 				966A552E25472D6E0099FDAE /* UIColorExtension.swift in Sources */,
 				968AE5AA2552A98B00A42C46 /* UIViewRxExtension.swift in Sources */,
@@ -1209,6 +1280,7 @@
 				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
 				9632396325C9E9D800C21FD7 /* AMCheckedCell.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
+				9632399225CC217000C21FD7 /* RLViewModel.swift in Sources */,
 				96F61E8D256B140900540DBB /* PaymentError.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				9632397825CB12CB00C21FD7 /* OnboardingSliderDelegate.swift in Sources */,
@@ -1225,6 +1297,7 @@
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				9632397B25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift in Sources */,
+				963239A825CC2A5000C21FD7 /* RLTableView.swift in Sources */,
 				96846CEF25698D10009841BD /* Medicine.swift in Sources */,
 				96F61ED2256BAA5800540DBB /* TagView.swift in Sources */,
 				969EF745256A977600BEA8EC /* PaygateView.swift in Sources */,
@@ -1234,6 +1307,7 @@
 				963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */,
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
 				968AE549255058D300A42C46 /* ReminderTime.swift in Sources */,
+				9632398F25CC207200C21FD7 /* RLViewController.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
 				96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */,
 				968AE4712548BCF200A42C46 /* RecordManagerCore.swift in Sources */,
@@ -1262,6 +1336,7 @@
 				966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
+				9632399925CC22BF00C21FD7 /* RCViewController.swift in Sources */,
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				963BF596256EA56D00285350 /* HumanRecord.swift in Sources */,
@@ -1278,10 +1353,12 @@
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
+				9632399525CC21DE00C21FD7 /* RLView.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
 				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
 				969EF72F2569D1D300BEA8EC /* Session.swift in Sources */,
+				963239A025CC22D200C21FD7 /* RCView.swift in Sources */,
 				968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */,
 				969EF71F2569CBD500BEA8EC /* PaygateSpecialOffer.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
@@ -1292,11 +1369,13 @@
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
 				9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
+				9632399D25CC22C800C21FD7 /* RCViewModel.swift in Sources */,
 				9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
 				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
 				968AE54D25505FC700A42C46 /* Reminders.swift in Sources */,
 				968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */,
+				963239AB25CC2EBA00C21FD7 /* RLTableElement.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
 				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
 				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
@@ -1309,6 +1388,7 @@
 				969EF71E2569CBD500BEA8EC /* PaygateMainOffer.swift in Sources */,
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
+				963239A425CC26AA00C21FD7 /* RLEmptyView.swift in Sources */,
 				96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */,
 				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
