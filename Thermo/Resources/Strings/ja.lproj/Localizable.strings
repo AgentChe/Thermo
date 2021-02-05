@@ -62,3 +62,6 @@
 "AddMember.Title" = "Fahrenheit or Celsius?";
 "AddMember.Button" = "Get started";
 "AddMember.FailedStore" = "Failed to create member";
+
+// MARK: Logger.WithApp
+"LWA.FailedToCreate" = "Failed to create";

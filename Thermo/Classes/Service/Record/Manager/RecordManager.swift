@@ -9,32 +9,16 @@ import RxSwift
 
 protocol RecordManager: class {
     // MARK: API
-    func log(human: Member,
-             temperature: Temperature,
-             overallFeeling: OverallFeeling,
-             symptoms: [Symptom],
-             medicines: [Medicine]) -> HumanRecord?
-    func log(animal: Member,
-             temperature: Temperature) -> AnimalRecord?
-    func log(object: Member,
-             temperature: Temperature) -> ObjectRecord?
-    func remove(recordId: Int)
-    func remove(memberId: Int)
-    func get(for memberId: Int) -> [Record]
-    func get(recordId: Int) -> Record?
+    func log(temperature: Temperature,
+             feeling: Feeling,
+             medicines: [Medicine],
+             symptoms: [Symptom]) -> Record?
+    func getRecords() -> [Record]
     
     // MARK: API(Rx)
-    func rxLog(human: Member,
-               temperature: Temperature,
-               overallFeeling: OverallFeeling,
-               symptoms: [Symptom],
-               medicines: [Medicine]) -> Single<HumanRecord?>
-    func rxLog(animal: Member,
-               temperature: Temperature) -> Single<AnimalRecord?>
-    func rxLog(object: Member,
-               temperature: Temperature) -> Single<ObjectRecord?>
-    func rxRemove(recordId: Int) -> Completable
-    func rxRemove(memberId: Int) -> Completable
-    func rxGet(for memberId: Int) -> Single<[Record]>
-    func rxGet(recordId: Int) -> Single<Record?>
+    func rxLog(temperature: Temperature,
+               feeling: Feeling,
+               medicines: [Medicine],
+               symptoms: [Symptom]) -> Single<Record?>
+    func rxGetRecords() -> Single<[Record]>
 }

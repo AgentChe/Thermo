@@ -11,9 +11,7 @@ import RxCocoa
 final class RecordManagerMediator {
     static let shared = RecordManagerMediator()
     
-    private let loggedRecordTrigger = PublishRelay<Record>()
-    private let removedRecordIdTrigger = PublishRelay<Int>()
-    private let removedAllRecordsForMemberIdTrigger = PublishRelay<Int>()
+    private let addedRecordTrigger = PublishRelay<Record>()
     
     private var delegates = [Weak<RecordManagerMediatorDelegate>]()
     
@@ -25,30 +23,10 @@ extension RecordManagerMediator {
     func notifyAboutLogged(record: Record) {
         DispatchQueue.main.async { [weak self] in
             self?.delegates.forEach {
-                $0.weak?.recordManagerMediatorDidLogged(record: record)
+                $0.weak?.recordManagerMediatorDidAdded(record: record)
             }
             
-            self?.loggedRecordTrigger.accept(record)
-        }
-    }
-    
-    func notifyAboutRemoved(recordId: Int) {
-        DispatchQueue.main.async { [weak self] in
-            self?.delegates.forEach {
-                $0.weak?.recordManagerMediatorDidRemoved(recordId: recordId)
-            }
-            
-            self?.removedRecordIdTrigger.accept(recordId)
-        }
-    }
-    
-    func notifyAboutRemovedAllRecords(for memberId: Int) {
-        DispatchQueue.main.async { [weak self] in
-            self?.delegates.forEach {
-                $0.weak?.recordManagerMediatorDidRemovedAll(for: memberId)
-            }
-            
-            self?.removedAllRecordsForMemberIdTrigger.accept(memberId)
+            self?.addedRecordTrigger.accept(record)
         }
     }
 }
@@ -56,15 +34,7 @@ extension RecordManagerMediator {
 // MARK: Triggers(Rx)
 extension RecordManagerMediator {
     var rxLoggedRecord: Signal<Record> {
-        loggedRecordTrigger.asSignal()
-    }
-    
-    var rxRemovedRecordId: Signal<Int> {
-        removedRecordIdTrigger.asSignal()
-    }
-    
-    var rxRemovedAllRecordsForMemberId: Signal<Int> {
-        removedAllRecordsForMemberIdTrigger.asSignal()
+        addedRecordTrigger.asSignal()
     }
 }
 
