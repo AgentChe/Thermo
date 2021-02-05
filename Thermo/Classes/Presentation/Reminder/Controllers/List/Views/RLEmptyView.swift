@@ -34,6 +34,7 @@ private extension RLEmptyView {
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: 175.scale),
             button.heightAnchor.constraint(equalToConstant: 52.scale),
+            button.centerXAnchor.constraint(equalTo: centerXAnchor),
             button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20.scale),
             button.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])

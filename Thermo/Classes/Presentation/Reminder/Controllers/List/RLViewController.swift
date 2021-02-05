@@ -15,12 +15,22 @@ final class RLViewController: UIViewController {
     
     private lazy var disposeBag = DisposeBag()
     
+    private lazy var pushNotificationsManager = SDKStorage.shared.pushNotificationsManager
+    
     override func loadView() {
         view = mainView
     }
     
+    let t = ReminderManagerCore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        t.addRemindAt(time: Date(), weekday: .monday)
+//        t.addRemindAt(time: Date().addingTimeInterval(3415), weekday: .monday)
+//        t.addRemindAt(time: Date().addingTimeInterval(2412), weekday: .saturday)
+//        t.addRemindAt(time: Date().addingTimeInterval(34252), weekday: .thursday)
+//        t.addRemindAt(time: Date().addingTimeInterval(5321), weekday: .wednesday)
         
         viewModel
             .elements
@@ -39,6 +49,18 @@ final class RLViewController: UIViewController {
                 self?.goToCreate()
             })
             .disposed(by: disposeBag)
+        
+        mainView
+            .tableView.didRemove = { [weak self] reminder in
+                self?.viewModel.removeReminder.accept(reminder.reminder)
+            }
+        
+        viewModel
+            .subscriveOnChangesAndUpdateNotificationsTriggers()
+            .emit()
+            .disposed(by: disposeBag)
+        
+        registerPush()
     }
 }
 
@@ -51,6 +73,14 @@ extension RLViewController {
 
 // MARK: Private
 private extension RLViewController {
+    func registerPush() {
+        pushNotificationsManager.retriveAuthorizationStatus { [weak self] status in
+            if status == .notDetermined {
+                self?.pushNotificationsManager.requestAuthorization()
+            }
+        }
+    }
+    
     func goToCreate() {
         navigationController?.pushViewController(RCViewController.make(), animated: true)
     }

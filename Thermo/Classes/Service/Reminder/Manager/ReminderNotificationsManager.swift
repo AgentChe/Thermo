@@ -10,18 +10,18 @@ import RxSwift
 final class ReminderNotificationsManager {
     private let center = UNUserNotificationCenter.current()
     
-    func rxPost(reminders: Reminders) -> Completable {
-        Completable
+    func rxPost(reminders: [Reminder]) -> Single<Void> {
+        Single<Void>
             .create { [weak self] event in
                 self?.post(reminders: reminders)
                 
-                event(.completed)
+                event(.success(Void()))
                 
                 return Disposables.create()
             }
     }
     
-    func post(reminders: Reminders) {
+    func post(reminders: [Reminder]) {
         let triggers = getTriggers(from: reminders)
         let requests = getRequests(from: triggers)
         
@@ -64,39 +64,20 @@ private extension ReminderNotificationsManager {
             }
     }
     
-    func getTriggers(from reminders: Reminders) -> [Trigger] {
-        let times = reminders.times
-        let weekdays = reminders.weekdays
-        
-        if weekdays.isEmpty {
-            return times.map {
+    func getTriggers(from reminders: [Reminder]) -> [Trigger] {
+        reminders
+            .map { reminder -> Trigger in
                 var components = DateComponents()
-                components.hour = Calendar.current.component(.hour, from: $0.time)
-                components.minute = Calendar.current.component(.minute, from: $0.time)
+                components.hour = Calendar.current.component(.hour, from: reminder.time)
+                components.minute = Calendar.current.component(.minute, from: reminder.time)
+                components.weekday = self.weekday(reminder.weekday)
                 
-                return Trigger(id: $0.id, dateComponents: components)
+                let id = String(format: "%%_%@", reminder.id, String(describing: reminder.weekday))
+                
+                return Trigger(id: id,
+                               dateComponents: components)
             }
-        } else {
-            var triggers = [Trigger]()
-            
-            times.forEach { time in
-                weekdays.forEach { weekday in
-                    var components = DateComponents()
-                    components.hour = Calendar.current.component(.hour, from: time.time)
-                    components.minute = Calendar.current.component(.minute, from: time.time)
-                    components.weekday = self.weekday(weekday.weekday)
-                    
-                    let id = String(format: "%%_%@", time.id, String(describing: weekday.weekday))
-                    
-                    let trigger = Trigger(id: id, dateComponents: components)
-                    
-                    triggers.append(trigger)
-                }
-            }
-            
-            return triggers
-        }
-    }
+     }
     
     func weekday(_ weekday: Weekday) -> Int {
         switch weekday {

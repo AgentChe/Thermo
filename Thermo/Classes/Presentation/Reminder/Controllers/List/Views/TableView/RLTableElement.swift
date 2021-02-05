@@ -6,5 +6,7 @@
 //
 
 struct RLTableElement {
+    let reminder: Reminder
     
+    let switched: ((Bool) -> Void)
 }
