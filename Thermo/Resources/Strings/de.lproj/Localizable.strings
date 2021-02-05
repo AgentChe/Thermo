@@ -63,5 +63,16 @@
 "AddMember.Button" = "Get started";
 "AddMember.FailedStore" = "Failed to create member";
 
+// MARK: Feeling
+"Feeling.Title" = "How are you\nfeeling today?";
+"Feeling.TodayIFeeling" = "Today I’m feeling...";
+"Feeling.Good" = "Good";
+"Feeling.Sick" = "Sick";
+"Feeling.Bad" = "Bad";
+"Feeling.Recovered" = "Recovered";
+"Feeling.MeasureMyTemperature" = "Measure my\ntemperature";
+"Feeling.Symptoms" = "Symptoms";
+"Feeling.Medications" = "Medications";
+
 // MARK: Logger.WithApp
 "LWA.FailedToCreate" = "Failed to create";
