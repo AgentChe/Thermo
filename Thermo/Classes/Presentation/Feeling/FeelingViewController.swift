@@ -15,6 +15,8 @@ final class FeelingViewController: UIViewController {
     
     private lazy var viewModel = FeelingViewModel()
     
+    private var slVC: SLViewController?
+    
     override func loadView() {
         view = mainView
     }
@@ -29,7 +31,8 @@ final class FeelingViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        addActions()
+        addFeelingActions()
+        addMeasureAction()
     }
 }
 
@@ -42,7 +45,7 @@ extension FeelingViewController {
 
 // MARK: Private
 private extension FeelingViewController {
-    func addActions() {
+    func addFeelingActions() {
         let selectionView = mainView.selectionView
         
         let goodGesture = UITapGestureRecognizer()
@@ -70,6 +73,35 @@ private extension FeelingViewController {
             )
             .bind(to: viewModel.select)
             .disposed(by: disposeBag)
+    }
+    
+    func addMeasureAction() {
+        let gesture = UITapGestureRecognizer()
+        mainView.measureView.isUserInteractionEnabled = true
+        mainView.measureView.addGestureRecognizer(gesture)
+        
+        gesture.rx.event
+            .subscribe(onNext: { [weak self] event in
+                let vc = SLViewController.make { select in
+                    self?.selected(type: select)
+                }
+                self?.navigationController?.present(vc, animated: false)
+                
+                self?.slVC = vc
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func selected(type: SLViewController.Select) {
+        slVC?.dismiss(animated: false) { [weak self] in
+            switch type {
+            case .withApp:
+                let vc = LWAViewController.make()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            case .manually:
+                break
+            }
+        }
     }
     
     func selected(feeling: Feeling) {

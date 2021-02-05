@@ -73,6 +73,9 @@
 "Feeling.MeasureMyTemperature" = "Measure my\ntemperature";
 "Feeling.Symptoms" = "Symptoms";
 "Feeling.Medications" = "Medications";
+"Feeling.SelectLogger.Title" = "Measure temperature";
+"Feeling.SelectLogger.WithTheApp" = "With the app";
+"Feeling.SelectLogger.Manually" = "Manually";
 
 // MARK: Logger.WithApp
 "LWA.FailedToCreate" = "Failed to create";

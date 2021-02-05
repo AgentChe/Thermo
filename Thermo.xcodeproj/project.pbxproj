@@ -43,6 +43,9 @@
 		963239E625CDE0B400C21FD7 /* FeelingMeasureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239E525CDE0B400C21FD7 /* FeelingMeasureView.swift */; };
 		963239E925CDE82100C21FD7 /* FeelingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239E825CDE82100C21FD7 /* FeelingSelectionView.swift */; };
 		963239EC25CDEC5300C21FD7 /* FeelingEmojiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239EB25CDEC5300C21FD7 /* FeelingEmojiView.swift */; };
+		963239F125CDFA4600C21FD7 /* SLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F025CDFA4600C21FD7 /* SLViewController.swift */; };
+		963239F525CDFB4D00C21FD7 /* SLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F425CDFB4D00C21FD7 /* SLView.swift */; };
+		963239F825CDFC3C00C21FD7 /* SLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F725CDFC3C00C21FD7 /* SLCell.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -218,6 +221,9 @@
 		963239E525CDE0B400C21FD7 /* FeelingMeasureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingMeasureView.swift; sourceTree = "<group>"; };
 		963239E825CDE82100C21FD7 /* FeelingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingSelectionView.swift; sourceTree = "<group>"; };
 		963239EB25CDEC5300C21FD7 /* FeelingEmojiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingEmojiView.swift; sourceTree = "<group>"; };
+		963239F025CDFA4600C21FD7 /* SLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLViewController.swift; sourceTree = "<group>"; };
+		963239F425CDFB4D00C21FD7 /* SLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLView.swift; sourceTree = "<group>"; };
+		963239F725CDFC3C00C21FD7 /* SLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCell.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -505,12 +511,23 @@
 		963239E125CDDA8B00C21FD7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				963239EF25CDFA2800C21FD7 /* SelectLogger */,
 				963239E225CDDE5700C21FD7 /* FeelingHeaderView.swift */,
 				963239E525CDE0B400C21FD7 /* FeelingMeasureView.swift */,
 				963239E825CDE82100C21FD7 /* FeelingSelectionView.swift */,
 				963239EB25CDEC5300C21FD7 /* FeelingEmojiView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		963239EF25CDFA2800C21FD7 /* SelectLogger */ = {
+			isa = PBXGroup;
+			children = (
+				963239F025CDFA4600C21FD7 /* SLViewController.swift */,
+				963239F425CDFB4D00C21FD7 /* SLView.swift */,
+				963239F725CDFC3C00C21FD7 /* SLCell.swift */,
+			);
+			path = SelectLogger;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -1437,6 +1454,7 @@
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */,
+				963239F125CDFA4600C21FD7 /* SLViewController.swift in Sources */,
 				968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */,
 				963239C025CD6BF900C21FD7 /* FeelingManager.swift in Sources */,
 				96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */,
@@ -1463,11 +1481,13 @@
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
 				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
+				963239F525CDFB4D00C21FD7 /* SLView.swift in Sources */,
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
 				9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */,
 				963239CB25CDCCDA00C21FD7 /* LWAViewController.swift in Sources */,
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				963239D625CDD0E800C21FD7 /* LWAOnboardingView.swift in Sources */,
+				963239F825CDFC3C00C21FD7 /* SLCell.swift in Sources */,
 				963239C325CD793600C21FD7 /* FeelingManagerCore.swift in Sources */,
 				9632399D25CC22C800C21FD7 /* RCViewModel.swift in Sources */,
 				9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */,
