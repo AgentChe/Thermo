@@ -22,9 +22,9 @@ extension ThermoNavigationControllerSettings {
         ThermoNavigationControllerSettings(backgroundImage: UIImage(),
                                            shadowImage: UIImage(),
                                            isTranslucent: true,
-                                           tintColor: UIColor.white,
+                                           tintColor: UIColor.black,
                                            titleTextAttrributes: TextAttributes()
-                                            .textColor(UIColor.white)
+                                            .textColor(UIColor.black)
                                             .font(Fonts.Poppins.semiBold(size: 17.scale))
                                             .textAlignment(.center)
                                             .dictionary)

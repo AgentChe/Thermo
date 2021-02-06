@@ -46,6 +46,8 @@
 		963239F125CDFA4600C21FD7 /* SLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F025CDFA4600C21FD7 /* SLViewController.swift */; };
 		963239F525CDFB4D00C21FD7 /* SLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F425CDFB4D00C21FD7 /* SLView.swift */; };
 		963239F825CDFC3C00C21FD7 /* SLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F725CDFC3C00C21FD7 /* SLCell.swift */; };
+		963239FC25CEA65F00C21FD7 /* RCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239FB25CEA65F00C21FD7 /* RCCell.swift */; };
+		96323A0325CEB6B500C21FD7 /* WeekdayLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -102,9 +104,6 @@
 		968AE47C2549814900A42C46 /* TabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE47B2549814900A42C46 /* TabItemView.swift */; };
 		968AE47F2549834D00A42C46 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE47E2549834D00A42C46 /* TabView.swift */; };
 		968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4822549931D00A42C46 /* MainCoordinator.swift */; };
-		968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE488254995F700A42C46 /* ReminderViewController.swift */; };
-		968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE48B2549962300A42C46 /* ReminderViewModel.swift */; };
-		968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE48E2549963E00A42C46 /* ReminderView.swift */; };
 		968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE491254996AD00A42C46 /* JournalViewController.swift */; };
 		968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE494254996D400A42C46 /* JournalViewModel.swift */; };
 		968AE498254996E900A42C46 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE497254996E900A42C46 /* JournalView.swift */; };
@@ -116,16 +115,10 @@
 		968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */; };
 		968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D82549F54600A42C46 /* JournalTableView.swift */; };
 		968AE4FA254AE5C600A42C46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 968AE4F9254AE5C600A42C46 /* GoogleService-Info.plist */; };
-		968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE51E254F311300A42C46 /* ReminderTableCell.swift */; };
-		968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE522254F329A00A42C46 /* ReminderTableSwitchElement.swift */; };
-		968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE525254F39A700A42C46 /* ReminderTableSection.swift */; };
-		968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE528254F3E7C00A42C46 /* ReminderTableView.swift */; };
 		968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE52D254F5A7C00A42C46 /* ReminderManager.swift */; };
 		968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE531254F5A8B00A42C46 /* ReminderManagerCore.swift */; };
 		968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE535254F5ACD00A42C46 /* Weekday.swift */; };
 		968AE542255053E900A42C46 /* ReminderManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE541255053E900A42C46 /* ReminderManagerDelegate.swift */; };
-		968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE55025506F4000A42C46 /* WeekdayLocalizable.swift */; };
-		968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE5532550B12100A42C46 /* ReminderSelectTimeView.swift */; };
 		968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE57025516FF900A42C46 /* ReminderNotificationsManager.swift */; };
 		968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE596255295BD00A42C46 /* ImageManagerCore.swift */; };
 		968AE59A255298B100A42C46 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE599255298B100A42C46 /* ImageManager.swift */; };
@@ -224,6 +217,8 @@
 		963239F025CDFA4600C21FD7 /* SLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLViewController.swift; sourceTree = "<group>"; };
 		963239F425CDFB4D00C21FD7 /* SLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLView.swift; sourceTree = "<group>"; };
 		963239F725CDFC3C00C21FD7 /* SLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCell.swift; sourceTree = "<group>"; };
+		963239FB25CEA65F00C21FD7 /* RCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCCell.swift; sourceTree = "<group>"; };
+		96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayLocalizable.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -280,9 +275,6 @@
 		968AE47B2549814900A42C46 /* TabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemView.swift; sourceTree = "<group>"; };
 		968AE47E2549834D00A42C46 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		968AE4822549931D00A42C46 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		968AE488254995F700A42C46 /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
-		968AE48B2549962300A42C46 /* ReminderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewModel.swift; sourceTree = "<group>"; };
-		968AE48E2549963E00A42C46 /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		968AE491254996AD00A42C46 /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		968AE494254996D400A42C46 /* JournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewModel.swift; sourceTree = "<group>"; };
 		968AE497254996E900A42C46 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalView.swift; sourceTree = "<group>"; };
@@ -294,16 +286,10 @@
 		968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
 		968AE4D82549F54600A42C46 /* JournalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableView.swift; sourceTree = "<group>"; };
 		968AE4F9254AE5C600A42C46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		968AE51E254F311300A42C46 /* ReminderTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableCell.swift; sourceTree = "<group>"; };
-		968AE522254F329A00A42C46 /* ReminderTableSwitchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableSwitchElement.swift; sourceTree = "<group>"; };
-		968AE525254F39A700A42C46 /* ReminderTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableSection.swift; sourceTree = "<group>"; };
-		968AE528254F3E7C00A42C46 /* ReminderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderTableView.swift; sourceTree = "<group>"; };
 		968AE52D254F5A7C00A42C46 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		968AE531254F5A8B00A42C46 /* ReminderManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManagerCore.swift; sourceTree = "<group>"; };
 		968AE535254F5ACD00A42C46 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
 		968AE541255053E900A42C46 /* ReminderManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManagerDelegate.swift; sourceTree = "<group>"; };
-		968AE55025506F4000A42C46 /* WeekdayLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayLocalizable.swift; sourceTree = "<group>"; };
-		968AE5532550B12100A42C46 /* ReminderSelectTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderSelectTimeView.swift; sourceTree = "<group>"; };
 		968AE57025516FF900A42C46 /* ReminderNotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderNotificationsManager.swift; sourceTree = "<group>"; };
 		968AE596255295BD00A42C46 /* ImageManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManagerCore.swift; sourceTree = "<group>"; };
 		968AE599255298B100A42C46 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -418,6 +404,7 @@
 		9632399725CC22AE00C21FD7 /* Create */ = {
 			isa = PBXGroup;
 			children = (
+				963239FA25CEA61400C21FD7 /* Views */,
 				9632399825CC22BF00C21FD7 /* RCViewController.swift */,
 				9632399C25CC22C800C21FD7 /* RCViewModel.swift */,
 				9632399F25CC22D200C21FD7 /* RCView.swift */,
@@ -528,6 +515,22 @@
 				963239F725CDFC3C00C21FD7 /* SLCell.swift */,
 			);
 			path = SelectLogger;
+			sourceTree = "<group>";
+		};
+		963239FA25CEA61400C21FD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				963239FB25CEA65F00C21FD7 /* RCCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96323A0125CEB6AF00C21FD7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -816,12 +819,8 @@
 		968AE487254995CD00A42C46 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				96323A0125CEB6AF00C21FD7 /* Utils */,
 				9632398C25CC205A00C21FD7 /* Controllers */,
-				968AE54F25506F2A00A42C46 /* Utils */,
-				968AE51B254F30DC00A42C46 /* Views */,
-				968AE488254995F700A42C46 /* ReminderViewController.swift */,
-				968AE48B2549962300A42C46 /* ReminderViewModel.swift */,
-				968AE48E2549963E00A42C46 /* ReminderView.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -854,42 +853,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		968AE51B254F30DC00A42C46 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				968AE51C254F30E900A42C46 /* TableView */,
-				968AE5532550B12100A42C46 /* ReminderSelectTimeView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		968AE51C254F30E900A42C46 /* TableView */ = {
-			isa = PBXGroup;
-			children = (
-				968AE521254F328300A42C46 /* Models */,
-				968AE51D254F310700A42C46 /* Cells */,
-				968AE528254F3E7C00A42C46 /* ReminderTableView.swift */,
-			);
-			path = TableView;
-			sourceTree = "<group>";
-		};
-		968AE51D254F310700A42C46 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				968AE51E254F311300A42C46 /* ReminderTableCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		968AE521254F328300A42C46 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				968AE522254F329A00A42C46 /* ReminderTableSwitchElement.swift */,
-				968AE525254F39A700A42C46 /* ReminderTableSection.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		968AE52B254F5A6A00A42C46 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
@@ -918,14 +881,6 @@
 				963239B225CC70DC00C21FD7 /* Reminder.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		968AE54F25506F2A00A42C46 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				968AE55025506F4000A42C46 /* WeekdayLocalizable.swift */,
-			);
-			path = Utils;
 			sourceTree = "<group>";
 		};
 		968AE594255295A100A42C46 /* Image */ = {
@@ -1381,7 +1336,6 @@
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
 				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
-				968AE529254F3E7C00A42C46 /* ReminderTableView.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
@@ -1394,7 +1348,7 @@
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				9632397825CB12CB00C21FD7 /* OnboardingSliderDelegate.swift in Sources */,
 				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
-				968AE526254F39A700A42C46 /* ReminderTableSection.swift in Sources */,
+				963239FC25CEA65F00C21FD7 /* RCCell.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				963BF5C42570550200285350 /* MonetizationConfig.swift in Sources */,
 				963239E925CDE82100C21FD7 /* FeelingSelectionView.swift in Sources */,
@@ -1415,7 +1369,6 @@
 				963239E625CDE0B400C21FD7 /* FeelingMeasureView.swift in Sources */,
 				963239CE25CDCD2200C21FD7 /* LWAViewModel.swift in Sources */,
 				96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */,
-				968AE51F254F311300A42C46 /* ReminderTableCell.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
 				963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */,
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
@@ -1428,20 +1381,18 @@
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
 				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
-				968AE55125506F4000A42C46 /* WeekdayLocalizable.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,
 				963239D125CDCF7600C21FD7 /* LWAView.swift in Sources */,
 				969EF7222569CBD500BEA8EC /* GetPaygateRequest.swift in Sources */,
 				96846CFD25698F4A009841BD /* MedicineManager.swift in Sources */,
+				96323A0325CEB6B500C21FD7 /* WeekdayLocalizable.swift in Sources */,
 				969EF7232569CBD500BEA8EC /* PaygateManager.swift in Sources */,
-				968AE523254F329A00A42C46 /* ReminderTableSwitchElement.swift in Sources */,
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
 				963239B325CC70DC00C21FD7 /* Reminder.swift in Sources */,
 				9632397525CB0BC000C21FD7 /* OnboardingSlideView.swift in Sources */,
 				968AE4632548B46300A42C46 /* MainViewController.swift in Sources */,
-				968AE48F2549963E00A42C46 /* ReminderView.swift in Sources */,
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
 				9632398725CB4B4600C21FD7 /* FeelingViewModel.swift in Sources */,
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
@@ -1468,7 +1419,6 @@
 				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
-				968AE48C2549962300A42C46 /* ReminderViewModel.swift in Sources */,
 				9632399525CC21DE00C21FD7 /* RLView.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
 				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
@@ -1510,9 +1460,7 @@
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
 				963239A425CC26AA00C21FD7 /* RLEmptyView.swift in Sources */,
 				96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */,
-				968AE5542550B12100A42C46 /* ReminderSelectTimeView.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
-				968AE489254995F700A42C46 /* ReminderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

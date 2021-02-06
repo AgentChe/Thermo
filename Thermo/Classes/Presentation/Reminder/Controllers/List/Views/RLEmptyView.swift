@@ -63,7 +63,6 @@ private extension RLEmptyView {
         let attrs = TextAttributes()
             .font(Fonts.Poppins.semiBold(size: 18.scale))
             .textColor(UIColor.white)
-            .lineHeight(20.scale)
         
         let view = UIButton()
         view.layer.cornerRadius = 26.scale

@@ -76,7 +76,7 @@ private extension RLTableCell {
             container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30.scale),
             container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30.scale),
             container.topAnchor.constraint(equalTo: contentView.topAnchor),
-            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -26.scale)
+            container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([

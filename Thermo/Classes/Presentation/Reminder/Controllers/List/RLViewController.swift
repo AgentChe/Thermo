@@ -21,16 +21,8 @@ final class RLViewController: UIViewController {
         view = mainView
     }
     
-    let t = ReminderManagerCore()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        t.addRemindAt(time: Date(), weekday: .monday)
-//        t.addRemindAt(time: Date().addingTimeInterval(3415), weekday: .monday)
-//        t.addRemindAt(time: Date().addingTimeInterval(2412), weekday: .saturday)
-//        t.addRemindAt(time: Date().addingTimeInterval(34252), weekday: .thursday)
-//        t.addRemindAt(time: Date().addingTimeInterval(5321), weekday: .wednesday)
         
         viewModel
             .elements
@@ -43,8 +35,11 @@ final class RLViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        mainView
-            .addButton.rx.tap
+        Observable
+            .merge(
+                mainView.addButton.rx.tap.asObservable(),
+                mainView.emptyView.button.rx.tap.asObservable()
+            )
             .subscribe(onNext: { [weak self] in
                 self?.goToCreate()
             })
@@ -67,7 +62,9 @@ final class RLViewController: UIViewController {
 // MARK: Make
 extension RLViewController {
     static func make() -> RLViewController {
-        RLViewController()
+        let vc = RLViewController()
+        vc.navigationItem.backButtonTitle = " "
+        return vc
     }
 }
 
