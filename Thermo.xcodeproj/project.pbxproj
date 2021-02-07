@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6C691D5005FFCDE9E6E3D901 /* Pods_Thermo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */; };
+		8601E95125CEA92E00223301 /* LWAOnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601E95025CEA92E00223301 /* LWAOnboardingStepView.swift */; };
+		8635AE4525CEEEB5000A18D3 /* HeartRateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE4325CEEEB5000A18D3 /* HeartRateManager.swift */; };
+		8635AE4625CEEEB5000A18D3 /* CameraType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE4425CEEEB5000A18D3 /* CameraType.swift */; };
+		8635AE4A25CEEECB000A18D3 /* AVCaptureDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE4825CEEECA000A18D3 /* AVCaptureDevice+Extensions.swift */; };
+		8635AE4B25CEEECB000A18D3 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE4925CEEECB000A18D3 /* UIColor.swift */; };
+		8635AE4E25CEEED9000A18D3 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE4D25CEEED9000A18D3 /* ColorUtils.swift */; };
+		8635AE5225CEEEFA000A18D3 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE5025CEEEFA000A18D3 /* Filter.swift */; };
+		8635AE5325CEEEFA000A18D3 /* BeatDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE5125CEEEFA000A18D3 /* BeatDetector.swift */; };
+		8635AE5725CEEF1B000A18D3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8635AE5625CEEF1B000A18D3 /* Video.swift */; };
+		86DC0EDC25CFF12400950403 /* LWAResultElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DC0EDB25CFF12400950403 /* LWAResultElement.swift */; };
 		9632396325C9E9D800C21FD7 /* AMCheckedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632396225C9E9D800C21FD7 /* AMCheckedCell.swift */; };
 		9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632397125CB0B9700C21FD7 /* OnboardingSlide.swift */; };
 		9632397525CB0BC000C21FD7 /* OnboardingSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9632397425CB0BC000C21FD7 /* OnboardingSlideView.swift */; };
@@ -174,6 +184,16 @@
 
 /* Begin PBXFileReference section */
 		090B9911AE5C8F9A2ECBB42A /* Pods_Thermo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8601E95025CEA92E00223301 /* LWAOnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWAOnboardingStepView.swift; sourceTree = "<group>"; };
+		8635AE4325CEEEB5000A18D3 /* HeartRateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartRateManager.swift; sourceTree = "<group>"; };
+		8635AE4425CEEEB5000A18D3 /* CameraType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraType.swift; sourceTree = "<group>"; };
+		8635AE4825CEEECA000A18D3 /* AVCaptureDevice+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AVCaptureDevice+Extensions.swift"; sourceTree = "<group>"; };
+		8635AE4925CEEECB000A18D3 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		8635AE4D25CEEED9000A18D3 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
+		8635AE5025CEEEFA000A18D3 /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		8635AE5125CEEEFA000A18D3 /* BeatDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeatDetector.swift; sourceTree = "<group>"; };
+		8635AE5625CEEF1B000A18D3 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		86DC0EDB25CFF12400950403 /* LWAResultElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LWAResultElement.swift; sourceTree = "<group>"; };
 		9619CB0D25A34FC200C0D03C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9619CB0E25A34FC200C0D03C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9619CB1025A34FE300C0D03C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -380,6 +400,29 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8635AE4225CEEE9F000A18D3 /* Measurement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Measurement;
+			sourceTree = "<group>";
+		};
+		8635AE5525CEEF12000A18D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8635AE5625CEEF1B000A18D3 /* Video.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		86DC0EDA25CFF10B00950403 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86DC0EDB25CFF12400950403 /* LWAResultElement.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		9632397025CB0B8000C21FD7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +530,7 @@
 		963239C925CDCCBC00C21FD7 /* LoggerWithApp */ = {
 			isa = PBXGroup;
 			children = (
+				86DC0EDA25CFF10B00950403 /* Models */,
 				963239D425CDCFEF00C21FD7 /* Utils */,
 				963239D325CDCFEB00C21FD7 /* Views */,
 				963239CA25CDCCDA00C21FD7 /* LWAViewController.swift */,
@@ -502,6 +546,7 @@
 				963239D525CDD0E800C21FD7 /* LWAOnboardingView.swift */,
 				963239D825CDD13D00C21FD7 /* LWAMeasurementView.swift */,
 				963239DB25CDD16000C21FD7 /* LWAResultView.swift */,
+				8601E95025CEA92E00223301 /* LWAOnboardingStepView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,7 +554,15 @@
 		963239D425CDCFEF00C21FD7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8635AE5525CEEF12000A18D3 /* Models */,
+				8635AE4425CEEEB5000A18D3 /* CameraType.swift */,
+				8635AE4325CEEEB5000A18D3 /* HeartRateManager.swift */,
 				963239DE25CDD45100C21FD7 /* PulseToTemperature.swift */,
+				8635AE4D25CEEED9000A18D3 /* ColorUtils.swift */,
+				8635AE5125CEEEFA000A18D3 /* BeatDetector.swift */,
+				8635AE5025CEEEFA000A18D3 /* Filter.swift */,
+				8635AE4825CEEECA000A18D3 /* AVCaptureDevice+Extensions.swift */,
+				8635AE4925CEEECB000A18D3 /* UIColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1038,6 +1091,7 @@
 		968E41AC2546E3DA006F3CFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				8635AE4225CEEE9F000A18D3 /* Measurement */,
 				963239B925CD6B3D00C21FD7 /* Feeiling */,
 				969EF72B2569D1B400BEA8EC /* Session */,
 				969EF7022569CBD500BEA8EC /* Paygate */,
@@ -1372,6 +1426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				966A554B254790510099FDAE /* AddMemberViewController.swift in Sources */,
+				8635AE5225CEEEFA000A18D3 /* Filter.swift in Sources */,
 				968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */,
 				963239AE25CC2F4600C21FD7 /* RLTableCell.swift in Sources */,
 				966A556525484E940099FDAE /* MembersManager.swift in Sources */,
@@ -1411,6 +1466,7 @@
 				966A550B2546F61A0099FDAE /* Device.swift in Sources */,
 				969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
+				8635AE4B25CEEECB000A18D3 /* UIColor.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				963239DC25CDD16000C21FD7 /* LWAResultView.swift in Sources */,
 				9632397B25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift in Sources */,
@@ -1421,6 +1477,7 @@
 				963239E625CDE0B400C21FD7 /* FeelingMeasureView.swift in Sources */,
 				963239CE25CDCD2200C21FD7 /* LWAViewModel.swift in Sources */,
 				96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */,
+				8635AE5725CEEF1B000A18D3 /* Video.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
 				963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */,
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
@@ -1431,9 +1488,11 @@
 				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
 				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
+				86DC0EDC25CFF12400950403 /* LWAResultElement.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
 				96323A2A25CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift in Sources */,
 				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
+				8635AE4525CEEEB5000A18D3 /* HeartRateManager.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,
 				963239D125CDCF7600C21FD7 /* LWAView.swift in Sources */,
@@ -1444,6 +1503,7 @@
 				966A55502548498D0099FDAE /* AddMemberViewModel.swift in Sources */,
 				968E41BB2546F43F006F3CFC /* StringExtension.swift in Sources */,
 				963239B325CC70DC00C21FD7 /* Reminder.swift in Sources */,
+				8635AE4625CEEEB5000A18D3 /* CameraType.swift in Sources */,
 				9632397525CB0BC000C21FD7 /* OnboardingSlideView.swift in Sources */,
 				968AE4632548B46300A42C46 /* MainViewController.swift in Sources */,
 				966A55252546F95B0099FDAE /* SplashViewController.swift in Sources */,
@@ -1451,6 +1511,7 @@
 				968AE47F2549834D00A42C46 /* TabView.swift in Sources */,
 				966DADEF256B06BC00DB724E /* GradientButton.swift in Sources */,
 				968E41C92546F4BD006F3CFC /* ScreenSize.swift in Sources */,
+				8635AE4E25CEEED9000A18D3 /* ColorUtils.swift in Sources */,
 				963239E325CDDE5700C21FD7 /* FeelingHeaderView.swift in Sources */,
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
 				963239DF25CDD45100C21FD7 /* PulseToTemperature.swift in Sources */,
@@ -1472,6 +1533,7 @@
 				969EF7182569CBD500BEA8EC /* PaygateManagerCore.swift in Sources */,
 				968AE4AD254998AA00A42C46 /* ThermoNavigationControllerSettings.swift in Sources */,
 				966A54FC2546F54F0099FDAE /* GradientView.swift in Sources */,
+				8635AE5325CEEEFA000A18D3 /* BeatDetector.swift in Sources */,
 				968AE47C2549814900A42C46 /* TabItemView.swift in Sources */,
 				9632399525CC21DE00C21FD7 /* RLView.swift in Sources */,
 				968AE532254F5A8B00A42C46 /* ReminderManagerCore.swift in Sources */,
@@ -1482,6 +1544,7 @@
 				963239A025CC22D200C21FD7 /* RCView.swift in Sources */,
 				96323A2D25D0127300C21FD7 /* FSSearchView.swift in Sources */,
 				963239D925CDD13D00C21FD7 /* LWAMeasurementView.swift in Sources */,
+				8601E95125CEA92E00223301 /* LWAOnboardingStepView.swift in Sources */,
 				968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */,
 				969EF71F2569CBD500BEA8EC /* PaygateSpecialOffer.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
@@ -1501,6 +1564,7 @@
 				96323A1125CF041E00C21FD7 /* FSelectionTableView.swift in Sources */,
 				9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
+				8635AE4A25CEEECB000A18D3 /* AVCaptureDevice+Extensions.swift in Sources */,
 				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
 				963239B725CC801500C21FD7 /* ReminderManagerMediator.swift in Sources */,
 				968AE57125516FF900A42C46 /* ReminderNotificationsManager.swift in Sources */,
