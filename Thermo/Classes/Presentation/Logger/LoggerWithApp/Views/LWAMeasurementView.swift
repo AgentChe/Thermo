@@ -72,8 +72,8 @@ extension LWAMeasurementView {
         
         isStartMeasure
             .distinctUntilChanged()
-            .flatMapLatest { isStartMeasure -> Observable<Int> in
-                guard isStartMeasure else { return .empty() }
+            .flatMapLatest { [weak self] isStartMeasure -> Observable<Int> in
+                guard let self = self, isStartMeasure else { return .empty() }
                 
                 return Observable<Int>
                     .timer(.seconds(0), period: .seconds(1), scheduler: MainScheduler.instance)
@@ -84,7 +84,6 @@ extension LWAMeasurementView {
                 guard let self = self else { return nil }
                 return Double(60.0/self.beatDetector.getAverage())
             }
-            .take(1)
             .bind(to: pulseResult)
             .disposed(by: disposeBag)
     }
@@ -101,7 +100,7 @@ private extension LWAMeasurementView {
     }
     
     var progressTime: Double {
-        Double(progressView.frame.width / 10.0)
+        Double(progressView.frame.width / 10.0) / 10
     }
     
     static let threasholdAttr = TextAttributes()
@@ -271,7 +270,7 @@ private extension LWAMeasurementView {
                     UIView.animate(withDuration: 0.2, animations: {
                         self.beatsContainer.alpha = 1.0
                         self.progressView.alpha = 1.0
-                    }) { (_) in
+                    }) { _ in
                         self.beatsContainer.isHidden = false
                         self.progressView.isHidden = false
                         self.beatLabel.attributedText = "\(lroundf(beat)) \("LWA.Measurenment.Units".localized)".attributed(with: Self.beatsAttr)
