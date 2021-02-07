@@ -15,6 +15,7 @@ final class LWAViewModel {
     }
     
     lazy var create = PublishRelay<Double>()
+    lazy var pulse = PublishRelay<Double>()
     
     private lazy var medicinesManager = MedicineManagerCore()
     private lazy var symptomsManager = SymptomsManagerCore()
@@ -23,6 +24,8 @@ final class LWAViewModel {
     private lazy var memberManager = MembersManagerCore()
     
     lazy var step = makeStep()
+    lazy var temperature = makeTemperature()
+    lazy var lwaResult = makeLWAResult()
 }
 
 // MARK: Private
@@ -51,5 +54,22 @@ private extension LWAViewModel {
                     }
             }
             .asDriver(onErrorJustReturn: .error)
+    }
+    
+    func makeTemperature() -> Driver<Double> {
+        pulse
+            .map { PulseToTemperature.calculate(pulse: $0) }
+            .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func makeLWAResult() -> Driver<LWAResultElement> {
+        temperature.map { [weak self] temperature in
+            LWAResultElement(
+                min: temperature - 0.5,
+                max: temperature + 0.5,
+                isSuccess: temperature < 37,
+                unit: self?.memberManager.get()?.temperatureUnit ?? .celsius
+            )
+        }
     }
 }

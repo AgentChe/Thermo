@@ -79,3 +79,18 @@
 
 // MARK: Logger.WithApp
 "LWA.FailedToCreate" = "Failed to create";
+"LWA.Onboarding.HowToMeasure" = "How to measure?";
+"LWA.Onboarding.Measure" = "Measure";
+"LWA.Onboarding.Step1" = "Sit still for a minute before the measurement";
+"LWA.Onboarding.Step2" = "Do not engage in any activity at least 5 minutes before the measurement";
+"LWA.Onboarding.Step3" = "Don’t move during the procedure";
+"LWA.Onboarding.Warning" = "The result is an estimation and shouldn’t be used for medical decisions.";
+"LWA.Measurenment.Title" = "Cover camera with an index finger until the image turns red";
+"LWA.Measurenment.ProgressTitle" = "Hold your finger until the measuring ends";
+"LWA.Measurenment.Units" = "Bmp";
+"LWA.Measurenment.Alert.CameraDenied" = "You have not permission";
+"LWA.Result.Title.Success" = "You don’t seem to have a fever!";
+"LWA.Result.Title.Bad" = "You might have a fever!";
+"LWA.Result.Subtitle" = "Remeasure your temperature and call a doctor";
+"LWA.Result.Save" = "Save";
+

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 final class LWAView: UIView {
     enum Step: Int {
         case onboarding, measurement, result
@@ -72,6 +71,14 @@ private extension LWAView {
         let frame = contentViews[index].frame
         
         scrollView.scrollRectToVisible(frame, animated: true)
+        
+        if step == .measurement {
+            measurementView.measurement()
+        }
+        
+        if step == .result {
+            measurementView.stopMeasurement()
+        }
     }
 }
 
