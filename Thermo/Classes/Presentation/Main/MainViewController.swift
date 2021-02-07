@@ -36,7 +36,9 @@ final class MainViewController: UIViewController {
 // MARK: Make 
 extension MainViewController {
     static func make() -> MainViewController {
-        MainViewController()
+        let vc = MainViewController()
+        vc.navigationItem.backButtonTitle = " "
+        return vc
     }
 }
  

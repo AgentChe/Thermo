@@ -37,7 +37,7 @@ private extension RLView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30.scale),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 85.scale),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 85.scale : 40.scale),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30.scale)
         ])
         

@@ -107,7 +107,7 @@ private extension LWAMeasurementView {
     static let threasholdAttr = TextAttributes()
         .font(Fonts.Poppins.regular(size: 17.scale))
         .lineHeight(25.scale)
-        .textColor(.black)
+        .textColor(UIColor(integralRed: 2, green: 13, blue: 14))
         .textAlignment(.center)
     
     static let beatsAttr = TextAttributes()

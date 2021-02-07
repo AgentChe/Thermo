@@ -94,3 +94,9 @@
 "LWA.Result.Subtitle" = "Remeasure your temperature and call a doctor";
 "LWA.Result.Save" = "Save";
 
+// MARK: FSelection
+"FSelection.Symptoms.Title" = "Symptoms";
+"FSelection.Symptoms.Placeholder" = "Enter the symptom";
+"FSelection.Medicines.Title" = "Medications";
+"FSelection.Medicines.Placeholder" = "Enter the medication";
+"FSelection.Button" = "Done";
