@@ -8,7 +8,6 @@
 import RxSwift
 import RxCocoa
 
-// TODO: Виталь, по сути вся vm готова, тебе ее не нужно трогать совсем. Просто во vc дерни create.accept(pulse) и все. Остальное все готово.
 final class LWAViewModel {
     enum Step {
         case created, error
@@ -38,7 +37,7 @@ private extension LWAViewModel {
                 }
                 
                 let symptoms = this.symptomsManager.getSelectedSymptoms()
-                let medicines = this.medicinesManager.getMedicines()
+                let medicines = this.medicinesManager.getSelectedMedicines()
                 let feeling = this.feelingManager.getSelected()
                 let unit = this.memberManager.get()?.temperatureUnit ?? .celsius
                 
