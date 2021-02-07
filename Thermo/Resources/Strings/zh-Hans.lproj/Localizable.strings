@@ -79,3 +79,10 @@
 
 // MARK: Logger.WithApp
 "LWA.FailedToCreate" = "Failed to create";
+
+// MARK: FSelection
+"FSelection.Symptoms.Title" = "Symptoms";
+"FSelection.Symptoms.Placeholder" = "Enter the symptom";
+"FSelection.Medicines.Title" = "Medications";
+"FSelection.Medicines.Placeholder" = "Enter the medication";
+"FSelection.Button" = "Done";

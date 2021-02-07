@@ -48,6 +48,15 @@
 		963239F825CDFC3C00C21FD7 /* SLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239F725CDFC3C00C21FD7 /* SLCell.swift */; };
 		963239FC25CEA65F00C21FD7 /* RCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963239FB25CEA65F00C21FD7 /* RCCell.swift */; };
 		96323A0325CEB6B500C21FD7 /* WeekdayLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */; };
+		96323A0725CEFEF400C21FD7 /* FSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A0625CEFEF400C21FD7 /* FSelectionViewController.swift */; };
+		96323A0D25CEFF9200C21FD7 /* FSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A0C25CEFF9200C21FD7 /* FSelectionView.swift */; };
+		96323A1125CF041E00C21FD7 /* FSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A1025CF041E00C21FD7 /* FSelectionTableView.swift */; };
+		96323A1525CF071F00C21FD7 /* FSelectionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A1425CF071F00C21FD7 /* FSelectionTableCell.swift */; };
+		96323A1825CF072B00C21FD7 /* FSelectionTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A1725CF072B00C21FD7 /* FSelectionTableElement.swift */; };
+		96323A2425CFEBAC00C21FD7 /* FSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A2325CFEBAC00C21FD7 /* FSelectionViewModel.swift */; };
+		96323A2725CFEBDA00C21FD7 /* FSelectionMedicinesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A2625CFEBDA00C21FD7 /* FSelectionMedicinesViewModel.swift */; };
+		96323A2A25CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A2925CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift */; };
+		96323A2D25D0127300C21FD7 /* FSSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A2C25D0127300C21FD7 /* FSSearchView.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -219,6 +228,15 @@
 		963239F725CDFC3C00C21FD7 /* SLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLCell.swift; sourceTree = "<group>"; };
 		963239FB25CEA65F00C21FD7 /* RCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCCell.swift; sourceTree = "<group>"; };
 		96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayLocalizable.swift; sourceTree = "<group>"; };
+		96323A0625CEFEF400C21FD7 /* FSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionViewController.swift; sourceTree = "<group>"; };
+		96323A0C25CEFF9200C21FD7 /* FSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionView.swift; sourceTree = "<group>"; };
+		96323A1025CF041E00C21FD7 /* FSelectionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionTableView.swift; sourceTree = "<group>"; };
+		96323A1425CF071F00C21FD7 /* FSelectionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionTableCell.swift; sourceTree = "<group>"; };
+		96323A1725CF072B00C21FD7 /* FSelectionTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionTableElement.swift; sourceTree = "<group>"; };
+		96323A2325CFEBAC00C21FD7 /* FSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionViewModel.swift; sourceTree = "<group>"; };
+		96323A2625CFEBDA00C21FD7 /* FSelectionMedicinesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionMedicinesViewModel.swift; sourceTree = "<group>"; };
+		96323A2925CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSelectionSymptomsViewModel.swift; sourceTree = "<group>"; };
+		96323A2C25D0127300C21FD7 /* FSSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSSearchView.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -373,6 +391,7 @@
 		9632398125CB4AED00C21FD7 /* Feeling */ = {
 			isa = PBXGroup;
 			children = (
+				96323A0525CEFEE300C21FD7 /* FSelection */,
 				963239E125CDDA8B00C21FD7 /* Views */,
 				9632398225CB4B0400C21FD7 /* FeelingViewController.swift */,
 				9632398625CB4B4600C21FD7 /* FeelingViewModel.swift */,
@@ -531,6 +550,38 @@
 				96323A0225CEB6B500C21FD7 /* WeekdayLocalizable.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		96323A0525CEFEE300C21FD7 /* FSelection */ = {
+			isa = PBXGroup;
+			children = (
+				96323A2125CFEB9200C21FD7 /* ViewModel */,
+				96323A0F25CF040C00C21FD7 /* Views */,
+				96323A0625CEFEF400C21FD7 /* FSelectionViewController.swift */,
+				96323A0C25CEFF9200C21FD7 /* FSelectionView.swift */,
+			);
+			path = FSelection;
+			sourceTree = "<group>";
+		};
+		96323A0F25CF040C00C21FD7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96323A1025CF041E00C21FD7 /* FSelectionTableView.swift */,
+				96323A1425CF071F00C21FD7 /* FSelectionTableCell.swift */,
+				96323A1725CF072B00C21FD7 /* FSelectionTableElement.swift */,
+				96323A2C25D0127300C21FD7 /* FSSearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96323A2125CFEB9200C21FD7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				96323A2325CFEBAC00C21FD7 /* FSelectionViewModel.swift */,
+				96323A2625CFEBDA00C21FD7 /* FSelectionMedicinesViewModel.swift */,
+				96323A2925CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
@@ -1338,6 +1389,7 @@
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
 				96F61E89256B140900540DBB /* ApiError.swift in Sources */,
+				96323A0725CEFEF400C21FD7 /* FSelectionViewController.swift in Sources */,
 				969EF71B2569CBD500BEA8EC /* PaygateOption.swift in Sources */,
 				963BF5CD257169F700285350 /* MonetizationManagerCore.swift in Sources */,
 				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
@@ -1380,6 +1432,7 @@
 				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
 				966A55112546F64D0099FDAE /* GlobalDefinitions.swift in Sources */,
 				968E41C62546F4AF006F3CFC /* Fonts.swift in Sources */,
+				96323A2A25CFEBEC00C21FD7 /* FSelectionSymptomsViewModel.swift in Sources */,
 				963BF5C72571646C00285350 /* GetMonetizationResponseMapper.swift in Sources */,
 				966A553225472F3E0099FDAE /* OnboardingViewController.swift in Sources */,
 				969EF742256A977600BEA8EC /* PaygateViewController.swift in Sources */,
@@ -1402,6 +1455,7 @@
 				966A550E2546F6320099FDAE /* Weak.swift in Sources */,
 				963239DF25CDD45100C21FD7 /* PulseToTemperature.swift in Sources */,
 				9632399925CC22BF00C21FD7 /* RCViewController.swift in Sources */,
+				96323A0D25CEFF9200C21FD7 /* FSelectionView.swift in Sources */,
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */,
@@ -1424,13 +1478,16 @@
 				969EF71D2569CBD500BEA8EC /* Paygate.swift in Sources */,
 				968E41732546E045006F3CFC /* AppDelegate.swift in Sources */,
 				969EF72F2569D1D300BEA8EC /* Session.swift in Sources */,
+				96323A2425CFEBAC00C21FD7 /* FSelectionViewModel.swift in Sources */,
 				963239A025CC22D200C21FD7 /* RCView.swift in Sources */,
+				96323A2D25D0127300C21FD7 /* FSSearchView.swift in Sources */,
 				963239D925CDD13D00C21FD7 /* LWAMeasurementView.swift in Sources */,
 				968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */,
 				969EF71F2569CBD500BEA8EC /* PaygateSpecialOffer.swift in Sources */,
 				968E41BF2546F48A006F3CFC /* TextAttributes.swift in Sources */,
 				969EF743256A977600BEA8EC /* PaygateMainView.swift in Sources */,
 				969EF740256A977600BEA8EC /* PaygateViewModel.swift in Sources */,
+				96323A2725CFEBDA00C21FD7 /* FSelectionMedicinesViewModel.swift in Sources */,
 				963239F525CDFB4D00C21FD7 /* SLView.swift in Sources */,
 				963BF5C1257054E500285350 /* GetMonetizationConfigRequest.swift in Sources */,
 				9632398A25CB4B6700C21FD7 /* FeelingView.swift in Sources */,
@@ -1438,8 +1495,10 @@
 				96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */,
 				963239D625CDD0E800C21FD7 /* LWAOnboardingView.swift in Sources */,
 				963239F825CDFC3C00C21FD7 /* SLCell.swift in Sources */,
+				96323A1825CF072B00C21FD7 /* FSelectionTableElement.swift in Sources */,
 				963239C325CD793600C21FD7 /* FeelingManagerCore.swift in Sources */,
 				9632399D25CC22C800C21FD7 /* RCViewModel.swift in Sources */,
+				96323A1125CF041E00C21FD7 /* FSelectionTableView.swift in Sources */,
 				9632397225CB0B9700C21FD7 /* OnboardingSlide.swift in Sources */,
 				96846CF825698E22009841BD /* GetMedicinesResponseMapper.swift in Sources */,
 				96846CF425698D61009841BD /* GetMedicinesRequest.swift in Sources */,
@@ -1448,6 +1507,7 @@
 				963239AB25CC2EBA00C21FD7 /* RLTableElement.swift in Sources */,
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
 				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
+				96323A1525CF071F00C21FD7 /* FSelectionTableCell.swift in Sources */,
 				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
 				9632398325CB4B0400C21FD7 /* FeelingViewController.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,

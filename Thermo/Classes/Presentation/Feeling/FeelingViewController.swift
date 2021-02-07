@@ -31,6 +31,24 @@ final class FeelingViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        mainView
+            .selectionView
+            .symptomsButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let vc = FSelectionViewController.make(style: .symptoms)
+                self?.present(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        mainView
+            .selectionView
+            .medicationsButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                let vc = FSelectionViewController.make(style: .medicines)
+                self?.present(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         addFeelingActions()
         addMeasureAction()
     }
