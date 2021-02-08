@@ -38,7 +38,7 @@ final class LWAViewController: UIViewController {
         mainView
             .onboardingView
             .button.rx.tap
-            .subscribe(onNext: { [weak self] in 
+            .subscribe(onNext: { [weak self] in
                 self?.mainView.step = .measurement
             })
             .disposed(by: disposeBag)

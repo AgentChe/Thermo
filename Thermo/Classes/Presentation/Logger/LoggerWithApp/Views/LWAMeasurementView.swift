@@ -53,12 +53,14 @@ extension LWAMeasurementView {
     func measurement() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { granted in
+            AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
                 if granted {
-                    self.initVideoCapture()
-                    self.initCaptureSession()
+                    DispatchQueue.main.async {
+                        self?.initVideoCapture()
+                        self?.initCaptureSession()
+                    }
                 } else {
-                    self.cameraAccessDenied.accept(())
+                    self?.cameraAccessDenied.accept(())
                 }
             }
         case .restricted, .denied:
@@ -256,6 +258,7 @@ private extension LWAMeasurementView {
                 let average = self.beatDetector.getAverage()
                 let beat = 60.0/average
                 if beat == -60 {
+                    self.isStartMeasure.accept(false)
                     self.progressView.layer.removeAllAnimations()
                     self.progressView.setProgress(0, animated: true)
                     UIView.animate(withDuration: 0.2, animations: {
