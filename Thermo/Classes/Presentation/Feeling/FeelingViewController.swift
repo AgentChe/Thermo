@@ -117,7 +117,8 @@ private extension FeelingViewController {
                 let vc = LWAViewController.make()
                 self?.navigationController?.pushViewController(vc, animated: true)
             case .manually:
-                break
+                let vc = LMViewController.make()
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
         }
     }

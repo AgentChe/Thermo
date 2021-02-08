@@ -100,3 +100,8 @@
 "FSelection.Medicines.Title" = "Medications";
 "FSelection.Medicines.Placeholder" = "Enter the medication";
 "FSelection.Button" = "Done";
+
+// MARK: Logger.Manually
+"LM.Title" = "Сhoose your\ncurrent\ntemperature";
+"LM.Button" = "Done";
+"LM.FailedToCreate" = "Failed to create";
