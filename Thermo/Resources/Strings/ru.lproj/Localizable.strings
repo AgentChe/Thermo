@@ -105,3 +105,12 @@
 "LM.Title" = "Сhoose your\ncurrent\ntemperature";
 "LM.Button" = "Done";
 "LM.FailedToCreate" = "Failed to create";
+
+// MARK: Journal
+"Journal.Title" = "Journal";
+"Journal.Empty.Text" = "Your measurements\nwill appear here";
+"Journal.Empty.Button" = "Add";
+"Journal.Calendar.Today" = "Today";
+"Journal.Calendar.7Days" = "7 days";
+"Journal.Calendar.30Days" = "30 days";
+"Journal.Calendar.Custom" = "Custom";

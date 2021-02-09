@@ -71,6 +71,11 @@
 		96323A5325D0950500C21FD7 /* LMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A5225D0950500C21FD7 /* LMViewModel.swift */; };
 		96323A5625D0951A00C21FD7 /* LMView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A5525D0951900C21FD7 /* LMView.swift */; };
 		96323A5A25D0972700C21FD7 /* TemperatureRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A5925D0972700C21FD7 /* TemperatureRange.swift */; };
+		96323A5F25D1BDDE00C21FD7 /* JournalTableElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A5E25D1BDDE00C21FD7 /* JournalTableElement.swift */; };
+		96323A6225D1BF8E00C21FD7 /* JournalTableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A6125D1BF8E00C21FD7 /* JournalTableSection.swift */; };
+		96323A6625D1C85800C21FD7 /* JournalEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A6525D1C85800C21FD7 /* JournalEmptyView.swift */; };
+		96323A6925D1C96300C21FD7 /* JournalViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A6825D1C96300C21FD7 /* JournalViewControllerDelegate.swift */; };
+		96323A6C25D32F2100C21FD7 /* JournalFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96323A6B25D32F2100C21FD7 /* JournalFilterView.swift */; };
 		963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF521256DB27200285350 /* PaygateMainInfoCell.swift */; };
 		963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */; };
 		963BF593256EA54F00285350 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963BF592256EA54F00285350 /* Record.swift */; };
@@ -135,7 +140,7 @@
 		968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4BD25499E3E00A42C46 /* CircleView.swift */; };
 		968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C52549D6B800A42C46 /* RecordManagerMediator.swift */; };
 		968AE4C92549D74400A42C46 /* RecordManagerMediatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4C82549D74400A42C46 /* RecordManagerMediatorDelegate.swift */; };
-		968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */; };
+		968AE4CE2549DD0000A42C46 /* JTTemperatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4CD2549DD0000A42C46 /* JTTemperatureCell.swift */; };
 		968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4D82549F54600A42C46 /* JournalTableView.swift */; };
 		968AE4FA254AE5C600A42C46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 968AE4F9254AE5C600A42C46 /* GoogleService-Info.plist */; };
 		968AE52E254F5A7C00A42C46 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE52D254F5A7C00A42C46 /* ReminderManager.swift */; };
@@ -183,7 +188,7 @@
 		96F61ED2256BAA5800540DBB /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED1256BAA5800540DBB /* TagView.swift */; };
 		96F61ED5256BAA8500540DBB /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED4256BAA8500540DBB /* TagListView.swift */; };
 		96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61ED8256BAAB500540DBB /* TagViewModel.swift */; };
-		96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */; };
+		96F61EEC256C7A9000540DBB /* JTTemperatureWithTagsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61EEB256C7A9000540DBB /* JTTemperatureWithTagsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -265,6 +270,11 @@
 		96323A5225D0950500C21FD7 /* LMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMViewModel.swift; sourceTree = "<group>"; };
 		96323A5525D0951900C21FD7 /* LMView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMView.swift; sourceTree = "<group>"; };
 		96323A5925D0972700C21FD7 /* TemperatureRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureRange.swift; sourceTree = "<group>"; };
+		96323A5E25D1BDDE00C21FD7 /* JournalTableElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableElement.swift; sourceTree = "<group>"; };
+		96323A6125D1BF8E00C21FD7 /* JournalTableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableSection.swift; sourceTree = "<group>"; };
+		96323A6525D1C85800C21FD7 /* JournalEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEmptyView.swift; sourceTree = "<group>"; };
+		96323A6825D1C96300C21FD7 /* JournalViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewControllerDelegate.swift; sourceTree = "<group>"; };
+		96323A6B25D32F2100C21FD7 /* JournalFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalFilterView.swift; sourceTree = "<group>"; };
 		963BF521256DB27200285350 /* PaygateMainInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaygateMainInfoCell.swift; sourceTree = "<group>"; };
 		963BF524256E5D1B00285350 /* UITapGestureRecognizerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITapGestureRecognizerExtension.swift; sourceTree = "<group>"; };
 		963BF592256EA54F00285350 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
@@ -329,7 +339,7 @@
 		968AE4BD25499E3E00A42C46 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		968AE4C52549D6B800A42C46 /* RecordManagerMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerMediator.swift; sourceTree = "<group>"; };
 		968AE4C82549D74400A42C46 /* RecordManagerMediatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManagerMediatorDelegate.swift; sourceTree = "<group>"; };
-		968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableCell.swift; sourceTree = "<group>"; };
+		968AE4CD2549DD0000A42C46 /* JTTemperatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTTemperatureCell.swift; sourceTree = "<group>"; };
 		968AE4D82549F54600A42C46 /* JournalTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableView.swift; sourceTree = "<group>"; };
 		968AE4F9254AE5C600A42C46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		968AE52D254F5A7C00A42C46 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
@@ -381,7 +391,7 @@
 		96F61ED1256BAA5800540DBB /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		96F61ED4256BAA8500540DBB /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		96F61ED8256BAAB500540DBB /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
-		96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableTagsCell.swift; sourceTree = "<group>"; };
+		96F61EEB256C7A9000540DBB /* JTTemperatureWithTagsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTTemperatureWithTagsCell.swift; sourceTree = "<group>"; };
 		BA8EAE6C3BFCCF6765B66C37 /* Pods-Thermo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.debug.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.debug.xcconfig"; sourceTree = "<group>"; };
 		E9005543DA99C1334A088B60 /* Pods-Thermo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermo.release.xcconfig"; path = "Target Support Files/Pods-Thermo/Pods-Thermo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -665,6 +675,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		96323A5D25D1BDBF00C21FD7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96323A5E25D1BDDE00C21FD7 /* JournalTableElement.swift */,
+				96323A6125D1BF8E00C21FD7 /* JournalTableSection.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		966A54FA2546F53D0099FDAE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -940,10 +959,12 @@
 		968AE486254995B100A42C46 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				96323A5D25D1BDBF00C21FD7 /* Models */,
 				968AE4CB2549DBEE00A42C46 /* Views */,
 				968AE491254996AD00A42C46 /* JournalViewController.swift */,
 				968AE494254996D400A42C46 /* JournalViewModel.swift */,
 				968AE497254996E900A42C46 /* JournalView.swift */,
+				96323A6825D1C96300C21FD7 /* JournalViewControllerDelegate.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -978,9 +999,11 @@
 		968AE4CB2549DBEE00A42C46 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				968AE4CD2549DD0000A42C46 /* JournalTableCell.swift */,
 				968AE4D82549F54600A42C46 /* JournalTableView.swift */,
-				96F61EEB256C7A9000540DBB /* JournalTableTagsCell.swift */,
+				968AE4CD2549DD0000A42C46 /* JTTemperatureCell.swift */,
+				96F61EEB256C7A9000540DBB /* JTTemperatureWithTagsCell.swift */,
+				96323A6525D1C85800C21FD7 /* JournalEmptyView.swift */,
+				96323A6B25D32F2100C21FD7 /* JournalFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1481,12 +1504,14 @@
 				969EF71A2569CBD500BEA8EC /* PaygateMapper.swift in Sources */,
 				9632396325C9E9D800C21FD7 /* AMCheckedCell.swift in Sources */,
 				966A5553254849AA0099FDAE /* AddMemberView.swift in Sources */,
+				96323A6625D1C85800C21FD7 /* JournalEmptyView.swift in Sources */,
 				9632399225CC217000C21FD7 /* RLViewModel.swift in Sources */,
 				96F61E8D256B140900540DBB /* PaymentError.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				9632397825CB12CB00C21FD7 /* OnboardingSliderDelegate.swift in Sources */,
 				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
 				963239FC25CEA65F00C21FD7 /* RCCell.swift in Sources */,
+				96323A6225D1BF8E00C21FD7 /* JournalTableSection.swift in Sources */,
 				966A555E25484B180099FDAE /* TemperatureUnit.swift in Sources */,
 				963BF5C42570550200285350 /* MonetizationConfig.swift in Sources */,
 				963239E925CDE82100C21FD7 /* FeelingSelectionView.swift in Sources */,
@@ -1510,11 +1535,12 @@
 				96F61ECF256BAA4200540DBB /* TagCloseButton.swift in Sources */,
 				8635AE5725CEEF1B000A18D3 /* Video.swift in Sources */,
 				96846D0025699120009841BD /* MedicineManagerCore.swift in Sources */,
+				96323A6925D1C96300C21FD7 /* JournalViewControllerDelegate.swift in Sources */,
 				963BF525256E5D1B00285350 /* UITapGestureRecognizerExtension.swift in Sources */,
 				969EF7322569D25200BEA8EC /* SessionManager.swift in Sources */,
 				9632398F25CC207200C21FD7 /* RLViewController.swift in Sources */,
 				968AE492254996AD00A42C46 /* JournalViewController.swift in Sources */,
-				96F61EEC256C7A9000540DBB /* JournalTableTagsCell.swift in Sources */,
+				96F61EEC256C7A9000540DBB /* JTTemperatureWithTagsCell.swift in Sources */,
 				968AE4712548BCF200A42C46 /* RecordManagerCore.swift in Sources */,
 				968AE4B0254998FD00A42C46 /* ThermoNavigationController.swift in Sources */,
 				969EF71C2569CBD500BEA8EC /* ProductPrice.swift in Sources */,
@@ -1557,6 +1583,7 @@
 				963239C025CD6BF900C21FD7 /* FeelingManager.swift in Sources */,
 				96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */,
 				968AE4832549931D00A42C46 /* MainCoordinator.swift in Sources */,
+				96323A5F25D1BDDE00C21FD7 /* JournalTableElement.swift in Sources */,
 				968AE536254F5ACD00A42C46 /* Weekday.swift in Sources */,
 				9632397E25CB132F00C21FD7 /* OnboardingSlider.swift in Sources */,
 				966A553825472F890099FDAE /* OnboardingView.swift in Sources */,
@@ -1604,9 +1631,10 @@
 				968AE495254996D400A42C46 /* JournalViewModel.swift in Sources */,
 				96F61ED9256BAAB500540DBB /* TagViewModel.swift in Sources */,
 				96323A1525CF071F00C21FD7 /* FSelectionTableCell.swift in Sources */,
-				968AE4CE2549DD0000A42C46 /* JournalTableCell.swift in Sources */,
+				968AE4CE2549DD0000A42C46 /* JTTemperatureCell.swift in Sources */,
 				9632398325CB4B0400C21FD7 /* FeelingViewController.swift in Sources */,
 				968AE4772548C63B00A42C46 /* MainView.swift in Sources */,
+				96323A6C25D32F2100C21FD7 /* JournalFilterView.swift in Sources */,
 				968AE542255053E900A42C46 /* ReminderManagerDelegate.swift in Sources */,
 				963BF593256EA54F00285350 /* Record.swift in Sources */,
 				968AE498254996E900A42C46 /* JournalView.swift in Sources */,

@@ -12,7 +12,11 @@ final class MainCoordinator {
     
     lazy var reminderVC = RLViewController.make()
     lazy var feelingVC = FeelingViewController.make()
-    lazy var journalVC = JournalViewController.make()
+    lazy var journalVC: JournalViewController = {
+        let vc = JournalViewController.make()
+        vc.delegate = self
+        return vc
+    }()
     
     private var previousVC: UIViewController?
     
@@ -31,6 +35,13 @@ final class MainCoordinator {
         case .journal:
             changeVC(on: journalVC)
         }
+    }
+}
+
+// MARK: JournalViewControllerDelegate
+extension MainCoordinator: JournalViewControllerDelegate {
+    func journalViewControllerAdd() {
+        change(tab: .feeling)
     }
 }
 

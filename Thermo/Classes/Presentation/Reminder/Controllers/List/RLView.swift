@@ -90,6 +90,7 @@ private extension RLView {
     
     func makeEmptyView() -> RLEmptyView {
         let view = RLEmptyView()
+        view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
