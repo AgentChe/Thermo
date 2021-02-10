@@ -33,7 +33,9 @@ private extension PulseToTemperature {
             return range.min
         }
         
-        return temperature
+        let rounded = Double(round(temperature * 10) / 10)
+        
+        return rounded
     }
     
     static func fahrenheit(pulse: Double, range: TemperatureRange) -> Double {

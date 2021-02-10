@@ -70,9 +70,9 @@ private extension LWAViewModel {
     func makeLWAResult() -> Driver<LWAResultElement> {
         temperature.map { [weak self] temperature in
             LWAResultElement(
-                min: temperature - 0.5,
-                max: temperature + 0.5,
-                isSuccess: temperature < 37,
+                min: temperature - 0.2,
+                max: temperature + 0.2,
+                isSuccess: temperature < 37.2,
                 unit: self?.memberManager.get()?.temperatureUnit ?? .celsius
             )
         }
