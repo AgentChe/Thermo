@@ -57,8 +57,11 @@ extension LWAResultView {
         .localized
         .attributed(with: titleAttr)
         
+        let min = String(format: "%.1f", result.min)
+        let max = String(format: "%.1f", result.max)
         let unit = result.unit == .celsius ? "Celsius".localized : "Fahrenheit".localized
-        resultLabel.attributedText = "\(result.min)-\(result.max) \(unit)".attributed(with: resultAttr)
+        
+        resultLabel.attributedText = "\(min)-\(max) \(unit)".attributed(with: resultAttr)
         subtitleLabel.attributedText = "LWA.Result.Subtitle".localized.attributed(with: subtitleAttr)
         subtitleLabel.isHidden = result.isSuccess
         

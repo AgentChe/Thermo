@@ -44,6 +44,36 @@ final class JournalFilterView: UIView {
 // MARK: Private
 private extension JournalFilterView {
     func addActions() {
+        todayButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.deselectAll()
+                
+                self?.todayButton.setTitleColor(UIColor(integralRed: 148, green: 165, blue: 225), for: .normal)
+                
+                self?.filter.accept(.today)
+            })
+            .disposed(by: disposeBag)
+        
+        days7Button.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.deselectAll()
+                
+                self?.days7Button.setTitleColor(UIColor(integralRed: 148, green: 165, blue: 225), for: .normal)
+                
+                self?.filter.accept(.days7)
+            })
+            .disposed(by: disposeBag)
+        
+        days30Button.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.deselectAll()
+                
+                self?.days30Button.setTitleColor(UIColor(integralRed: 148, green: 165, blue: 225), for: .normal)
+                
+                self?.filter.accept(.days30)
+            })
+            .disposed(by: disposeBag)
+        
         customButton
             .rx.tap
             .subscribe(onNext: { [weak self] in
@@ -51,51 +81,31 @@ private extension JournalFilterView {
                     return
                 }
                 
+                this.deselectAll()
+                
+                this.customButton.setTitleColor(UIColor(integralRed: 148, green: 165, blue: 225), for: .normal)
+                
                 let vc = CalendarPickerViewController(baseDate: Date()) { date in
+                    this.filter.accept(.custom(date))
                 }
                 
                 this.journalVC?.present(vc, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func deselectAll() {
+        let uColor = UIColor(integralRed: 161, green: 161, blue: 161)
         
-        
-//        Observable
-//            .merge(
-//                todayButton.rx.tap.map { Filter.today },
-//                days7Button.rx.tap.map { Filter.days7 },
-//                days30Button.rx.tap.map { Filter.days30 },
-//                customButton.rx.tap.map { Filter.custom }
-//            )
-//            .subscribe(onNext: { [weak self] filter in
-//                guard let this = self else {
-//                    return
-//                }
-//
-//                let sColor = UIColor(integralRed: 148, green: 165, blue: 225)
-//                let uColor = UIColor(integralRed: 161, green: 161, blue: 161)
-//
-//                if filter == this.filter.value {
-//                    [
-//                        this.todayButton,
-//                        this.days7Button,
-//                        this.days30Button,
-//                        this.customButton
-//                    ]
-//                    .forEach {
-//                        $0.setTitleColor(uColor, for: .normal)
-//                    }
-//
-//                    this.filter.accept(.none)
-//                } else {
-//                    this.todayButton.setTitleColor(filter == .today ? sColor : uColor, for: .normal)
-//                    this.days7Button.setTitleColor(filter == .days7 ? sColor : uColor, for: .normal)
-//                    this.days30Button.setTitleColor(filter == .days30 ? sColor : uColor, for: .normal)
-//                    this.customButton.setTitleColor(filter == .custom ? sColor : uColor, for: .normal)
-//
-//                    this.filter.accept(filter)
-//                }
-//            })
-//            .disposed(by: disposeBag)
+        [
+            todayButton,
+            days7Button,
+            days30Button,
+            customButton
+        ]
+        .forEach {
+            $0.setTitleColor(uColor, for: .normal)
+        }
     }
 }
 

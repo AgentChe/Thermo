@@ -23,11 +23,30 @@ private extension JournalViewModel {
         let calendar = Calendar.current
         let components: Set<Calendar.Component> = [.day, .month, .year]
         
+        let initial = recordsManager
+            .rxGetRecords()
+            .asDriver(onErrorJustReturn: [])
+        
+        let updated = RecordManagerMediator.shared
+            .rxLoggedRecord
+            .flatMap { [weak self] void -> Driver<[Record]> in
+                guard let this = self else {
+                    return .empty()
+                }
+                
+                return this.recordsManager
+                    .rxGetRecords()
+                    .asDriver(onErrorJustReturn: [])
+            }
+        
+        let records = Driver<[Record]>
+            .merge(initial, updated)
+            .asObservable()
+        
         // Отдельная группировка по датам и мапинг в модели
         // чтобы одно и тоже не делать при каждом переключении
         // фильтра
-        let groupedElementsByDate = recordsManager
-            .rxGetRecords()
+        let groupedElementsByDate = records
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
             .map { records -> [Date: [JournalTableElement]] in
                 let initialValue = [Date: [JournalTableElement]]()
@@ -57,7 +76,7 @@ private extension JournalViewModel {
                     let todayComponents = calendar.dateComponents(components, from: currentDate)
                     let todayDate = calendar.date(from: todayComponents)!
                     
-                    return elements[todayDate].map { [JournalTableSection(title: "Today", elements: $0)] } ?? []
+                    return elements[todayDate].map { [JournalTableSection(title: "Journal.Calendar.Today".localized, elements: $0)] } ?? []
                 case .days7:
                     let todayComponents = calendar.dateComponents(components, from: currentDate)
                     let todayDate = calendar.date(from: todayComponents)!
@@ -70,7 +89,7 @@ private extension JournalViewModel {
                         .flatMap { $0.value }
                     
                     return !elements.isEmpty
-                        ? [JournalTableSection(title: "7 days", elements: elements)]
+                        ? [JournalTableSection(title: "Journal.Calendar.7Days".localized, elements: elements)]
                         : []
                     
                 case .days30:
@@ -85,7 +104,7 @@ private extension JournalViewModel {
                         .flatMap { $0.value }
                     
                     return !elements.isEmpty
-                        ? [JournalTableSection(title: "30 days", elements: elements)]
+                        ? [JournalTableSection(title: "Journal.Calendar.30Days".localized, elements: elements)]
                         : []
                 case let .custom(value):
                     let dateFormatter = DateFormatter()
@@ -106,7 +125,7 @@ private extension JournalViewModel {
     static func recordToElement(record: Record) -> JournalTableElement {
         let tags = record.medicines.map { $0.name } + record.symptoms.map { $0.name }
         
-        if tags.isEmpty {
+        if !tags.isEmpty {
             return .temperatureWithTags(
                 JTTemperatureWithTags(
                     feeling: record.feeling,

@@ -8,7 +8,7 @@
 // TODO
 final class PulseToTemperature {
     static func calculate(pulse: Double, unit: TemperatureUnit) -> Double {
-        let range = TemperatureRange(for: unit)
+        let range = TemperatureRange(for: .celsius)
         
         switch unit {
         case .celsius:
@@ -33,12 +33,9 @@ private extension PulseToTemperature {
             return range.min
         }
         
-        let rounded = Double(round(temperature * 10) / 10)
+        let divisor = pow(10.0, Double(1))
+        let rounded = (temperature * divisor).rounded() / divisor
         
         return rounded
-    }
-    
-    static func fahrenheit(pulse: Double, range: TemperatureRange) -> Double {
-        return 0
     }
 }
