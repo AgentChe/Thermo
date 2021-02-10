@@ -1847,8 +1847,8 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = 2W4U9UWRKZ;
+				CURRENT_PROJECT_VERSION = 24;
+				DEVELOPMENT_TEAM = W644U2Y4YS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1860,10 +1860,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = health.tempy;
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = app.tempy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Thermo Development";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempy Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thermo/Resources/Thermo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1879,8 +1879,8 @@
 				CODE_SIGN_ENTITLEMENTS = Thermo/Thermo.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 23;
-				DEVELOPMENT_TEAM = 2W4U9UWRKZ;
+				CURRENT_PROJECT_VERSION = 24;
+				DEVELOPMENT_TEAM = W644U2Y4YS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1892,10 +1892,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = health.tempy;
+				MARKETING_VERSION = 2.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = app.tempy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Thermo AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "Tempy AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Thermo/Resources/Thermo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
