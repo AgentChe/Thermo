@@ -47,6 +47,8 @@ final class JournalViewController: UIViewController {
             .filterView.filter
             .bind(to: viewModel.filter)
             .disposed(by: disposeBag)
+        
+        mainView.filterView.journalVC = self
     }
 }
 

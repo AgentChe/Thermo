@@ -14,12 +14,14 @@ struct TemperatureRange {
     let normal: Double
     let unit: TemperatureUnit
     
-    init(for unit: Member) {
-        self.unit = unit.temperatureUnit
+    let normalBMP = Double(70)
+    
+    init(for unit: TemperatureUnit) {
+        self.unit = unit
         
         step = 0.1
         
-        switch unit.temperatureUnit {
+        switch unit {
         case .celsius:
             min = 34.0
             max = 42.0

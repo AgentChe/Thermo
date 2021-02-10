@@ -57,7 +57,7 @@ private extension LMViewModel {
         membersManager
             .rxGet()
             .compactMap { $0 }
-            .map { TemperatureRange(for: $0) }
+            .map { TemperatureRange(for: $0.temperatureUnit) }
             .asDriver(onErrorDriveWith: .empty())
     }
 }

@@ -5,9 +5,38 @@
 //  Created by Andrey Chernyshev on 05.02.2021.
 //
 
+// TODO
 final class PulseToTemperature {
-    // TODO
-    static func calculate(pulse: Double) -> Double {
-        37.6
+    static func calculate(pulse: Double, unit: TemperatureUnit) -> Double {
+        let range = TemperatureRange(for: unit)
+        
+        switch unit {
+        case .celsius:
+            return celsius(pulse: pulse, range: range)
+        case .fahrenheit:
+            return (celsius(pulse: pulse, range: range) * 1.8) + 32
+        }
+    }
+}
+
+// MARK: Private
+private extension PulseToTemperature {
+    static func celsius(pulse: Double, range: TemperatureRange) -> Double {
+        // 1 bmp == 0.1 градус
+        // pulse 70 -> 36.6
+        
+        let temperature = (pulse - range.normalBMP) * 0.1 + range.normal
+        
+        if temperature > range.max {
+            return range.max
+        } else if temperature < range.min {
+            return range.min
+        }
+        
+        return temperature
+    }
+    
+    static func fahrenheit(pulse: Double, range: TemperatureRange) -> Double {
+        return 0
     }
 }

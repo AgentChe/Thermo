@@ -24,6 +24,15 @@
 "Saturday" = "土曜日";
 "Sunday" = "日曜日";
 
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
+
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "写真を撮影";
 "ImagePicker.CameraRoll" = "カメラロール";

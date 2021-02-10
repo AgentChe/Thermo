@@ -180,6 +180,11 @@
 		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
 		96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */; };
+		96DAEC7E25D3EA0500A585B8 /* CalendarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC7D25D3EA0500A585B8 /* CalendarPickerViewController.swift */; };
+		96DAEC8525D3EA2900A585B8 /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8425D3EA2900A585B8 /* CalendarPickerHeaderView.swift */; };
+		96DAEC8825D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8725D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift */; };
+		96DAEC8C25D3EA7400A585B8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8B25D3EA7400A585B8 /* Day.swift */; };
+		96DAEC8F25D3ECC200A585B8 /* MonthMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8E25D3ECC200A585B8 /* MonthMetadata.swift */; };
 		96F61E89256B140900540DBB /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E82256B140900540DBB /* ApiError.swift */; };
 		96F61E8A256B140900540DBB /* SignError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E83256B140900540DBB /* SignError.swift */; };
 		96F61E8C256B140900540DBB /* ErrorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F61E86256B140900540DBB /* ErrorChecker.swift */; };
@@ -383,6 +388,11 @@
 		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
 		96CDB6AF257A23DC0048F008 /* Thermo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thermo.entitlements; sourceTree = "<group>"; };
 		96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerAnalytics.swift; sourceTree = "<group>"; };
+		96DAEC7D25D3EA0500A585B8 /* CalendarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerViewController.swift; sourceTree = "<group>"; };
+		96DAEC8425D3EA2900A585B8 /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
+		96DAEC8725D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		96DAEC8B25D3EA7400A585B8 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		96DAEC8E25D3ECC200A585B8 /* MonthMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthMetadata.swift; sourceTree = "<group>"; };
 		96F61E82256B140900540DBB /* ApiError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		96F61E83256B140900540DBB /* SignError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignError.swift; sourceTree = "<group>"; };
 		96F61E86256B140900540DBB /* ErrorChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorChecker.swift; sourceTree = "<group>"; };
@@ -959,6 +969,7 @@
 		968AE486254995B100A42C46 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
+				96DAEC7C25D3DBA000A585B8 /* Calendar */,
 				96323A5D25D1BDBF00C21FD7 /* Models */,
 				968AE4CB2549DBEE00A42C46 /* Views */,
 				968AE491254996AD00A42C46 /* JournalViewController.swift */,
@@ -1300,6 +1311,26 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		96DAEC7C25D3DBA000A585B8 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				96DAEC8A25D3EA6400A585B8 /* Models */,
+				96DAEC7D25D3EA0500A585B8 /* CalendarPickerViewController.swift */,
+				96DAEC8425D3EA2900A585B8 /* CalendarPickerHeaderView.swift */,
+				96DAEC8725D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		96DAEC8A25D3EA6400A585B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				96DAEC8B25D3EA7400A585B8 /* Day.swift */,
+				96DAEC8E25D3ECC200A585B8 /* MonthMetadata.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		96F61E81256B140900540DBB /* Error */ = {
 			isa = PBXGroup;
 			children = (
@@ -1480,6 +1511,7 @@
 				8635AE5225CEEEFA000A18D3 /* Filter.swift in Sources */,
 				968AE4D92549F54600A42C46 /* JournalTableView.swift in Sources */,
 				96323A5325D0950500C21FD7 /* LMViewModel.swift in Sources */,
+				96DAEC7E25D3EA0500A585B8 /* CalendarPickerViewController.swift in Sources */,
 				963239AE25CC2F4600C21FD7 /* RLTableCell.swift in Sources */,
 				966A556525484E940099FDAE /* MembersManager.swift in Sources */,
 				966A552E25472D6E0099FDAE /* UIColorExtension.swift in Sources */,
@@ -1494,6 +1526,7 @@
 				96323A5625D0951A00C21FD7 /* LMView.swift in Sources */,
 				963BF5CA257168EF00285350 /* MonetizationManager.swift in Sources */,
 				96846D1225699975009841BD /* GetSymptomsRequest.swift in Sources */,
+				96DAEC8C25D3EA7400A585B8 /* Day.swift in Sources */,
 				963BF522256DB27200285350 /* PaygateMainInfoCell.swift in Sources */,
 				96846D0E25699947009841BD /* Symptom.swift in Sources */,
 				969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */,
@@ -1509,6 +1542,7 @@
 				96F61E8D256B140900540DBB /* PaymentError.swift in Sources */,
 				966A55682548500F0099FDAE /* MembersManagerCore.swift in Sources */,
 				9632397825CB12CB00C21FD7 /* OnboardingSliderDelegate.swift in Sources */,
+				96DAEC8F25D3ECC200A585B8 /* MonthMetadata.swift in Sources */,
 				96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */,
 				963239FC25CEA65F00C21FD7 /* RCCell.swift in Sources */,
 				96323A6225D1BF8E00C21FD7 /* JournalTableSection.swift in Sources */,
@@ -1523,6 +1557,7 @@
 				969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */,
 				968AE59A255298B100A42C46 /* ImageManager.swift in Sources */,
 				8635AE4B25CEEECB000A18D3 /* UIColor.swift in Sources */,
+				96DAEC8525D3EA2900A585B8 /* CalendarPickerHeaderView.swift in Sources */,
 				968E41C22546F49E006F3CFC /* Scalable.swift in Sources */,
 				963239DC25CDD16000C21FD7 /* LWAResultView.swift in Sources */,
 				9632397B25CB12FA00C21FD7 /* OnboardingSliderIndicatorsView.swift in Sources */,
@@ -1577,6 +1612,7 @@
 				96323A0D25CEFF9200C21FD7 /* FSelectionView.swift in Sources */,
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
+				96DAEC8825D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift in Sources */,
 				968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */,
 				963239F125CDFA4600C21FD7 /* SLViewController.swift in Sources */,
 				968AE597255295BD00A42C46 /* ImageManagerCore.swift in Sources */,

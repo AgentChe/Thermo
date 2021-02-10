@@ -24,6 +24,15 @@
 "Saturday" = "Суббота";
 "Sunday" = "Воскресенье";
 
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
+
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Сделать фото";
 "ImagePicker.CameraRoll" = "Фотопленка";

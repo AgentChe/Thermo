@@ -11,8 +11,14 @@ import RxCocoa
 
 final class JournalFilterView: UIView {
     enum Filter {
-        case none, today, days7, days30, custom
+        case none
+        case today
+        case days7
+        case days30
+        case custom(Date)
     }
+    
+    weak var journalVC: JournalViewController?
     
     lazy var todayButton = makeButton(text: "Journal.Calendar.Today")
     lazy var days7Button = makeButton(text: "Journal.Calendar.7Days")
@@ -38,43 +44,58 @@ final class JournalFilterView: UIView {
 // MARK: Private
 private extension JournalFilterView {
     func addActions() {
-        Observable
-            .merge(
-                todayButton.rx.tap.map { Filter.today },
-                days7Button.rx.tap.map { Filter.days7 },
-                days30Button.rx.tap.map { Filter.days30 },
-                customButton.rx.tap.map { Filter.custom }
-            )
-            .subscribe(onNext: { [weak self] filter in
+        customButton
+            .rx.tap
+            .subscribe(onNext: { [weak self] in
                 guard let this = self else {
                     return
                 }
                 
-                let sColor = UIColor(integralRed: 148, green: 165, blue: 225)
-                let uColor = UIColor(integralRed: 161, green: 161, blue: 161)
-                
-                if filter == this.filter.value {
-                    [
-                        this.todayButton,
-                        this.days7Button,
-                        this.days30Button,
-                        this.customButton
-                    ]
-                    .forEach {
-                        $0.setTitleColor(uColor, for: .normal)
-                    }
-                    
-                    this.filter.accept(.none)
-                } else {
-                    this.todayButton.setTitleColor(filter == .today ? sColor : uColor, for: .normal)
-                    this.days7Button.setTitleColor(filter == .days7 ? sColor : uColor, for: .normal)
-                    this.days30Button.setTitleColor(filter == .days30 ? sColor : uColor, for: .normal)
-                    this.customButton.setTitleColor(filter == .custom ? sColor : uColor, for: .normal)
-                    
-                    this.filter.accept(filter)
+                let vc = CalendarPickerViewController(baseDate: Date()) { date in
                 }
+                
+                this.journalVC?.present(vc, animated: true)
             })
             .disposed(by: disposeBag)
+        
+        
+//        Observable
+//            .merge(
+//                todayButton.rx.tap.map { Filter.today },
+//                days7Button.rx.tap.map { Filter.days7 },
+//                days30Button.rx.tap.map { Filter.days30 },
+//                customButton.rx.tap.map { Filter.custom }
+//            )
+//            .subscribe(onNext: { [weak self] filter in
+//                guard let this = self else {
+//                    return
+//                }
+//
+//                let sColor = UIColor(integralRed: 148, green: 165, blue: 225)
+//                let uColor = UIColor(integralRed: 161, green: 161, blue: 161)
+//
+//                if filter == this.filter.value {
+//                    [
+//                        this.todayButton,
+//                        this.days7Button,
+//                        this.days30Button,
+//                        this.customButton
+//                    ]
+//                    .forEach {
+//                        $0.setTitleColor(uColor, for: .normal)
+//                    }
+//
+//                    this.filter.accept(.none)
+//                } else {
+//                    this.todayButton.setTitleColor(filter == .today ? sColor : uColor, for: .normal)
+//                    this.days7Button.setTitleColor(filter == .days7 ? sColor : uColor, for: .normal)
+//                    this.days30Button.setTitleColor(filter == .days30 ? sColor : uColor, for: .normal)
+//                    this.customButton.setTitleColor(filter == .custom ? sColor : uColor, for: .normal)
+//
+//                    this.filter.accept(filter)
+//                }
+//            })
+//            .disposed(by: disposeBag)
     }
 }
 

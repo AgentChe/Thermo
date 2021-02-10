@@ -57,7 +57,13 @@ private extension LWAViewModel {
     
     func makeTemperature() -> Driver<Double> {
         pulse
-            .map { PulseToTemperature.calculate(pulse: $0) }
+            .map { [weak self] pulse -> Double in
+                guard let unit = self?.memberManager.get()?.temperatureUnit else {
+                    return 0
+                }
+                
+                return PulseToTemperature.calculate(pulse: pulse, unit: unit)
+            }
             .asDriver(onErrorDriveWith: .empty())
     }
     

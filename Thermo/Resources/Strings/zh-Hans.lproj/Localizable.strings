@@ -24,6 +24,15 @@
 "Saturday" = "星期六";
 "Sunday" = "星期日";
 
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
+
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "拍照";
 "ImagePicker.CameraRoll" = "相机胶卷";
