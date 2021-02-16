@@ -2,26 +2,25 @@
 //  JournalTableElement.swift
 //  Thermo
 //
-//  Created by Andrey Chernyshev on 28.10.2020.
+//  Created by Andrey Chernyshev on 08.02.2021.
 //
 
+import Foundation
+
 enum JournalTableElement {
-    case report(JTReport)
-    case tags(JTTags)
+    case temperature(JTTemperature)
+    case temperatureWithTags(JTTemperatureWithTags)
 }
 
-struct JTReport {
+struct JTTemperature {
+    let feeling: Feeling
+    let temperature: Temperature
     let date: Date
-    let temperature: Double
-    let unit: TemperatureUnit
-    let overallFeeiling: OverallFeeling?
 }
 
-struct JTTags {
-    enum Style {
-        case medicines, symptoms
-    }
-    
-    let style: Style
-    let tags: [TagViewModel]
+struct JTTemperatureWithTags {
+    let feeling: Feeling
+    let temperature: Temperature
+    let date: Date
+    let tags: [String]
 }

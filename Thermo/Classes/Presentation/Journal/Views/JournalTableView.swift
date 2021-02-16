@@ -9,13 +9,13 @@ import UIKit
 
 final class JournalTableView: UITableView {
     private var sections = [JournalTableSection]()
-    
+
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        
-        configure()
+
+        initialize()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,7 +25,7 @@ final class JournalTableView: UITableView {
 extension JournalTableView {
     func setup(sections: [JournalTableSection]) {
         self.sections = sections
-        
+
         reloadData()
     }
 }
@@ -33,58 +33,35 @@ extension JournalTableView {
 // MARK: UITableViewDelegate
 extension JournalTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch sections[indexPath.section].elements[indexPath.row] {
-        case .report:
-            return 50.scale
-        case .tags:
-            return UITableView.automaticDimension
-        }
+        UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        UITableView.automaticDimension
+    }
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        14.scale
+        60.scale
     }
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor(integralRed: 246, green: 246, blue: 246)
+        
+        let attrs = TextAttributes()
+            .textColor(UIColor(integralRed: 189, green: 189, blue: 189))
+            .font(Fonts.Poppins.regular(size: 17.scale))
+            .lineHeight(27.scale)
+            .letterSpacing(-0.4.scale)
+        
+        let label = UILabel()
+        label.frame.origin = CGPoint(x: 30.scale, y: 25.scale)
+        label.attributedText = sections[section].title.attributed(with: attrs)
+        view.addSubview(label)
+        
+        label.sizeToFit()
+        
         return view
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cornerRadius = 11.scale
-
-        let layer = CAShapeLayer()
-        let pathRef = CGMutablePath()
-        let bounds = cell.bounds.insetBy(dx: 16.scale, dy: 0)
-        var addLine = false
-
-        if indexPath.row == 0 && indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            pathRef.__addRoundedRect(transform: nil, rect: bounds, cornerWidth: cornerRadius, cornerHeight: cornerRadius)
-        } else if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
-            pathRef.move(to: .init(x: bounds.minX, y: bounds.minY))
-            pathRef.addArc(tangent1End: .init(x: bounds.minX, y: bounds.maxY), tangent2End: .init(x: bounds.midX, y: bounds.maxY), radius: cornerRadius)
-            pathRef.addArc(tangent1End: .init(x: bounds.maxX, y: bounds.maxY), tangent2End: .init(x: bounds.maxX, y: bounds.midY), radius: cornerRadius)
-            pathRef.addLine(to: .init(x: bounds.maxX, y: bounds.minY))
-        } else {
-            pathRef.addRect(bounds)
-            addLine = true
-        }
-
-        layer.path = pathRef
-        layer.fillColor = UIColor(integralRed: 239, green: 239, blue: 244).cgColor
-
-        if (addLine == true) {
-            let lineLayer = CALayer()
-            let lineHeight = 1.0 / UIScreen.main.scale
-            lineLayer.frame = CGRect(x: bounds.minX, y: bounds.size.height - lineHeight, width: bounds.size.width, height: lineHeight)
-            layer.addSublayer(lineLayer)
-        }
-
-        let testView = UIView(frame: bounds)
-        testView.layer.insertSublayer(layer, at: 0)
-        testView.backgroundColor = .clear
-        cell.backgroundView = testView
     }
 }
 
@@ -93,22 +70,22 @@ extension JournalTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         sections.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sections[section].elements.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let element = sections[indexPath.section].elements[indexPath.row]
-        
+
         switch element {
-        case .report(let report):
-            let cell = dequeueReusableCell(withIdentifier: String(describing: JournalTableCell.self)) as! JournalTableCell
-            cell.setup(report: report)
+        case .temperature(let temperature):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: JTTemperatureCell.self)) as! JTTemperatureCell
+            cell.setup(temperature: temperature)
             return cell
-        case .tags(let tags):
-            let cell = dequeueReusableCell(withIdentifier: String(describing: JournalTableTagsCell.self)) as! JournalTableTagsCell
-            cell.setup(tags: tags)
+        case .temperatureWithTags(let temperatureWithTags):
+            let cell = dequeueReusableCell(withIdentifier: String(describing: JTTemperatureWithTagsCell.self)) as! JTTemperatureWithTagsCell
+            cell.setup(temperatureWithTags: temperatureWithTags)
             return cell
         }
     }
@@ -116,10 +93,10 @@ extension JournalTableView: UITableViewDataSource {
 
 // MARK: Private
 private extension JournalTableView {
-    func configure() {
-        register(JournalTableCell.self, forCellReuseIdentifier: String(describing: JournalTableCell.self))
-        register(JournalTableTagsCell.self, forCellReuseIdentifier: String(describing: JournalTableTagsCell.self))
-        
+    func initialize() {
+        register(JTTemperatureCell.self, forCellReuseIdentifier: String(describing: JTTemperatureCell.self))
+        register(JTTemperatureWithTagsCell.self, forCellReuseIdentifier: String(describing: JTTemperatureWithTagsCell.self))
+
         dataSource = self
         delegate = self
     }

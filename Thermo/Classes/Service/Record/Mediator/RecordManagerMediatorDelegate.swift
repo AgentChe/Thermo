@@ -6,7 +6,5 @@
 //
 
 protocol RecordManagerMediatorDelegate: class {
-    func recordManagerMediatorDidLogged(record: Record)
-    func recordManagerMediatorDidRemoved(recordId: Int)
-    func recordManagerMediatorDidRemovedAll(for memberId: Int)
+    func recordManagerMediatorDidAdded(record: Record)
 }

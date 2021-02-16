@@ -9,247 +9,139 @@ import RxSwift
 import RxCocoa
 
 final class JournalViewModel {
-    private let recordManager = RecordManagerCore()
-    private let membersManager = MembersManagerCore()
-    private let imageManager = ImageManagerCore()
-    private let sessionManager = SessionManagerCore()
-    private let monetizationManager = MonetizationManagerCore()
+    lazy var filter = PublishRelay<JournalFilterView.Filter>()
     
-    func currentMemberHasSymptoms() -> Single<Bool> {
-        getCurrentMemberSymptomsCount()
-            .map { $0 > 0 }
-    }
-
-    func needPaymentForAnalyze() -> Bool {
-        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
-        let needPayment = monetizationManager.getMonetizationConfig()?.beforeAnalyzeSymptoms ?? false
-        
-        if hasActiveSubscription {
-            return false
-        }
-        
-        return needPayment
-    }
+    private lazy var recordsManager = RecordManagerCore()
     
-    func memberImage() -> Driver<UIImage> {
-        getMemberImage()
-            .asDriver(onErrorDriveWith: .empty())
-    }
-    
-    func sections() -> Driver<[JournalTableSection]> {
-        makeSections()
-            .asDriver(onErrorJustReturn: [])
-    }
-    
-    func currentMemberIsHuman() -> Driver<Bool> {
-        getMember()
-            .map { member in
-                switch member.unit {
-                case .me, .child, .parent, .other:
-                    return true
-                case .animal, .object:
-                    return false
-                }
-            }
-            .asDriver(onErrorJustReturn: false)
-    }
+    lazy var sections = makeSections()
 }
 
 // MARK: Private
 private extension JournalViewModel {
-    func getCurrentMemberSymptomsCount() -> Single<Int> {
-        membersManager
-            .rxCurrentMember()
-            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
-            .flatMap { [weak self] member -> Single<Int> in
-                guard let this = self, let currentMember = member else {
-                    return .never()
-                }
-                
-                return this.recordManager
-                    .rxGet(for: currentMember.id)
-                    .map { records -> Int in
-                        records.reduce(0) { count, record in
-                            guard let humanRecord = record as? HumanRecord else {
-                                return count
-                            }
-                            
-                            return count + humanRecord.symptoms.count
-                        }
-                    }
-            }
-            .observe(on: MainScheduler.asyncInstance)
-    }
-    
-    func getMemberImage() -> Observable<UIImage> {
-        getMember()
-            .flatMapLatest { [weak self] member -> Observable<UIImage> in
+    func makeSections() -> Driver<[JournalTableSection]> {
+        let currentDate = Date()
+        let calendar = Calendar.current
+        let components: Set<Calendar.Component> = [.day, .month, .year]
+        
+        let initial = recordsManager
+            .rxGetRecords()
+            .asDriver(onErrorJustReturn: [])
+        
+        let updated = RecordManagerMediator.shared
+            .rxLoggedRecord
+            .flatMap { [weak self] void -> Driver<[Record]> in
                 guard let this = self else {
                     return .empty()
                 }
                 
-                switch member.unit {
-                case .me(let human), .child(let human), .parent(let human), .other(let human):
-                    guard let imageKey = human.imageKey else {
-                        let image = this.image(for: member.unit)
-                        
-                        return Observable<UIImage?>
-                            .just(image)
-                            .compactMap { $0 }
-                    }
-                    
-                    return this.imageManager
-                        .rxRetrieve(key: imageKey)
-                        .asObservable()
-                        .compactMap { $0 }
-                case .animal:
-                    return Observable<UIImage?>
-                        .just(this.image(for: member.unit))
-                        .compactMap { $0 }
-                case .object:
-                    return Observable<UIImage?>
-                        .just(this.image(for: member.unit))
-                        .compactMap { $0 }
-                }
+                return this.recordsManager
+                    .rxGetRecords()
+                    .asDriver(onErrorJustReturn: [])
             }
-    }
-    
-    func makeSections() -> Observable<[JournalTableSection]> {
-        getMember()
+        
+        let records = Driver<[Record]>
+            .merge(initial, updated)
+            .asObservable()
+        
+        // Отдельная группировка по датам и мапинг в модели
+        // чтобы одно и тоже не делать при каждом переключении
+        // фильтра
+        let groupedElementsByDate = records
             .observe(on: ConcurrentDispatchQueueScheduler(qos: .background))
-            .flatMapLatest(getRecords(member:))
-            .map(sortAndMap(records:))
-            .observe(on: MainScheduler.asyncInstance)
-    }
-    
-    func getRecords(member: Member) -> Observable<[Record]> {
-        Observable
-            .combineLatest(
-                recordManager
-                    .rxGet(for: member.id)
-                    .asObservable(),
+            .map { records -> [Date: [JournalTableElement]] in
+                let initialValue = [Date: [JournalTableElement]]()
+                let calendar = Calendar.current
                 
-                RecordManagerMediator.shared
-                    .rxLoggedRecord
-                    .asObservable()
-                    .scan([Record]()) { added, new -> [Record] in
-                        added + [new]
-                    }
-                    .startWith([]),
-                
-                RecordManagerMediator.shared
-                    .rxRemovedRecordId
-                    .asObservable()
-                    .scan([Int]()) { removed, new -> [Int] in
-                        removed + [new]
-                    }
-                    .startWith([])
-            )
-            .map { initial, added, removed -> [Record] in
-                var result = initial + added
-                
-                for remove in removed {
-                    result.removeAll(where: { $0.id == remove })
+                return records.reduce(into: initialValue) { (old, record) in
+                    let components = calendar.dateComponents(components, from: record.date)
+                    let date = calendar.date(from: components)!
+                    let existing = old[date] ?? []
+                    let element = Self.recordToElement(record: record)
+                    old[date] = existing + [element]
                 }
-                
-                return result
             }
+        
+        let elements = Observable
+            .combineLatest(filter, groupedElementsByDate.asObservable())
+            .map { filter, elements -> [JournalTableSection] in
+                switch filter {
+                case .none:
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd.MM.yy"
+                    
+                    return elements
+                        .sorted { $0.key > $1.key }
+                        .map { JournalTableSection(title: dateFormatter.string(from: $0), elements: $1) }
+                case .today:
+                    let todayComponents = calendar.dateComponents(components, from: currentDate)
+                    let todayDate = calendar.date(from: todayComponents)!
+                    
+                    return elements[todayDate].map { [JournalTableSection(title: "Journal.Calendar.Today".localized, elements: $0)] } ?? []
+                case .days7:
+                    let todayComponents = calendar.dateComponents(components, from: currentDate)
+                    let todayDate = calendar.date(from: todayComponents)!
+                    let days7Before = calendar.date(byAdding: .day, value: -7, to: todayDate)!
+                    let dateInterval = DateInterval(start: days7Before, end: todayDate)
+                    
+                    let elements = elements
+                        .compactMap { dateInterval.contains($0.key) ? $0 : nil }
+                        .sorted { $0.key > $1.key }
+                        .flatMap { $0.value }
+                    
+                    return !elements.isEmpty
+                        ? [JournalTableSection(title: "Journal.Calendar.7Days".localized, elements: elements)]
+                        : []
+                    
+                case .days30:
+                    let todayComponents = calendar.dateComponents(components, from: currentDate)
+                    let todayDate = calendar.date(from: todayComponents)!
+                    let days30Before = calendar.date(byAdding: .day, value: -30, to: todayDate)!
+                    let dateInterval = DateInterval(start: days30Before, end: todayDate)
+                    
+                    let elements = elements
+                        .compactMap { dateInterval.contains($0.key) ? $0 : nil }
+                        .sorted { $0.key > $1.key }
+                        .flatMap { $0.value }
+                    
+                    return !elements.isEmpty
+                        ? [JournalTableSection(title: "Journal.Calendar.30Days".localized, elements: elements)]
+                        : []
+                case let .custom(value):
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd.MM.yy"
+                    
+                    let dateComponents = calendar.dateComponents(components, from: value)
+                    let customDate = calendar.date(from: dateComponents)!
+                    
+                    return elements[customDate].map { [JournalTableSection(title: dateFormatter.string(from: customDate), elements: $0)] } ?? []
+                }
+            }
+        
+        return elements
+            .observe(on: MainScheduler.asyncInstance)
+            .asDriver(onErrorJustReturn: [])
     }
     
-    func sortAndMap(records: [Record]) -> [JournalTableSection] {
-        records
-            .sorted(by: {
-                $0.date.compare($1.date) == .orderedDescending
-            })
-            .compactMap(map(record:))
-    }
-    
-    func map(record: Record) -> JournalTableSection? {
-        if let humanRecord = record as? HumanRecord {
-            return map(humanRecord: humanRecord)
-        }
+    static func recordToElement(record: Record) -> JournalTableElement {
+        let tags = record.medicines.map { $0.name } + record.symptoms.map { $0.name }
         
-        if let animalRecord = record as? AnimalRecord {
-            return map(animalRecord: animalRecord)
-        }
-        
-        if let objectRecord = record as? ObjectRecord {
-            return map(objectRecord: objectRecord)
-        }
-        
-        return nil
-    }
-    
-    func map(humanRecord: HumanRecord) -> JournalTableSection {
-        var elements = [JournalTableElement]()
-        
-        let jtRecord = JTReport(date: humanRecord.date,
-                                temperature: humanRecord.temperature.value,
-                                unit: humanRecord.temperature.unit,
-                                overallFeeiling: humanRecord.overallFeeling)
-        elements.append(.report(jtRecord))
-        
-        if !humanRecord.medicines.isEmpty {
-            let tags = JTTags(style: .medicines, tags: humanRecord.medicines.map { TagViewModel(id: $0.id, name: $0.name) })
-            
-            elements.append(.tags(tags))
-        }
-        
-        if !humanRecord.symptoms.isEmpty {
-            let tags = JTTags(style: .symptoms, tags: humanRecord.symptoms.map { TagViewModel(id: $0.id, name: $0.name) })
-            
-            elements.append(.tags(tags))
-        }
-        
-        return JournalTableSection(elements: elements)
-    }
-    
-    func map(animalRecord: AnimalRecord) -> JournalTableSection {
-        var elements = [JournalTableElement]()
-        
-        let jtRecord = JTReport(date: animalRecord.date,
-                                temperature: animalRecord.temperature.value,
-                                unit: animalRecord.temperature.unit,
-                                overallFeeiling: nil)
-        elements.append(.report(jtRecord))
-        
-        return JournalTableSection(elements: elements)
-    }
-    
-    func map(objectRecord: ObjectRecord) -> JournalTableSection {
-        var elements = [JournalTableElement]()
-        
-        let jtRecord = JTReport(date: objectRecord.date,
-                                temperature: objectRecord.temperature.value,
-                                unit: objectRecord.temperature.unit,
-                                overallFeeiling: nil)
-        elements.append(.report(jtRecord))
-        
-        return JournalTableSection(elements: elements)
-    }
-    
-    func getMember() -> Observable<Member> {
-        Observable<Member>
-            .merge([
-                membersManager.rxCurrentMember().asObservable().compactMap { $0 },
-                MembersManagerMediator.shared.rxDidSetCurrentMember.asObservable()
-            ])
-    }
-    
-    func image(for memberUnit: MemberUnit) -> UIImage? {
-        switch memberUnit {
-        case .me:
-            return UIImage(named: "Members.Me.Default")
-        case .child:
-            return UIImage(named: "Members.Child.Default")
-        case .parent:
-            return UIImage(named: "Members.Parent.Default")
-        case .other:
-            return UIImage(named: "Members.Other.Default")
-        case .animal:
-            return UIImage(named: "Members.Animal.Default")
-        case .object:
-            return UIImage(named: "Members.Object.Default")
+        if !tags.isEmpty {
+            return .temperatureWithTags(
+                JTTemperatureWithTags(
+                    feeling: record.feeling,
+                    temperature: record.temperature,
+                    date: record.date,
+                    tags: tags
+                )
+            )
+        } else {
+            return .temperature(
+                JTTemperature(
+                    feeling: record.feeling,
+                    temperature: record.temperature,
+                    date: record.date
+                )
+            )
         }
     }
 }

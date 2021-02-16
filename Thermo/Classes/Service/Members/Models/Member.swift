@@ -7,7 +7,6 @@
 
 struct Member: Hashable {
     let id: Int
-    let unit: MemberUnit
     let temperatureUnit: TemperatureUnit
 }
 

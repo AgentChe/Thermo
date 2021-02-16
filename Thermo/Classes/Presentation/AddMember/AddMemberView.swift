@@ -7,47 +7,17 @@
 
 import UIKit
 
-final class AddMemberView: GradientView {
-    enum Step: Int {
-        case memberUnitView = 0
-        case genderView = 1
-        case createProfileView = 2
-        case dateBirthdayView = 3
-        case temperatureUnitView = 4
-    }
-    
-    lazy var scrollView = makeScrollView()
+final class AddMemberView: UIView {
+    lazy var titleLabel = makeTitleLabel()
+    lazy var fahrenheitCell = makeFahrenheitCell()
+    lazy var celsiusCell = makeCelsiusCell()
     lazy var button = makeButton()
-    lazy var memberUnitView = AMMemberUnitView()
-    lazy var genderView = AMGenderView()
-    lazy var createProfileView = AMCreateProfileView()
-    lazy var dateBirthdayView = AMDateBirthdayView()
-    lazy var temperatureUnitView = AMTemperatureUnitView()
-    
-    var step = Step.memberUnitView {
-        didSet {
-            scroll()
-            updateButtonText()
-        }
-    }
-    
-    private lazy var contentViews: [UIView] = {
-        [
-            memberUnitView,
-            genderView,
-            createProfileView,
-            dateBirthdayView,
-            temperatureUnitView
-        ]
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        configure()
-        setupScrollView()
-        updateButtonText()
         makeConstraints()
+        initialize()
     }
     
     required init?(coder: NSCoder) {
@@ -55,81 +25,10 @@ final class AddMemberView: GradientView {
     }
 }
 
-// MARK: API
-extension AddMemberView {
-    func setupContentViews(for steps: [Step]) {
-        contentViews = steps.map(map(step:))
-        
-        setupScrollView()
-    }
-}
-
 // MARK: Private
 private extension AddMemberView {
-    func configure() {
-        gradientLayer.colors = [
-            UIColor(integralRed: 221, green: 217, blue: 221).cgColor,
-            UIColor(integralRed: 254, green: 234, blue: 235).cgColor
-        ]
-        
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-    }
-    
-    func setupScrollView() {
-        scrollView.subviews.forEach { $0.removeFromSuperview() }
-        
-        contentViews
-            .enumerated()
-            .forEach { index, view in
-                scrollView.addSubview(view)
-                
-                view.frame.origin = CGPoint(x: UIScreen.main.bounds.width * CGFloat(index), y: 0)
-                view.frame.size = CGSize(width: UIScreen.main.bounds.width,
-                                         height: UIScreen.main.bounds.height)
-            }
-        
-        scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(contentViews.count),
-                                        height: UIScreen.main.bounds.height)
-    }
-    
-    func scroll() {
-        let frame = map(step: step).frame
-        
-        scrollView.scrollRectToVisible(frame, animated: true)
-    }
-    
-    func updateButtonText() {
-        let attrs = TextAttributes()
-            .textColor(UIColor.black)
-            .font(Fonts.Poppins.semiBold(size: 17.scale))
-            .lineHeight(22.scale)
-        
-        switch step {
-        case .temperatureUnitView, .memberUnitView, .genderView:
-            button.isHidden = false
-            button.setAttributedTitle("Next".localized.attributed(with: attrs), for: .normal)
-        case .createProfileView:
-            button.isHidden = false
-            button.setAttributedTitle("AddMember.CreateProfile.Button".localized.attributed(with: attrs), for: .normal)
-        case .dateBirthdayView:
-            button.isHidden = true
-        }
-    }
-    
-    func map(step: Step) -> UIView {
-        switch step {
-        case .memberUnitView:
-            return memberUnitView
-        case .genderView:
-            return genderView
-        case .dateBirthdayView:
-            return dateBirthdayView
-        case .createProfileView:
-            return createProfileView
-        case .temperatureUnitView:
-            return temperatureUnitView
-        }
+    func initialize() {
+        backgroundColor = UIColor.white
     }
 }
 
@@ -137,41 +36,91 @@ private extension AddMemberView {
 private extension AddMemberView {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: ScreenSize.isIphoneXFamily ? 120.scale : 60.scale),
         ])
         
         NSLayoutConstraint.activate([
-            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 34.scale),
-            button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -34.scale),
+            fahrenheitCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            fahrenheitCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
+            fahrenheitCell.heightAnchor.constraint(equalToConstant: 52.scale),
+            fahrenheitCell.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 30.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            celsiusCell.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40.scale),
+            celsiusCell.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40.scale),
+            celsiusCell.heightAnchor.constraint(equalToConstant: 52.scale),
+            celsiusCell.topAnchor.constraint(equalTo: fahrenheitCell.bottomAnchor, constant: 12.scale)
+        ])
+        
+        NSLayoutConstraint.activate([
+            button.widthAnchor.constraint(equalToConstant: 180.scale),
             button.heightAnchor.constraint(equalToConstant: 56.scale),
-            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -26.scale : -12.scale)
+            button.centerXAnchor.constraint(equalTo: centerXAnchor),
+            button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: ScreenSize.isIphoneXFamily ? -50.scale : -30.scale)
         ])
     }
 }
 
-// MARK: Lazy initalization
+// MARK: Lazy initialization
 private extension AddMemberView {
-    func makeScrollView() -> UIScrollView {
-        let view = UIScrollView()
-        view.backgroundColor = UIColor.clear
-        view.isScrollEnabled = false
-        view.isPagingEnabled = true
-        view.showsVerticalScrollIndicator = false
-        view.showsHorizontalScrollIndicator = false
+    func makeTitleLabel() -> UILabel {
+        let attrs = TextAttributes()
+            .textColor(UIColor.black)
+            .font(Fonts.Poppins.bold(size: 34.scale))
+            .lineHeight(41.scale)
+        
+        let view = UILabel()
+        view.numberOfLines = 0
+        view.attributedText = "AddMember.Title".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeFahrenheitCell() -> AMCheckedCell {
+        let attrs = TextAttributes()
+            .font(Fonts.Poppins.regular(size: 17.scale))
+            .lineHeight(22.scale)
+            .letterSpacing(-0.5.scale)
+        
+        let view = AMCheckedCell()
+        view.isSelected = false
+        view.label.attributedText = "Fahrenheit".localized.attributed(with: attrs)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view)
+        return view
+    }
+    
+    func makeCelsiusCell() -> AMCheckedCell {
+        let attrs = TextAttributes()
+            .font(Fonts.Poppins.regular(size: 17.scale))
+            .lineHeight(22.scale)
+            .letterSpacing(-0.5.scale)
+        
+        let view = AMCheckedCell()
+        view.isSelected = false
+        view.label.attributedText = "Celsius".localized.attributed(with: attrs)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
     
     func makeButton() -> UIButton {
+        let attrs = TextAttributes()
+            .font(Fonts.Poppins.semiBold(size: 17.scale))
+            .textColor(UIColor.white)
+            .lineHeight(22.scale)
+        
         let view = UIButton()
-        view.backgroundColor = UIColor.white
         view.layer.cornerRadius = 28.scale
+        view.backgroundColor = UIColor(integralRed: 148, green: 165, blue: 225)
+        view.setAttributedTitle("AddMember.Button".localized.attributed(with: attrs), for: .normal)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
     }
 }
+

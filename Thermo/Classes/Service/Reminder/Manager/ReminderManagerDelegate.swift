@@ -6,13 +6,13 @@
 //
 
 protocol ReminderManagerDelegate: class {
-    func reminderManagerDidAdd(reminderTime: ReminderTime)
-    func reminderManagerDidChange(time: ReminderTime)
-    func reminderManagerDidChange(weekday: ReminderWeekday)
+    func reminderManagerDidAdd(reminder: Reminder)
+    func reminderManagerDidChange(reminder: Reminder)
+    func reminderManagerDidRemove(reminder: Reminder)
 }
 
 extension ReminderManagerDelegate {
-    func reminderManagerDidAdd(reminderTime: ReminderTime) {}
-    func reminderManagerDidChange(time: ReminderTime) {}
-    func reminderManagerDidChange(weekday: ReminderWeekday) {}
+    func reminderManagerDidAdd(reminder: Reminder) {}
+    func reminderManagerDidChange(reminder: Reminder) {}
+    func reminderManagerDidRemove(reminder: Reminder) {}
 }

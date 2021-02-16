@@ -8,8 +8,10 @@
 import RxSwift
 
 final class SymptomsManagerCore: SymptomsManager {
-    struct Constraints {
+    struct Constants {
         static let symptomsCachedKey = "symptoms_manager_core_symptoms_cached_key"
+        static let selectedSymptomsCachedKey = "symptoms_manager_core_selected_symptoms_cached_key"
+        static let selectedSymptomsDateKey = "symptoms_manager_core_selected_date_key"
     }
 }
 
@@ -17,13 +19,38 @@ final class SymptomsManagerCore: SymptomsManager {
 extension SymptomsManagerCore {
     func getSymptoms() -> [Symptom] {
         guard
-            let data = UserDefaults.standard.data(forKey: Constraints.symptomsCachedKey),
+            let data = UserDefaults.standard.data(forKey: Constants.symptomsCachedKey),
             let symptoms = try? JSONDecoder().decode([Symptom].self, from: data)
         else {
             return []
         }
         
         return symptoms
+    }
+    
+    func getSelectedSymptoms() -> [Symptom] {
+        guard
+            let date = UserDefaults.standard.object(forKey: Constants.selectedSymptomsDateKey) as? Date,
+            let selectedSymptomsData = UserDefaults.standard.data(forKey: Constants.selectedSymptomsCachedKey),
+            let selectedSymptoms = try? JSONDecoder().decode([Symptom].self, from: selectedSymptomsData)
+        else {
+            return []
+        }
+        
+        guard Calendar.current.isDateInToday(date) else {
+            return []
+        }
+        
+        return selectedSymptoms
+    }
+    
+    func set(symptoms: [Symptom]) {
+        guard let data = try? JSONEncoder().encode(symptoms) else {
+            return
+        }
+        
+        UserDefaults.standard.setValue(data, forKey: Constants.selectedSymptomsCachedKey)
+        UserDefaults.standard.setValue(Date(), forKey: Constants.selectedSymptomsDateKey)
     }
 }
 
@@ -43,6 +70,40 @@ extension SymptomsManagerCore {
                     .observe(on: MainScheduler.asyncInstance)
             }
         }
+    }
+    
+    func rxGetSelectedSymptoms() -> Single<[Symptom]> {
+        Single<[Symptom]>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                let symptoms = this.getSelectedSymptoms()
+                
+                event(.success(symptoms))
+                
+                return Disposables.create()
+            }
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
+    }
+    
+    func rxSet(symptoms: [Symptom]) -> Single<Void> {
+        Single<Void>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                this.set(symptoms: symptoms)
+                
+                event(.success(Void()))
+                
+                return Disposables.create()
+            }
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }
 
@@ -66,7 +127,7 @@ private extension SymptomsManagerCore {
                     return Disposables.create()
                 }
                 
-                UserDefaults.standard.set(data, forKey: Constraints.symptomsCachedKey)
+                UserDefaults.standard.set(data, forKey: Constants.symptomsCachedKey)
                 
                 event(.success(symptoms))
                 

@@ -5,248 +5,121 @@
   Created by Andrey Chernyshev on 26.10.2020.
   
 */
+
 // MARK: General
 "Continue" = "Продолжить";
-
 "OK" = "ОК";
-
 "Next" = "Дальше";
-
 "Fahrenheit" = "°F";
-
 "Celsius" = "°C";
-
 "Cancel" = "Отмена";
+"Next" = "Next";
 
 // MARK: Weekdays
 "Monday" = "Понедельник";
-
 "Tuesday " = "Вторник ";
-
 "Wednesday" = "Среда";
-
 "Thursday" = "Четверг";
-
 "Friday" = "Пятница";
-
 "Saturday" = "Суббота";
-
 "Sunday" = "Воскресенье";
+
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
 
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Сделать фото";
-
 "ImagePicker.CameraRoll" = "Фотопленка";
-
 "ImagePicker.PhotoLibrary" = "Библиотека фотографий";
 
 // MARK: Splash
 "Splash.Title" = "Помогает отслеживать\nтемпературу и симптомы\nвсей семьи";
 
 // MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "Почему вы\nхотели бы отслеживать\nтемпературу";
-
-"Onboarding.TrackTemperaturePurpose.Cell1" = "Определить возможные болезни\nи лечение, связанное с \nвашими симптомами";
-
-"Onboarding.TrackTemperaturePurpose.Cell2" = "Из-за пандемии";
-
-"Onboarding.TrackTemperaturePurpose.Cell3" = "Член семьи\nболен";
-
-"Onboarding.TrackTemperaturePurpose.Cell4" = "По совету\nврача ";
-
-"Onboarding.TrackTemperaturePurpose.Cell5" = "Просто забота о себе";
-
-"Onboarding.TrackTemperaturePurpose.BottomLine" = "* Этот инструмент не дает медицинских советов";
-
-"Onboarding.TrackTemperatureImportant.Title" = "Отслеживать\nтемпературу\nважно";
-
-"Onboarding.TrackTemperatureImportant.Cell1" = "Выявляйте болезнь на ранней стадии";
-
-"Onboarding.TrackTemperatureImportant.Cell2" = "Замечайте малейшие изменения";
-
-"Onboarding.TrackTemperatureImportant.Cell3" = "Даже для животных";
-
-"Onboarding.TrackTemperatureImportant.Cell4" = "Даже для жилых помещений";
-
-"Onboarding.TrackTemperatureImportant.Cell5" = "Достаточно двух измерений";
-
-// MARK: Add member
-"AddMember.MemberUnit.Title" = "Чью\nтемпературу\nбудем\nотслеживать?";
-
-"AddMember.MemberUnit.Me" = "🙂 Мою";
-
-"AddMember.MemberUnit.Child" = "👶 Ребенка";
-
-"AddMember.MemberUnit.Parent" = "💑 Родителя";
-
-"AddMember.MemberUnit.Other" = "👫 Другого члена семьи";
-
-"AddMember.MemberUnit.Animals" = "🐈 Животные";
-
-"AddMember.MemberUnit.Objects" = "🏠 Объекты/комнаты";
-
-"AddMember.Gender.TitleForMeUnit" = "Какого вы пола?";
-
-"AddMember.Gender.TitleForNotMeUnit" = "Какого они пола?";
-
-"AddMember.Gender.Male" = "👦 Мужской";
-
-"AddMember.Gender.Female" = "👧 Женский";
-
-"AddMember.CreateProfile.Title" = "Создать профиль:";
-
-"AddMember.CreateProfile.Placeholder" = "Имя";
-
-"AddMember.CreateProfile.Button" = "Продолжить";
-
-"AddMember.DateBirthday.TileForMeUnit" = "Ваша дата рождения?";
-
-"AddMember.DateBirthday.TileForNotMeUnit" = "Дата их рождения?";
-
-"AddMember.DateBirthday.DialogTitle" = "Почему мы спрашиваем?";
-
-"AddMember.DateBirthday.DialogSubTitle" = "Нормальная температура разная для разного возраста и пола. Мы учитываем пол и дату рождения.";
-
-"AddMember.DateBirthday.DialogButton" = "Дальше";
-
-"AddMember.TemperatureUnit.Title" = "Фаренгейт или Цельсий?";
-
-"AddMember.Add.Failure" = "Не смогли добавить члена семьи";
-
-// MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "Какая сейчас температура?";
-
-"TemperatureLogger.Feeling.Title" = "Как общее самочувствие?";
-
-"TemperatureLogger.Feeling.Health.Title" = "Самочувствие:";
-
-"TemperatureLogger.Feeling.Health.Good" = "Хорошее";
-
-"TemperatureLogger.Feeling.Health.Sick" = "Болею";
-
-"TemperatureLogger.Feeling.Health.Bad" = "Плохое";
-
-"TemperatureLogger.Feeling.Health.Recovered" = "Выздоравливаю";
-
-"TemperatureLogger.Feeling.Button" = "Сохранить";
-
-"TemperatureLogger.Feeling.Symptoms.Title" = "Симптомы:";
-
-"TemperatureLogger.Feeling.Medicines.Title" = "Текущие лекарства:";
-
-"TemperatureLogger.Log.Failure" = "Ошибка при регистрации температуры";
-
-// MARK: Journal
-"Journal.Title" = "Журнал";
-
-"Journal.Cell.DateTime" = "%@, %@";
-
-"Journal.Cell.Temperature" = "%.1f %@";
-
-"Journal.Report.Title1" = "Добавьте свое первое измерение";
-
-"Journal.Report.Title2" = "Проверить потенциальные симптомы";
-
-"Journal.ReportAlert.Message" = "Пожалуйста, отслеживайте хотя бы один симптом";
-
-"Journal.Empty" = "🌡\nВаши измерения\nпоявятся здесь";
-
-// MARK: Members
-"Members.AddNew" = "Добавить новое";
-
-"Members.SetCurrentMember" = "Не удалось установить текущего члена семьи";
+"Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
+"Onboarding.Slide2.Title" = "Track the dynamics, watch the symptoms";
 
 // MARK: Reminder
-"Reminder.TimeTitle" = "Напомнить в";
-
-"Reminder.WeekdayTitle" = "Дни недели";
-
-"Reminder.Notification.Body" = "Пора следить за температурой!";
-
-// MARK: Tabs
-"Track" = "Следить";
-
-"Journal" = "Журнал";
-
-"Reminder" = "Напоминание";
+"Reminder.List.Title" = "Reminders";
+"Reminder.List.EmptyText" = "You have no\nreminders yet";
+"Reminder.List.EmptyAdd" = "Add";
+"Reminder.Create.Title" = "New reminder";
+"Reminder.Create.Button" = "Save";
+"Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Ошибка при покупке";
-
-// MARK: Report
-"Report.Title" = "Получать отчет по имейлу";
-
-"Report.SubTitle" = "Вся ваша информация в одном кратком отчете";
-
-"Report.EmailFieldPlaceholder" = "Имейл";
-
-"Report.ButtonTitle" = "Отправить";
-
-"Report.InvalidEmail" = "Неверный имейл";
-
-"Report.CreateFailure" = "Ошибка при создании отчета";
-
-// MARK: ComboBox
-"ComboBox.Premium" = "Премиум";
-
-"ComboBox.TagsPlaceholder" = "Введите ключевое слово...";
-
-// MARK: Paygate
 "Paygate.Title" = "Отслеживайте температуру, симптомы и лекарства для всей семьи";
-
 "Paygate.Item1" = "Индивидуальные учетные записи";
-
 "Paygate.Item2" = "Отслеживание симптомов и лекарств";
-
 "Paygate.Item3" = "Напоминания для каждой учетной записи";
-
 "Paygate.Item4" = "Экспорт записей";
-
 "Paygate.Secured" = "Защищено iTunes. Отмена в любое время.";
-
 "Paygate.BuyButton" = "Продолжить";
-
 "Paygate.RestoreButton" = "Восстановить покупки";
-
 "Paygate.TermsOfUse" = "Правила использования";
-
 "Paygate.And" = " и ";
-
 "Paygate.PrivacyPolicy" = "Политика конфиденциальности";
 
-// MARK: Treatments
-"Treatments.Preloader" = "Анализ...";
+// MARK: Add member
+"AddMember.Title" = "Fahrenheit or Celsius?";
+"AddMember.Button" = "Get started";
+"AddMember.FailedStore" = "Failed to create member";
 
-"Treatments.List.Title" = "Возможные\nсимптомы";
+// MARK: Feeling
+"Feeling.Title" = "How are you\nfeeling today?";
+"Feeling.TodayIFeeling" = "Today I’m feeling...";
+"Feeling.Good" = "Good";
+"Feeling.Sick" = "Sick";
+"Feeling.Bad" = "Bad";
+"Feeling.Recovered" = "Recovered";
+"Feeling.MeasureMyTemperature" = "Measure my\ntemperature";
+"Feeling.Symptoms" = "Symptoms";
+"Feeling.Medications" = "Medications";
+"Feeling.SelectLogger.Title" = "Measure temperature";
+"Feeling.SelectLogger.WithTheApp" = "With the app";
+"Feeling.SelectLogger.Manually" = "Manually";
 
-"Treatments.Details.TreatmentButton" = "Лечение 💊";
+// MARK: Logger.WithApp
+"LWA.FailedToCreate" = "Failed to create";
+"LWA.Onboarding.HowToMeasure" = "How to measure?";
+"LWA.Onboarding.Measure" = "Measure";
+"LWA.Onboarding.Step1" = "Sit still for a minute before the measurement";
+"LWA.Onboarding.Step2" = "Do not engage in any activity at least 5 minutes before the measurement";
+"LWA.Onboarding.Step3" = "Don’t move during the procedure";
+"LWA.Onboarding.Warning" = "The result is an estimation and shouldn’t be used for medical decisions.";
+"LWA.Measurenment.Title" = "Cover camera with an index finger until the image turns red";
+"LWA.Measurenment.ProgressTitle" = "Hold your finger until the measuring ends";
+"LWA.Measurenment.Units" = "Bmp";
+"LWA.Measurenment.Alert.CameraDenied" = "You have not permission";
+"LWA.Result.Title.Success" = "You don’t seem to have a fever!";
+"LWA.Result.Title.Bad" = "You might have a fever!";
+"LWA.Result.Subtitle" = "Remeasure your temperature and call a doctor";
+"LWA.Result.Save" = "Save";
 
-"Treatments.Treatment.Title" = "Лечение";
+// MARK: FSelection
+"FSelection.Symptoms.Title" = "Symptoms";
+"FSelection.Symptoms.Placeholder" = "Enter the symptom";
+"FSelection.Medicines.Title" = "Medications";
+"FSelection.Medicines.Placeholder" = "Enter the medication";
+"FSelection.Button" = "Done";
 
-"Treatments.Disclaimer.DISCLAIMER" = "ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ: ";
+// MARK: Logger.Manually
+"LM.Title" = "Сhoose your\ncurrent\ntemperature";
+"LM.Button" = "Done";
+"LM.FailedToCreate" = "Failed to create";
 
-"Treatments.Disclaimer.Text" = "Мы не даем медицинских консультаций. Это приложение предназначено только для информационных целей и не заменяет профессиональную медицинскую диагностику или лечение. ";
-
-"Treatments.Disclaimer.LearnMore" = "Узнать больше...";
-
-"Treatments.AlertEmptyText" = "Недостаточно данных. Пожалуйста, укажите больше симптомов или лекарств, которые вы принимаете, а также новые измерения температуры";
-
-// MARK: LoggerType
-"LoggerType.WithApp" = "Measure with the app";
-"LoggerType.AppleHealth" = "Track with Apple Health";
-"LoggerType.EnterManually" = "Enter manually";
-"LoggerType.Button" = "Continue";
-
-// MARK: LAH
-"LAH.Title1" = "Measuring your temperature";
-"LAH.Title2" = "Done!";
-"LAH.ValueEmpty" = "- -";
-"LAH.Button" = "Save";
-"LAH.Error.NotAvailable" = "Apple Health not available";
-"LAH.Error.Empty" = "Failed to get temperature";
-
-// MARK: EMLogger
-"EMLogger.Placeholder.Title" = "Measuring temperature";
-"EMLogger.Placeholder.BottomText" = "Place your finger on the camera and flash at the same time. Don’t move or talk while measuring.";
-"EMLogger.Placeholder.Button" = "Ready";
-"EMLogger.Manually.Detecting" = "Detecting...";
+// MARK: Journal
+"Journal.Title" = "Journal";
+"Journal.Empty.Text" = "Your measurements\nwill appear here";
+"Journal.Empty.Button" = "Add";
+"Journal.Calendar.Today" = "Today";
+"Journal.Calendar.7Days" = "7 days";
+"Journal.Calendar.30Days" = "30 days";
+"Journal.Calendar.Custom" = "Custom";

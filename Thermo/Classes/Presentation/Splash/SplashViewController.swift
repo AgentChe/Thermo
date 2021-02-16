@@ -70,7 +70,7 @@ private extension SplashViewController {
     }
     
     func goToAddMember() {
-        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make(transition: .root, from: .onboarding)
+        UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make()
     }
     
     func goToMain() {

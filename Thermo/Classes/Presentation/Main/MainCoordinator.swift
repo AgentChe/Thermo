@@ -10,8 +10,13 @@ import UIKit
 final class MainCoordinator {
     weak var parentVC: MainViewController?
     
-    lazy var temperatureListVC = JournalViewController.make()
-    lazy var reminderVC = ReminderViewController.make()
+    lazy var reminderVC = RLViewController.make()
+    lazy var feelingVC = FeelingViewController.make()
+    lazy var journalVC: JournalViewController = {
+        let vc = JournalViewController.make()
+        vc.delegate = self
+        return vc
+    }()
     
     private var previousVC: UIViewController?
     
@@ -20,35 +25,23 @@ final class MainCoordinator {
     }
     
     func change(tab: TabView.Tab) {
+        parentVC?.mainView.tabView.selectedTab = tab
+        
         switch tab {
-        case .log:
-            let vc = LSelectCaseViewController.make { [weak self] vc in
-                let openVC: UIViewController
-                
-                switch vc.selectedCase {
-                case .withApp:
-                    openVC = LoggerViewController.make()
-                case .appleHealth:
-                    openVC = LAHViewController.make()
-                case .manually:
-                    openVC = EMViewController.make()
-                }
-                
-                vc.dismiss(animated: true) {
-                    self?.parentVC?.navigationController?.pushViewController(openVC, animated: true)
-                }
-            }
-            
-            parentVC?.navigationController?.present(vc, animated: true)
-        case .list:
-            parentVC?.mainView.tabView.selectedTab = tab
-            
-            changeVC(on: temperatureListVC)
         case .reminder:
-            parentVC?.mainView.tabView.selectedTab = tab
-            
             changeVC(on: reminderVC)
+        case .feeling:
+            changeVC(on: feelingVC)
+        case .journal:
+            changeVC(on: journalVC)
         }
+    }
+}
+
+// MARK: JournalViewControllerDelegate
+extension MainCoordinator: JournalViewControllerDelegate {
+    func journalViewControllerAdd() {
+        change(tab: .feeling)
     }
 }
 

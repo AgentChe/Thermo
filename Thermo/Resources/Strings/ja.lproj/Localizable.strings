@@ -13,6 +13,7 @@
 "Fahrenheit" = "°F";
 "Celsius" = "°C";
 "Cancel" = "キャンセル";
+"Next" = "Next";
 
 // MARK: Weekdays
 "Monday" = "月曜日";
@@ -23,6 +24,15 @@
 "Saturday" = "土曜日";
 "Sunday" = "日曜日";
 
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
+
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "写真を撮影";
 "ImagePicker.CameraRoll" = "カメラロール";
@@ -32,103 +42,19 @@
 "Splash.Title" = "家族全員の\n体温や症状を\n記録";
 
 // MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "体温を\n記録する\n理由";
-"Onboarding.TrackTemperaturePurpose.Cell1" = "症状に関連した\n病気の可能性や治療法を\n特定中";
-"Onboarding.TrackTemperaturePurpose.Cell2" = "パンデミックのため";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "家族の誰かが\n病気のため";
-"Onboarding.TrackTemperaturePurpose.Cell4" = "医者に\n言われて ";
-"Onboarding.TrackTemperaturePurpose.Cell5" = "セルフケア";
-"Onboarding.TrackTemperaturePurpose.BottomLine" = "*このツールは医療アドバイスを提供するものではありません";
-
-"Onboarding.TrackTemperatureImportant.Title" = "体温の\n記録は\n重要です";
-"Onboarding.TrackTemperatureImportant.Cell1" = "病気の早期発見";
-"Onboarding.TrackTemperatureImportant.Cell2" = "小さな変化も認識";
-"Onboarding.TrackTemperatureImportant.Cell3" = "動物にも";
-"Onboarding.TrackTemperatureImportant.Cell4" = "居住空間にも";
-"Onboarding.TrackTemperatureImportant.Cell5" = "2 回の測定で十分です";
-
-// MARK: Add member
-"AddMember.MemberUnit.Title" = "誰の\n体温を\n記録するの\nですか？";
-"AddMember.MemberUnit.Me" = "🙂 自分";
-"AddMember.MemberUnit.Child" = "👶 子供";
-"AddMember.MemberUnit.Parent" = "💑 親";
-"AddMember.MemberUnit.Other" = "👫 他の家族";
-"AddMember.MemberUnit.Animals" = "🐈 動物";
-"AddMember.MemberUnit.Objects" = "🏠 物・部屋";
-
-"AddMember.Gender.TitleForMeUnit" = "あなたの性別はどちらですか？";
-"AddMember.Gender.TitleForNotMeUnit" = "記録する人の性別はどちらですか？";
-"AddMember.Gender.Male" = "👦 男性";
-"AddMember.Gender.Female" = "👧 女性";
-
-"AddMember.CreateProfile.Title" = "プロフィールを作成:";
-"AddMember.CreateProfile.Placeholder" = "名前";
-"AddMember.CreateProfile.Button" = "続ける";
-
-"AddMember.DateBirthday.TileForMeUnit" = "生年月日はいつですか？";
-"AddMember.DateBirthday.TileForNotMeUnit" = "記録する人の生年月日はいつですか？";
-"AddMember.DateBirthday.DialogTitle" = "この情報が必要な理由";
-"AddMember.DateBirthday.DialogSubTitle" = "平熱は年齢と性別により異なります。このアプリでは性別と生年月日が考慮されます。";
-"AddMember.DateBirthday.DialogButton" = "次";
-
-"AddMember.TemperatureUnit.Title" = "華氏または摂氏の選択";
-
-"AddMember.Add.Failure" = "メンバーの追加に失敗";
-
-// MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "現在の体温はいくつですか？";
-
-"TemperatureLogger.Feeling.Title" = "全般的に気分はどうですか？";
-"TemperatureLogger.Feeling.Health.Title" = "気分:";
-"TemperatureLogger.Feeling.Health.Good" = "良い";
-"TemperatureLogger.Feeling.Health.Sick" = "病気気味";
-"TemperatureLogger.Feeling.Health.Bad" = "悪い";
-"TemperatureLogger.Feeling.Health.Recovered" = "回復済み";
-"TemperatureLogger.Feeling.Button" = "保存";
-"TemperatureLogger.Feeling.Symptoms.Title" = "症状:";
-"TemperatureLogger.Feeling.Medicines.Title" = "現在使用中の薬:";
-
-"TemperatureLogger.Log.Failure" = "体温の記録に失敗";
-
-// MARK: Journal
-"Journal.Title" = "ジャーナル";
-"Journal.Cell.DateTime" = "%1$@, %2$@";
-"Journal.Cell.Temperature" = "%1$.1f %2$@";
-"Journal.Report.Title1" = "最初の測定値を追加";
-"Journal.Report.Title2" = "病気の可能性をチェック";
-"Journal.ReportAlert.Message" = "少なくとも 1 つの症状を記録してください";
-"Journal.Empty" = "🌡\n測定値が\nこちらに表示されます";
-
-// MARK: Members
-"Members.AddNew" = "新規追加";
-"Members.SetCurrentMember" = "現在のメンバーの設定に失敗";
+"Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
+"Onboarding.Slide2.Title" = "Track the dynamics, watch the symptoms";
 
 // MARK: Reminder
-"Reminder.TimeTitle" = "リマインダー:";
-"Reminder.WeekdayTitle" = "曜日";
-"Reminder.Notification.Body" = "体温の記録の時間です";
-
-// MARK: Tabs
-"Track" = "記録";
-"Journal" = "ジャーナル";
-"Reminder" = "リマインダー";
+"Reminder.List.Title" = "Reminders";
+"Reminder.List.EmptyText" = "You have no\nreminders yet";
+"Reminder.List.EmptyAdd" = "Add";
+"Reminder.Create.Title" = "New reminder";
+"Reminder.Create.Button" = "Save";
+"Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "購入失敗";
-
-// MARK: Report
-"Report.Title" = "レポートをメールで受信";
-"Report.SubTitle" = "記録された情報がすべて 1 つの簡潔なレポートに";
-"Report.EmailFieldPlaceholder" = "メールアドレス";
-"Report.ButtonTitle" = "送信";
-"Report.InvalidEmail" = "無効なメールアドレス";
-"Report.CreateFailure" = "レポートの作成に失敗";
-
-// MARK: ComboBox
-"ComboBox.Premium" = "プレミアム";
-"ComboBox.TagsPlaceholder" = "キーワードを入力...";
-
-// MARK: Paygate
 "Paygate.Title" = "家族全員の体温、症状、ニーズを記録";
 "Paygate.Item1" = "個人アカウント";
 "Paygate.Item2" = "症状と薬の記録";
@@ -141,32 +67,59 @@
 "Paygate.And" = "および ";
 "Paygate.PrivacyPolicy" = "プライバシーポリシー";
 
-// MARK: Treatments
-"Treatments.Preloader" = "分析中...";
-"Treatments.List.Title" = "可能性のある\n病気";
-"Treatments.Details.TreatmentButton" = "治療 💊";
-"Treatments.Treatment.Title" = "治療";
-"Treatments.Disclaimer.DISCLAIMER" = "免責事項: ";
-"Treatments.Disclaimer.Text" = "このアプリは医療アドバイスを提供するものではありません。このアプリは情報目的のみであり、医療専門家による診断や治療の代わりになるものではありません。 ";
-"Treatments.Disclaimer.LearnMore" = "詳細...";
-"Treatments.AlertEmptyText" = "データが十分ではありません。新しい体温測定値と共に他の症状や使用中の薬を入力してください。";
+// MARK: Add member
+"AddMember.Title" = "Fahrenheit or Celsius?";
+"AddMember.Button" = "Get started";
+"AddMember.FailedStore" = "Failed to create member";
 
-// MARK: LoggerType
-"LoggerType.WithApp" = "Measure with the app";
-"LoggerType.AppleHealth" = "Track with Apple Health";
-"LoggerType.EnterManually" = "Enter manually";
-"LoggerType.Button" = "Continue";
+// MARK: Feeling
+"Feeling.Title" = "How are you\nfeeling today?";
+"Feeling.TodayIFeeling" = "Today I’m feeling...";
+"Feeling.Good" = "Good";
+"Feeling.Sick" = "Sick";
+"Feeling.Bad" = "Bad";
+"Feeling.Recovered" = "Recovered";
+"Feeling.MeasureMyTemperature" = "Measure my\ntemperature";
+"Feeling.Symptoms" = "Symptoms";
+"Feeling.Medications" = "Medications";
+"Feeling.SelectLogger.Title" = "Measure temperature";
+"Feeling.SelectLogger.WithTheApp" = "With the app";
+"Feeling.SelectLogger.Manually" = "Manually";
 
-// MARK: LAH
-"LAH.Title1" = "Measuring your temperature";
-"LAH.Title2" = "Done!";
-"LAH.ValueEmpty" = "- -";
-"LAH.Button" = "Save";
-"LAH.Error.NotAvailable" = "Apple Health not available";
-"LAH.Error.Empty" = "Failed to get temperature";
+// MARK: Logger.WithApp
+"LWA.FailedToCreate" = "Failed to create";
+"LWA.Onboarding.HowToMeasure" = "How to measure?";
+"LWA.Onboarding.Measure" = "Measure";
+"LWA.Onboarding.Step1" = "Sit still for a minute before the measurement";
+"LWA.Onboarding.Step2" = "Do not engage in any activity at least 5 minutes before the measurement";
+"LWA.Onboarding.Step3" = "Don’t move during the procedure";
+"LWA.Onboarding.Warning" = "The result is an estimation and shouldn’t be used for medical decisions.";
+"LWA.Measurenment.Title" = "Cover camera with an index finger until the image turns red";
+"LWA.Measurenment.ProgressTitle" = "Hold your finger until the measuring ends";
+"LWA.Measurenment.Units" = "Bmp";
+"LWA.Measurenment.Alert.CameraDenied" = "You have not permission";
+"LWA.Result.Title.Success" = "You don’t seem to have a fever!";
+"LWA.Result.Title.Bad" = "You might have a fever!";
+"LWA.Result.Subtitle" = "Remeasure your temperature and call a doctor";
+"LWA.Result.Save" = "Save";
 
-// MARK: EMLogger
-"EMLogger.Placeholder.Title" = "Measuring temperature";
-"EMLogger.Placeholder.BottomText" = "Place your finger on the camera and flash at the same time. Don’t move or talk while measuring.";
-"EMLogger.Placeholder.Button" = "Ready";
-"EMLogger.Manually.Detecting" = "Detecting...";
+// MARK: FSelection
+"FSelection.Symptoms.Title" = "Symptoms";
+"FSelection.Symptoms.Placeholder" = "Enter the symptom";
+"FSelection.Medicines.Title" = "Medications";
+"FSelection.Medicines.Placeholder" = "Enter the medication";
+"FSelection.Button" = "Done";
+
+// MARK: Logger.Manually
+"LM.Title" = "Сhoose your\ncurrent\ntemperature";
+"LM.Button" = "Done";
+"LM.FailedToCreate" = "Failed to create";
+
+// MARK: Journal
+"Journal.Title" = "Journal";
+"Journal.Empty.Text" = "Your measurements\nwill appear here";
+"Journal.Empty.Button" = "Add";
+"Journal.Calendar.Today" = "Today";
+"Journal.Calendar.7Days" = "7 days";
+"Journal.Calendar.30Days" = "30 days";
+"Journal.Calendar.Custom" = "Custom";

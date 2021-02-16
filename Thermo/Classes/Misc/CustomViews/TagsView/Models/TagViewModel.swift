@@ -6,6 +6,5 @@
 //
 
 struct TagViewModel {
-    let id: Int
     let name: String
 }

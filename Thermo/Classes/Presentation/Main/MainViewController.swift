@@ -9,76 +9,60 @@ import UIKit
 import RxSwift
 
 final class MainViewController: UIViewController {
-    var mainView = MainView()
+    lazy var mainView = MainView()
     
-    private let disposeBag = DisposeBag()
+    private lazy var disposeBag = DisposeBag()
     
-    private let viewModel = MainViewModel()
-    
-    private lazy var coordinator: MainCoordinator = {
-        MainCoordinator(parentVC: self)
-    }()
+    private lazy var coordinator = MainCoordinator(parentVC: self)
     
     override func loadView() {
-        super.loadView()
-        
         view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        coordinator.temperatureListVC.delegate = self
-        
-        addActionsToTabs()
-        
         rx.methodInvoked(#selector(UIViewController.viewDidLayoutSubviews))
             .take(1)
             .subscribe(onNext: { [weak self] _ in
-                self?.update(selectedTab: .list)
+                self?.update(selectedTab: .feeling)
             })
             .disposed(by: disposeBag)
+        
+        addActionsToTabs()
     }
 }
 
 // MARK: Make 
 extension MainViewController {
     static func make() -> MainViewController {
-        MainViewController()
-    }
-}
-
-// MARK: JournalViewControllerDelegate
-extension MainViewController: JournalViewControllerDelegate {
-    func journalViewControllerDidTappedMember() {
-        present(MembersViewController.make(), animated: true)
-    }
-    
-    func journalViewControllerDidLogRecord() {
-        update(selectedTab: .log)
+        let vc = MainViewController()
+        vc.navigationItem.backButtonTitle = " "
+        return vc
     }
 }
  
 // MARK: Private
 private extension MainViewController {
     func addActionsToTabs() {
-        let logGesture = UITapGestureRecognizer()
-        mainView.tabView.temperatureLogItem.isUserInteractionEnabled = true
-        mainView.tabView.temperatureLogItem.addGestureRecognizer(logGesture)
-        
-        let listGesture = UITapGestureRecognizer()
-        mainView.tabView.temperatureListItem.isUserInteractionEnabled = true
-        mainView.tabView.temperatureListItem.addGestureRecognizer(listGesture)
-        
         let reminderGesture = UITapGestureRecognizer()
         mainView.tabView.reminderItem.isUserInteractionEnabled = true
         mainView.tabView.reminderItem.addGestureRecognizer(reminderGesture)
         
+        let feelingGesture = UITapGestureRecognizer()
+        mainView.tabView.feelingItem.isUserInteractionEnabled = true
+        mainView.tabView.feelingItem.addGestureRecognizer(feelingGesture)
+        
+        let journalGesture = UITapGestureRecognizer()
+        mainView.tabView.journalItem.isUserInteractionEnabled = true
+        mainView.tabView.journalItem.addGestureRecognizer(journalGesture)
+        
         Observable
             .merge([
-                logGesture.rx.event.map { _ in TabView.Tab.log },
-                listGesture.rx.event.map { _ in TabView.Tab.list },
-                reminderGesture.rx.event.map { _ in TabView.Tab.reminder }
+                reminderGesture.rx.event.map { _ in TabView.Tab.reminder },
+                feelingGesture.rx.event.map { _ in TabView.Tab.feeling },
+                journalGesture.rx.event.map { _ in TabView.Tab.journal }
+                
             ])
             .subscribe(onNext: { [weak self] tab in
                 self?.update(selectedTab: tab)

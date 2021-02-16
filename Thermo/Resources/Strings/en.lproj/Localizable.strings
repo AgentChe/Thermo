@@ -13,15 +13,25 @@
 "Fahrenheit" = "°F";
 "Celsius" = "°C";
 "Cancel" = "Cancel";
+"Next" = "Next";
 
 // MARK: Weekdays
 "Monday" = "Monday";
-"Tuesday " = "Tuesday ";
+"Tuesday" = "Tuesday";
 "Wednesday" = "Wednesday";
 "Thursday" = "Thursday";
 "Friday" = "Friday";
 "Saturday" = "Saturday";
 "Sunday" = "Sunday";
+
+// MARK: Weekdays short
+"Monday.Short" = "Mon";
+"Tuesday.Short" = "Tue ";
+"Wednesday.Short" = "Wed";
+"Thursday.Short" = "Thu";
+"Friday.Short" = "Fri";
+"Saturday.Short" = "Sat";
+"Sunday.Short" = "Sun";
 
 // MARK: ImagePicker
 "ImagePicker.TakePhoto" = "Take photo";
@@ -32,103 +42,19 @@
 "Splash.Title" = "Helping to track\ntemperature and the symptoms\nfor the whole family";
 
 // MARK: Onboarding
-"Onboarding.TrackTemperaturePurpose.Title" = "Why would you\nwant to track\ntemperature";
-"Onboarding.TrackTemperaturePurpose.Cell1" = "Identify possible conditions\nand treatment related to\nyour symptoms";
-"Onboarding.TrackTemperaturePurpose.Cell2" = "Because of pandemic";
-"Onboarding.TrackTemperaturePurpose.Cell3" = "A family member\nis sick";
-"Onboarding.TrackTemperaturePurpose.Cell4" = "The doctor asked\nto do it ";
-"Onboarding.TrackTemperaturePurpose.Cell5" = "Just self-care";
-"Onboarding.TrackTemperaturePurpose.BottomLine" = "*This tool does not provide medical advice";
-
-"Onboarding.TrackTemperatureImportant.Title" = "It's important to\ntrack the\ntemperature";
-"Onboarding.TrackTemperatureImportant.Cell1" = "Detect the illness early";
-"Onboarding.TrackTemperatureImportant.Cell2" = "Notice the slightest changes";
-"Onboarding.TrackTemperatureImportant.Cell3" = "Even for animals";
-"Onboarding.TrackTemperatureImportant.Cell4" = "Even for living spaces";
-"Onboarding.TrackTemperatureImportant.Cell5" = "Two measurements is enough";
-
-// MARK: Add member
-"AddMember.MemberUnit.Title" = "Who we will\nbe tracking the\ntemperature\nfor?";
-"AddMember.MemberUnit.Me" = "🙂 Me";
-"AddMember.MemberUnit.Child" = "👶 A child";
-"AddMember.MemberUnit.Parent" = "💑 My parent";
-"AddMember.MemberUnit.Other" = "👫 Other family member";
-"AddMember.MemberUnit.Animals" = "🐈 Animals";
-"AddMember.MemberUnit.Objects" = "🏠 Objects / rooms";
-
-"AddMember.Gender.TitleForMeUnit" = "What's your gender?";
-"AddMember.Gender.TitleForNotMeUnit" = "What's their gender?";
-"AddMember.Gender.Male" = "👦 Male";
-"AddMember.Gender.Female" = "👧 Female";
-
-"AddMember.CreateProfile.Title" = "Create profile:";
-"AddMember.CreateProfile.Placeholder" = "Name";
-"AddMember.CreateProfile.Button" = "Proceed";
-
-"AddMember.DateBirthday.TileForMeUnit" = "What's your date of birth?";
-"AddMember.DateBirthday.TileForNotMeUnit" = "What's their date of birth?";
-"AddMember.DateBirthday.DialogTitle" = "Why we ask?";
-"AddMember.DateBirthday.DialogSubTitle" = "The normal temperature is different for different ages and geneders. We'll take the gender and date of birth into account.";
-"AddMember.DateBirthday.DialogButton" = "Next";
-
-"AddMember.TemperatureUnit.Title" = "Fahrenheit or Celsius?";
-
-"AddMember.Add.Failure" = "Failure to add member";
-
-// MARK: Temperature logger
-"TemperatureLogger.Temperature.Title" = "What's the current temperature?";
-
-"TemperatureLogger.Feeling.Title" = "How's the overall feeling?";
-"TemperatureLogger.Feeling.Health.Title" = "Feeling:";
-"TemperatureLogger.Feeling.Health.Good" = "Good";
-"TemperatureLogger.Feeling.Health.Sick" = "Sick";
-"TemperatureLogger.Feeling.Health.Bad" = "Bad";
-"TemperatureLogger.Feeling.Health.Recovered" = "Recovered";
-"TemperatureLogger.Feeling.Button" = "Save";
-"TemperatureLogger.Feeling.Symptoms.Title" = "Symptoms:";
-"TemperatureLogger.Feeling.Medicines.Title" = "Current medications:";
-
-"TemperatureLogger.Log.Failure" = "Failure to log temperature";
-
-// MARK: Journal
-"Journal.Title" = "Journal";
-"Journal.Cell.DateTime" = "%@, %@";
-"Journal.Cell.Temperature" = "%.1f %@";
-"Journal.Report.Title1" = "Add your first measurement";
-"Journal.Report.Title2" = "Check for possible conditions";
-"Journal.ReportAlert.Message" = "Please track at least one symptom";
-"Journal.Empty" = "🌡\nYour measurements\nwill appear here";
-
-// MARK: Members
-"Members.AddNew" = "Add new";
-"Members.SetCurrentMember" = "Failed to set current member";
+"Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
+"Onboarding.Slide2.Title" = "Track the dynamics, watch the symptoms";
 
 // MARK: Reminder
-"Reminder.TimeTitle" = "Remind at";
-"Reminder.WeekdayTitle" = "Days of the week";
+"Reminder.List.Title" = "Reminders";
+"Reminder.List.EmptyText" = "You have no\nreminders yet";
+"Reminder.List.EmptyAdd" = "Add";
+"Reminder.Create.Title" = "New reminder";
+"Reminder.Create.Button" = "Save";
 "Reminder.Notification.Body" = "It's time to track your temperature!";
-
-// MARK: Tabs
-"Track" = "Track";
-"Journal" = "Journal";
-"Reminder" = "Reminder";
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Failure at purchase";
-
-// MARK: Report
-"Report.Title" = "Receive the report by email";
-"Report.SubTitle" = "All your logged information in one concise report";
-"Report.EmailFieldPlaceholder" = "Email";
-"Report.ButtonTitle" = "Send";
-"Report.InvalidEmail" = "Invalid email";
-"Report.CreateFailure" = "Failure to create report";
-
-// MARK: ComboBox
-"ComboBox.Premium" = "Premium";
-"ComboBox.TagsPlaceholder" = "Enter the keyword...";
-
-// MARK: Paygate
 "Paygate.Title" = "Track temperature, symptoms and meds for the entire family";
 "Paygate.Item1" = "Individual accounts";
 "Paygate.Item2" = "Symptoms and meds tracking";
@@ -141,32 +67,59 @@
 "Paygate.And" = " and ";
 "Paygate.PrivacyPolicy" = "Privacy policy";
 
-// MARK: Treatments
-"Treatments.Preloader" = "Analyzing...";
-"Treatments.List.Title" = "Possible\nconditions";
-"Treatments.Details.TreatmentButton" = "Treatment 💊";
-"Treatments.Treatment.Title" = "Treatment";
-"Treatments.Disclaimer.DISCLAIMER" = "DISCLAIMER: ";
-"Treatments.Disclaimer.Text" = "We don't provide medical advice. This app is for informational purpose only and is not a substitute for professional medical diagnosis or treatment. ";
-"Treatments.Disclaimer.LearnMore" = "Learn more...";
-"Treatments.AlertEmptyText" = "Not enough data. Please provide more symptoms or meds you're taking with new temperature measurements";
+// MARK: Add member
+"AddMember.Title" = "Fahrenheit or Celsius?";
+"AddMember.Button" = "Get started";
+"AddMember.FailedStore" = "Failed to create member";
 
-// MARK: LoggerType
-"LoggerType.WithApp" = "Measure with the app";
-"LoggerType.AppleHealth" = "Track with Apple Health";
-"LoggerType.EnterManually" = "Enter manually";
-"LoggerType.Button" = "Continue";
+// MARK: Feeling
+"Feeling.Title" = "How are you\nfeeling today?";
+"Feeling.TodayIFeeling" = "Today I’m feeling...";
+"Feeling.Good" = "Good";
+"Feeling.Sick" = "Sick";
+"Feeling.Bad" = "Bad";
+"Feeling.Recovered" = "Recovered";
+"Feeling.MeasureMyTemperature" = "Measure my\ntemperature";
+"Feeling.Symptoms" = "Symptoms";
+"Feeling.Medications" = "Medications";
+"Feeling.SelectLogger.Title" = "Measure temperature";
+"Feeling.SelectLogger.WithTheApp" = "With the app";
+"Feeling.SelectLogger.Manually" = "Manually";
 
-// MARK: LAH
-"LAH.Title1" = "Measuring your temperature";
-"LAH.Title2" = "Done!";
-"LAH.ValueEmpty" = "- -";
-"LAH.Button" = "Save";
-"LAH.Error.NotAvailable" = "Apple Health not available";
-"LAH.Error.Empty" = "Failed to get temperature";
+// MARK: Logger.WithApp
+"LWA.FailedToCreate" = "Failed to create";
+"LWA.Onboarding.HowToMeasure" = "How to measure?";
+"LWA.Onboarding.Measure" = "Measure";
+"LWA.Onboarding.Step1" = "Sit still for a minute before the measurement";
+"LWA.Onboarding.Step2" = "Do not engage in any activity at least 5 minutes before the measurement";
+"LWA.Onboarding.Step3" = "Don’t move during the procedure";
+"LWA.Onboarding.Warning" = "The result is an estimation and shouldn’t be used for medical decisions.";
+"LWA.Measurenment.Title" = "Cover camera with an index finger until the image turns red";
+"LWA.Measurenment.ProgressTitle" = "Hold your finger until the measuring ends";
+"LWA.Measurenment.Units" = "Bmp";
+"LWA.Measurenment.Alert.CameraDenied" = "You have not permission";
+"LWA.Result.Title.Success" = "You don’t seem to have a fever!";
+"LWA.Result.Title.Bad" = "You might have a fever!";
+"LWA.Result.Subtitle" = "Remeasure your temperature and call a doctor";
+"LWA.Result.Save" = "Save";
 
-// MARK: EMLogger
-"EMLogger.Placeholder.Title" = "Measuring temperature";
-"EMLogger.Placeholder.BottomText" = "Place your finger on the camera and flash at the same time. Don’t move or talk while measuring.";
-"EMLogger.Placeholder.Button" = "Ready";
-"EMLogger.Manually.Detecting" = "Detecting...";
+// MARK: FSelection
+"FSelection.Symptoms.Title" = "Symptoms";
+"FSelection.Symptoms.Placeholder" = "Enter the symptom";
+"FSelection.Medicines.Title" = "Medications";
+"FSelection.Medicines.Placeholder" = "Enter the medication";
+"FSelection.Button" = "Done";
+
+// MARK: Logger.Manually
+"LM.Title" = "Сhoose your\ncurrent\ntemperature";
+"LM.Button" = "Done";
+"LM.FailedToCreate" = "Failed to create";
+
+// MARK: Journal
+"Journal.Title" = "Journal";
+"Journal.Empty.Text" = "Your measurements\nwill appear here";
+"Journal.Empty.Button" = "Add";
+"Journal.Calendar.Today" = "Today";
+"Journal.Calendar.7Days" = "7 days";
+"Journal.Calendar.30Days" = "30 days";
+"Journal.Calendar.Custom" = "Custom";

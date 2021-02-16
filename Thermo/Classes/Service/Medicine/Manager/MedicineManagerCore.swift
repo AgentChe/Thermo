@@ -8,8 +8,10 @@
 import RxSwift
 
 final class MedicineManagerCore: MedicineManager {
-    struct Constraints {
+    struct Constants {
         static let medicinesCachedKey = "medicines_manager_core_medicines_cached_key"
+        static let selectedMedicinesCachedKey = "medicines_manager_core_selected_medicines_cached_key"
+        static let selectedMedicinesDateKey = "medicines_manager_core_selected_date_key"
     }
 }
 
@@ -17,13 +19,38 @@ final class MedicineManagerCore: MedicineManager {
 extension MedicineManagerCore {
     func getMedicines() -> [Medicine] {
         guard
-            let data = UserDefaults.standard.data(forKey: Constraints.medicinesCachedKey),
+            let data = UserDefaults.standard.data(forKey: Constants.medicinesCachedKey),
             let medicines = try? JSONDecoder().decode([Medicine].self, from: data)
         else {
             return []
         }
         
         return medicines
+    }
+    
+    func getSelectedMedicines() -> [Medicine] {
+        guard
+            let date = UserDefaults.standard.object(forKey: Constants.selectedMedicinesDateKey) as? Date,
+            let selectedMedicinesData = UserDefaults.standard.data(forKey: Constants.selectedMedicinesCachedKey),
+            let selectedMedicines = try? JSONDecoder().decode([Medicine].self, from: selectedMedicinesData)
+        else {
+            return []
+        }
+        
+        guard Calendar.current.isDateInToday(date) else {
+            return []
+        }
+        
+        return selectedMedicines
+    }
+    
+    func set(medicines: [Medicine]) {
+        guard let data = try? JSONEncoder().encode(medicines) else {
+            return
+        }
+        
+        UserDefaults.standard.setValue(data, forKey: Constants.selectedMedicinesCachedKey)
+        UserDefaults.standard.setValue(Date(), forKey: Constants.selectedMedicinesDateKey)
     }
 }
 
@@ -43,6 +70,40 @@ extension MedicineManagerCore {
                     .observe(on: MainScheduler.asyncInstance)
             }
         }
+    }
+    
+    func rxGetSelectedMedicines() -> Single<[Medicine]> {
+        Single<[Medicine]>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                let medicines = this.getSelectedMedicines()
+                
+                event(.success(medicines))
+                
+                return Disposables.create()
+            }
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
+    }
+    
+    func rxSet(medicines: [Medicine]) -> Single<Void> {
+        Single<Void>
+            .create { [weak self] event in
+                guard let this = self else {
+                    return Disposables.create()
+                }
+                
+                this.set(medicines: medicines)
+                
+                event(.success(Void()))
+                
+                return Disposables.create()
+            }
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .background))
+            .observe(on: MainScheduler.asyncInstance)
     }
 }
 
@@ -66,7 +127,7 @@ private extension MedicineManagerCore {
                     return Disposables.create()
                 }
                 
-                UserDefaults.standard.set(data, forKey: Constraints.medicinesCachedKey)
+                UserDefaults.standard.set(data, forKey: Constants.medicinesCachedKey)
                 
                 event(.success(medicines))
                 

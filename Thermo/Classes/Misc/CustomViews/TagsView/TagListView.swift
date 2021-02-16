@@ -217,7 +217,7 @@ open class TagListView: UIView {
         super.layoutSubviews()
     }
     
-    private func rearrangeViews() {
+    func rearrangeViews() {
         let views = tagViews as [UIView] + tagBackgroundViews + rowViews
         views.forEach {
             $0.removeFromSuperview()
@@ -370,6 +370,21 @@ open class TagListView: UIView {
         
         let views: [UIView] = tagViews + tagBackgroundViews
         views.forEach { $0.removeFromSuperview() }
+    }
+    
+    func set(tagViewList: [TagView]) {
+        defer { rearrangeViews() }
+        
+        tagViews = []
+        tagBackgroundViews = []
+        
+        tagViews.forEach { $0.removeFromSuperview() }
+        tagBackgroundViews.forEach { $0.removeFromSuperview() }
+        
+        tagViewList.forEach {
+            tagViews.append($0)
+            tagBackgroundViews.append(UIView(frame: $0.bounds))
+        }
     }
 
     open func selectedTags() -> [TagView] {

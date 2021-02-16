@@ -45,7 +45,7 @@ private extension MainView {
 private extension MainView {
     func makeContainer() -> UIView {
         let view = UIView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(integralRed: 246, green: 246, blue: 246)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
@@ -53,7 +53,7 @@ private extension MainView {
     
     func makeTabView() -> TabView {
         let view = TabView()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = UIColor(integralRed: 246, green: 246, blue: 246)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
