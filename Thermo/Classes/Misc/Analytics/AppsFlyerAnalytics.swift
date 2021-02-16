@@ -17,7 +17,7 @@ final class AppsFlyerAnalytics {
 extension AppsFlyerAnalytics {
     func applicationDidFinishLaunchingWithOptions() {
         AppsFlyerLib.shared().appsFlyerDevKey = "DCciCfYXjMQ8QnkdCg8qzk"
-        AppsFlyerLib.shared().appleAppID = "1537374470"
+        AppsFlyerLib.shared().appleAppID = "1553156412"
     }
     
     func applicationDidBecomeActive() {
