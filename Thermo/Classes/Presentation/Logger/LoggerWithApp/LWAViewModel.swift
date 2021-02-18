@@ -25,10 +25,19 @@ final class LWAViewModel {
     lazy var step = makeStep()
     lazy var temperature = makeTemperature()
     lazy var lwaResult = makeLWAResult()
+    lazy var currentTemperatureUnit = makeCurrentTemperatureUnit()
 }
 
 // MARK: Private
 private extension LWAViewModel {
+    func makeCurrentTemperatureUnit() -> Driver<TemperatureUnit> {
+        memberManager
+            .rxGet()
+            .compactMap { $0 }
+            .map { $0.temperatureUnit }
+            .asDriver(onErrorDriveWith: .empty())
+    }
+    
     func makeStep() -> Driver<Step> {
         create
             .flatMapLatest { [weak self] temperature -> Single<Step> in

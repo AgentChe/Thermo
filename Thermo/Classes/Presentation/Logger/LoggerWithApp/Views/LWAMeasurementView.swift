@@ -14,6 +14,8 @@ final class LWAMeasurementView: UIView {
     let pulseResult = PublishRelay<Double>()
     let cameraAccessDenied = PublishRelay<Void>()
     
+    var temperatureUnit: TemperatureUnit?
+    
     private lazy var thresholdLabel = makeThresholdLabel()
     private lazy var previewLayer = makePreviewLayer()
     private lazy var progressView = makeProgressView()
@@ -276,7 +278,7 @@ private extension LWAMeasurementView {
                     }) { _ in
                         self.beatsContainer.isHidden = false
                         self.progressView.isHidden = false
-                        self.beatLabel.attributedText = "\(lroundf(beat)) \("LWA.Measurenment.Units".localized)".attributed(with: Self.beatsAttr)
+                        self.display(beat: beat)
                     }
                     
                     UIView.animate(withDuration: self.progressTime) {
@@ -285,6 +287,27 @@ private extension LWAMeasurementView {
                 }
             })
         }
+    }
+    
+    func display(beat: Float) {
+        guard let temperatureUnit = self.temperatureUnit else {
+            return
+        }
+        
+        let unit: String
+        switch temperatureUnit {
+        case .fahrenheit:
+            unit = "Fahrenheit".localized
+        case .celsius:
+            unit = "Celsius".localized
+        }
+        
+        let temperature = PulseToTemperature.calculate(pulse: Double(lroundf(beat)), unit: temperatureUnit)
+
+        let string = String(format: "%.1f %@", temperature, unit)
+            .attributed(with: Self.beatsAttr)
+        
+        beatLabel.attributedText = string
     }
 }
 

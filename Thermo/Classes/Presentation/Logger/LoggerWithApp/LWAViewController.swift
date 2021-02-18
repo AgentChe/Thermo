@@ -69,6 +69,13 @@ final class LWAViewController: UIViewController {
                 self?.mainView.step = .result
             })
             .disposed(by: disposeBag)
+        
+        viewModel
+            .currentTemperatureUnit
+            .drive(onNext: { [weak self] currentTemperatureUnit in
+                self?.mainView.measurementView.temperatureUnit = currentTemperatureUnit
+            })
+            .disposed(by: disposeBag)
     }
 }
 
