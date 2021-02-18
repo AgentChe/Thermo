@@ -39,7 +39,8 @@
 "ImagePicker.PhotoLibrary" = "照片库";
 
 // MARK: Splash
-"Splash.Title" = "帮助追踪整个家庭的\n体温和症状\n";
+"Splash.Title" = "Tempy";
+"Splash.SubTitle" = "temperature tracker";
 
 // MARK: Onboarding
 "Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";

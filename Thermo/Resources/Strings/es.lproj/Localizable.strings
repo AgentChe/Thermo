@@ -39,7 +39,8 @@
 "ImagePicker.PhotoLibrary" = "Biblioteca fotográfica";
 
 // MARK: Splash
-"Splash.Title" = "Ayuda a monitorizar\nla temperatura y los síntomas\nde toda la familia";
+"Splash.Title" = "Tempy";
+"Splash.SubTitle" = "temperature tracker";
 
 // MARK: Onboarding
 "Onboarding.Slide1.Title" = "Measure your temperature with just an iPhone";
