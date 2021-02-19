@@ -104,7 +104,7 @@ private extension LWAMeasurementView {
     }
     
     var progressTime: Double {
-        Double(progressView.frame.width / 10.0) / 10
+        30
     }
     
     static let threasholdAttr = TextAttributes()
