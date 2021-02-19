@@ -77,13 +77,25 @@ private extension LWAViewModel {
     }
     
     func makeLWAResult() -> Driver<LWAResultElement> {
-        temperature.map { [weak self] temperature in
-            LWAResultElement(
-                min: temperature - 0.2,
-                max: temperature + 0.2,
-                isSuccess: temperature < 37.2,
-                unit: self?.memberManager.get()?.temperatureUnit ?? .celsius
-            )
+        temperature
+            .withLatestFrom(currentTemperatureUnit) { ($0, $1) }
+            .map { [weak self] stub in
+                let (temperature, unit) = stub
+                
+                let limit: Double
+                switch unit {
+                case .celsius:
+                    limit = 37.2
+                case .fahrenheit:
+                    limit = 98.96
+                }
+                
+                return LWAResultElement(
+                    min: temperature - 0.2,
+                    max: temperature + 0.2,
+                    isSuccess: temperature < limit,
+                    unit: self?.memberManager.get()?.temperatureUnit ?? .celsius
+                )
         }
     }
 }
