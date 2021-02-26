@@ -9,7 +9,6 @@ target 'Thermo' do
   pod 'Kingfisher'
   
   pod 'RushSDK', :git => "https://github.com/AgentChe/RushSDK.git"
-  pod 'AppsFlyerFramework'
 end
 
 post_install do |installer|

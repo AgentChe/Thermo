@@ -179,7 +179,6 @@
 		969EF744256A977600BEA8EC /* PaygateOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73D256A977600BEA8EC /* PaygateOptionView.swift */; };
 		969EF745256A977600BEA8EC /* PaygateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73E256A977600BEA8EC /* PaygateView.swift */; };
 		969EF746256A977600BEA8EC /* PaygateSpecialOfferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */; };
-		96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */; };
 		96DAEC7E25D3EA0500A585B8 /* CalendarPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC7D25D3EA0500A585B8 /* CalendarPickerViewController.swift */; };
 		96DAEC8525D3EA2900A585B8 /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8425D3EA2900A585B8 /* CalendarPickerHeaderView.swift */; };
 		96DAEC8825D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DAEC8725D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift */; };
@@ -387,7 +386,6 @@
 		969EF73E256A977600BEA8EC /* PaygateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateView.swift; sourceTree = "<group>"; };
 		969EF73F256A977600BEA8EC /* PaygateSpecialOfferView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaygateSpecialOfferView.swift; sourceTree = "<group>"; };
 		96CDB6AF257A23DC0048F008 /* Thermo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Thermo.entitlements; sourceTree = "<group>"; };
-		96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsFlyerAnalytics.swift; sourceTree = "<group>"; };
 		96DAEC7D25D3EA0500A585B8 /* CalendarPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerViewController.swift; sourceTree = "<group>"; };
 		96DAEC8425D3EA2900A585B8 /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
 		96DAEC8725D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1115,7 +1113,6 @@
 		968E418C2546E077006F3CFC /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				96D389F925AC77F000EADC9A /* Analytics */,
 				966A55772548A9F90099FDAE /* Components */,
 				966A55022546F5C40099FDAE /* Rx */,
 				966A54FA2546F53D0099FDAE /* CustomViews */,
@@ -1293,14 +1290,6 @@
 				963BF521256DB27200285350 /* PaygateMainInfoCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		96D389F925AC77F000EADC9A /* Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				96D389FA25AC77FA00EADC9A /* AppsFlyerAnalytics.swift */,
-			);
-			path = Analytics;
 			sourceTree = "<group>";
 		};
 		96DAEC7C25D3DBA000A585B8 /* Calendar */ = {
@@ -1671,7 +1660,6 @@
 				966A55042546F5D20099FDAE /* RxActtivityIndicator.swift in Sources */,
 				968AE4C62549D6B900A42C46 /* RecordManagerMediator.swift in Sources */,
 				963239A425CC26AA00C21FD7 /* RLEmptyView.swift in Sources */,
-				96D389FB25AC77FA00EADC9A /* AppsFlyerAnalytics.swift in Sources */,
 				96F61E8A256B140900540DBB /* SignError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

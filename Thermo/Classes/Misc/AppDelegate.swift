@@ -32,8 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sdkProvider.application(application, didFinishLaunchingWithOptions: launchOptions)
         SDKStorage.shared.pushNotificationsManager.application(didFinishLaunchingWithOptions: launchOptions)
         
-        AppsFlyerAnalytics.shared.applicationDidFinishLaunchingWithOptions()
-        
         return true
     }
     
@@ -50,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        AppsFlyerAnalytics.shared.applicationDidBecomeActive()
+        sdkProvider.applicationDidBecomeActive(application)
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -76,8 +74,6 @@ extension AppDelegate: SDKPurchaseMediatorDelegate {
         let session = Session(response: response)
         
         SessionManagerCore().store(session: session)
-        
-        AppsFlyerAnalytics.shared.set(userId: String(response.userId))
     }
 }
 
@@ -87,6 +83,7 @@ private extension AppDelegate {
         let settings = SDKSettings(backendBaseUrl: GlobalDefinitions.sdkDomainUrl,
                                    backendApiKey: GlobalDefinitions.sdkApiKey,
                                    amplitudeApiKey: GlobalDefinitions.amplitudeApiKey,
+                                   appsFlyerApiKey: GlobalDefinitions.appsFlyerApiKey,
                                    facebookActive: true,
                                    branchActive: false,
                                    firebaseActive: true,
@@ -94,8 +91,10 @@ private extension AppDelegate {
                                    userToken: SessionManagerCore().getSession()?.userToken,
                                    userId: SessionManagerCore().getSession()?.userId,
                                    view: view,
-                                   shouldAddStorePayment: false,
-                                   isTest: false)
+                                   shouldAddStorePayment: true,
+                                   featureAppBackendUrl: GlobalDefinitions.domainUrl,
+                                   featureAppBackendApiKey: GlobalDefinitions.apiKey,
+                                   appleAppID: "1553156412")
         
         sdkProvider.initialize(settings: settings) { [weak self] in
             self?.generateStepInSplash.accept(Void())
