@@ -88,10 +88,9 @@ final class FSelectionViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel
-            .saved
-            .drive(onNext: { [weak self] in
-                self?.dismiss(animated: true)
+        viewModel.step
+            .drive(onNext: { [weak self] step in
+                self?.step(step)
             })
             .disposed(by: disposeBag)
         
@@ -110,6 +109,20 @@ extension FSelectionViewController {
 
 // MARK: Private
 private extension FSelectionViewController {
+    func step(_ step: FSelectionStep) {
+        switch step {
+        case .paygate:
+            openPaygate()
+        case .saved:
+            dismiss(animated: true)
+        }
+    }
+    
+    func openPaygate() {
+        let vc = PaygateViewController.make()
+        present(vc, animated: true)
+    }
+    
     func setup() {
         let titleAttrs = TextAttributes()
             .textColor(UIColor(integralRed: 50, green: 50, blue: 52))

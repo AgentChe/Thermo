@@ -9,12 +9,18 @@ import RxSwift
 import RxCocoa
 
 final class FSelectionMedicinesViewModel: FSelectionViewModel {
+    enum Step {
+        case saved, paygate
+    }
+    
     lazy var save = PublishRelay<[FSelectionTableElement]>()
     
     private lazy var medicinesManager = MedicineManagerCore()
+    private lazy var sessionManager = SessionManagerCore()
+    private lazy var monetizationManager = MonetizationManagerCore()
     
     lazy var elements = makeElements()
-    lazy var saved = makeSaved()
+    lazy var step = makeStep()
 }
 
 // MARK: Private
@@ -43,11 +49,15 @@ private extension FSelectionMedicinesViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeSaved() -> Driver<Void> {
+    func makeStep() -> Driver<FSelectionStep> {
         save
-            .flatMapLatest { [weak self] elements -> Single<Void> in
+            .flatMapLatest { [weak self] elements -> Single<FSelectionStep> in
                 guard let this = self else {
                     return .never()
+                }
+                
+                guard !this.needPayment() else {
+                    return .just(.paygate)
                 }
                 
                 let medicines = elements
@@ -55,7 +65,19 @@ private extension FSelectionMedicinesViewModel {
                 
                 return this.medicinesManager
                     .rxSet(medicines: medicines)
+                    .map { .saved }
             }
             .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func needPayment() -> Bool {
+        let config = monetizationManager.getMonetizationConfig()?.medicines ?? false
+        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
+        
+        if hasActiveSubscription {
+            return false
+        }
+        
+        return config
     }
 }

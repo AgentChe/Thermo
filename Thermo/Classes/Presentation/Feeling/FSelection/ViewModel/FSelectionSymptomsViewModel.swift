@@ -12,9 +12,11 @@ final class FSelectionSymptomsViewModel: FSelectionViewModel {
     lazy var save = PublishRelay<[FSelectionTableElement]>()
     
     private lazy var symptomsManager = SymptomsManagerCore()
+    private lazy var sessionManager = SessionManagerCore()
+    private lazy var monetizationManager = MonetizationManagerCore()
     
     lazy var elements = makeElements()
-    lazy var saved = makeSaved()
+    lazy var step = makeStep()
 }
 
 // MARK: Private
@@ -43,11 +45,15 @@ private extension FSelectionSymptomsViewModel {
             .asDriver(onErrorJustReturn: [])
     }
     
-    func makeSaved() -> Driver<Void> {
+    func makeStep() -> Driver<FSelectionStep> {
         save
-            .flatMapLatest { [weak self] elements -> Single<Void> in
+            .flatMapLatest { [weak self] elements -> Single<FSelectionStep> in
                 guard let this = self else {
                     return .never()
+                }
+                
+                guard !this.needPayment() else {
+                    return .just(.paygate)
                 }
                 
                 let symptoms = elements
@@ -55,7 +61,19 @@ private extension FSelectionSymptomsViewModel {
                 
                 return this.symptomsManager
                     .rxSet(symptoms: symptoms)
+                    .map { .saved }
             }
             .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func needPayment() -> Bool {
+        let config = monetizationManager.getMonetizationConfig()?.symptoms ?? false
+        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
+        
+        if hasActiveSubscription {
+            return false
+        }
+        
+        return config
     }
 }

@@ -8,9 +8,13 @@
 import RxSwift
 import RxCocoa
 
+enum FSelectionStep {
+    case saved, paygate
+}
+
 protocol FSelectionViewModel {
     var save: PublishRelay<[FSelectionTableElement]> { get }
     
     var elements: Driver<[FSelectionTableElement]> { get }
-    var saved: Driver<Void> { get }
+    var step: Driver<FSelectionStep> { get }
 }
