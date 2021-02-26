@@ -58,14 +58,35 @@ extension LMViewController {
     }
 }
 
+// MARK: PaygateViewControllerDelegate
+extension LMViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 // MARK: Private
 private extension LMViewController {
     func step(_ step: LMViewModel.Step) {
         switch step {
-        case .created:
-            navigationController?.popViewController(animated: true)
+        case .created(let showPaygate):
+            if showPaygate {
+                openPaygate(needDelegate: true)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         case .error:
             Toast.notify(with: "LM.FailedToCreate".localized, style: .danger)
+        case .paygate:
+            openPaygate(needDelegate: false)
         }
+    }
+    
+    func openPaygate(needDelegate: Bool) {
+        let vc = PaygateViewController.make()
+        if needDelegate {
+            vc.delegate = self
+        }
+        present(vc, animated: true)
     }
 }

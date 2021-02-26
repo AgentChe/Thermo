@@ -124,6 +124,7 @@
 		96846D15256999A4009841BD /* GetSymptomsResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D14256999A4009841BD /* GetSymptomsResponseMapper.swift */; };
 		96846D18256999E0009841BD /* SymptomsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D17256999E0009841BD /* SymptomsManager.swift */; };
 		96846D1B25699A0E009841BD /* SymptomsManagerCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96846D1A25699A0E009841BD /* SymptomsManagerCore.swift */; };
+		968565BA25E92F9E00238AEB /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968565B925E92F9E00238AEB /* OnboardingViewModel.swift */; };
 		968AE4632548B46300A42C46 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4622548B46300A42C46 /* MainViewController.swift */; };
 		968AE4662548B8E400A42C46 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE4652548B8E400A42C46 /* Temperature.swift */; };
 		968AE46D2548BACF00A42C46 /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968AE46C2548BACF00A42C46 /* RecordManager.swift */; };
@@ -327,6 +328,7 @@
 		96846D14256999A4009841BD /* GetSymptomsResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSymptomsResponseMapper.swift; sourceTree = "<group>"; };
 		96846D17256999E0009841BD /* SymptomsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsManager.swift; sourceTree = "<group>"; };
 		96846D1A25699A0E009841BD /* SymptomsManagerCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsManagerCore.swift; sourceTree = "<group>"; };
+		968565B925E92F9E00238AEB /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		968AE4622548B46300A42C46 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		968AE4652548B8E400A42C46 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		968AE46C2548BACF00A42C46 /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
@@ -742,6 +744,7 @@
 				966A553A254730070099FDAE /* Views */,
 				966A553125472F3E0099FDAE /* OnboardingViewController.swift */,
 				966A553725472F890099FDAE /* OnboardingView.swift */,
+				968565B925E92F9E00238AEB /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1591,6 +1594,7 @@
 				963239DF25CDD45100C21FD7 /* PulseToTemperature.swift in Sources */,
 				9632399925CC22BF00C21FD7 /* RCViewController.swift in Sources */,
 				96323A0D25CEFF9200C21FD7 /* FSelectionView.swift in Sources */,
+				968565BA25E92F9E00238AEB /* OnboardingViewModel.swift in Sources */,
 				968AE4BE25499E3E00A42C46 /* CircleView.swift in Sources */,
 				966A55792548AA050099FDAE /* Toast.swift in Sources */,
 				96DAEC8825D3EA3F00A585B8 /* CalendarDateCollectionViewCell.swift in Sources */,

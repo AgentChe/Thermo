@@ -10,12 +10,14 @@ import RxCocoa
 
 final class RCViewModel {
     enum Step {
-        case created
+        case created, paygate
     }
     
     lazy var create = PublishRelay<(Date, Weekday)>()
     
     private lazy var reminderManager = ReminderManagerCore()
+    private lazy var sessionManager = SessionManagerCore()
+    private lazy var monetizationManager = MonetizationManagerCore()
     
     lazy var step = makeStep()
 }
@@ -29,6 +31,10 @@ private extension RCViewModel {
                     return .never()
                 }
                 
+                guard !this.needPayment() else {
+                    return .just(.paygate)
+                }
+                
                 let (time, weekday) = stub
                 
                 return this.reminderManager
@@ -38,5 +44,16 @@ private extension RCViewModel {
                     }
             }
             .asDriver(onErrorDriveWith: .empty())
+    }
+    
+    func needPayment() -> Bool {
+        let config = monetizationManager.getMonetizationConfig()?.reminders ?? false
+        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
+        
+        if hasActiveSubscription {
+            return false
+        }
+        
+        return config
     }
 }

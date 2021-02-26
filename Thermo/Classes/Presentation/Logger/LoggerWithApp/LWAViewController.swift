@@ -86,14 +86,27 @@ extension LWAViewController {
     }
 }
 
+// MARK: PaygateViewControllerDelegate
+extension LWAViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        navigationController?.popViewController(animated: true)
+    }
+}
+
 // MARK: Private
 private extension LWAViewController {
     func step(_ step: LWAViewModel.Step) {
         switch step {
-        case .created:
-            navigationController?.popViewController(animated: true)
+        case .created(let showPaygate):
+            if showPaygate {
+                openPaygate(needDelegate: true)
+            } else {
+                navigationController?.popViewController(animated: true)
+            }
         case .error:
             Toast.notify(with: "LWA.FailedToCreate".localized, style: .danger)
+        case .paygate:
+            openPaygate(needDelegate: false)
         }
     }
     
@@ -104,5 +117,13 @@ private extension LWAViewController {
         }
         controller.addAction(okAction)
         present(controller, animated: true)
+    }
+    
+    func openPaygate(needDelegate: Bool) {
+        let vc = PaygateViewController.make()
+        if needDelegate {
+            vc.delegate = self
+        }
+        present(vc, animated: true)
     }
 }

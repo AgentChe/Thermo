@@ -10,7 +10,9 @@ import RxCocoa
 
 final class LMViewModel {
     enum Step {
-        case created, error
+        case created(showPaygate: Bool)
+        case error
+        case paygate
     }
     
     lazy var create = PublishRelay<Double>()
@@ -20,6 +22,8 @@ final class LMViewModel {
     private lazy var feelingManager = FeelingManagerCore()
     private lazy var recordManager = RecordManagerCore()
     private lazy var membersManager = MembersManagerCore()
+    private lazy var sessionManager = SessionManagerCore()
+    private lazy var monetizationManager = MonetizationManagerCore()
     
     lazy var temperatureRange = makeTemperatureRange()
     lazy var step = makeStep()
@@ -32,6 +36,10 @@ private extension LMViewModel {
             .flatMapLatest { [weak self] temperature -> Single<Step> in
                 guard let this = self else {
                     return .never()
+                }
+                
+                guard !this.needPaymentBeforeTemperatureLog() else {
+                    return .just(.paygate)
                 }
                 
                 let symptoms = this.symptomsManager.getSelectedSymptoms()
@@ -47,7 +55,7 @@ private extension LMViewModel {
                            medicines: medicines,
                            symptoms: symptoms)
                     .map { record -> Step in
-                        record == nil ? .error : .created
+                        record == nil ? .error : .created(showPaygate: this.needPaymentAfterTemperatureLog())
                     }
             }
             .asDriver(onErrorJustReturn: .error)
@@ -59,5 +67,28 @@ private extension LMViewModel {
             .compactMap { $0 }
             .map { TemperatureRange(for: $0.temperatureUnit) }
             .asDriver(onErrorDriveWith: .empty())
+    }
+}
+
+// MARK: Private(Need payment)
+private extension LMViewModel {
+    func needPaymentBeforeTemperatureLog() -> Bool {
+        let config = monetizationManager.getMonetizationConfig()?.temperature ?? false
+        return needPayment(for: config)
+    }
+    
+    func needPaymentAfterTemperatureLog() -> Bool {
+        let config = monetizationManager.getMonetizationConfig()?.afterTemperatureTracking ?? false
+        return needPayment(for: config)
+    }
+    
+    func needPayment(for config: Bool) -> Bool {
+        let hasActiveSubscription = sessionManager.getSession()?.activeSubscription ?? false
+        
+        if hasActiveSubscription {
+            return false
+        }
+        
+        return config
     }
 }

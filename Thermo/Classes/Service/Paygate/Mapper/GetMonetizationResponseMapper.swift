@@ -14,10 +14,11 @@ final class GetMonetizationResponseMapper {
             return nil
         }
         
-        return MonetizationConfig(maxFreeProfiles: data["max_free_profiles"] as? Int ?? 0,
-                                  maxFreeTracking: data["max_free_trackings"] as? Int ?? 0,
-                                  afterOnboarding: data["after_onboarding"] as? Bool ?? false,
-                                  afterTemperatureTracking: data["after_temperature_tracking"] as? Bool ?? false,
-                                  beforeAnalyzeSymptoms: data["analyze_symptoms"] as? Bool ?? false)
+        return MonetizationConfig(afterOnboarding: data["paygate_after_onboarding"] as? Bool ?? false,
+                                  afterTemperatureTracking: data["paygate_after_temperature_tracking"] as? Bool ?? false,
+                                  reminders: data["reminders"] as? Bool ?? false,
+                                  symptoms: data["symptoms"] as? Bool ?? false,
+                                  medicines: data["meds"] as? Bool ?? false,
+                                  temperature: data["temperature"] as? Bool ?? false)
     }
 }

@@ -28,6 +28,8 @@ final class RCViewController: UIViewController {
                 switch step {
                 case .created:
                     self?.navigationController?.popViewController(animated: true)
+                case .paygate:
+                    self?.openPaygate()
                 }
             })
             .disposed(by: disposeBag)
@@ -110,5 +112,10 @@ private extension RCViewController {
         return tapGesture.rx.event
             .map { event in weekday }
             .asObservable()
+    }
+    
+    func openPaygate() {
+        let vc = PaygateViewController.make()
+        present(vc, animated: true)
     }
 }

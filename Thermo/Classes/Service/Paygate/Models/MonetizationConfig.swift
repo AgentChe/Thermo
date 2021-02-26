@@ -6,11 +6,14 @@
 //
 
 struct MonetizationConfig: Hashable {
-    let maxFreeProfiles: Int
-    let maxFreeTracking: Int
+    // Флаги отображение после действия
     let afterOnboarding: Bool
     let afterTemperatureTracking: Bool
-    let beforeAnalyzeSymptoms: Bool
+    // Флаги платности фич
+    let reminders: Bool
+    let symptoms: Bool
+    let medicines: Bool
+    let temperature: Bool
 }
 
 // MARK: Codable

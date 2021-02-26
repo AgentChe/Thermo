@@ -15,7 +15,9 @@ final class OnboardingViewController: UIViewController {
     
     lazy var mainView = OnboardingView()
     
-    private let disposeBag = DisposeBag()
+    private lazy var disposeBag = DisposeBag()
+    
+    private lazy var viewModel = OnboardingViewModel()
     
     override func loadView() {
         view = mainView
@@ -49,10 +51,18 @@ extension OnboardingViewController {
     }
 }
 
-// MARK: Private
+// MARK: OnboardingSliderDelegate
 extension OnboardingViewController: OnboardingSliderDelegate {
     func onboardingSlider(changed slideIndex: Int) {
         mainView.indicatorsView.index = slideIndex
+    }
+}
+
+
+// MARK: PaygateViewControllerDelegate
+extension OnboardingViewController: PaygateViewControllerDelegate {
+    func paygateDidClosed(with result: PaygateViewControllerResult) {
+        openAddMemberController()
     }
 }
 
@@ -75,7 +85,7 @@ private extension OnboardingViewController {
         
         if currentIndex == (mainView.indicatorsView.count - 1) {
             markAsViewed()
-            openAddMemberController()
+            goToNext()
         } else {
             mainView.slider.scroll(to: currentIndex + 1)
         }
@@ -85,7 +95,21 @@ private extension OnboardingViewController {
         UserDefaults.standard.setValue(true, forKey: Constants.wasViewedKey)
     }
     
+    func goToNext() {
+        if viewModel.needPayment() {
+            openPaygate()
+        } else {
+            openAddMemberController()
+        }
+    }
+    
     func openAddMemberController() {
         UIApplication.shared.keyWindow?.rootViewController = AddMemberViewController.make()
+    }
+    
+    func openPaygate() {
+        let vc = PaygateViewController.make()
+        vc.delegate = self
+        present(vc, animated: true)
     }
 }
