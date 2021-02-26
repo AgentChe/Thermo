@@ -55,18 +55,17 @@
 "Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Paygate
-"Paygate.Purchase.Failed" = "购买失败";
-"Paygate.Title" = "追踪整个家庭的体温、症状和药物";
-"Paygate.Item1" = "个人账户";
-"Paygate.Item2" = "症状和药物追踪";
-"Paygate.Item3" = "每个账户的提醒";
-"Paygate.Item4" = "日志导出";
-"Paygate.Secured" = "受iTunes保护。可随时取消。";
-"Paygate.BuyButton" = "继续";
-"Paygate.RestoreButton" = "恢复购买";
-"Paygate.TermsOfUse" = "使用条款";
-"Paygate.And" = "和 ";
-"Paygate.PrivacyPolicy" = "隐私政策";
+"Paygate.Purchase.Failed" = "Failure at purchase";
+"Paygate.Title" = "AN APPLE A DAY\nKEEPS THE DOCTOR AWAY";
+"Paygate.Item1" = "Symptoms and  meds trackings";
+"Paygate.Item2" = "Reminders and notifications";
+"Paygate.Item3" = "Health history access";
+"Paygate.Secured" = "Secured with iTunes. Cancel anytime.";
+"Paygate.BuyButton" = "Continue →";
+"Paygate.RestoreButton" = "Restore purchases";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = " and ";
+"Paygate.PrivacyPolicy" = "Privacy policy";
 
 // MARK: Add member
 "AddMember.Title" = "Fahrenheit or Celsius?";

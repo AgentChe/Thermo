@@ -55,18 +55,17 @@
 "Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Paygate
-"Paygate.Purchase.Failed" = "購入失敗";
-"Paygate.Title" = "家族全員の体温、症状、ニーズを記録";
-"Paygate.Item1" = "個人アカウント";
-"Paygate.Item2" = "症状と薬の記録";
-"Paygate.Item3" = "各アカウントのリマインダー";
-"Paygate.Item4" = "ログレポート";
-"Paygate.Secured" = "iTunes でセキュア。いつでもキャンセル可能。";
-"Paygate.BuyButton" = "続行";
-"Paygate.RestoreButton" = "購入を復元";
-"Paygate.TermsOfUse" = "利用規約";
-"Paygate.And" = "および ";
-"Paygate.PrivacyPolicy" = "プライバシーポリシー";
+"Paygate.Purchase.Failed" = "Failure at purchase";
+"Paygate.Title" = "AN APPLE A DAY\nKEEPS THE DOCTOR AWAY";
+"Paygate.Item1" = "Symptoms and  meds trackings";
+"Paygate.Item2" = "Reminders and notifications";
+"Paygate.Item3" = "Health history access";
+"Paygate.Secured" = "Secured with iTunes. Cancel anytime.";
+"Paygate.BuyButton" = "Continue →";
+"Paygate.RestoreButton" = "Restore purchases";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = " and ";
+"Paygate.PrivacyPolicy" = "Privacy policy";
 
 // MARK: Add member
 "AddMember.Title" = "Fahrenheit or Celsius?";

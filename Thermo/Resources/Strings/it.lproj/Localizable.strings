@@ -55,18 +55,17 @@
 "Reminder.Notification.Body" = "It's time to track your temperature!";
 
 // MARK: Paygate
-"Paygate.Purchase.Failed" = "Acquisto non riuscito";
-"Paygate.Title" = "Monitora la temperatura, i sintomi e i farmaci di tutta la famiglia";
-"Paygate.Item1" = "Account individuali";
-"Paygate.Item2" = "Monitoraggio dei sintomi e dei farmaci";
-"Paygate.Item3" = "Promemoria per ogni account";
-"Paygate.Item4" = "Esportazione del registro";
-"Paygate.Secured" = "Protetto con iTunes. Annulla in qualsiasi momento.";
-"Paygate.BuyButton" = "Continua";
-"Paygate.RestoreButton" = "Ripristina gli acquisti";
-"Paygate.TermsOfUse" = "Condizioni d'uso";
-"Paygate.And" = " e ";
-"Paygate.PrivacyPolicy" = "Norme sulla Privacy";
+"Paygate.Purchase.Failed" = "Failure at purchase";
+"Paygate.Title" = "AN APPLE A DAY\nKEEPS THE DOCTOR AWAY";
+"Paygate.Item1" = "Symptoms and  meds trackings";
+"Paygate.Item2" = "Reminders and notifications";
+"Paygate.Item3" = "Health history access";
+"Paygate.Secured" = "Secured with iTunes. Cancel anytime.";
+"Paygate.BuyButton" = "Continue →";
+"Paygate.RestoreButton" = "Restore purchases";
+"Paygate.TermsOfUse" = "Terms of use";
+"Paygate.And" = " and ";
+"Paygate.PrivacyPolicy" = "Privacy policy";
 
 // MARK: Add member
 "AddMember.Title" = "Fahrenheit or Celsius?";

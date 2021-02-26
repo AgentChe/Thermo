@@ -21,11 +21,7 @@ final class PaygateViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     
-    private var currentScene = Scene.not {
-        didSet {
-            updateCloseButton()
-        }
-    }
+    private var currentScene = Scene.not
     
     private let viewModel = PaygateViewModel()
     
@@ -42,7 +38,6 @@ final class PaygateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        updateCloseButton()
         addMainOptionsSelection()
         
         let retrieved = viewModel.retrieve()
@@ -83,7 +78,7 @@ final class PaygateViewController: UIViewController {
             .map { $0.0 }
             .startWith(nil)
         
-        paygateView
+        paygateView.mainView
             .closeButton.rx.tap
             .withLatestFrom(paygate)
             .subscribe(onNext: { [unowned self] paygate in
@@ -270,15 +265,6 @@ private extension PaygateViewController {
         }, completion: { [weak self] _ in
             self?.paygateView.specialOfferView.startTimer()
         })
-    }
-    
-    func updateCloseButton() {
-        switch currentScene {
-        case .not, .main:
-            paygateView.closeButton.setImage(UIImage(named: "Paygate.MainOffer.Close"), for: .normal)
-        case .specialOffer:
-            paygateView.closeButton.setImage(UIImage(named: "Paygate.MainOffer.Close"), for: .normal)
-        }
     }
     
     func dismiss(with result: PaygateViewControllerResult) {

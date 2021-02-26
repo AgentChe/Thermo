@@ -56,13 +56,12 @@
 
 // MARK: Paygate
 "Paygate.Purchase.Failed" = "Failure at purchase";
-"Paygate.Title" = "Track temperature, symptoms and meds for the entire family";
-"Paygate.Item1" = "Individual accounts";
-"Paygate.Item2" = "Symptoms and meds tracking";
-"Paygate.Item3" = "Reminders for each account";
-"Paygate.Item4" = "Log export";
+"Paygate.Title" = "AN APPLE A DAY\nKEEPS THE DOCTOR AWAY";
+"Paygate.Item1" = "Symptoms and  meds trackings";
+"Paygate.Item2" = "Reminders and notifications";
+"Paygate.Item3" = "Health history access";
 "Paygate.Secured" = "Secured with iTunes. Cancel anytime.";
-"Paygate.BuyButton" = "Continue";
+"Paygate.BuyButton" = "Continue →";
 "Paygate.RestoreButton" = "Restore purchases";
 "Paygate.TermsOfUse" = "Terms of use";
 "Paygate.And" = " and ";

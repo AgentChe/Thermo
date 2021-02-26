@@ -8,18 +8,16 @@
 import UIKit
 
 final class PaygateMainInfoCell: UIView {
-    lazy var emojiBackgroundView = makeEmojiBackgroundView()
-    lazy var emojiView = makeEmojiView()
+    lazy var iconView = makeIconView()
     lazy var label = makeLabel()
     
     var title: String = "" {
         didSet {
             label.attributedText = title
                 .attributed(with: TextAttributes()
-                                .textColor(UIColor.white)
-                                .font(Fonts.Poppins.regular(size: 17.scale))
-                                .lineHeight(28.scale)
-                                .letterSpacing(-0.5.scale))
+                                .textColor(UIColor.black)
+                                .font(Fonts.Poppins.semiBold(size: 17.scale))
+                                .lineHeight(20.scale))
         }
     }
     
@@ -38,21 +36,14 @@ final class PaygateMainInfoCell: UIView {
 private extension PaygateMainInfoCell {
     func makeConstraints() {
         NSLayoutConstraint.activate([
-            emojiBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            emojiBackgroundView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            emojiBackgroundView.widthAnchor.constraint(equalToConstant: 48.scale),
-            emojiBackgroundView.heightAnchor.constraint(equalToConstant: 48.scale)
+            iconView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            iconView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            iconView.widthAnchor.constraint(equalToConstant: 13.scale),
+            iconView.heightAnchor.constraint(equalToConstant: 10.scale)
         ])
         
         NSLayoutConstraint.activate([
-            emojiView.centerXAnchor.constraint(equalTo: emojiBackgroundView.centerXAnchor),
-            emojiView.centerYAnchor.constraint(equalTo: emojiBackgroundView.centerYAnchor),
-            emojiView.widthAnchor.constraint(equalToConstant: 14.scale),
-            emojiView.heightAnchor.constraint(equalToConstant: 16.scale)
-        ])
-        
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 58.scale),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 23.scale),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10.scale),
             label.topAnchor.constraint(equalTo: topAnchor),
             label.bottomAnchor.constraint(equalTo: bottomAnchor)
@@ -62,20 +53,12 @@ private extension PaygateMainInfoCell {
 
 // MARK: Lazy initialization
 private extension PaygateMainInfoCell {
-    func makeEmojiBackgroundView() -> UIImageView {
+    func makeIconView() -> UIImageView {
         let view = UIImageView()
-        view.image = UIImage(named: "Paygate.InfoCellBackground")
+        view.image = UIImage(named: "Paygate.Main.CellIcon")
         view.contentMode = .scaleAspectFill
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
-        return view
-    }
-    
-    func makeEmojiView() -> UIImageView {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        view.translatesAutoresizingMaskIntoConstraints = false
-        emojiBackgroundView.addSubview(view)
         return view
     }
     

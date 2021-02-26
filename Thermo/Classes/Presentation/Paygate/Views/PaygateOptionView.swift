@@ -22,8 +22,6 @@ final class PaygateOptionView: UIView {
         }
     }
     
-    var onlyWhiteViews = [UIView]()
-    
     private(set) var productId: String?
     
     override init(frame: CGRect) {
@@ -62,15 +60,17 @@ private extension PaygateOptionView {
         
         checkedImageView.isHidden = !isSelected
         
-        let contentColor = isSelected ? UIColor(integralRed: 17, green: 17, blue: 17) : .white
+        let contentColor = isSelected ? UIColor(integralRed: 17, green: 17, blue: 17) : UIColor(integralRed: 17, green: 17, blue: 17)
         
-        titleLabel.textColor = onlyWhiteViews.contains(titleLabel) ? .white : contentColor
-        captionLabel.textColor = onlyWhiteViews.contains(captionLabel) ? .white : contentColor
-        subCaptionLabel.textColor = onlyWhiteViews.contains(subCaptionLabel) ? .white : contentColor
-        bottomLabel.textColor = onlyWhiteViews.contains(bottomLabel) ? .white : contentColor
+        titleLabel.textColor = contentColor
+        captionLabel.textColor = contentColor
+        subCaptionLabel.textColor = contentColor
+        bottomLabel.textColor = contentColor
         
         saveLabel.textColor = isSelected ? .white : UIColor(integralRed: 17, green: 17, blue: 17)
-        saveLabel.backgroundColor = isSelected ? UIColor(integralRed: 209, green: 107, blue: 152) : UIColor.white
+        saveLabel.backgroundColor = isSelected ? UIColor(integralRed: 148, green: 165, blue: 225) : UIColor.white
+        
+        layer.borderColor = isSelected ? UIColor(integralRed: 148, green: 165, blue: 225).cgColor : UIColor.black.withAlphaComponent(0.2).cgColor
     }
 }
 
@@ -117,7 +117,7 @@ private extension PaygateOptionView {
         let view = UIImageView()
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFit
-        view.image = UIImage(named: "Paygate.MainOffer.Checked")
+        view.image = UIImage(named: "Paygate.Main.Checked")
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         return view
